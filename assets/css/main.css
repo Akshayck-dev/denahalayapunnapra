@@ -132,50 +132,83 @@ h1, h2, h3, h4, h5, h6, .display-font {
 .text-gold { color: var(--accent-gold); }
 .text-navy { color: var(--primary-navy); }
 
-/* Buttons */
-.btn-gold {
-    background-color: var(--accent-gold);
-    color: var(--white);
-    padding: 12px 28px;
-    border-radius: 50px;
-    border: none;
-    font-weight: 600;
-    transition: var(--transition-base);
+/* GLOBAL BUTTON SYSTEM */
+.btn-custom {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 52px;
+    min-width: 220px;
+    padding: 0 32px;
+
+    border-radius: 50px; /* Pill style */
+    font-size: 15px;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 16px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+
+    text-align: center;
     white-space: nowrap;
     text-decoration: none !important;
+
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: none;
 }
 
-.btn-gold:hover {
-    background-color: var(--accent-gold-hover);
-    color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-}
-
-.btn-outline-gold {
-    border: 2px solid var(--accent-gold);
-    color: var(--accent-gold);
-    padding: 12px 28px;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: var(--transition-base);
-    font-size: 16px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    text-decoration: none !important;
-}
-
-.btn-outline-gold:hover {
+/* PRIMARY BUTTON (GOLD) */
+.btn-primary-custom {
     background-color: var(--accent-gold);
-    color: var(--primary-navy);
+    color: var(--primary-navy) !important;
+}
+
+.btn-primary-custom:hover {
+    background-color: var(--accent-gold-hover);
+    color: var(--primary-navy) !important;
+}
+
+/* OUTLINE BUTTON */
+.btn-outline-custom {
+    background: transparent;
+    color: var(--white) !important;
+    border: 2px solid var(--white);
+}
+
+.btn-outline-custom:hover {
+    background: var(--white);
+    color: var(--primary-navy) !important;
+}
+
+/* DARK OUTLINE VARIANT (For light backgrounds) */
+.btn-outline-navy-custom {
+    background: transparent;
+    color: var(--primary-navy) !important;
+    border: 2px solid var(--primary-navy);
+}
+
+.btn-outline-navy-custom:hover {
+    background: var(--primary-navy);
+    color: var(--white) !important;
+}
+
+/* HOVER EFFECT (LIFT + SHADOW) */
+.btn-custom:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* HERO BUTTONS CONTAINER */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.hero-buttons .btn-custom {
+    width: 240px; /* Force same size for hero buttons */
 }
 
 
@@ -204,24 +237,24 @@ h1, h2, h3, h4, h5, h6, .display-font {
     aspect-ratio: 1/1 !important;
 }
 
-@media (max-width: 576px) {
-    /* Only Primary CTAs full-width (unless in flex-row) */
-    .btn-hero-gold, .btn-hero-outline, .btn-gold, .btn-submit-pill {
-        width: auto;
-        margin-bottom: 15px;
-        padding: 10px 10px;
-        font-size: 14px;
-        justify-content: center;
+@media (max-width: 768px) {
+    .btn-custom {
+        width: 100%;
+        max-width: 300px;
+        min-width: unset;
+        margin: 0 auto 15px;
     }
     
-    /* Secondary/Navigation buttons width auto */
-    .btn-orange, .btn-outline-gold, .btn-outline-navy, .btn-link {
-        width: auto;
-        display: inline-flex;
-        padding: 10px 10px;
-        font-size: 14px;
-        justify-content: center;
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
     }
+
+    .hero-buttons .btn-custom {
+        width: 100%;
+    }
+}
 
     /* Force equal width for side-by-side CTA buttons */
     .final-cta-banner .d-flex {
@@ -645,47 +678,6 @@ h1, h2, h3, h4, h5, h6, .display-font {
 }
 
 /* Enhancing buttons for hero */
-.btn-hero-gold {
-    background-color: var(--accent-gold);
-    color: var(--primary-navy);
-    padding: 12px 28px;
-    border-radius: 4px;
-    border: 2px solid var(--accent-gold);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 16px;
-    transition: var(--transition-base);
-}
-
-.btn-hero-gold:hover {
-    background-color: transparent;
-    border-color: var(--white);
-    color: var(--white);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-.btn-hero-outline {
-    background-color: transparent;
-    color: var(--white);
-    padding: 18px 45px;
-    border-radius: 4px;
-    border: 2px solid var(--white);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
-    transition: var(--transition-base);
-}
-
-.btn-hero-outline:hover {
-    background-color: var(--accent-gold);
-    color: var(--primary-navy);
-    border-color: var(--accent-gold);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
 
 .final-cta-banner {
     background: linear-gradient(rgba(11, 42, 74, 0.9), rgba(11, 42, 74, 0.9)), url('../images/denahalaya_building.jpg');
@@ -1194,29 +1186,6 @@ h1, h2, h3, h4, h5, h6, .display-font {
     z-index: 10;
 }
 
-.btn-orange {
-    background-color: var(--primary-navy);
-    color: var(--white) !important;
-    padding: 12px 24px;
-    border-radius: 50px;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.9rem;
-    transition: var(--transition-base);
-    border: 2px solid var(--primary-navy);
-    text-transform: capitalize;
-}
-
-.btn-orange:hover {
-    background-color: var(--accent-gold);
-    border-color: var(--accent-gold);
-    color: var(--primary-navy) !important;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(242, 183, 5, 0.3);
-}
 
 .programs-intro p {
     color: #ffffff !important;
@@ -1254,29 +1223,6 @@ h1, h2, h3, h4, h5, h6, .display-font {
     font-size: 0.85rem;
 }
 
-.btn-gold {
-    background-color: var(--accent-gold);
-    color: var(--primary-navy) !important;
-    padding: 14px 35px;
-    border-radius: 50px;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.95rem;
-    transition: var(--transition-base);
-    border: 2px solid var(--accent-gold);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.btn-gold:hover {
-    background-color: transparent;
-    color: var(--accent-gold) !important;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(242, 183, 5, 0.2);
-}
 
 /* Footer Link Lite */
 .footer-link-lite {
