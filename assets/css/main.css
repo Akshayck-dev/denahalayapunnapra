@@ -62,7 +62,7 @@ header, footer, [data-include] {
     width: 100%;
     display: block;
     overflow: visible !important; /* Allow dropdowns and buttons to fly out */
-    z-index: 3000 !important;
+    z-index: 1000; /* Standard high priority, but lower than modals */
     position: relative;
 }
 
@@ -440,13 +440,13 @@ section:last-child, .section:last-child {
     transition: var(--transition-base);
     padding: 15px 0;
     position: relative;
-    z-index: 3000 !important; /* Extremely high to beat any other section */
+    z-index: 1030 !important; /* Proper sticky priority, below modals */
 }
 
 .navbar.sticky {
     box-shadow: var(--shadow-sm);
     padding: 10px 0;
-    z-index: 3000 !important;
+    z-index: 1030 !important;
 }
 
 .nav-link {
@@ -521,7 +521,7 @@ section:last-child, .section:last-child {
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     border: none;
     min-width: 200px;
-    z-index: 3100 !important; /* Ensure submenu is above all content including hero/banners */
+    z-index: 1031 !important; /* Ensure submenu is above hero but below modals */
 }
 
 .dropdown-item {
@@ -1627,6 +1627,11 @@ body.modal-open {
 .modal {
     background: rgba(0, 0, 0, 0.6) !important;
     backdrop-filter: blur(4px);
+    z-index: 9999 !important;
+}
+
+.modal-backdrop {
+    z-index: 9998 !important;
 }
 
 .modal-dialog-centered {
