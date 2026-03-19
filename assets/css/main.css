@@ -60,14 +60,17 @@ h1, h2, h3, h4, h5, h6, .display-font {
 .btn-gold {
     background-color: var(--accent-gold);
     color: var(--white);
-    padding: 12px 30px;
-    border-radius: 4px;
+    padding: 12px 32px;
+    border-radius: 50px;
     border: none;
     font-weight: 600;
     transition: var(--transition-base);
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-gold:hover {
@@ -80,10 +83,13 @@ h1, h2, h3, h4, h5, h6, .display-font {
 .btn-outline-gold {
     border: 2px solid var(--accent-gold);
     color: var(--accent-gold);
-    padding: 10px 28px;
-    border-radius: 4px;
+    padding: 10px 30px;
+    border-radius: 50px;
     font-weight: 600;
     transition: var(--transition-base);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-outline-gold:hover {
@@ -103,14 +109,16 @@ h1, h2, h3, h4, h5, h6, .display-font {
 /* Force perfect circles for social icons */
 .rounded-circle.btn,
 .social-links a {
-    width: 42px !important;
-    height: 42px !important;
+    width: 44px !important;
+    height: 44px !important;
     padding: 0 !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     border-radius: 50% !important;
     line-height: 1 !important;
+    flex-shrink: 0 !important;
+    aspect-ratio: 1/1 !important;
 }
 
 .social-links a {
