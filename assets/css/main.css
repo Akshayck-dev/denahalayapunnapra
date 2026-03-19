@@ -1306,10 +1306,18 @@ form {
     right: 12px;
     bottom: 20px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 12px;
     z-index: 1020 !important;
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
     pointer-events: none; /* Container itself shouldn't block clicks */
+}
+
+.floating-buttons.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(10px);
 }
 
 .floating-buttons > * {

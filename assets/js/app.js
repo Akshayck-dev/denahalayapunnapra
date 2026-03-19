@@ -254,12 +254,14 @@ $(function() {
         });
     }
 
-    // 6. Global Utilities (Smart Scroll Toggle)
+    // 6. Global Utilities (Smart Scroll Toggle & Floating Buttons)
     $(window).scroll(function() {
         const scrollTop = $(this).scrollTop();
         const windowHeight = $(this).height();
         const documentHeight = $(document).height();
         const $scrollBtn = $('#scrollToggleBtn');
+        const $floatingBtns = $('.floating-buttons');
+        const $footer = $('footer');
         
         // Sticky Navbar logic
         if (scrollTop > 100) {
@@ -268,7 +270,23 @@ $(function() {
             $('.navbar').removeClass('sticky');
         }
 
-        // Smart Toggle Icon/Mode logic (only if button exists)
+        // 6a. Floating Buttons Visibility (Mobile Optimized)
+        if ($floatingBtns.length) {
+            if (window.innerWidth < 768 && $footer.length) {
+                const footerTop = $footer.offset().top;
+                // Hide if we are approaching the footer (within 100px of viewport bottom)
+                if (scrollTop + windowHeight > footerTop - 20) {
+                    $floatingBtns.addClass('hidden');
+                } else {
+                    $floatingBtns.removeClass('hidden');
+                }
+            } else {
+                // Always show on desktop
+                $floatingBtns.removeClass('hidden');
+            }
+        }
+
+        // 6b. Smart Toggle Icon/Mode logic (only if button exists)
         if ($scrollBtn.length) {
             if (scrollTop + windowHeight > documentHeight - 150) {
                 $scrollBtn.addClass('up').attr('aria-label', 'Scroll to top');
