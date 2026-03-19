@@ -1228,9 +1228,9 @@ h1, h2, h3, h4, h5, h6, .display-font {
 /* Smart Scroll Toggle Button */
 .scroll-btn {
     position: fixed;
-    bottom: 40px; /* Standardized offset from bottom edge */
+    bottom: 40px; 
     right: 20px;
-    width: 42px; /* Smaller, more subtle size */
+    width: 42px;
     height: 42px;
     border-radius: 50%;
     border: 2px solid var(--accent-gold);
@@ -1241,7 +1241,8 @@ h1, h2, h3, h4, h5, h6, .display-font {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 3100; /* Stay on top */
+    z-index: 99999 !important; /* Extreme z-index to stay above everything */
+    pointer-events: auto !important; /* Force clickability */
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }

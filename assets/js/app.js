@@ -270,14 +270,24 @@ $(function() {
     });
 
     // Use delegated click for dynamic include compatibility
-    $(document).on('click', '#scrollToggleBtn', function() {
-        if ($(this).hasClass('up')) {
-            $('html, body').animate({ scrollTop: 0 }, 800);
-        } else {
-            // Precise scroll to bottom
-            const bottom = $(document).height() - $(window).height();
-            $('html, body').animate({ scrollTop: bottom }, 1000);
+    $(document).on('click', '#scrollToggleBtn', function(e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        
+        const isUp = $(this).hasClass('up');
+        const targetScroll = isUp ? 0 : $(document).height() - $(window).height();
+        
+        // Use smooth scroll with fallback
+        try {
+            window.scrollTo({
+                top: targetScroll,
+                behavior: 'smooth'
+            });
+        } catch (err) {
+            // Fallback for older browsers
+            $('html, body').animate({ scrollTop: targetScroll }, 800);
         }
+        
         return false;
     });
 
