@@ -1303,7 +1303,7 @@ form {
 /* ===== FLOATING BUTTONS GROUP ===== */
 .floating-buttons {
     position: fixed;
-    right: 20px;
+    right: 12px;
     bottom: 20px;
     display: flex;
     flex-direction: column;
@@ -1407,7 +1407,7 @@ form {
         height: auto !important;
     }
     .floating-buttons {
-        right: 15px;
+        right: 8px;
         bottom: 15px;
         gap: 10px;
     }
