@@ -1293,6 +1293,19 @@ img[src*="Philo"] { object-position: center 15%; }
         width: 82% !important;
         margin-bottom: 0 !important;
         scroll-snap-align: center;
+        text-align: center !important;
+    }
+
+    .horizontal-scroll-mobile .faculty-card {
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    .horizontal-scroll-mobile .faculty-card h5,
+    .horizontal-scroll-mobile .faculty-card span,
+    .horizontal-scroll-mobile .faculty-card p {
+        text-align: center !important;
+        width: 100%;
     }
 
     /* Scroll Navigation Arrows */
