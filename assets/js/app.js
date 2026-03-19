@@ -143,10 +143,12 @@ $(function() {
         // Modal Scroll Locking & Accessibility Fix
         $(document).on('shown.bs.modal', '#applyModal', function () {
             $('body').css('overflow', 'hidden');
+            $('.floating-buttons').fadeOut(300); // Hide floating elements
         });
         
         $(document).on('hidden.bs.modal', '#applyModal', function () {
             $('body').css('overflow', '');
+            $('.floating-buttons').fadeIn(300); // Restore floating elements
         });
 
         $(document).on('submit', '#applicationFormGlobal', function(e) {
