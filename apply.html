@@ -125,6 +125,13 @@
                     btn.innerHTML = 'Submitting… <i class="fas fa-spinner fa-spin ms-2" aria-hidden="true"></i>';
             btn.disabled = true;
 
+            // ===== DEBUG LOGGING FOR DATA FLOW VERIFICATION =====
+            const formData = new FormData(this);
+            console.log("===== FORM DATA (APPLY PAGE) =====");
+            for (let [key, value] of formData.entries()) {
+                console.log(key + ":", value);
+            }
+
             emailjs.sendForm('service_2kwpecd', 'template_s32jb2z', this)
                 .then((response) => {
                     console.log("SUCCESS", response.status, response.text);

@@ -159,11 +159,11 @@ $(function() {
 
             $btn.html('Submitting… <i class="fas fa-spinner fa-spin ms-2"></i>').prop('disabled', true);
 
-            if (typeof emailjs === 'undefined') {
-                console.error("EmailJS not loaded on this page.");
-                alert("Email service is temporarily unavailable. Please try again later or contact us directly.");
-                $btn.html(originalText).prop('disabled', false);
-                return;
+            // ===== DEBUG LOGGING FOR DATA FLOW VERIFICATION =====
+            const formData = new FormData(this);
+            console.log("===== FORM DATA (GLOBAL MODAL) =====");
+            for (let [key, value] of formData.entries()) {
+                console.log(key + ":", value);
             }
 
             emailjs.sendForm('service_2kwpecd', 'template_s32jb2z', this)
