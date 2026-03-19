@@ -517,6 +517,8 @@ img[src*="Philo"] { object-position: center 15%; }
     font-size: 1.15rem;
     margin-bottom: 5px;
     color: var(--primary-navy);
+    text-align: center;
+    width: 100%;
 }
 
 .faculty-card .designation {
@@ -526,6 +528,8 @@ img[src*="Philo"] { object-position: center 15%; }
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 8px;
+    text-align: center;
+    width: 100%;
 }
 
 .faculty-card .qualifications {
