@@ -20,10 +20,6 @@
     <div class="wrapper">
         <header data-include="header"></header>
 
-        <!-- Floating Apply Now -->
-        <a href="#" class="floating-apply d-none d-md-flex" data-bs-toggle="modal" data-bs-target="#applyModal">
-            <i class="fas fa-pencil-alt" aria-hidden="true"></i> Apply Now
-        </a>
 
         <!-- Hero Section -->
         <section class="p-0 position-relative overflow-hidden">
@@ -98,24 +94,55 @@
                         <p class="lead text-muted mb-4">
                             Denahalaya is a national-level institute dedicated to the psycho-spiritual formation and holistic growth of priests and religious.
                         </p>
-                        <div class="row g-4 mb-5">
-                            <div class="col-md-4 col-12">
+                        <!-- Desktop: 3-column grid -->
+                        <div class="row g-4 mb-5 d-none d-md-flex">
+                            <div class="col-md-4">
                                 <div class="stat-item p-3 bg-light rounded shadow-sm text-center">
                                     <h3 class="text-gold mb-0">25+</h3>
                                     <span class="small text-muted">Years of Excellence</span>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-12">
+                            <div class="col-md-4">
                                 <div class="stat-item p-3 bg-light rounded shadow-sm text-center">
                                     <h3 class="text-gold mb-0">National</h3>
                                     <span class="small text-muted">Level Institute</span>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-12">
+                            <div class="col-md-4">
                                 <div class="stat-item p-3 bg-light rounded shadow-sm text-center">
                                     <h3 class="text-gold mb-0">Formation</h3>
                                     <span class="small text-muted">Priests & Religious</span>
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- Mobile: Auto-moving Carousel -->
+                        <div id="statsCarousel" class="carousel slide d-md-none mb-5" data-bs-ride="carousel" data-bs-interval="3000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="stat-item p-4 bg-light rounded shadow-sm text-center mx-2">
+                                        <h3 class="text-gold mb-0">25+</h3>
+                                        <span class="small text-muted">Years of Excellence</span>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="stat-item p-4 bg-light rounded shadow-sm text-center mx-2">
+                                        <h3 class="text-gold mb-0">National</h3>
+                                        <span class="small text-muted">Level Institute</span>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="stat-item p-4 bg-light rounded shadow-sm text-center mx-2">
+                                        <h3 class="text-gold mb-0">Formation</h3>
+                                        <span class="small text-muted">Priests & Religious</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Indicators -->
+                            <div class="carousel-indicators" style="position: relative; margin-top: 15px; margin-bottom: 0;">
+                                <button type="button" data-bs-target="#statsCarousel" data-bs-slide-to="0" class="active bg-gold" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#statsCarousel" data-bs-slide-to="1" class="bg-gold" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#statsCarousel" data-bs-slide-to="2" class="bg-gold" aria-label="Slide 3"></button>
                             </div>
                         </div>
                         <a href="about.html" class="btn-gold">Read More About Us <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i></a>

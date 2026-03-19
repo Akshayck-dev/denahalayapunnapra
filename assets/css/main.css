@@ -139,6 +139,22 @@ h1, h2, h3, h4, h5, h6, .display-font {
     color: var(--primary-navy);
 }
 
+/* Custom Carousel Indicators */
+#statsCarousel .carousel-indicators [data-bs-target] {
+    background-color: var(--accent-gold) !important;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0.5;
+    border: none;
+    margin: 0 5px;
+}
+
+#statsCarousel .carousel-indicators .active {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
 .about-img-container {
     position: relative;
     padding: 15px;
@@ -634,35 +650,7 @@ img[src*="Philo"] { object-position: center 15%; }
     }
 }
 
-/* Floating Apply Now Button - Premium Redesign */
-.floating-apply {
-    position: fixed;
-    right: 15px;
-    bottom: 80px; /* Elevated for better visibility */
-    top: auto;
-    transform: none;
-    background-color: var(--primary-navy);
-    color: var(--accent-gold);
-    padding: 10px 20px;
-    border-radius: 50px;
-    z-index: 1050;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.75rem;
-    box-shadow: var(--shadow-lg);
-    border: 2px solid var(--accent-gold);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: var(--transition-base);
-}
-
-.floating-apply i {
-    transform: none;
-    font-size: 0.9rem;
-}
+/* Consolidating floating-apply styles - removed redundant block here */
 
 @media (max-width: 768px) {
     .floating-apply {
@@ -1021,31 +1009,41 @@ img[src*="Philo"] { object-position: center 15%; }
     transform: translateY(-50%);
     background-color: var(--primary-navy);
     color: var(--accent-gold);
-    padding: 12px 24px;
-    border-radius: 50px;
+    padding: 20px 15px;
+    border-radius: 20px;
     z-index: 1050;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     font-size: 0.85rem;
-    box-shadow: var(--shadow-lg);
-    border: 2px solid var(--accent-gold);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 3px solid var(--accent-gold);
     text-decoration: none;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 12px;
-    transition: var(--transition-base);
+    gap: 15px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
 }
 
-@media (max-width: 768px) {
-    .floating-apply {
-        display: none;
-    }
+.floating-apply i {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    transform: rotate(90deg);
 }
 
 .floating-apply:hover {
     background-color: var(--accent-gold);
     color: var(--primary-navy);
+    right: 10px;
+}
+
+@media (max-width: 991px) {
+    .floating-apply {
+        display: none !important;
+    }
 }
 
 .backToTop {

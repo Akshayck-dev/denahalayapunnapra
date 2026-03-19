@@ -136,7 +136,8 @@ $(function() {
             }
 
             emailjs.sendForm('service_2kwpecd', 'template_s32jb2z', this)
-                .then(() => {
+                .then((response) => {
+                    console.log("SUCCESS", response.status, response.text);
                     Swal.fire({
                         icon: 'success',
                         title: 'Success!',
@@ -151,8 +152,8 @@ $(function() {
                         if (modal) modal.hide();
                     }
                 })
-                .catch(err => {
-                    console.error('EmailJS Error:', err);
+                .catch((error) => {
+                    console.error("ERROR", error);
                     Swal.fire({
                         icon: 'error',
                         title: 'Submission Failed',
