@@ -100,6 +100,44 @@ h1, h2, h3, h4, h5, h6, .display-font {
     display: inline-block;
 }
 
+/* Force perfect circles for social icons */
+.rounded-circle.btn,
+.social-links a {
+    width: 42px !important;
+    height: 42px !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    line-height: 1 !important;
+}
+
+.social-links a {
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+    transition: var(--transition-base);
+}
+
+.social-links a:hover {
+    background: var(--accent-gold);
+    color: var(--primary-navy);
+    border-color: var(--accent-gold);
+    transform: translateY(-3px);
+}
+
+/* Improve Form Spacing */
+.form-label {
+    margin-bottom: 0.75rem !important;
+    color: var(--primary-navy);
+    font-weight: 600;
+}
+
+.form-control:focus {
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 0.25rem rgba(242, 183, 5, 0.15);
+}
+
 .about-img-container img {
     border-radius: 12px;
     transition: var(--transition-base);
