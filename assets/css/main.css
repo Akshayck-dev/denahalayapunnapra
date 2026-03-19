@@ -254,7 +254,6 @@ h1, h2, h3, h4, h5, h6, .display-font {
     .hero-buttons .btn-custom {
         width: 100%;
     }
-}
 
     /* Force equal width for side-by-side CTA buttons */
     .final-cta-banner .d-flex {
