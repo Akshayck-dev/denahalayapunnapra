@@ -1167,12 +1167,6 @@ section:last-child, .section:last-child {
 }
 
 /* Modal Styling Refinement */
-.modal {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
 .modal-content {
     border-radius: 15px;
     max-height: 85vh !important;
