@@ -649,26 +649,26 @@ section:last-child, .section:last-child {
 }
 
 .faculty-card .profile-img-wrapper {
-    width: 160px;
-    height: 160px;
-    margin: 0 auto 25px;
+    width: 210px;
+    height: 210px;
+    margin: 0 auto 30px;
     position: relative;
     border-radius: 50%;
     overflow: hidden;
-    padding: 10px;
+    padding: 12px;
     background: #f8f9fa;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
 }
 
 @media (max-width: 768px) {
     .faculty-card .profile-img-wrapper {
-        width: 120px !important;
-        height: 120px !important;
-        padding: 6px !important;
-        margin-bottom: 20px !important;
+        width: 160px !important;
+        height: 160px !important;
+        padding: 8px !important;
+        margin-bottom: 25px !important;
     }
 }
 
