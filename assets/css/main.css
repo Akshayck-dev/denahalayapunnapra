@@ -1349,8 +1349,12 @@ h1, h2, h3, h4, h5, h6, .display-font {
     /* Footer adjustments */
     .footer-col {
         padding: 0 15px;
-        margin-bottom: 30px; /* Standardized gap */
+        margin-bottom: 0px; /* Gutter handles the gap */
         text-align: center;
+    }
+
+    .footer-main {
+        padding-top: 50px !important;
     }
 
     .footer-col:last-child {
