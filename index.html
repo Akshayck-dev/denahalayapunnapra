@@ -248,7 +248,8 @@
                     <p class="text-muted">Guided by dedicated leadership and service</p>
                 </div>
 
-                <div class="row g-4 justify-content-center">
+                <!-- Desktop: 3-column grid -->
+                <div class="row g-4 justify-content-center d-none d-md-flex">
                     <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
                         <div class="faculty-card leadership-card">
                             <div class="profile-img-wrapper">
@@ -286,6 +287,54 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Mobile: Auto-moving Carousel -->
+                <div id="adminCarousel" class="carousel slide d-md-none" data-bs-ride="carousel" data-bs-interval="4000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="faculty-card leadership-card mx-2">
+                                <div class="profile-img-wrapper">
+                                    <img src="./assets/images/FRthomas_tharayil.png" alt="Archbishop Mar Thomas Tharayil" loading="lazy">
+                                </div>
+                                <div class="card-content mt-4 text-center">
+                                    <span class="designation-text text-gold text-uppercase fw-bold mb-2 d-block">PATRON & PRESIDENT</span>
+                                    <h4 class="text-navy">His Grace Mar Thomas Tharayil</h4>
+                                    <p class="text-muted small">Metropolitan Archbishop of Changanacherry</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="faculty-card leadership-card mx-2">
+                                <div class="profile-img-wrapper">
+                                    <img src="./assets/images/FRScaria.jpg" alt="Very Rev. Fr. Scaria Kanniyakonil" loading="lazy">
+                                </div>
+                                <div class="card-content mt-4 text-center">
+                                    <span class="designation-text text-gold text-uppercase fw-bold mb-2 d-block">SYNCELLUS</span>
+                                    <h4 class="text-navy">Very Rev. Fr. Scaria Kanniyakonil</h4>
+                                    <p class="text-muted small">Archeparchy of Changanacherry</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="faculty-card leadership-card mx-2">
+                                <div class="profile-img-wrapper">
+                                    <img src="./assets/images/FrAnish.jpeg" alt="Fr. Anish Ettakakunnel" loading="lazy">
+                                </div>
+                                <div class="card-content mt-4 text-center">
+                                    <span class="designation-text text-gold text-uppercase fw-bold mb-2 d-block">DIRECTOR</span>
+                                    <h4 class="text-navy">Fr. Anish Ettakakunnel, Ph.D.</h4>
+                                    <p class="text-muted small">Denahalaya Institute</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Indicators -->
+                    <div class="carousel-indicators" style="position: relative; margin-top: 20px; margin-bottom: 0;">
+                        <button type="button" data-bs-target="#adminCarousel" data-bs-slide-to="0" class="active bg-gold" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#adminCarousel" data-bs-slide-to="1" class="bg-gold" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#adminCarousel" data-bs-slide-to="2" class="bg-gold" aria-label="Slide 3"></button>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -296,7 +345,7 @@
                     <p class="text-muted lead" style="font-size: 1.1rem;">Our distinguished faculty bring together academic excellence, pastoral experience, and deep spiritual insight.</p>
                 </div>
 
-                <div class="row g-4">
+                <div class="row g-4 horizontal-scroll-mobile">
                     <div class="col-lg-3 col-md-6">
                         <div class="faculty-card">
                             <div class="profile-img-wrapper">
