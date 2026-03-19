@@ -1369,13 +1369,6 @@ h1, h2, h3, h4, h5, h6, .display-font {
         margin-bottom: 8px;
     }
 
-    /* Stack cards with margin */
-    .col, [class*="col-"] {
-        margin-bottom: 20px;
-    }
-    .row > .col:last-child, .row > [class*="col-"]:last-child {
-        margin-bottom: 0;
-    }
 
     /* Modal padding */
     .modal-body {
