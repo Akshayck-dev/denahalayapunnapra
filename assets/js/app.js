@@ -115,6 +115,25 @@ $(function() {
             });
         }
 
+        // 5b. Faculty Carousel
+        if ($('.facultySwiper').length > 0 && typeof Swiper !== 'undefined') {
+            new Swiper(".facultySwiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                centeredSlides: false,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                breakpoints: {
+                    640: { slidesPerView: 2 },
+                    992: { slidesPerView: 3 },
+                    1200: { slidesPerView: 4 }
+                }
+            });
+        }
+
         // 6. Global Application Form Submission
         if (typeof emailjs !== 'undefined') {
             emailjs.init("RmgrNAAYbmB8BvIJ2");
@@ -197,7 +216,8 @@ $(function() {
             $row.trigger('scroll');
         };
 
-        setupScroll('facultyScrollRow', 'facultyPrev', 'facultyNext');
+        // Old Scroll Logic (Cleaned up as we moved to Swiper)
+        // setupScroll('facultyScrollRow', 'facultyPrev', 'facultyNext');
     }
 
     // 6. Global Utilities
