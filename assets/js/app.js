@@ -173,10 +173,18 @@ $(function() {
     });
 
     $(window).scroll(function() {
+        // Sticky Navbar
         if ($(this).scrollTop() > 100) {
             $('.navbar').addClass('sticky');
         } else {
             $('.navbar').removeClass('sticky');
+        }
+
+        // Back to Top Visibility
+        if ($(this).scrollTop() > 400) {
+            $('.backToTop').addClass('active');
+        } else {
+            $('.backToTop').removeClass('active');
         }
     });
 });

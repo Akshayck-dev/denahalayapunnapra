@@ -919,22 +919,49 @@ img[src*="Philo"] { object-position: center 15%; }
 .backToTop {
     position: fixed;
     bottom: 30px;
-    right: 20px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary-navy);
+    color: var(--accent-gold);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 1050;
-    box-shadow: var(--shadow-md);
-    transition: var(--transition-base);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     border: 2px solid var(--accent-gold);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.backToTop.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.backToTop i {
+    font-size: 1.2rem;
 }
 
 .backToTop:hover {
     background-color: var(--accent-gold);
     color: var(--primary-navy);
     transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+@media (max-width: 768px) {
+    .backToTop {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
 }
 
 /* Programs Background Section */
