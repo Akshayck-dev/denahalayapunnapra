@@ -219,6 +219,30 @@ $(function() {
 
         // Old Scroll Logic (Cleaned up as we moved to Swiper)
         // setupScroll('facultyScrollRow', 'facultyPrev', 'facultyNext');
+
+        // Mobile Dropdown Toggle Logic
+        const $navItems = $('.nav-item.dropdown');
+        $navItems.on('click', function(e) {
+            if (window.innerWidth < 992) {
+                const $this = $(this);
+                if ($this.find('.dropdown-menu').length) {
+                    if (!$this.hasClass('active-mobile')) {
+                        e.preventDefault();
+                        $('.nav-item.dropdown').removeClass('active-mobile');
+                        $this.addClass('active-mobile');
+                    } else {
+                        $this.removeClass('active-mobile');
+                    }
+                }
+            }
+        });
+
+        // Close dropdown when clicking outside
+        $(document).on('click', function(e) {
+            if (!$(e.target).closest('.nav-item.dropdown').length) {
+                $('.nav-item.dropdown').removeClass('active-mobile');
+            }
+        });
     }
 
     // 6. Global Utilities
