@@ -390,11 +390,14 @@ h1, h2, h3, h4, h5, h6, .display-font {
     background-color: var(--white);
     transition: var(--transition-base);
     padding: 15px 0;
+    position: relative;
+    z-index: 1080; /* Ensure navbar stays above page content */
 }
 
 .navbar.sticky {
     box-shadow: var(--shadow-sm);
     padding: 10px 0;
+    z-index: 1080;
 }
 
 .nav-link {
@@ -469,6 +472,7 @@ h1, h2, h3, h4, h5, h6, .display-font {
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     border: none;
     min-width: 200px;
+    z-index: 1100; /* Ensure submenu is above all content including hero/banners */
 }
 
 .dropdown-item {
