@@ -270,18 +270,16 @@ $(function() {
             $('.navbar').removeClass('sticky');
         }
 
-        // 6a. Floating Buttons Visibility (Mobile Optimized)
-        if ($floatingBtns.length) {
-            if (window.innerWidth < 768 && $footer.length) {
-                const footerTop = $footer.offset().top;
-                // Hide if we are approaching the footer (within 100px of viewport bottom)
-                if (scrollTop + windowHeight > footerTop - 20) {
-                    $floatingBtns.addClass('hidden');
-                } else {
-                    $floatingBtns.removeClass('hidden');
-                }
+        // 6a. Floating Buttons Visibility (Global Logic)
+        if ($floatingBtns.length && $footer.length) {
+            const scrollTop = $(window).scrollTop();
+            const windowHeight = $(window).height();
+            const footerTop = $footer.offset().top;
+            
+            // Hide if we are approaching the footer (across all devices)
+            if (scrollTop + windowHeight > footerTop - 10) {
+                $floatingBtns.addClass('hidden');
             } else {
-                // Always show on desktop
                 $floatingBtns.removeClass('hidden');
             }
         }
