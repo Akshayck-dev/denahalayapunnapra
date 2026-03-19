@@ -114,6 +114,7 @@ h1, h2, h3, h4, h5, h6, .display-font {
     align-items: center;
     justify-content: center;
     white-space: nowrap;
+    text-decoration: none !important;
 }
 
 .btn-gold:hover {
@@ -135,6 +136,7 @@ h1, h2, h3, h4, h5, h6, .display-font {
     align-items: center;
     justify-content: center;
     white-space: nowrap;
+    text-decoration: none !important;
 }
 
 .btn-outline-gold:hover {
@@ -186,7 +188,6 @@ h1, h2, h3, h4, h5, h6, .display-font {
     /* Only Primary CTAs full-width (unless in flex-row) */
     .btn-hero-gold, .btn-hero-outline, .btn-gold, .btn-submit-pill {
         width: auto;
-        min-width: 45%;
         margin-bottom: 15px;
         padding: 10px 22px;
         font-size: 14px;
@@ -196,7 +197,6 @@ h1, h2, h3, h4, h5, h6, .display-font {
     /* Secondary/Navigation buttons width auto */
     .btn-orange, .btn-outline-gold, .btn-outline-navy, .btn-link {
         width: auto;
-        min-width: 45%;
         display: inline-flex;
         padding: 10px 22px;
         font-size: 14px;
