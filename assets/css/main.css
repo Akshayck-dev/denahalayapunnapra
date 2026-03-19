@@ -909,7 +909,7 @@ section:last-child, .section:last-child {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    padding: 100px 0;
+    padding: 60px 0 !important;
     color: white;
     text-align: center;
 }
@@ -1139,7 +1139,7 @@ section:last-child, .section:last-child {
 .footer-main {
     background-color: #0b2a4a;
     border-top: 5px solid var(--accent-gold);
-    padding-top: 80px;
+    padding: 50px 0 !important;
     margin-top: 0;
 }
 
