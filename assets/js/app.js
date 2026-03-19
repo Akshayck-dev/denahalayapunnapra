@@ -226,12 +226,12 @@ $(function() {
             if (window.innerWidth < 992) {
                 const $this = $(this);
                 if ($this.find('.dropdown-menu').length) {
-                    if (!$this.hasClass('active-mobile')) {
+                    if (!$this.hasClass('active')) {
                         e.preventDefault();
-                        $('.nav-item.dropdown').removeClass('active-mobile');
-                        $this.addClass('active-mobile');
+                        $navItems.removeClass('active');
+                        $this.addClass('active');
                     } else {
-                        $this.removeClass('active-mobile');
+                        $this.removeClass('active');
                     }
                 }
             }
@@ -240,7 +240,7 @@ $(function() {
         // Close dropdown when clicking outside
         $(document).on('click', function(e) {
             if (!$(e.target).closest('.nav-item.dropdown').length) {
-                $('.nav-item.dropdown').removeClass('active-mobile');
+                $('.nav-item.dropdown').removeClass('active');
             }
         });
     }
