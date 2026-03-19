@@ -247,6 +247,16 @@ $(function() {
         }
     });
 
+    // Faculty Load More Logic (Mobile Only)
+    $('#loadMoreFaculty').on('click', function() {
+        $('.faculty-hidden-mobile').removeClass('faculty-hidden-mobile').fadeIn();
+        $(this).parent().fadeOut();
+        
+        if(typeof AOS !== 'undefined') {
+            setTimeout(() => { AOS.refresh(); }, 100);
+        }
+    });
+
     // Set initial state
     $(window).trigger('scroll');
 });
