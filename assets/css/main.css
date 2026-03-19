@@ -1004,40 +1004,41 @@ img[src*="Philo"] { object-position: center 15%; }
 /* Floating Utilities & Fixed Elements */
 .floating-apply {
     position: fixed;
-    right: 20px;
+    right: 0; /* Flush against the right wall */
     top: 50%;
     transform: translateY(-50%);
     background-color: var(--primary-navy);
     color: var(--accent-gold);
-    padding: 20px 15px;
-    border-radius: 20px;
+    padding: 15px 8px; /* Reduced padding */
+    border-radius: 8px 0 0 8px; /* Straight right edge, slightly rounded left */
     z-index: 1050;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-size: 0.85rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    border: 3px solid var(--accent-gold);
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    border: 2px solid var(--accent-gold);
+    border-right: none; /* No border on the flush side */
     text-decoration: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 10px;
+    transition: all 0.3s ease;
     writing-mode: vertical-rl;
     text-orientation: mixed;
 }
 
 .floating-apply i {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+    font-size: 1.1rem;
+    margin-bottom: 0;
     transform: rotate(90deg);
 }
 
 .floating-apply:hover {
     background-color: var(--accent-gold);
     color: var(--primary-navy);
-    right: 10px;
+    padding-right: 15px; /* Slight slide out effect */
 }
 
 @media (max-width: 991px) {
