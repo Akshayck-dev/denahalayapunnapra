@@ -165,6 +165,39 @@ $(function() {
                     $btn.html(originalText).prop('disabled', false);
                 });
         });
+        
+        // 7. Horizontal Scroll Navigation (Faculty Section)
+        const setupScroll = (scrollRowId, prevBtnId, nextBtnId) => {
+            const $row = $(`#${scrollRowId}`);
+            const $prev = $(`#${prevBtnId}`);
+            const $next = $(`#${nextBtnId}`);
+
+            if ($row.length === 0) return;
+
+            $next.on('click', function() {
+                const scrollAmount = $row.find('.col-lg-3').first().outerWidth() + 20; // card width + gap
+                $row.animate({ scrollLeft: $row.scrollLeft() + scrollAmount }, 400);
+            });
+
+            $prev.on('click', function() {
+                const scrollAmount = $row.find('.col-lg-3').first().outerWidth() + 20;
+                $row.animate({ scrollLeft: $row.scrollLeft() - scrollAmount }, 400);
+            });
+
+            // Toggle arrow visibility based on scroll position
+            $row.on('scroll', function() {
+                const scrollLeft = $(this).scrollLeft();
+                const maxScroll = $(this)[0].scrollWidth - $(this).outerWidth();
+                
+                $prev.css('opacity', scrollLeft <= 5 ? '0.3' : '1');
+                $next.css('opacity', scrollLeft >= maxScroll - 5 ? '0.3' : '1');
+            });
+
+            // Initial trigger
+            $row.trigger('scroll');
+        };
+
+        setupScroll('facultyScrollRow', 'facultyPrev', 'facultyNext');
     }
 
     // 6. Global Utilities

@@ -345,7 +345,51 @@
                     <p class="text-muted lead" style="font-size: 1.1rem;">Our distinguished faculty bring together academic excellence, pastoral experience, and deep spiritual insight.</p>
                 </div>
 
-                <div class="row g-4 horizontal-scroll-mobile">
+                <div class="horizontal-scroll-container d-md-none">
+                    <button class="scroll-nav-btn prev" id="facultyPrev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="row g-4 horizontal-scroll-mobile" id="facultyScrollRow">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="faculty-card">
+                                <div class="profile-img-wrapper">
+                                    <img src="./assets/images/Andrews.jpeg" alt="Dr. Mekattukunnel Andrews" loading="lazy">
+                                </div>
+                                <h5>Dr. Mekattukunnel Andrews</h5>
+                                <span class="designation">Scripture</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="faculty-card">
+                                <div class="profile-img-wrapper">
+                                    <img src="./assets/images/Linta SH.jpeg" alt="Dr. Linta S.H." loading="lazy">
+                                </div>
+                                <h5>Dr. Linta S.H.</h5>
+                                <span class="designation">Biblical Theology</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="faculty-card">
+                                <div class="profile-img-wrapper">
+                                    <img src="./assets/images/Philo uthuppan.jpeg" alt="Sr. Philomina Uthuppan" loading="lazy">
+                                </div>
+                                <h5>Sr. Philomina Uthuppan</h5>
+                                <span class="designation">Depth Psychology</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="faculty-card">
+                                <div class="profile-img-wrapper">
+                                    <img src="./assets/images/jeslet.jpeg" alt="Dr. Jeslet CMC" loading="lazy">
+                                </div>
+                                <h5>Dr. Jeslet CMC</h5>
+                                <span class="designation">Clinical Psychology</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="scroll-nav-btn next" id="facultyNext"><i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- Desktop: 4-column grid (hidden on mobile) -->
+                <div class="row g-4 d-none d-md-flex">
                     <div class="col-lg-3 col-md-6">
                         <div class="faculty-card">
                             <div class="profile-img-wrapper">
@@ -355,7 +399,7 @@
                             <span class="designation">Scripture</span>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-3 col-md-6">
                         <div class="faculty-card">
                             <div class="profile-img-wrapper">
                                 <img src="./assets/images/Linta SH.jpeg" alt="Dr. Linta S.H." loading="lazy">
@@ -364,7 +408,7 @@
                             <span class="designation">Biblical Theology</span>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="col-lg-3 col-md-6">
                         <div class="faculty-card">
                             <div class="profile-img-wrapper">
                                 <img src="./assets/images/Philo uthuppan.jpeg" alt="Sr. Philomina Uthuppan" loading="lazy">
@@ -373,7 +417,7 @@
                             <span class="designation">Depth Psychology</span>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="col-lg-3 col-md-6">
                         <div class="faculty-card">
                             <div class="profile-img-wrapper">
                                 <img src="./assets/images/jeslet.jpeg" alt="Dr. Jeslet CMC" loading="lazy">

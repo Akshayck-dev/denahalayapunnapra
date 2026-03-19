@@ -1248,11 +1248,53 @@ img[src*="Philo"] { object-position: center 15%; }
     }
 
     .horizontal-scroll-mobile > [class*="col"] {
-        flex: 0 0 85% !important; /* Shows a peek of the next card */
-        max-width: 85% !important;
-        width: 85% !important;
+        flex: 0 0 82% !important; /* Slightly smaller to show more peek */
+        max-width: 82% !important;
+        width: 82% !important;
         margin-bottom: 0 !important;
         scroll-snap-align: center;
+    }
+
+    /* Scroll Navigation Arrows */
+    .horizontal-scroll-container {
+        position: relative;
+    }
+
+    .scroll-nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 2px solid var(--accent-gold);
+        color: var(--navy-blue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        transition: all 0.3s ease;
+    }
+
+    .scroll-nav-btn:active {
+        background: var(--accent-gold);
+        color: var(--white);
+        transform: translateY(-50%) scale(0.9);
+    }
+
+    .scroll-nav-btn.prev {
+        left: -10px;
+    }
+
+    .scroll-nav-btn.next {
+        right: -10px;
+    }
+
+    .scroll-nav-btn i {
+        font-size: 1.2rem;
     }
 }
 
