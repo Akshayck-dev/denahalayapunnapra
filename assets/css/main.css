@@ -28,6 +28,28 @@ body {
     overflow-x: hidden;
 }
 
+/* 1. Motion Sensitivity - Respect user preference */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: scroll !important;
+        transition-delay: 0s !important;
+        transition-duration: 0s !important;
+    }
+    
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    .hero-slider, .mySwiper {
+        animation: none !important;
+    }
+}
+
 h1, h2, h3, h4, h5, h6, .display-font {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -122,6 +144,19 @@ h1, h2, h3, h4, h5, h6, .display-font {
     aspect-ratio: 1/1 !important;
 }
 
+/* 2. UX Polish: Prevent background scroll leaks from modals */
+.modal-open, .modal {
+    overscroll-behavior: contain;
+}
+
+.modal-body {
+    max-height: 80vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-gold) transparent;
+}
+
 .social-links a {
     border: 1px solid rgba(255,255,255,0.2);
     color: var(--white);
@@ -211,6 +246,7 @@ h1, h2, h3, h4, h5, h6, .display-font {
 .stat-item h3 {
     font-size: 1.8rem;
     font-weight: 700;
+    font-variant-numeric: tabular-nums;
 }
 
 /* Navigation Overrides */

@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="col-12 text-center mt-5">
                                     <button type="submit" class="btn-gold px-5 py-3 fs-5">
-                                        Submit My Application <i class="fas fa-paper-plane ms-2"></i>
+                                        Submit My Application <i class="fas fa-paper-plane ms-2" aria-hidden="true"></i>
                                     </button>
                                     <p class="small text-muted mt-3 italic">* Required fields. We will contact you for further admission steps.</p>
                                 </div>
@@ -118,7 +118,7 @@
             e.preventDefault();
             const btn = e.target.querySelector('button');
             const originalText = btn.innerHTML;
-                    btn.innerHTML = 'Submitting… <i class="fas fa-spinner fa-spin ms-2"></i>';
+                    btn.innerHTML = 'Submitting… <i class="fas fa-spinner fa-spin ms-2" aria-hidden="true"></i>';
             btn.disabled = true;
 
             emailjs.sendForm('service_2kwpecd', 'template_s32jb2z', this)
