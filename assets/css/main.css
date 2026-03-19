@@ -113,6 +113,7 @@ h1, h2, h3, h4, h5, h6, .display-font {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
 }
 
 .btn-gold:hover {
@@ -133,6 +134,7 @@ h1, h2, h3, h4, h5, h6, .display-font {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
 }
 
 .btn-outline-gold:hover {
@@ -181,20 +183,24 @@ h1, h2, h3, h4, h5, h6, .display-font {
 }
 
 @media (max-width: 576px) {
-    /* Only Primary CTAs full-width */
+    /* Only Primary CTAs full-width (unless in flex-row) */
     .btn-hero-gold, .btn-hero-outline, .btn-gold, .btn-submit-pill {
-        width: 100%;
+        width: auto;
+        min-width: 45%;
         margin-bottom: 15px;
         padding: 10px 22px;
         font-size: 14px;
+        justify-content: center;
     }
     
     /* Secondary/Navigation buttons width auto */
     .btn-orange, .btn-outline-gold, .btn-outline-navy, .btn-link {
         width: auto;
+        min-width: 45%;
         display: inline-flex;
         padding: 10px 22px;
         font-size: 14px;
+        justify-content: center;
     }
 }
 
