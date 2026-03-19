@@ -40,7 +40,7 @@
     background-color: var(--accent-gold) !important;
 }
 
-html, body, .wrapper, footer {
+html, body, .wrapper {
     margin: 0 !important;
     padding: 0 !important;
     overflow-x: hidden;
@@ -48,12 +48,12 @@ html, body, .wrapper, footer {
     position: relative;
 }
 
-header, [data-include] {
+header, footer, [data-include] {
     margin: 0 !important;
     padding: 0 !important;
     width: 100%;
     display: block;
-    overflow: visible !important; /* Critical to allow dropdowns to fly out */
+    overflow: visible !important; /* Allow dropdowns and buttons to fly out */
     z-index: 3000 !important;
     position: relative;
 }
