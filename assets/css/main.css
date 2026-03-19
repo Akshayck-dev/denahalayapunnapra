@@ -122,7 +122,7 @@ h1, h2, h3, h4, h5, h6, .display-font {
 
 /* Base Layout & Section Spacing */
 section, .section {
-    padding: 60px 0 !important;
+    padding: 50px 0 !important;
 }
 
 @media (max-width: 768px) {
@@ -137,7 +137,7 @@ h1, h2, h3, h4, h5, h6, p, .lead {
 }
 
 /* Height & Gaps Fixes */
-.hero, .hero-slider, .banner, .full-section, [data-aos="fade-up"] {
+.hero, .hero-slider, .banner, .full-section, [data-aos="fade-up"], .subpage-banner {
     min-height: auto !important;
     height: auto !important;
 }
@@ -149,6 +149,7 @@ h1, h2, h3, h4, h5, h6, p, .lead {
 }
 
 .card {
+    height: auto !important;
     margin: 0 !important;
 }
 
@@ -159,9 +160,9 @@ section:last-child, .section:last-child {
 
 /* Container Align Fix */
 .container {
-    max-width: 1200px !important;
+    max-width: 1100px !important;
     margin: 0 auto !important;
-    padding: 0 15px !important;
+    padding: 0 20px !important;
 }
 
 .bg-navy { 
@@ -1165,10 +1166,29 @@ section:last-child, .section:last-child {
     color: rgba(255, 255, 255, 0.5);
 }
 
-/* Modal Styling */
+/* Modal Styling Refinement */
+.modal {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
 .modal-content {
     border-radius: 15px;
-    overflow: hidden;
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+    padding: 15px !important;
+    display: block !important;
+}
+
+.modal-body {
+    padding: 15px !important;
+}
+
+form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
 }
 
 .modal-header.bg-navy {
