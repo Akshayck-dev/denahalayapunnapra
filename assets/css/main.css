@@ -1118,7 +1118,49 @@ img[src*="Philo"] { object-position: center 15%; }
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
-}
 
+    /* Mobile Dropdown Swiping */
+    .navbar-collapse .dropdown-menu {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding-left: 10px !important;
+    }
+
+    .navbar-collapse .dropdown-menu.show {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        gap: 10px;
+        padding: 10px 0 !important;
+        margin-top: 5px !important;
+        scroll-snap-type: x mandatory;
+    }
+
+    .navbar-collapse .dropdown-item {
+        background: var(--bg-light) !important;
+        color: var(--primary-navy) !important;
+        border-radius: 50px !important;
+        padding: 8px 18px !important;
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+        border: 1px solid rgba(11, 42, 74, 0.1) !important;
+        width: auto !important;
+        white-space: nowrap !important;
+        scroll-snap-align: start;
+    }
+
+    .navbar-collapse .dropdown-item:active,
+    .navbar-collapse .dropdown-item:focus {
+        background: var(--accent-gold) !important;
+        border-color: var(--accent-gold) !important;
+    }
+
+    /* Hide scrollbar for dropdowns */
+    .navbar-collapse .dropdown-menu.show::-webkit-scrollbar {
+        display: none;
+    }
+}
 
 
