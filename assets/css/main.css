@@ -40,7 +40,7 @@
     background-color: var(--accent-gold) !important;
 }
 
-html, body, .wrapper {
+html, body, .wrapper, header, footer, [data-include] {
     margin: 0 !important;
     padding: 0 !important;
     overflow-x: hidden;
