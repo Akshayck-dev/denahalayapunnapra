@@ -136,7 +136,6 @@ h1, h2, h3, h4, h5, h6, .display-font {
 .text-gold { color: var(--accent-gold); }
 .text-navy { color: var(--primary-navy); }
 
-/* GLOBAL BUTTON SYSTEM */
 .btn-custom {
     display: inline-flex;
     align-items: center;
@@ -159,6 +158,14 @@ h1, h2, h3, h4, h5, h6, .display-font {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     border: none;
+}
+
+.btn-social-small {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    padding: 0 !important;
+    font-size: 14px !important;
 }
 
 /* PRIMARY BUTTON (GOLD) */
