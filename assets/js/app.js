@@ -140,6 +140,15 @@ $(function() {
             emailjs.init("RmgrNAAYbmB8BvIJ2");
         }
 
+        // Modal Scroll Locking & Accessibility Fix
+        $(document).on('shown.bs.modal', '#applyModal', function () {
+            $('body').css('overflow', 'hidden');
+        });
+        
+        $(document).on('hidden.bs.modal', '#applyModal', function () {
+            $('body').css('overflow', '');
+        });
+
         $(document).on('submit', '#applicationFormGlobal', function(e) {
             e.preventDefault();
             const $form = $(this);
@@ -165,11 +174,11 @@ $(function() {
                         confirmButtonColor: '#002147'
                     });
                     $form[0].reset();
-                    // Close modal
+                    // Close modal using latest Bootstrap API
                     const modalEl = document.getElementById('applyModal');
                     if (modalEl) {
-                        const modal = bootstrap.Modal.getInstance(modalEl);
-                        if (modal) modal.hide();
+                        const modalInstance = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+                        modalInstance.hide();
                     }
                 })
                 .catch((error) => {
