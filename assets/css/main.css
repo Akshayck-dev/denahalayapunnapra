@@ -1173,26 +1173,26 @@ h1, h2, h3, h4, h5, h6, .display-font {
 /* ===== APPLY BUTTON FIX ===== */
 .apply-btn {
     position: fixed;
-    bottom: 90px;
+    bottom: 120px; /* Increased to stay clear of footer gold bar */
     right: 15px;
 
     /* REMOVE ANY ROTATION */
     transform: none !important;
     writing-mode: horizontal-tb !important;
 
-    /* BUTTON STYLE */
+    /* REFINED BUTTON STYLE (SMALLER) */
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    height: 52px;
-    padding: 0 22px;
+    height: 44px; /* Reduced from 52px */
+    padding: 0 18px; /* Reduced from 22px */
 
     border-radius: 30px;
     background: #0d2b4d;
     color: #f2b705;
 
-    font-size: 14px;
+    font-size: 13px; /* Reduced from 14px */
     font-weight: 600;
 
     border: 2px solid #f2b705;
@@ -1200,7 +1200,7 @@ h1, h2, h3, h4, h5, h6, .display-font {
     box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 
     cursor: pointer;
-    z-index: 1050; /* Ensure it stays above other elements but consistent with header */
+    z-index: 3100; /* Match navbar/dropdown for visibility */
 
     transition: all 0.3s ease;
     text-decoration: none !important;
@@ -1211,41 +1211,43 @@ h1, h2, h3, h4, h5, h6, .display-font {
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     color: #f2b705 !important;
+    background: #1a3d66; /* Slight lighten on hover */
 }
 
 /* MOBILE FIX */
 @media (max-width: 768px) {
     .apply-btn {
         right: 10px;
-        bottom: 80px;
-        font-size: 13px;
-        padding: 0 18px;
+        bottom: 110px; /* Stay clear of smaller mobile footer */
+        font-size: 12px;
+        height: 40px;
+        padding: 0 15px;
     }
 }
 
 /* Smart Scroll Toggle Button */
 .scroll-btn {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 50px;
-    height: 50px;
+    bottom: 40px; /* Standardized offset from bottom edge */
+    right: 20px;
+    width: 42px; /* Smaller, more subtle size */
+    height: 42px;
     border-radius: 50%;
     border: 2px solid var(--accent-gold);
     background: var(--primary-navy);
     color: var(--accent-gold);
-    font-size: 1.2rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 3100; /* Same as dropdown to stay visible */
+    z-index: 3100; /* Stay on top */
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .scroll-btn:hover {
-    transform: translateY(-5px) scale(1.1);
+    transform: scale(1.15);
     background: var(--accent-gold);
     color: var(--primary-navy);
 }
@@ -1261,10 +1263,11 @@ h1, h2, h3, h4, h5, h6, .display-font {
 
 @media (max-width: 768px) {
     .scroll-btn {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
+        bottom: 30px;
+        right: 15px;
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
     }
 }
 

@@ -246,34 +246,37 @@ $(function() {
     }
 
     // 6. Global Utilities (Smart Scroll Toggle)
-    const $scrollBtn = $('#scrollToggleBtn');
-    
     $(window).scroll(function() {
         const scrollTop = $(this).scrollTop();
         const windowHeight = $(this).height();
         const documentHeight = $(document).height();
+        const $scrollBtn = $('#scrollToggleBtn');
         
-        // Sticky Navbar logic remains
+        // Sticky Navbar logic
         if (scrollTop > 100) {
             $('.navbar').addClass('sticky');
         } else {
             $('.navbar').removeClass('sticky');
         }
 
-        // Smart Toggle Icon/Mode logic
-        // If near bottom (within 150px) -> show UP arrow
-        if (scrollTop + windowHeight > documentHeight - 150) {
-            $scrollBtn.addClass('up').attr('aria-label', 'Scroll to top');
-        } else {
-            $scrollBtn.removeClass('up').attr('aria-label', 'Scroll to bottom');
+        // Smart Toggle Icon/Mode logic (only if button exists)
+        if ($scrollBtn.length) {
+            if (scrollTop + windowHeight > documentHeight - 150) {
+                $scrollBtn.addClass('up').attr('aria-label', 'Scroll to top');
+            } else {
+                $scrollBtn.removeClass('up').attr('aria-label', 'Scroll to bottom');
+            }
         }
     });
 
-    $scrollBtn.click(function() {
+    // Use delegated click for dynamic include compatibility
+    $(document).on('click', '#scrollToggleBtn', function() {
         if ($(this).hasClass('up')) {
             $('html, body').animate({ scrollTop: 0 }, 800);
         } else {
-            $('html, body').animate({ scrollTop: $(document).height() }, 1000);
+            // Precise scroll to bottom
+            const bottom = $(document).height() - $(window).height();
+            $('html, body').animate({ scrollTop: bottom }, 1000);
         }
         return false;
     });
