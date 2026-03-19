@@ -1068,67 +1068,56 @@ h1, h2, h3, h4, h5, h6, .display-font {
     margin-bottom: 8px;
 }
 
-/* Floating Utilities & Fixed Elements */
-.floating-apply {
+/* ===== APPLY BUTTON FIX ===== */
+.apply-btn {
     position: fixed;
-    right: 0; /* Flush against the right wall */
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--primary-navy);
-    color: var(--accent-gold);
-    padding: 15px 8px; /* Reduced padding */
-    border-radius: 8px 0 0 8px; /* Straight right edge, slightly rounded left */
-    z-index: 1050;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.8rem;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-    border: 2px solid var(--accent-gold);
-    border-right: none; /* No border on the flush side */
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
+    bottom: 90px;
+    right: 15px;
+
+    /* REMOVE ANY ROTATION */
+    transform: none !important;
+    writing-mode: horizontal-tb !important;
+
+    /* BUTTON STYLE */
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+
+    height: 52px;
+    padding: 0 22px;
+
+    border-radius: 30px;
+    background: #0d2b4d;
+    color: #f2b705;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    border: 2px solid #f2b705;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+
+    cursor: pointer;
+    z-index: 1050; /* Ensure it stays above other elements but consistent with header */
+
     transition: all 0.3s ease;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
+    text-decoration: none !important;
 }
 
-.floating-apply i {
-    font-size: 1.1rem;
-    margin-bottom: 0;
-    transform: rotate(90deg);
+/* HOVER EFFECT */
+.apply-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    color: #f2b705 !important;
 }
 
-.floating-apply:hover {
-    background-color: var(--accent-gold);
-    color: var(--primary-navy);
-    right: 10px;
-}
-
-/* Responsive visibility and structural changes */
-@media (max-width: 991px) {
-    .floating-apply {
-        display: flex !important;
-        writing-mode: horizontal-tb; /* Horizontal text for mobile */
-        text-orientation: initial;
-        flex-direction: row;
-        right: 15px;
-        bottom: 80px; /* Positioned above the backToTop button */
-        top: auto;
-        transform: none;
-        padding: 10px 20px;
-        border-radius: 50px;
-        font-size: 0.75rem;
-        border-right: 2px solid var(--accent-gold) !important; /* Restore border on mobile */
-        box-shadow: var(--shadow-lg);
-    }
-    
-    .floating-apply i {
-        transform: none; /* Reset icon rotation */
-        font-size: 0.9rem;
+/* MOBILE FIX */
+@media (max-width: 768px) {
+    .apply-btn {
+        right: 10px;
+        bottom: 80px;
+        font-size: 13px;
+        padding: 0 18px;
     }
 }
 
