@@ -1038,12 +1038,30 @@ img[src*="Philo"] { object-position: center 15%; }
 .floating-apply:hover {
     background-color: var(--accent-gold);
     color: var(--primary-navy);
-    padding-right: 15px; /* Slight slide out effect */
+    right: 10px;
 }
 
+/* Responsive visibility and structural changes */
 @media (max-width: 991px) {
     .floating-apply {
-        display: none !important;
+        display: flex !important;
+        writing-mode: horizontal-tb; /* Horizontal text for mobile */
+        text-orientation: initial;
+        flex-direction: row;
+        right: 15px;
+        bottom: 80px; /* Positioned above the backToTop button */
+        top: auto;
+        transform: none;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        border-right: 2px solid var(--accent-gold) !important; /* Restore border on mobile */
+        box-shadow: var(--shadow-lg);
+    }
+    
+    .floating-apply i {
+        transform: none; /* Reset icon rotation */
+        font-size: 0.9rem;
     }
 }
 

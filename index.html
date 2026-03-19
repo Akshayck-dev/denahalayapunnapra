@@ -166,7 +166,8 @@
                     </div>
                 </div>
                 
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+                <!-- Desktop: 3-column grid -->
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center d-none d-md-flex">
                     <!-- Program 1 -->
                     <div class="col" data-aos="fade-up" data-aos-delay="100">
                         <div class="program-card">
@@ -193,6 +194,42 @@
                             <p>One-Year Diploma Course in Psycho-Spiritual Integration for Junior Religious Sisters.</p>
                             <a href="services.html" class="btn-orange">Read More <i class="fas fa-chevron-right ms-2" aria-hidden="true"></i></a>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Mobile: Auto-moving Carousel -->
+                <div id="programsCarousel" class="carousel slide d-md-none" data-bs-ride="carousel" data-bs-interval="4000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="program-card mx-2">
+                                <div class="icon-box"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
+                                <h3>Formators’ Diploma</h3>
+                                <p>Formators’ Course (One-Year Diploma Course in Formative Spirituality & Pastoral Counselling).</p>
+                                <a href="services.html" class="btn-orange">Read More <i class="fas fa-chevron-right ms-2" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="program-card mx-2">
+                                <div class="icon-box"><i class="fas fa-university" aria-hidden="true"></i></div>
+                                <h3>Clinical Psychology Master’s</h3>
+                                <p>Two-Year master's Programme in Clinical Psychology and Pastoral Counselling (Formators’ Course).</p>
+                                <a href="services.html" class="btn-orange">Read More <i class="fas fa-chevron-right ms-2" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="program-card mx-2">
+                                <div class="icon-box"><i class="fas fa-heart-pulse" aria-hidden="true"></i></div>
+                                <h3>Psycho-Spiritual Integration</h3>
+                                <p>One-Year Diploma Course in Psycho-Spiritual Integration for Junior Religious Sisters.</p>
+                                <a href="services.html" class="btn-orange">Read More <i class="fas fa-chevron-right ms-2" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Indicators -->
+                    <div class="carousel-indicators" style="position: relative; margin-top: 20px; margin-bottom: 0;">
+                        <button type="button" data-bs-target="#programsCarousel" data-bs-slide-to="0" class="active bg-gold" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#programsCarousel" data-bs-slide-to="1" class="bg-gold" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#programsCarousel" data-bs-slide-to="2" class="bg-gold" aria-label="Slide 3"></button>
                     </div>
                 </div>
 
