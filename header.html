@@ -1,0 +1,119 @@
+<!-- Floating Apply Now Button -->
+<a href="#" class="floating-apply" data-bs-toggle="modal" data-bs-target="#applyModal">
+    <i class="fas fa-edit"></i>
+    <span>Apply Now</span>
+</a>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top py-3">
+    <div class="container">
+        <!-- Logo Left -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="./assets/images/denahalaya_logo.png" alt="Denahalaya Logo" style="max-height: 55px;">
+            <div class="ms-3 d-none d-sm-block">
+                <span class="d-block h5 mb-0 fw-bold text-navy">DENAHALAYA</span>
+                <span class="small text-muted display-font">Psycho-Spiritual Institute</span>
+            </div>
+        </a>
+
+        <!-- Toggle Button for Mobile -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation Middle -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="about.html" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        About Us
+                    </a>
+                    <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="aboutDropdown">
+                        <li><a class="dropdown-item" href="about.html">Our Profile</a></li>
+                        <li><a class="dropdown-item" href="about.html#leadership">Leadership</a></li>
+                        <li><a class="dropdown-item" href="contact-us.html">Location</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="services.html" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Programs
+                    </a>
+                    <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="programsDropdown">
+                        <li><a class="dropdown-item" href="services.html">All Programs</a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#applyModal">Apply Now</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="faculty.html">Faculty</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact-us.html">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Apply Now Modal -->
+<div class="modal fade" id="applyModal" tabindex="-1" aria-labelledby="applyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header border-0 flex-column align-items-center pt-5 pb-0 position-relative">
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close" style="filter: none;"></button>
+                <div class="text-center w-100">
+                    <h1 class="brand-title-modal mb-1">DENAHALAYA</h1>
+                    <p class="brand-subtitle-modal mb-1">Institute of Formation, Punnapra</p>
+                    <p class="course-short-title mb-4">ONE MONTH SHORT COURSE FOR FORMATORS</p>
+                    <div class="app-form-box mx-auto mb-4">
+                        <span>APPLICATION FORM</span>
+                    </div>
+                    <hr class="modal-divider mx-5">
+                </div>
+            </div>
+            <div class="modal-body p-4 p-md-5 pt-2">
+                <div class="text-center mb-4">
+                    <h2 class="app-main-heading">Denahalaya Course Application</h2>
+                </div>
+                <form id="applicationFormGlobal" class="row g-3">
+                    <div class="col-12">
+                        <input type="text" name="name" class="form-control" placeholder="Applicant's Name" required>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="number" name="age" class="form-control" placeholder="Age" required>
+                    </div>
+                    <div class="col-md-12">
+                        <textarea name="address" class="form-control" placeholder="Contact Address" rows="3" required></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" name="pin" class="form-control" placeholder="Pin" required>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="tel" name="phone" class="form-control" placeholder="Phone" required>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" name="diocese" class="form-control" placeholder="Diocese / Congregation">
+                    </div>
+                    <div class="col-12">
+                        <input type="text" name="qualification" class="form-control" placeholder="Highest Qualification">
+                    </div>
+                    <div class="col-12">
+                        <input type="text" name="apostolate" class="form-control" placeholder="Present Apostolate / Ministry">
+                    </div>
+                    <div class="col-12">
+                        <textarea name="reason" class="form-control" placeholder="Reason for attending this course" rows="3"></textarea>
+                    </div>
+                    <div class="col-12 text-center mt-5">
+                        <button type="submit" class="btn-submit-pill px-5 py-3">
+                            Submit Application
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
