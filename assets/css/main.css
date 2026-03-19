@@ -21,7 +21,7 @@
 }
 
 /* Custom Carousel Indicators */
-#statsCarousel .carousel-indicators [data-bs-target] {
+.carousel-indicators [data-bs-target] {
     background-color: var(--accent-gold) !important;
     width: 10px;
     height: 10px;
@@ -31,9 +31,13 @@
     margin: 0 5px;
 }
 
-#statsCarousel .carousel-indicators .active {
+.carousel-indicators .active {
     opacity: 1;
     transform: scale(1.2);
+}
+
+.bg-gold {
+    background-color: var(--accent-gold) !important;
 }
 
 html, body {
