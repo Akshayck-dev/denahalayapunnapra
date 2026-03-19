@@ -1088,18 +1088,26 @@ img[src*="Philo"] { object-position: center 15%; }
         overflow-x: auto !important;
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
-        padding-bottom: 20px; /* Space for scrollbar if visible */
+        padding-bottom: 20px;
         gap: 15px;
         margin-left: -15px; 
         margin-right: -15px;
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        justify-content: flex-start !important;
+        scroll-padding-inline: 20px;
     }
 
     .mobile-horizontal-scroll > [class*="col"] {
-        flex: 0 0 85% !important; /* Shows 85% of one card, hinting at next */
-        max-width: 85% !important;
-        scroll-snap-align: center;
+        flex: 0 0 92% !important; /* Larger cards for better mobile focus */
+        max-width: 92% !important;
+        scroll-snap-align: start;
+    }
+
+    /* Extra padding for the last item to prevent sticking to the edge */
+    .mobile-horizontal-scroll::after {
+        content: '';
+        flex: 0 0 20px;
     }
 
     /* Hide scrollbar but keep functionality */
@@ -1111,5 +1119,6 @@ img[src*="Philo"] { object-position: center 15%; }
         scrollbar-width: none;
     }
 }
+
 
 
