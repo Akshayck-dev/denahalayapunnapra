@@ -56,7 +56,7 @@ body.modal-open {
     overflow: hidden !important;
 }
 
-header, footer, [data-include] {
+header, footer {
     margin: 0 !important;
     padding: 0 !important;
     width: 100%;
@@ -64,6 +64,11 @@ header, footer, [data-include] {
     overflow: visible !important; /* Allow dropdowns and buttons to fly out */
     z-index: 1000; /* Standard high priority, but lower than modals */
     position: relative;
+}
+
+[data-include] {
+    display: block;
+    width: 100%;
 }
 
 body {
@@ -1628,6 +1633,17 @@ body.modal-open {
     background: rgba(0, 0, 0, 0.6) !important;
     backdrop-filter: blur(4px);
     z-index: 9999 !important;
+    pointer-events: auto !important;
+}
+
+.modal:not(.show) {
+    display: none !important;
+    pointer-events: none !important;
+}
+
+.modal-dialog {
+    pointer-events: auto !important;
+    z-index: 10000 !important;
 }
 
 .modal-backdrop {
