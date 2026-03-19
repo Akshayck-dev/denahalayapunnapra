@@ -933,19 +933,15 @@ img[src*="Philo"] { object-position: center 15%; }
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     border: 2px solid var(--accent-gold);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-}
-
-.backToTop.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
 }
 
 .backToTop i {
     font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.backToTop.down i {
+    transform: rotate(180deg);
 }
 
 .backToTop:hover {

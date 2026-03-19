@@ -168,7 +168,11 @@ $(function() {
 
     // 6. Global Utilities
     $('.backToTop').click(function() {
-        $('html, body').animate({ scrollTop: 0 }, 600);
+        if ($(this).hasClass('down')) {
+            $('html, body').animate({ scrollTop: $(document).height() }, 1000);
+        } else {
+            $('html, body').animate({ scrollTop: 0 }, 800);
+        }
         return false;
     });
 
@@ -180,11 +184,14 @@ $(function() {
             $('.navbar').removeClass('sticky');
         }
 
-        // Back to Top Visibility
+        // Toggle Scroll Button (Up/Down)
         if ($(this).scrollTop() > 400) {
-            $('.backToTop').addClass('active');
+            $('.backToTop').removeClass('down');
         } else {
-            $('.backToTop').removeClass('active');
+            $('.backToTop').addClass('down');
         }
     });
+
+    // Set initial state
+    $(window).trigger('scroll');
 });
