@@ -1703,5 +1703,36 @@ body.modal-open {
 }
 }
 
+/* --- PREMIUM SUCCESS POPUP STYLES --- */
+.swal2-timer-progress-bar {
+    background: #d4a017 !important;
+}
+
+.custom-success-popup {
+    border-radius: 15px !important;
+    padding: 2.5rem 1rem !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.swal2-html-container {
+    margin: 1.5rem 0 0 !important;
+    overflow: hidden !important;
+}
+
+@media (max-width: 768px) {
+    .custom-success-popup {
+        width: 90% !important;
+        padding: 2rem 1rem !important;
+    }
+    
+    .custom-success-popup h3 {
+        font-size: 1.25rem !important;
+    }
+    
+    .custom-success-popup p {
+        font-size: 0.9rem !important;
+    }
+}
+
 
 
