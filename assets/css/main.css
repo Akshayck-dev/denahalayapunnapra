@@ -54,6 +54,8 @@ header, [data-include] {
     width: 100%;
     display: block;
     overflow: visible !important; /* Critical to allow dropdowns to fly out */
+    z-index: 3000 !important;
+    position: relative;
 }
 
 body {
@@ -399,13 +401,13 @@ h1, h2, h3, h4, h5, h6, .display-font {
     transition: var(--transition-base);
     padding: 15px 0;
     position: relative;
-    z-index: 1080; /* Ensure navbar stays above page content */
+    z-index: 3000 !important; /* Extremely high to beat any other section */
 }
 
 .navbar.sticky {
     box-shadow: var(--shadow-sm);
     padding: 10px 0;
-    z-index: 1080;
+    z-index: 3000 !important;
 }
 
 .nav-link {
@@ -480,7 +482,7 @@ h1, h2, h3, h4, h5, h6, .display-font {
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     border: none;
     min-width: 200px;
-    z-index: 1100; /* Ensure submenu is above all content including hero/banners */
+    z-index: 3100 !important; /* Ensure submenu is above all content including hero/banners */
 }
 
 .dropdown-item {
@@ -1221,47 +1223,48 @@ h1, h2, h3, h4, h5, h6, .display-font {
     }
 }
 
-.backToTop {
+/* Smart Scroll Toggle Button */
+.scroll-btn {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 45px;
-    height: 45px;
-    background-color: var(--primary-navy);
-    color: var(--accent-gold);
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    border: 2px solid var(--accent-gold);
+    background: var(--primary-navy);
+    color: var(--accent-gold);
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 1050;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.4s ease, box-shadow 0.4s ease;
-    border: 2px solid var(--accent-gold);
+    z-index: 3100; /* Same as dropdown to stay visible */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.backToTop i {
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
+.scroll-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    background: var(--accent-gold);
+    color: var(--primary-navy);
 }
 
-.backToTop.down i {
+.scroll-btn i {
+    transition: transform 0.4s ease;
+}
+
+/* Rotate icon when scrolling up */
+.scroll-btn.up i {
     transform: rotate(180deg);
 }
 
-.backToTop:hover {
-    background-color: var(--accent-gold);
-    color: var(--primary-navy);
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-}
-
 @media (max-width: 768px) {
-    .backToTop {
+    .scroll-btn {
         bottom: 20px;
         right: 20px;
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
     }
 }
 

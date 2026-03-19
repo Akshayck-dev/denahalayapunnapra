@@ -245,30 +245,37 @@ $(function() {
         });
     }
 
-    // 6. Global Utilities
-    $('.backToTop').click(function() {
-        if ($(this).hasClass('down')) {
-            $('html, body').animate({ scrollTop: $(document).height() }, 1000);
-        } else {
-            $('html, body').animate({ scrollTop: 0 }, 800);
-        }
-        return false;
-    });
-
+    // 6. Global Utilities (Smart Scroll Toggle)
+    const $scrollBtn = $('#scrollToggleBtn');
+    
     $(window).scroll(function() {
-        // Sticky Navbar
-        if ($(this).scrollTop() > 100) {
+        const scrollTop = $(this).scrollTop();
+        const windowHeight = $(this).height();
+        const documentHeight = $(document).height();
+        
+        // Sticky Navbar logic remains
+        if (scrollTop > 100) {
             $('.navbar').addClass('sticky');
         } else {
             $('.navbar').removeClass('sticky');
         }
 
-        // Toggle Scroll Button (Up/Down)
-        if ($(this).scrollTop() > 400) {
-            $('.backToTop').removeClass('down');
+        // Smart Toggle Icon/Mode logic
+        // If near bottom (within 150px) -> show UP arrow
+        if (scrollTop + windowHeight > documentHeight - 150) {
+            $scrollBtn.addClass('up').attr('aria-label', 'Scroll to top');
         } else {
-            $('.backToTop').addClass('down');
+            $scrollBtn.removeClass('up').attr('aria-label', 'Scroll to bottom');
         }
+    });
+
+    $scrollBtn.click(function() {
+        if ($(this).hasClass('up')) {
+            $('html, body').animate({ scrollTop: 0 }, 800);
+        } else {
+            $('html, body').animate({ scrollTop: $(document).height() }, 1000);
+        }
+        return false;
     });
 
     // Faculty Load More Logic (Mobile Only)
