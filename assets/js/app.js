@@ -126,7 +126,7 @@ $(function() {
             const $btn = $form.find('button[type="submit"]');
             const originalText = $btn.html();
 
-            $btn.html('Submitting... <i class="fas fa-spinner fa-spin ms-2"></i>').prop('disabled', true);
+            $btn.html('Submitting… <i class="fas fa-spinner fa-spin ms-2"></i>').prop('disabled', true);
 
             if (typeof emailjs === 'undefined') {
                 console.error("EmailJS not loaded on this page.");

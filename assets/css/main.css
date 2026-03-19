@@ -32,6 +32,7 @@ h1, h2, h3, h4, h5, h6, .display-font {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     color: var(--primary-navy);
+    text-wrap: balance;
 }
 
 /* Base Layout */
@@ -144,6 +145,17 @@ h1, h2, h3, h4, h5, h6, .display-font {
 .form-control:focus {
     border-color: var(--accent-gold);
     box-shadow: 0 0 0 0.25rem rgba(242, 183, 5, 0.15);
+    outline: none;
+}
+
+/* Accessible Focus States */
+:focus-visible {
+    outline: 2px solid var(--accent-gold) !important;
+    outline-offset: 2px !important;
+}
+
+.form-control:focus-visible {
+    outline: none !important;
 }
 
 .about-img-container img {
@@ -564,7 +576,7 @@ img[src*="Philo"] { object-position: center 15%; }
     text-transform: uppercase;
     font-size: 0.85rem;
     box-shadow: -4px 0 20px rgba(0,0,0,0.3);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.4s ease, box-shadow 0.4s ease;
     border: 1px solid rgba(242, 183, 5, 0.3);
     display: flex;
     align-items: center;
@@ -720,7 +732,7 @@ img[src*="Philo"] { object-position: center 15%; }
     letter-spacing: 1px;
     text-transform: uppercase;
     font-size: 0.85rem;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
     box-shadow: 0 4px 15px rgba(75, 73, 172, 0.3);
 }
 
@@ -741,7 +753,7 @@ img[src*="Philo"] { object-position: center 15%; }
     color: var(--navy);
     font-size: 1.2rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
     border: 2px solid transparent;
 }
 
@@ -798,7 +810,7 @@ img[src*="Philo"] { object-position: center 15%; }
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     font-size: 0.95rem;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
     display: inline-block;
 }
 
@@ -977,7 +989,7 @@ img[src*="Philo"] { object-position: center 15%; }
     cursor: pointer;
     z-index: 1050;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.4s ease, box-shadow 0.4s ease;
     border: 2px solid var(--accent-gold);
 }
 
@@ -1117,7 +1129,7 @@ img[src*="Philo"] { object-position: center 15%; }
 .footer-link-lite {
     color: rgba(255, 255, 255, 0.6) !important;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
     font-weight: 500;
 }
 

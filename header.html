@@ -1,5 +1,5 @@
 <!-- Floating Apply Now Button -->
-<a href="#" class="floating-apply" data-bs-toggle="modal" data-bs-target="#applyModal">
+<a href="#" class="floating-apply" data-bs-toggle="modal" data-bs-target="#applyModal" aria-label="Open application form">
     <i class="fas fa-edit"></i>
     <span>Apply Now</span>
 </a>
@@ -16,7 +16,7 @@
         </a>
 
         <!-- Toggle Button for Mobile -->
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -81,7 +81,7 @@
                 </div>
                 <form id="applicationFormGlobal" class="row g-3">
                     <div class="col-12">
-                        <input type="text" name="name" class="form-control" placeholder="Applicant's Name" required>
+                        <input type="text" name="name" class="form-control" placeholder="Applicant's Name" autocomplete="name" required>
                     </div>
                     <div class="col-md-12">
                         <input type="number" name="age" class="form-control" placeholder="Age" required>
@@ -90,10 +90,10 @@
                         <textarea name="address" class="form-control" placeholder="Contact Address" rows="3" required></textarea>
                     </div>
                     <div class="col-md-12">
-                        <input type="text" name="pin" class="form-control" placeholder="Pin" required>
+                        <input type="text" name="pin" class="form-control" placeholder="Pin" autocomplete="postal-code" inputmode="numeric" required>
                     </div>
                     <div class="col-md-12">
-                        <input type="tel" name="phone" class="form-control" placeholder="Phone" required>
+                        <input type="tel" name="phone" class="form-control" placeholder="Phone" autocomplete="tel" inputmode="tel" required>
                     </div>
                     <div class="col-12">
                         <input type="text" name="diocese" class="form-control" placeholder="Diocese / Congregation">

@@ -81,15 +81,15 @@
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <label class="form-label small fw-bold">Full Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                                        <input type="text" class="form-control" id="name" placeholder="Enter your name" autocomplete="name" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label small fw-bold">Email Address</label>
-                                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                        <input type="email" class="form-control" id="email" placeholder="Enter your email" autocomplete="email" spellcheck="false" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label small fw-bold">Phone Number</label>
-                                        <input type="text" class="form-control" id="phone" placeholder="Your phone number" required>
+                                        <input type="tel" class="form-control" id="phone" placeholder="Your phone number" autocomplete="tel" inputmode="tel" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label small fw-bold">Subject</label>
@@ -135,7 +135,7 @@
             const subject = document.getElementById("subject").value;
             const message = document.getElementById("message").value;
 
-            const text = `Hello Denahalaya...%0ANew Enquiry Details,%0AName: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone)}%0ASubject: ${encodeURIComponent(subject)} %0AMessage: ${encodeURIComponent(message)}`;
+            const text = `Hello Denahalaya…%0ANew Enquiry Details,%0AName: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone)}%0ASubject: ${encodeURIComponent(subject)} %0AMessage: ${encodeURIComponent(message)}`;
             const phoneNumber = "918281015322";
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${text}`;
             window.open(whatsappUrl, "_blank");
