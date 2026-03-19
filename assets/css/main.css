@@ -1192,10 +1192,17 @@ img[src*="Philo"] { object-position: center 15%; }
         scroll-padding-inline: 20px;
     }
 
+    .mobile-horizontal-scroll > [class*="col"],
+    .mobile-horizontal-scroll > a,
+    .mobile-horizontal-scroll > .btn {
+        flex: 0 0 auto !important;
+        scroll-snap-align: start;
+        max-width: none !important;
+    }
+
     .mobile-horizontal-scroll > [class*="col"] {
         flex: 0 0 92% !important; /* Larger cards for better mobile focus */
         max-width: 92% !important;
-        scroll-snap-align: start;
     }
 
     /* Extra padding for the last item to prevent sticking to the edge */
