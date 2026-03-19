@@ -1161,6 +1161,13 @@ img[src*="Philo"] { object-position: center 15%; }
     .navbar-collapse .dropdown-menu.show::-webkit-scrollbar {
         display: none;
     }
+
+    /* Fix card width in scroll for services page */
+    .mobile-horizontal-scroll .program-card {
+        max-width: none !important;
+        width: 100% !important;
+    }
 }
+
 
 
