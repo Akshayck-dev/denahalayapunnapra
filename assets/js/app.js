@@ -134,6 +134,7 @@ $(function() {
             });
         }
 
+
         // 6. Global Application Form Submission
         if (typeof emailjs !== 'undefined') {
             emailjs.init("RmgrNAAYbmB8BvIJ2");

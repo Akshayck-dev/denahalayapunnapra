@@ -20,6 +20,22 @@
     --shadow-lg: 0 16px 48px rgba(11, 42, 74, 0.15);
 }
 
+/* Custom Carousel Indicators */
+#statsCarousel .carousel-indicators [data-bs-target] {
+    background-color: var(--accent-gold) !important;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0.5;
+    border: none;
+    margin: 0 5px;
+}
+
+#statsCarousel .carousel-indicators .active {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
 html, body {
     overflow-x: hidden;
     width: 100%;
@@ -162,21 +178,7 @@ h1, h2, h3, h4, h5, h6, .display-font {
     color: var(--primary-navy);
 }
 
-/* Custom Carousel Indicators */
-#statsCarousel .carousel-indicators [data-bs-target] {
-    background-color: var(--accent-gold) !important;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    opacity: 0.5;
-    border: none;
-    margin: 0 5px;
-}
 
-#statsCarousel .carousel-indicators .active {
-    opacity: 1;
-    transform: scale(1.2);
-}
 
 .about-img-container {
     position: relative;
@@ -523,6 +525,7 @@ h1, h2, h3, h4, h5, h6, .display-font {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     border: 1px solid rgba(0,0,0,0.05);
     transition: all 0.3s ease;
+    z-index: 10;
 }
 
 .faculty-arrow:after {
