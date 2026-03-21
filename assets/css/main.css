@@ -1266,8 +1266,8 @@ section:last-child, .section:last-child {
 /* Focus and Active States (Preserved Premium Glow) */
 .premium-form .form-control:focus,
 .premium-form .form-select:focus {
-    border-color: var(--accent-gold);
-    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+    border-color: #c8a96a;
+    box-shadow: 0 0 0 2px rgba(200, 169, 106, 0.2);
     background: #ffffff;
 }
 
