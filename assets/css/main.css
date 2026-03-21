@@ -178,26 +178,199 @@ body {
     position: relative;
     /* overflow-x MUST NOT BE HERE for Lenis to work */
     -webkit-font-smoothing: antialiased;
+/*
+  Denahalaya Institute - Modern Design System
+  Typography: Playfair Display (Headings), Inter (Body)
+  Palette: Navy (#00212b), Gold (#c5a059), Background (#f7f9fc)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* ===== REQUIRED LENIS CSS BOILERPLATE ===== */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+/* ======================================== */
+
+/* Native smooth scrolling removed per user request for Lenis override */
+
+.stat-pill {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(11, 44, 77, 0.05);
+    color: #0b2c4d;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(11, 44, 77, 0.1);
+}
+
+.text-gold {
+    color: #d4af37;
+}
+.top-bar {
+    background: linear-gradient(90deg, #0a2540, #002147);
+    color: #fff;
+    font-size: 13px;
+    padding: 8px 10px;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+}
+
+.top-bar .top-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.marquee-container {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.marquee-content {
+    display: inline-flex;
+    animation: marquee 30s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.marquee-content span {
+    padding-right: 50px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    opacity: 0.95;
+}
+
+.top-bar:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.top-bar .apply-btn {
+    padding: 3px 12px;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 20px;
+    font-size: 11px;
+    color: #fff !important;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    background: transparent;
+}
+
+.top-bar .apply-btn:hover {
+    background: #c8a96a;
+    border-color: #c8a96a;
+    color: #000 !important;
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 6px 10px;
+    }
+    .marquee-content {
+        animation-duration: 20s; /* Faster on mobile due to shorter width */
+    }
+    .top-bar .apply-btn {
+        padding: 2px 8px;
+        font-size: 10px;
+    }
+}
+
+:root {
+    --primary-navy: #0b2a4a; /* New Deep Navy Blue */
+    --accent-gold: #f2b705;  /* New Professional Gold */
+    --accent-gold-hover: #d9a404;
+    --bg-light: #f7f9fc;    /* Light Neutral Gray */
+    --text-dark: #0b2a4a;   /* Matching primary navy for better cohesion */
+    --text-muted: #6c757d;
+    --white: #ffffff;
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-sm: 0 4px 12px rgba(11, 42, 74, 0.05);
+    --shadow-md: 0 8px 24px rgba(11, 42, 74, 0.1);
+    --shadow-lg: 0 16px 48px rgba(11, 42, 74, 0.15);
+}
+
+/* Custom Carousel Indicators */
+.carousel-indicators [data-bs-target] {
+    background-color: var(--accent-gold) !important;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0.5;
+    border: none;
+    margin: 0 5px;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.bg-gold {
+    background-color: var(--accent-gold) !important;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    position: relative;
+}
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    position: relative;
+    /* overflow-x MUST NOT BE HERE for Lenis to work */
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 section {
     will-change: transform; /* Hardware acceleration */
 }
 
-/* Global Card Performance & Hover (Requested by user) */
+/* Global Card Performance & Hover (Requested by user) - Removed custom styling to preserve exact design */
 .card {
-    background: rgba(255,255,255,0.95) !important;
-    backdrop-filter: blur(6px) !important;
-    border-radius: 20px !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
     will-change: transform;
-    border: none !important;
 }
 
 .card:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
 }
 
 .wrapper {
@@ -333,13 +506,13 @@ section:last-child, .section:last-child {
     padding: 0 20px !important;
 }
 
-.bg-navy { 
-    background-color: var(--primary-navy); 
+.bg-navy {
+    background-color: var(--primary-navy);
     color: var(--white);
 }
 
-.bg-white { 
-    background-color: var(--white); 
+.bg-white {
+    background-color: var(--white);
 }
 
 /* Typography Helpers */
@@ -573,7 +746,7 @@ section:last-child, .section:last-child {
 .about-image {
     position: relative;
     border-radius: 20px;
-    overflow: visible; 
+    overflow: visible;
 }
 
 .about-image img {
@@ -1549,7 +1722,7 @@ section:last-child, .section:last-child {
     color: #0b2c4d !important;
     border: none;
     border-radius: 25px;
-    padding: 8px 12px;
+    padding: 10px 20px;
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -1564,7 +1737,7 @@ section:last-child, .section:last-child {
     color: #ffffff !important;
     border: none;
     border-radius: 25px;
-    padding: 8px 12px;
+    padding: 10px 20px;
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -2044,7 +2217,7 @@ section:last-child, .section:last-child {
 
 /* Subpage Banner */
 .subpage-banner {
-    background: 
+    background:
         linear-gradient(rgba(11, 44, 77, 0.8), rgba(11, 44, 77, 0.85)),
         url('../images/about_classroom_1.jpg') center/cover no-repeat fixed;
     padding: 120px 0 80px;
@@ -2106,14 +2279,14 @@ form {
     filter: invert(1) grayscale(100%) brightness(200%);
 }
 
-.modal-body .form-control, 
+.modal-body .form-control,
 .modal-body .form-select {
     border: 1px solid rgba(11, 42, 74, 0.1);
     background-color: #f8faff;
     transition: var(--transition-base);
 }
 
-.modal-body .form-control:focus, 
+.modal-body .form-control:focus,
 .modal-body .form-select:focus {
     border-color: var(--accent-gold);
     background-color: white;
@@ -2240,7 +2413,7 @@ form {
 /* ===== PREMIUM COURSE SECTION (FEATURED GRID) ===== */
 .programs-section-premium {
   padding: 100px 5%;
-  background: 
+  background:
     linear-gradient(rgba(11, 44, 77, 0.8), rgba(11, 44, 77, 0.85)),
     url('../images/about_classroom_1.jpg') center/cover no-repeat fixed;
   position: relative;
@@ -2634,8 +2807,8 @@ form {
     font-weight: 500;
 }
 
-.programs-bg-section h2, 
-.programs-bg-section h4, 
+.programs-bg-section h2,
+.programs-bg-section h4,
 .programs-bg-section .ornament,
 .programs-bg-section h5 {
     color: #ffffff !important;
@@ -2920,8 +3093,8 @@ body.modal-open {
 
 /* PREMIUM BUTTON HOVER (GLOBAL) */
 .btn,
-.btn-custom, 
-.btn-about, 
+.btn-custom,
+.btn-about,
 .view-btn,
 .btn-primary-custom,
 .btn-outline-custom {
@@ -2929,8 +3102,8 @@ body.modal-open {
 }
 
 .btn:hover,
-.btn-custom:hover, 
-.btn-about:hover, 
+.btn-custom:hover,
+.btn-about:hover,
 .view-btn:hover,
 .btn-primary-custom:hover,
 .btn-outline-custom:hover {
@@ -2946,15 +3119,5 @@ body.modal-open {
     .programs-grid-premium {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 15px !important;
-    }
-    .program-title-premium {
-        font-size: 1rem !important;
-    }
-    .program-card-premium {
-        padding: 15px !important;
-    }
-    .program-btn-group button {
-        padding: 8px 10px !important;
-        font-size: 0.7rem !important;
     }
 }
