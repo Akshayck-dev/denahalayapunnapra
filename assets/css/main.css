@@ -523,7 +523,7 @@ section:last-child, .section:last-child {
     position: relative;
     padding: 60px 20px !important;
     background: linear-gradient(rgba(10,37,64,0.88), rgba(10,37,64,0.88)),
-                url('https://images.unsplash.com/photo-1507692049790-de58290a4334?q=80&w=2000') center/cover no-repeat;
+                url('../images/about_classroom_1.jpg') center/cover no-repeat;
     overflow: hidden;
     max-width: 1200px;
     margin: auto;
@@ -575,7 +575,7 @@ section:last-child, .section:last-child {
     content: "";
     position: absolute;
     inset: 0;
-    background: url('https://images.unsplash.com/photo-1523908511403-7fc7b25592f4?q=80&w=1000') center/cover no-repeat;
+    background: url('../images/about_classroom_1.jpg') center/cover no-repeat;
     opacity: 0.05; /* User exact 0.05 */
     z-index: 0;
     pointer-events: none;
