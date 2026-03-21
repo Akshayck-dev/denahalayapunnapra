@@ -17,7 +17,11 @@
                     <h2 class="app-main-heading mb-0">Registration Form</h2>
                 </div>
                 <form id="applicationFormGlobal">
-                    <select name="course" class="form-select mb-3" required>
+                    <input type="text" name="name" class="form-control" placeholder="Applicant's Name" autocomplete="name" required>
+                    <input type="number" name="age" class="form-control" placeholder="Age" required>
+                    <input type="email" name="email" class="form-control" placeholder="Email Address" autocomplete="email" required>
+                    <textarea name="address" class="form-control" placeholder="Contact Address" rows="2" required></textarea>
+                    <select name="course" class="form-select mt-3 mb-3" required>
                         <option value="" selected disabled>-- Select Course * --</option>
                         <option value="One-Year Diploma in Formative Spirituality & Pastoral Counselling">One-Year Diploma in Formative Spirituality & Pastoral Counselling</option>
                         <option value="Two-Year Master’s Programme in Clinical Psychology (IGNOU)">Two-Year Master’s Programme in Clinical Psychology (IGNOU)</option>
@@ -28,10 +32,6 @@
                         <option value="Three-Month Certificate Programme">Three-Month Certificate Programme</option>
                         <option value="Three-week Formators’ Short Course">Three-week Formators’ Short Course</option>
                     </select>
-                    <input type="text" name="name" class="form-control" placeholder="Applicant's Name" autocomplete="name" required>
-                    <input type="number" name="age" class="form-control" placeholder="Age" required>
-                    <input type="email" name="email" class="form-control" placeholder="Email Address" autocomplete="email" required>
-                    <textarea name="address" class="form-control" placeholder="Contact Address" rows="2" required></textarea>
                     <input type="text" name="pin" class="form-control" placeholder="Pin" autocomplete="postal-code" inputmode="numeric" required>
                     <input type="tel" name="phone" class="form-control" placeholder="Phone" autocomplete="tel" inputmode="tel" required>
                     <input type="text" name="diocese" class="form-control" placeholder="Diocese / Congregation">
