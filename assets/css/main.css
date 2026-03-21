@@ -522,7 +522,7 @@ section:last-child, .section:last-child {
 .programs-section {
     position: relative;
     padding: 60px 20px !important;
-    background: linear-gradient(rgba(10,37,64,0.88), rgba(10,37,64,0.88)),
+    background: linear-gradient(rgba(10,37,64,0.65), rgba(10,37,64,0.65)),
                 url('../images/about_classroom_1.jpg') center/cover no-repeat;
     overflow: hidden;
     width: 100%;
@@ -533,7 +533,7 @@ section:last-child, .section:last-child {
     content: "";
     position: absolute;
     inset: 0;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(2px);
     z-index: 1;
 }
 
@@ -575,7 +575,7 @@ section:last-child, .section:last-child {
     position: absolute;
     inset: 0;
     background: url('../images/about_classroom_1.jpg') center/cover no-repeat;
-    opacity: 0.05; /* User exact 0.05 */
+    opacity: 0.12; /* Increased from 0.05 for visibility */
     z-index: 0;
     pointer-events: none;
 }
