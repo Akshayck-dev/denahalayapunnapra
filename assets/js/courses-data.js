@@ -5,186 +5,228 @@
 
 const COURSE_DATA = {
     diploma_counselling: {
-        title: "Diploma in Formative Spirituality & Pastoral Counselling",
-        tagline: "One-Year Diploma Course",
-        duration: "Jun 2026 – Mar 2027",
-        seats: "20",
-        age: "< 45",
+        title: "One-Year Diploma Course in Formative Spirituality & Pastoral Counselling",
+        tagline: "Formators' Diploma",
+        duration: "15 June 2026 to 15 March 2027",
+        seats: "20 (15 Religious Sisters and 5 Priests)",
+        age: "Under 45",
         highlights: [
-            "Christian Vocation Anthropology",
-            "Personal Accompaniment",
-            "School Counselling Training"
+            "Anthropology of Christian Vocation",
+            "Intensive Personal Accompaniment",
+            "NLP, AMR, Gestalt, REBT, Psychodynamic",
+            "School Counselling & Clinical Internship"
         ],
         content: `
-            <p>This is a one-year full-time residential course for priests and religious. It aims at developing a holistic vision of the person, integrating the insights of psychology and Christian anthropology.</p>
+            <h5 class="text-navy mb-3">Target Audience</h5>
+            <p>Formators, Superiors, Spiritual Directors, or those in/aspiring to Pastoral Ministry.</p>
+            
+            <h5 class="text-navy mb-3">Purpose</h5>
+            <p>Developing skills for assessing and accompanying future candidates to priesthood and religious life.</p>
+
+            <h5 class="text-navy mb-3">Course Components</h5>
             <ul>
-                <li>Self-awareness and Personal growth</li>
-                <li>Basic Counselling Skills</li>
-                <li>Human Development & Psycho-Pathology</li>
-                <li>Anthropology of Christian Vocation</li>
-                <li>Sexuality and Celibacy</li>
-                <li>Spiritual Direction</li>
-                <li>Supervised Practicum</li>
+                <li>Anthropology of Christian Vocation and Intensive Personal Accompaniment.</li>
+                <li>Psychotherapies (NLP, AMR, Gestalt, REBT, Psychodynamic Therapy).</li>
+                <li>Various Psycho-Spiritual and Theological courses.</li>
+                <li>Special Training in School Counselling and Clinical Internship with Guided Supervision.</li>
             </ul>
         `
     },
     master_psyc: {
-        title: "M.A. in Clinical Psychology + Formators' Course",
-        tagline: "Two-Year Master's Programme",
-        duration: "Jun 2026 – Mar 2028",
-        seats: "15",
-        age: "< 45",
+        title: "Two-Year Master's Programme in Clinical Psychology (IGNOU) + Diploma",
+        tagline: "M.A. Clinical Psychology + Diploma",
+        duration: "15 June 2026 to 30 March 2028",
+        seats: "15 (10 Religious Sisters and 5 Priests)",
+        age: "Under 45",
         highlights: [
-            "IGNOU M.A. Curriculum",
-            "Theology & Psychology",
-            "Clinical Internship"
+            "Nationally Recognized Degree",
+            "Christian Anthropological Perspective",
+            "Intensive Personal Accompaniment",
+            "Clinical Internship & Special Training"
         ],
         content: `
-            <p>This course integrates the IGNOU M.A. Psychology syllabus with the specialized Formators’ training of Denahalaya. It is designed for those who wish to have a professional degree in Psychology along with formative skills.</p>
+            <h5 class="text-navy mb-3">Target Audience</h5>
+            <p>Formators, Superiors, Teachers, Counsellors, and Therapists.</p>
+
+            <h5 class="text-navy mb-3">Details</h5>
+            <p>Students register for M.A. Psychology (specialization Clinical) with IGNOU for a nationally recognized degree while taking the Denahalaya Diploma.</p>
+
+            <h5 class="text-navy mb-3">Course Components</h5>
             <ul>
-                <li>Cognitive Psychology, Learning and Memory</li>
-                <li>Lifespan Psychology</li>
-                <li>Personality: Theories and Assessment</li>
-                <li>Advanced Social Psychology</li>
-                <li>Psychopathology</li>
-                <li>Research Methods and Statistics</li>
-                <li>Clinical Internship & Field Work</li>
+                <li>Integrated vision of clinical psychology from a Christian anthropological perspective.</li>
+                <li>Anthropology of Christian Vocation and Intensive Personal Accompaniment.</li>
+                <li>Psychotherapies (NLP, AMR, Gestalt, REBT, Psychodynamic Therapy etc.).</li>
+                <li>Clinical Internship, Guided Supervision, and Special Training in School Counselling.</li>
             </ul>
         `
     },
     junior_sisters: {
-        title: "Psycho-Spiritual Integration for Junior Sisters",
-        tagline: "One-Year Residential Course",
-        duration: "Jun 2026 – Mar 2027",
+        title: "One-Year Diploma Course in Psycho-Spiritual Integration",
+        tagline: "For Junior Religious Sisters",
+        duration: "15 June 2026 to 15 March 2027",
         seats: "10",
-        age: "< 50",
+        age: "N/A",
         highlights: [
-            "Vocation Growth Sessions",
+            "Vocational Journey Accompaniment",
+            "Vocation Growth Sessions (VGS)",
             "Personal Healing Workshops",
-            "Basic Counselling Skills"
+            "Psycho-Sexual Integration"
         ],
         content: `
-            <p>This course is specifically designed for junior religious sisters to help them integrate their psycho-spiritual lives and grow in their religious vocation.</p>
+            <h5 class="text-navy mb-3">Target Audience</h5>
+            <p>Designed for junior religious sisters to accompany them in their vocational journey.</p>
+
+            <h5 class="text-navy mb-3">Course Components</h5>
             <ul>
-                <li>Foundations of Religious Life</li>
-                <li>Inner Child Healing</li>
-                <li>Emotional Intelligence</li>
-                <li>Inter-personal Relationships</li>
-                <li>Community Living Dynamics</li>
-                <li>Prayer and Discernment</li>
+                <li>Intensive Psycho-Spiritual Accompaniment and Vocation Growth Sessions (VGS).</li>
+                <li>Workshops for Personal Healing including inner child therapy, intensive journaling, and transactional analysis.</li>
+                <li>Basic Psychological Courses, Counselling Skills, and Psychopathology.</li>
+                <li>Psycho-Sexual Integration Programme.</li>
+                <li>Psychotherapy practicum and clinical supervision.</li>
             </ul>
         `
     },
     renewal: {
-        title: "Psycho-Spiritual Renewal Course",
-        tagline: "One-Year Intensive Programme",
-        duration: "Jun 2026 – Mar 2027",
+        title: "One-Year Diploma Course in Psycho-Spiritual Renewal",
+        tagline: "Intensive Renewal Programme",
+        duration: "15 June 2026 to 15 March 2027",
         seats: "10",
-        age: "< 45",
+        age: "Under 45",
         highlights: [
-            "NLP, AMR, Gestalt Therapy",
+            "Intensive Accompaniment (VGS)",
             "Interdisciplinary Anthropology",
+            "Advanced Psychotherapies",
             "Clinical Supervision"
         ],
         content: `
-            <p>An intensive programme for personal renewal and professional growth. It uses various therapeutic tools to help participants deal with their own blocks and become effective accompaniers.</p>
+            <h5 class="text-navy mb-3">Target Audience</h5>
+            <p>For religious sisters and priests.</p>
+
+            <h5 class="text-navy mb-3">Course Components</h5>
             <ul>
-                <li>NLP and Gestalt Therapy</li>
-                <li>Healing of Memories</li>
-                <li>Addiction Counselling</li>
-                <li>Crisis Intervention</li>
-                <li>Family Systems</li>
-                <li>Grief Work</li>
+                <li>Intensive Psycho-Spiritual Accompaniment and Vocation Growth Sessions (VGS).</li>
+                <li>Anthropology of Christian Vocation (interdisciplinary).</li>
+                <li>Psychotherapies including NLP, AMR, Gestalt, REBT, and Psychodynamic Therapy.</li>
+                <li>Various psycho-spiritual and theological courses.</li>
+                <li>Psychotherapy practicum and clinical supervision.</li>
             </ul>
         `
     },
     certificate: {
-        title: "Certificate in Vocational-Motivational Assessment",
-        tagline: "Three-Month Specialization",
-        duration: "Jun 2026 – Sep 2026",
+        title: "Three-Month Certificate Programme in Motivational and Psychological Assessment",
+        tagline: "Formators & Superiors Specialization",
+        duration: "15 June 2026 to 15 September 2026",
         seats: "10",
-        age: "< 50",
+        age: "Under 50",
         highlights: [
-            "Psychopathology Fundamentals",
-            "Transactional Analysis",
-            "Advanced Specialization"
+            "Gregorian University Methodology",
+            "Psychodynamic Interview Techniques",
+            "Attachment Issue Insights",
+            "Motivational suitability assessment"
         ],
         content: `
-            <p>This course trains formators in the psychological assessment of candidates for priesthood and religious life. It focuses on identifying vocational suitability and motivational patterns.</p>
+            <h5 class="text-navy mb-3">Target Audience</h5>
+            <p>For religious sisters only; specifically designed for formators and superiors.</p>
+
+            <h5 class="text-navy mb-3">Purpose</h5>
+            <p>To enable assessment of candidates' motivations for religious life and priesthood through psychometric tests.</p>
+
+            <h5 class="text-navy mb-3">Course Components</h5>
             <ul>
-                <li>Principles of Psychological Assessment</li>
-                <li>Diagnostic Tools and Tests</li>
-                <li>Interview Techniques</li>
-                <li>Report Writing</li>
-                <li>Ethics in Assessment</li>
+                <li>Follows the assessment methodology of the Institute of Psychology, Pontifical Gregorian University, Rome.</li>
+                <li>Models of Formation and Anthropology of Christian Vocation.</li>
+                <li>Attachment Issues Among the Candidates and in-depth interviews based on a psychodynamic approach.</li>
+                <li>Psychopathology, Transaction Analysis, and Counselling Techniques.</li>
             </ul>
         `
     },
     short_course: {
-        title: "Short Course for Formators",
-        tagline: "Three-Week Intensive",
-        duration: "Apr 29 – May 19, 2026",
+        title: "Three-Week Short Course for Formators",
+        tagline: "Short Intensive Training",
+        duration: "April 29 – May 19, 2026",
         seats: "30",
         age: "No Limit",
         highlights: [
-            "Models of Formation",
-            "Attachment Patterns",
-            "Spiritual Direction"
+            "Address Internal Psychological Blocks",
+            "Growth-oriented Helping Techniques",
+            "Relationship Patterns & Attachment",
+            "Community Dynamics Study"
         ],
         content: `
-            <p>This is a three-week course specially designed for formators. It attempts at dealing with the question of how freedom to respond responsibly to one’s vocation is hampered by certain internal psychological blocks that can affect their motivation.</p>
+            <h5 class="text-navy mb-3">Target Audience</h5>
+            <p>Specially designed for formators.</p>
+
+            <h5 class="text-navy mb-3">Purpose</h5>
+            <p>To deal with internal psychological blocks affecting the freedom to respond to one's vocation.</p>
+
+            <h5 class="text-navy mb-3">Course Components</h5>
             <ul>
-                <li>Models of Formation, Anthropology of Christian Vocation</li>
-                <li>Psychopathology, Personality Styles</li>
-                <li>Relationship Patterns, Attachment Issues Among the Candidates</li>
-                <li>Diagnostic Tests, Counselling Skills</li>
-                <li>Spiritual Direction & Psychotherapy</li>
-                <li>Community Dynamics</li>
+                <li>Healing and growth-oriented helping techniques like counselling and spiritual direction.</li>
+                <li>Models of Formation, Anthropology of Christian Vocation, and Psychopathology.</li>
+                <li>Personality Styles, Relationship Patterns, and Attachment Issues.</li>
+                <li>Diagnostic Tests, Counselling Skills, and Community Dynamics.</li>
+                <li>Spiritual Direction and Psychotherapy.</li>
             </ul>
         `
     },
     bsc: {
-        title: "B.Sc. Psychology + Psycho-Spiritual Course",
-        tagline: "Integrated Degree Programme",
-        duration: "Jun 2026 – Jun 2029",
+        title: "Three/Four-Year B.Sc. in Psychology + Psycho-Spiritual Integration",
+        tagline: "Integrated B.Sc. Programme",
+        duration: "15 June 2026 to 30 June 2029",
         seats: "5",
-        age: "< 35",
+        age: "Under 35",
         highlights: [
-            "Univ of Kerala Curriculum",
-            "Intensive Accompaniment",
+            "Regular Univ. of Kerala Students",
+            "Parallel formation at Denahalaya",
+            "VGS and Character Formation",
             "Psycho-Sexual Integration"
         ],
         content: `
-            <p>A unique program where students pursue a regular B.Sc. in Psychology from Mar Gregorios College (University of Kerala) while staying at Denahalaya for psycho-spiritual accompaniment.</p>
+            <h5 class="text-navy mb-3">Target Audience</h5>
+            <p>Designed for junior religious sisters only.</p>
+
+            <h5 class="text-navy mb-3">Details</h5>
+            <p>Enrolled as regular students at Mar Gregorios College, Punnapra (affiliated with the University of Kerala), while undergoing formation at Denahalaya.</p>
+
+            <h5 class="text-navy mb-3">Eligibility</h5>
+            <p>Plus Two/50% (VHSE, CBSE, ICSE/HSE).</p>
+
+            <h5 class="text-navy mb-3">Course Components</h5>
             <ul>
-                <li>University Curriculum Mastery</li>
-                <li>Character Formation</li>
-                <li>Study and Research Skills</li>
-                <li>Social and Emotional Learning</li>
-                <li>Spiritual Foundation</li>
+                <li>Regular B.Sc. Psychology classes.</li>
+                <li>Anthropology of Christian Vocation and Vocation Growth Sessions (VGS).</li>
+                <li>Psycho-Sexual Integration Programme.</li>
             </ul>
         `
     },
     msc: {
-        title: "M.Sc. in Counselling Psychology",
-        tagline: "Two-Year Integrated Degree",
-        duration: "Jun 2026 – Jun 2028",
+        title: "M.Sc. in Counselling Psychology + Psycho-Spiritual Integration",
+        tagline: "Integrated Master's Programme",
+        duration: "15 June 2026 to 30 June 2028",
         seats: "3",
-        age: "< 40",
+        age: "Under 40",
         highlights: [
-            "Psychotherapy Practicum",
-            "Clinical Supervision",
-            "Regular M.Sc. Classes"
+            "Mar Gregorios College Enrollment",
+            "Intensive Accompaniment (VGS)",
+            "Psycho-Sexual Integration",
+            "Clinical Internship & Supervision"
         ],
         content: `
-            <p>This program combines a regular Master's degree in Counselling Psychology with Denahalaya's expert supervision and spiritual integration. Students attend classes at Mar Gregorios College.</p>
+            <h5 class="text-navy mb-3">Target Audience</h5>
+            <p>Designed for religious sisters only.</p>
+
+            <h5 class="text-navy mb-3">Details</h5>
+            <p>Enrolled as regular students at Mar Gregorios College while undergoing formation at Denahalaya.</p>
+
+            <h5 class="text-navy mb-3">Eligibility</h5>
+            <p>Bachelor's degree in Psychology (min 60%) or related subjects like child development, statistics, etc..</p>
+
+            <h5 class="text-navy mb-3">Course Components</h5>
             <ul>
-                <li>Advanced Counselling Theories</li>
-                <li>Neuro-Psychology</li>
-                <li>Family and Marital Therapy</li>
-                <li>Child and Adolescent Psychology</li>
-                <li>Hospital Postings and Clinical Exposure</li>
-                <li>Thesis and Research</li>
+                <li>Regular M.Sc. Psychology classes.</li>
+                <li>Intensive Psycho-Spiritual Accompaniment (VGS).</li>
+                <li>Psycho-Sexual Integration Programme.</li>
+                <li>Psychotherapy practicum and clinical supervision.</li>
             </ul>
         `
     }

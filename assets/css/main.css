@@ -53,6 +53,11 @@ html.lenis, html.lenis body {
     overflow: hidden;
 }
 
+/* Offset sticky navbar below top-bar */
+.sticky-top {
+    top: 36px !important;
+}
+
 .top-bar .top-content {
     max-width: 1200px;
     margin: auto;
@@ -1454,6 +1459,20 @@ section:last-child, .section:last-child {
         height: 120px;
     }
     
+    .faculty-card h5 {
+        font-size: 1.05rem !important;
+    }
+    
+    .faculty-card .designation {
+        font-size: 0.75rem !important;
+        letter-spacing: 1px !important;
+    }
+
+    .faculty-card .qualifications {
+        font-size: 0.7rem !important;
+        opacity: 0.8 !important;
+    }
+    
     .faculty-arrow { display: none !important; } /* Hide arrows on small mobile, use touch swipe */
 }
 
@@ -2596,23 +2615,15 @@ form {
     z-index: 10;
 }
 
-.btn-view-all {
-    padding: 15px 40px;
-    border-radius: 50px;
-    background: linear-gradient(135deg, #f4c542, #d4af37);
-    color: #0b2c4d;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: none;
-    box-shadow: 0 10px 25px rgba(244, 197, 66, 0.3);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.btn-view-all:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(244, 197, 66, 0.5);
-    background: linear-gradient(135deg, #ffcf4d, #e6bc42);
+@media (max-width: 768px) {
+    .view-more-container .btn-custom {
+        padding: 10px 25px !important;
+        font-size: 0.75rem !important;
+        letter-spacing: 0.5px !important;
+        width: auto !important; /* Standard size, not full width */
+        min-width: 200px !important;
+        height: 48px !important;
+    }
 }
 
 .highlight-item {
@@ -3046,6 +3057,17 @@ body.modal-open {
         padding: 20px 15px !important;
     }
 }
+
+/* Modal Active State - Prevent body scroll */
+html.modal-open-active,
+body.modal-open-active {
+    overflow: hidden !important;
+    height: 100% !important;
+}
+
+.modal-body {
+    overscroll-behavior: contain !important;
+    -webkit-overflow-scrolling: touch !important; /* iOS Smooth Scroll */
 }
 
 /* --- PREMIUM SUCCESS POPUP STYLES --- */
@@ -3112,12 +3134,49 @@ body.modal-open {
 }
 
 /* ==================================
-   MOBILE GRID OPTIMIZATIONS
-   Force 2 columns on mobile below 768px
+   MOBILE-ONLY PROGRAM OPTIMIZATIONS
 ===================================*/
-@media (max-width: 768px) {
-    .programs-grid-premium {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 15px !important;
+@media (max-width: 991px) {
+    /* Premium Square Tile Setup for Mobile */
+    .programs-section-premium .card {
+        aspect-ratio: 1 / 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        border-radius: 20px !important;
+        height: auto !important;
+    }
+    
+    .programs-section-premium .card-title {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.3rem !important;
+        line-height: 1.2 !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        line-clamp: 2 !important; /* Added for compatibility */
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+        height: 2.1rem !important; /* Fixed height for 2 lines to match Card 1 */
+    }
+    
+    /* Hide description text under date on mobile ONLY */
+    .programs-section-premium .card-text {
+        display: none !important;
+    }
+    
+    .programs-section-premium .calendar-info {
+        font-size: 0.65rem !important;
+        margin-bottom: 0.6rem !important;
+    }
+    
+    .programs-section-premium .btn {
+        font-size: 0.6rem !important;
+        padding: 6px !important;
+        border-radius: 12px !important;
+        width: 100% !important;
+    }
+
+    .programs-section-premium .icon-container {
+        display: none !important;
     }
 }

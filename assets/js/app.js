@@ -143,15 +143,19 @@ $(function() {
             emailjs.init("RmgrNAAYbmB8BvIJ2");
         }
 
-        // Modal Scroll Locking & Accessibility Fix
-        $(document).on('shown.bs.modal', '#applyModal', function () {
-            $('body').css('overflow', 'hidden');
-            $('.floating-buttons').fadeOut(300); // Hide floating elements
+        // 6. Global Modal Scroll Locking & Lenis Integration
+        // This ensures that when ANY modal opens, the smooth scroll (Lenis) is paused
+        // and floating UI elements are hidden for a focused experience.
+        $(document).on('shown.bs.modal', function () {
+            if (window.lenis) window.lenis.stop();
+            $('html, body').addClass('modal-open-active');
+            $('.floating-buttons').fadeOut(300);
         });
         
-        $(document).on('hidden.bs.modal', '#applyModal', function () {
-            $('body').css('overflow', '');
-            $('.floating-buttons').fadeIn(300); // Restore floating elements
+        $(document).on('hidden.bs.modal', function () {
+            if (window.lenis) window.lenis.start();
+            $('html, body').removeClass('modal-open-active');
+            $('.floating-buttons').fadeIn(300);
         });
 
         /**
@@ -366,43 +370,60 @@ $(function() {
         });
 
         // 8. Dynamic Course Modal Logic
+        let courseModalInstance = null;
+
         window.showCourseDetails = function(courseId) {
             const course = window.COURSE_DATA[courseId];
             if (!course) return;
 
+            const modalEl = document.getElementById('courseDetailsModal');
+            if (!modalEl) return;
+
+            // Populate Modal Content
             $('#modalCourseTitle').text(course.title);
             $('#modalCourseTagline').text(course.tagline);
-            document.getElementById('modalCourseDuration').innerHTML = `<i class="far fa-calendar-alt me-2"></i>${course.duration}`;
-    document.getElementById('modalCourseBody').innerHTML = course.content;
+            
+            const durationEl = document.getElementById('modalCourseDuration');
+            if (durationEl) {
+                durationEl.innerHTML = `<i class="far fa-calendar-alt me-2"></i>${course.duration}`;
+            }
 
-    // Populate Highlights
-    const highlightsContainer = document.getElementById('modalHighlights');
-    if (highlightsContainer) {
-        highlightsContainer.innerHTML = '';
-        if (course.highlights && course.highlights.length > 0) {
-            course.highlights.forEach(item => {
-                const span = document.createElement('div');
-                span.className = 'highlight-item mb-1';
-                span.innerHTML = `<i class="fas fa-check text-gold me-2"></i><span style="font-size: 0.95rem; color: #555;">${item}</span>`;
-                highlightsContainer.appendChild(span);
-            });
-        }
-    }
+            const bodyEl = document.getElementById('modalCourseBody');
+            if (bodyEl) {
+                bodyEl.innerHTML = course.content;
+            }
 
-    // Populate Stats
-    const statsContainer = document.getElementById('modalStats');
-    if (statsContainer) {
-        statsContainer.innerHTML = '';
-        if (course.seats) {
-            statsContainer.innerHTML += `<span class="stat-pill"><i class="fas fa-users me-2"></i>Seats: ${course.seats}</span>`;
-        }
-        if (course.age) {
-            statsContainer.innerHTML += `<span class="stat-pill"><i class="fas fa-user-clock me-2"></i>Age: ${course.age}</span>`;
-        }
-    }
+            // Populate Highlights
+            const highlightsContainer = document.getElementById('modalHighlights');
+            if (highlightsContainer) {
+                highlightsContainer.innerHTML = '';
+                if (course.highlights && course.highlights.length > 0) {
+                    course.highlights.forEach(item => {
+                        const div = document.createElement('div');
+                        div.className = 'highlight-item mb-1';
+                        div.innerHTML = `<i class="fas fa-check text-gold me-2"></i><span style="font-size: 0.95rem; color: #555;">${item}</span>`;
+                        highlightsContainer.appendChild(div);
+                    });
+                }
+            }
 
-            const courseModal = new bootstrap.Modal(document.getElementById('courseDetailsModal'));
-            courseModal.show();
+            // Populate Stats
+            const statsContainer = document.getElementById('modalStats');
+            if (statsContainer) {
+                statsContainer.innerHTML = '';
+                if (course.seats) {
+                    statsContainer.innerHTML += `<span class="stat-pill"><i class="fas fa-users me-2"></i>Seats: ${course.seats}</span>`;
+                }
+                if (course.age) {
+                    statsContainer.innerHTML += `<span class="stat-pill"><i class="fas fa-user-clock me-2"></i>Age: ${course.age}</span>`;
+                }
+            }
+
+            // Reuse or create Bootstrap modal instance
+            if (!courseModalInstance) {
+                courseModalInstance = new bootstrap.Modal(modalEl);
+            }
+            courseModalInstance.show();
         };
 
         // Alias for user request
