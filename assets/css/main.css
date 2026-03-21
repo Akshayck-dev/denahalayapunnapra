@@ -518,15 +518,14 @@ section:last-child, .section:last-child {
     font-weight: 600;
 }
 
-/* PREMIUM PROGRAMS SECTION (BALANCED) */
+/* PREMIUM PROGRAMS SECTION (BALANCED - FULL WIDTH) */
 .programs-section {
     position: relative;
     padding: 60px 20px !important;
     background: linear-gradient(rgba(10,37,64,0.88), rgba(10,37,64,0.88)),
                 url('../images/about_classroom_1.jpg') center/cover no-repeat;
     overflow: hidden;
-    max-width: 1200px;
-    margin: auto;
+    width: 100%;
 }
 
 /* Subtle architectural blur */
