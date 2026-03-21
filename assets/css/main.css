@@ -6,6 +6,24 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
+/* ===== REQUIRED LENIS CSS BOILERPLATE ===== */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+/* ======================================== */
+
 /* Native smooth scrolling removed per user request for Lenis override */
 
 .stat-pill {
@@ -153,17 +171,15 @@ html {
     width: 100%;
     position: relative;
 }
-
 body {
     margin: 0 !important;
     padding: 0 !important;
     width: 100%;
     position: relative;
-    overflow-x: hidden; /* Restored for native scroll layout stability */
+    /* overflow-x MUST NOT BE HERE for Lenis to work */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
 section {
     will-change: transform; /* Hardware acceleration */
 }
