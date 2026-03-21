@@ -518,7 +518,86 @@ section:last-child, .section:last-child {
     font-weight: 600;
 }
 
-/* STATS glass-style pills */
+/* PREMIUM PROGRAMS SECTION */
+.programs-section {
+    position: relative;
+    padding: 100px 20px !important;
+    background: linear-gradient(rgba(10,37,64,0.88), rgba(10,37,64,0.88)),
+                url('https://images.unsplash.com/photo-1507692049790-de58290a4334?q=80&w=2000') center/cover no-repeat;
+    overflow: hidden;
+}
+
+/* Subtle architectural blur */
+.programs-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(4px);
+    z-index: 1;
+}
+
+.programs-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* GLASS CARD STYLE */
+.program-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 20px;
+    padding: 35px;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+/* SPIRITUAL ICONOGRAPHY INSIDE CARD */
+.program-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1523908511403-7fc7b25592f4?q=80&w=1000') center/cover no-repeat;
+    opacity: 0.06;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.program-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* HOVER EFFECT */
+.program-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    background: rgba(255, 255, 255, 1);
+}
+
+.program-card .icon-box {
+    margin-bottom: 25px;
+}
+
+.program-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: 15px;
+}
+
+.program-card p {
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* STATS glass-style pills (Restored) */
 .stat-box {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
@@ -539,7 +618,7 @@ section:last-child, .section:last-child {
     background: rgba(255, 255, 255, 0.9);
 }
 
-/* ANIMATION */
+/* ANIMATION (Restored) */
 @keyframes fadeUp {
     from {
         opacity: 0;
