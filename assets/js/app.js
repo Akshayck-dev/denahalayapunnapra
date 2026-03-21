@@ -10,15 +10,6 @@ $(function() {
     // 1. Protocol Handling & Warnings
     if (isLocalFile) {
         console.warn("Website running via file:// protocol. Dynamic features (header/footer) may be blocked.");
-        // Force reveal sections if AOS might fail due to protocol restrictions
-        setTimeout(() => {
-            $('body').addClass('protocol-local');
-            $('[data-aos]').css({
-                'opacity': '1',
-                'transform': 'none',
-                'visibility': 'visible'
-            });
-        }, 500);
     }
 
     // 2. Dynamic HTML Inclusions (Header/Footer)
@@ -66,13 +57,12 @@ $(function() {
     }
 
     function initializePlugins() {
-        // 3. Animate On Scroll (AOS)
         if (typeof AOS !== 'undefined') {
             AOS.init({
                 duration: 1000,
                 once: true,
                 offset: 100,
-                disable: isLocalFile // Disable animations on local file to prevent blank sections
+                disable: window.innerWidth < 768 // Disable gracefully on mobile if needed, but run locally
             });
             AOS.refresh();
         }
