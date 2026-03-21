@@ -2321,5 +2321,37 @@ body.modal-open {
     }
 }
 
+/* ===== SUBTLE ANIMATIONS (PREMIUM POLISH) ===== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* PREMIUM BUTTON HOVER (GLOBAL) */
+.btn,
+.btn-custom, 
+.btn-about, 
+.view-btn,
+.btn-primary-custom,
+.btn-outline-custom {
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.btn:hover,
+.btn-custom:hover, 
+.btn-about:hover, 
+.view-btn:hover,
+.btn-primary-custom:hover,
+.btn-outline-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
 
 
