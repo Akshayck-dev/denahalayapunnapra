@@ -554,17 +554,19 @@ section:last-child, .section:last-child {
     z-index: 2;
 }
 
-/* COMPACT GLASS CARD STYLE */
+/* PREMIUM GLASS CARD STYLE */
 .program-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.96);
-    border-radius: 16px;
-    padding: 22px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 24px;
     height: 100%;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     display: flex;
     flex-direction: column;
 }
@@ -598,9 +600,9 @@ section:last-child, .section:last-child {
 
 /* HOVER PREMIUM BUT SUBTLE */
 .program-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* User exact 0.08 */
-    background: rgba(255, 255, 255, 1);
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.15);
+    background: rgba(255, 255, 255, 0.85); /* Slightly less opaque on hover */
 }
 
 .program-card h3 {
@@ -619,9 +621,19 @@ section:last-child, .section:last-child {
 }
 
 .program-card .btn-primary-custom {
-    padding: 8px 18px;
-    font-size: 13px;
+    background: linear-gradient(135deg, #d4af37, #f5e6a8);
+    color: #0a2540 !important;
     border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: 600;
+    border: none;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.program-card .btn-primary-custom:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
 }
 
 /* STATS glass-style pills (Restored) */
