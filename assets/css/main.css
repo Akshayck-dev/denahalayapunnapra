@@ -2143,14 +2143,23 @@ form {
 }
 
 /* ===== PREMIUM COURSE SECTION (FEATURED GRID) ===== */
+/* ===== PREMIUM COURSE SECTION (FEATURED GRID) ===== */
 .programs-section-premium {
   padding: 100px 5%;
-  background: #fff;
+  background: 
+    linear-gradient(rgba(11, 44, 77, 0.88), rgba(11, 44, 77, 0.92)),
+    url('../img/programs-bg-premium.png') center/cover no-repeat fixed;
   position: relative;
   overflow: hidden;
 }
 
-/* Removed overlay pseudo-element to keep it clean white */
+.programs-section-premium::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(244, 197, 66, 0.05), transparent);
+    pointer-events: none;
+}
 
 .programs-grid-premium {
   display: grid;
@@ -2266,8 +2275,8 @@ form {
   flex: 1;
   padding: 12px 15px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #f4c542, #d4af37);
-  color: #0b2c4d;
+  background: #0b2c4d;
+  color: #fff;
   border: none;
   font-weight: 700;
   font-size: 13px;
@@ -2277,8 +2286,9 @@ form {
 }
 
 .btn-apply-premium:hover {
+  background: #163f6b;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(244, 197, 66, 0.4);
+  box-shadow: 0 8px 20px rgba(11, 44, 77, 0.3);
 }
 
 /* Responsive Scaling */
