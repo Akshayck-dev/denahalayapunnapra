@@ -361,6 +361,20 @@ $(function() {
                 $('.nav-item.dropdown').removeClass('active');
             }
         });
+
+        // 8. Dynamic Course Modal Logic
+        window.showCourseDetails = function(courseId) {
+            const data = window.COURSE_DATA[courseId];
+            if (!data) return;
+
+            $('#modalCourseTitle').text(data.title);
+            $('#modalCourseTagline').text(data.tagline);
+            $('#modalCourseDuration').html(`<i class="far fa-calendar-alt me-2"></i> ${data.duration}`);
+            $('#modalCourseBody').html(data.content);
+
+            const courseModal = new bootstrap.Modal(document.getElementById('courseDetailsModal'));
+            courseModal.show();
+        };
     }
 
     // 6. Global Utilities (Smart Scroll Toggle & Floating Buttons)

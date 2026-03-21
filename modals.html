@@ -107,3 +107,35 @@
         </div>
     </div>
 </div>
+
+<!-- Dynamic Course Detail Modal -->
+<div class="modal fade" id="courseDetailsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
+            <div class="modal-body p-4 p-md-5">
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-4" data-bs-dismiss="modal" aria-label="Close"></button>
+                
+                <div id="courseModalContent">
+                    <span class="badge bg-gold-soft text-navy mb-2 px-3 py-2 rounded-pill" id="modalCourseTagline"></span>
+                    <h2 id="modalCourseTitle" style="color: #2e7d32; font-weight: 700; font-family: 'Playfair Display', serif; margin-bottom: 5px;"></h2>
+                    <p class="text-muted small mb-4" id="modalCourseDuration"><i class="far fa-calendar-alt me-2"></i></p>
+                    
+                    <div class="divider mb-4" style="height: 2px; width: 60px; background: #2e7d32; border-radius: 2px;"></div>
+                    
+                    <div class="course-description mb-4" id="modalCourseBody" style="font-size: 1.05rem; line-height: 1.7; color: #444;">
+                        <!-- Content injected via JS -->
+                    </div>
+
+                    <div class="d-flex flex-column flex-sm-row gap-3 mt-5">
+                        <a href="#" class="btn-custom btn-primary-custom flex-grow-1 py-3" data-bs-toggle="modal" data-bs-target="#applyModal">
+                            Apply Now
+                        </a>
+                        <button class="btn-custom btn-outline-navy-custom flex-grow-1 py-3" data-bs-dismiss="modal">
+                            Close Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

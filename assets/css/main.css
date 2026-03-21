@@ -2126,6 +2126,21 @@ form {
     100% { box-shadow: 0 0 0 0 rgba(212,175,55,0); }
 }
 
+/* COURSE MODAL UTILITIES */
+.modal-info-box {
+    background: #f8f9fa;
+    border-left: 4px solid #2e7d32;
+    padding: 20px;
+    border-radius: 8px;
+}
+.modal-info-box p {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-navy);
+}
+.modal-info-box p:last-child { margin-bottom: 0; }
+.bg-gold-soft { background: rgba(212, 175, 55, 0.1); }
+
 /* MOBILE FIX */
 @media (max-width: 768px) {
     .apply-btn {
