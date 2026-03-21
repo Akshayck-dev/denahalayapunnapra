@@ -611,6 +611,20 @@
         // 4. Fire immediately in case DOMContentLoaded already passed
         revealCards();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis({
+          duration: 1.2,
+          smooth: true,
+          smoothTouch: true
+        });
+
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+    </script>
     <div data-include="modals"></div>
 </body>
 </html>
