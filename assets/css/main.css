@@ -2300,6 +2300,39 @@ form {
 }
 
 /* MODAL HIGHLIGHTS & STATS (Moved from top) */
+.hidden-courses-wrapper {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+.view-more-container {
+    margin-top: 50px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.btn-view-all {
+    padding: 15px 40px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #f4c542, #d4af37);
+    color: #0b2c4d;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    box-shadow: 0 10px 25px rgba(244, 197, 66, 0.3);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-view-all:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(244, 197, 66, 0.5);
+    background: linear-gradient(135deg, #ffcf4d, #e6bc42);
+}
+
 .highlight-item {
     display: flex;
     align-items: center;

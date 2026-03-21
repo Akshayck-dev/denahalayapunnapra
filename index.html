@@ -238,7 +238,10 @@
                             </div>
                         </div>
                     </div>
+                </div><!-- End initial grid -->
 
+                <!-- Extra Courses (Hidden by default) -->
+                <div class="hidden-courses-wrapper mt-4" id="extraCourses">
                     <!-- Program 4 -->
                     <div class="program-card-wrapper" data-aos="fade-up" data-aos-delay="300">
                         <div class="program-card-premium">
@@ -299,10 +302,10 @@
                             <div class="icon-box-premium">
                                 <i class="fas fa-user-md"></i>
                             </div>
-                            <div class="program-meta-premium">Jun 2026 – Jun 2028</div>
-                            <h3 class="program-title-premium">M.Sc. Counselling</h3>
+                            <div class="program-meta-premium">Jun 2026 – Oct 2027</div>
+                            <h3 class="program-title-premium">Pastoral Counselling</h3>
                             <p class="program-description-premium">
-                                Full-time Masters integrated with intensive vocational accompaniment and clinical practicums.
+                                M.Sc. in Counselling Psychology integrated with psycho-spiritual formation and clinical ethics.
                             </p>
                             <div class="btn-group-premium">
                                 <button onclick="openCourse('msc')" class="btn-read-premium">Read More</button>
@@ -315,20 +318,44 @@
                     <div class="program-card-wrapper" data-aos="fade-up" data-aos-delay="300">
                         <div class="program-card-premium">
                             <div class="icon-box-premium">
-                                <i class="fas fa-book-reader"></i>
+                                <i class="fas fa-users"></i>
                             </div>
-                            <div class="program-meta-premium">Jun 2026 – Jun 2029</div>
-                            <h3 class="program-title-premium">B.Sc. Psychology</h3>
+                            <div class="program-meta-premium">Jan – Mar 2027</div>
+                            <h3 class="program-title-premium">Integrative Formation</h3>
                             <p class="program-description-premium">
-                                Foundation in Psychology integrated with personal awareness modules for candidates.
+                                A unique program integrating psychological maturity with spiritual depth for religious formation.
                             </p>
                             <div class="btn-group-premium">
-                                <button onclick="openCourse('bsc')" class="btn-read-premium">Read More</button>
+                                <button onclick="openCourse('integrative')" class="btn-read-premium">Read More</button>
                                 <button data-bs-toggle="modal" data-bs-target="#applyModal" class="btn-apply-premium">Apply Now</button>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- View More Button -->
+                <div class="view-more-container" id="viewMoreBtnRow">
+                    <button class="btn-view-all" onclick="toggleCourses()">
+                        View Our Full course <i class="fas fa-chevron-down ms-2"></i>
+                    </button>
+                </div>
+
+                <script>
+                    function toggleCourses() {
+                        const extraDiv = document.getElementById('extraCourses');
+                        const btnRow = document.getElementById('viewMoreBtnRow');
+                        
+                        if (extraDiv.style.display === 'none' || extraDiv.style.display === '') {
+                            extraDiv.style.display = 'grid';
+                            btnRow.style.display = 'none'; // Hide button after showing all
+                            
+                            // Trigger AOS refresh if needed (optional but good)
+                            if (typeof AOS !== 'undefined') {
+                                AOS.refresh();
+                            }
+                        }
+                    }
+                </script>
             </div>
         </section>
 
