@@ -375,6 +375,9 @@ $(function() {
             const courseModal = new bootstrap.Modal(document.getElementById('courseDetailsModal'));
             courseModal.show();
         };
+
+        // Alias for user request
+        window.openCourse = window.showCourseDetails;
     }
 
     // 6. Global Utilities (Smart Scroll Toggle & Floating Buttons)
