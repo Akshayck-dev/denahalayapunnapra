@@ -526,6 +526,17 @@ section:last-child, .section:last-child {
                 url('../images/about_classroom_1.jpg') center/cover no-repeat;
     overflow: hidden;
     width: 100%;
+    z-index: 1;
+}
+
+/* BACKGROUND OVERLAY FOR FOCUS */
+.programs-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 37, 64, 0.6);
+    z-index: 0;
+    pointer-events: none;
 }
 
 /* Subtle architectural blur */
@@ -569,6 +580,14 @@ section:last-child, .section:last-child {
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     display: flex;
     flex-direction: column;
+    z-index: 1;
+}
+
+/* CENTER CARD HIGHLIGHT */
+.program-card-wrapper:nth-child(2) .program-card {
+    transform: scale(1.05);
+    z-index: 2;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
 }
 
 /* SPIRITUAL ICONOGRAPHY INSIDE CARD */
@@ -634,6 +653,27 @@ section:last-child, .section:last-child {
 .program-card .btn-primary-custom:hover {
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* VIEW ALL COURSES CTA */
+.view-btn {
+    background: linear-gradient(135deg, #d4af37, #f5e6a8);
+    color: #0a2540 !important;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 30px rgba(212,175,55,0.4);
+    display: inline-block;
+    transition: 0.3s;
+    text-decoration: none;
+    margin-top: 40px;
+}
+
+.view-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(212,175,55,0.5);
+    color: #0a2540 !important;
 }
 
 /* STATS glass-style pills (Restored) */
