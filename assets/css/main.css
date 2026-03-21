@@ -2069,7 +2069,11 @@ form {
     transition: all 0.3s ease;
     cursor: pointer;
     text-decoration: none !important;
-    animation: pulse 2.5s infinite;
+}
+
+/* ONLY PULSE THE MAIN FLOATING CTA */
+.main-floating-apply {
+    animation: goldPulse 2.5s infinite;
 }
 
 /* ICON STYLE */
@@ -2117,10 +2121,10 @@ form {
     opacity: 1;
 }
 
-/* SOFT ATTENTION ANIMATION */
-@keyframes pulse {
+/* SOFT ATTENTION ANIMATION (GOLD PULSE) */
+@keyframes goldPulse {
     0% { box-shadow: 0 0 0 0 rgba(212,175,55,0.4); }
-    70% { box-shadow: 0 0 0 10px rgba(212,175,55,0); }
+    70% { box-shadow: 0 0 0 12px rgba(212,175,55,0); }
     100% { box-shadow: 0 0 0 0 rgba(212,175,55,0); }
 }
 
