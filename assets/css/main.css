@@ -6,6 +6,80 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
+/* FAITH ANNOUNCEMENT BAR */
+.faith-alert {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #0a2540, #002147);
+  color: #f5f5f5;
+  overflow: hidden;
+  z-index: 9999;
+  border-bottom: 1px solid rgba(200, 169, 106, 0.15);
+}
+
+.faith-alert::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, #c8a96a, transparent);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* TRACK */
+.faith-track {
+  display: flex;
+  width: max-content;
+  animation: faithScroll 35s linear infinite; /* Even slower for calm effect */
+}
+
+/* TEXT */
+.faith-track span {
+  white-space: nowrap;
+  padding: 10px 60px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  font-family: 'Georgia', serif;
+  display: flex;
+  align-items: center;
+}
+
+/* CTA */
+.faith-link {
+  color: #c8a96a;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.faith-link:hover {
+  opacity: 0.8;
+  text-decoration: underline !important;
+}
+
+/* SLOW SCROLL */
+@keyframes faithScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* PAUSE ON HOVER */
+.faith-alert:hover .faith-track {
+  animation-play-state: paused;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .faith-track span {
+    font-size: 13px;
+    padding: 8px 30px;
+  }
+}
+
 :root {
     --primary-navy: #0b2a4a; /* New Deep Navy Blue */
     --accent-gold: #f2b705;  /* New Professional Gold */
