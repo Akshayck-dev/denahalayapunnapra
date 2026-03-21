@@ -1159,20 +1159,49 @@ section:last-child, .section:last-child {
     overflow: hidden;
 }
 
-.modal-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 5px;
-    color: var(--primary-navy);
+.modal-branding {
+    padding: 10px 0 5px;
 }
 
-.modal-subtitle {
-    text-align: center;
-    font-size: 13px;
-    color: #777;
+.modal-brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 900;
+    color: var(--primary-navy);
+    margin-bottom: 2px;
+    letter-spacing: 1px;
+}
+
+.modal-brand-tagline {
+    font-size: 14px;
+    color: var(--primary-navy);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.modal-form-badge {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary-navy);
+    letter-spacing: 2px;
     margin-bottom: 15px;
+    display: inline-block;
+}
+
+.modal-header-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ddd, transparent);
+    width: 80%;
+    margin: 0 auto 15px;
+}
+
+.modal-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: 5px;
+    line-height: 1.2;
 }
 
 .modal-body {
