@@ -443,13 +443,15 @@ section:last-child, .section:last-child {
     outline: none !important;
 }
 
-/* ABOUT SECTION BACKGROUND */
+/* ABOUT SECTION (BALANCED & FULL) */
 .about-section {
-    background: linear-gradient(135deg, #f8f9fb, #eef2f7);
     position: relative;
-    padding: 100px 0 !important;
+    padding: 50px 20px !important;
+    background: linear-gradient(135deg, #f8f9fb, #eef2f7);
+    animation: fadeUp 0.8s ease;
+    max-width: 1200px;
+    margin: auto;
     overflow: hidden;
-    animation: fadeUp 0.8s ease; /* Crisper entrance */
 }
 
 .about-section::after {
@@ -457,19 +459,24 @@ section:last-child, .section:last-child {
     position: absolute;
     width: 300px;
     height: 300px;
-    background: rgba(200, 169, 106, 0.08);
+    background: rgba(200,169,106,0.08); /* Soft gold glow */
     border-radius: 50%;
     bottom: -100px;
     left: -100px;
-    filter: blur(80px); /* Bottom-left glow */
-    pointer-events: none;
+    filter: blur(100px);
+    z-index: 0;
 }
 
-.about-section .container {
-    max-width: 1200px; /* Reduced empty space */
+.about-container {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
 }
 
-/* IMAGE STYLE */
+/* IMAGE SIZE FIX */
 .about-image {
     position: relative;
     border-radius: 20px;
@@ -478,16 +485,14 @@ section:last-child, .section:last-child {
 
 .about-image img {
     width: 100%;
-    display: block;
-    border-radius: 20px;
+    max-width: 500px;
+    border-radius: 18px;
     box-shadow: 0 25px 60px rgba(0,0,0,0.15);
-    transform: scale(1.05); /* Prominent image */
-    transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .about-image:hover img {
-    transform: scale(1.08) translateY(-5px);
-    box-shadow: 0 35px 80px rgba(0,0,0,0.2);
+    transform: scale(1.05);
 }
 
 /* PREMIUM BADGE STYLE */
@@ -504,9 +509,14 @@ section:last-child, .section:last-child {
     z-index: 10;
 }
 
-/* HEADING STYLE */
-.about-section h2 {
+.about-content {
+    max-width: 520px;
+}
+
+.about-content h2 {
+    margin-top: 0;
     font-family: 'Playfair Display', serif;
+    font-weight: 700;
     font-size: 34px;
     font-weight: 600;
     line-height: 1.3;
