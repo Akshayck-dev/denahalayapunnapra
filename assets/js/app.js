@@ -291,6 +291,19 @@ $(function() {
             window.handleFormSubmission(e, 'global-modal');
         });
         
+        /** 6. Subtle Scroll Animations (Fade-In) */
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const handleScrollAnimation = () => {
+            fadeElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) {
+                    el.classList.add('show');
+                }
+            });
+        };
+        $(window).on('scroll', handleScrollAnimation);
+        handleScrollAnimation(); // Initial trigger
+
         // 7. Horizontal Scroll Navigation (Faculty Section)
         const setupScroll = (scrollRowId, prevBtnId, nextBtnId) => {
             const $row = $(`#${scrollRowId}`);
