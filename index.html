@@ -602,21 +602,30 @@
         }
         requestAnimationFrame(raf);
 
-        // Course Reveal Animation
+        // Course Reveal Animation - Robust Implementation
         const revealCards = () => {
             const cards = document.querySelectorAll('.program-card-premium');
+            const triggerBottom = window.innerHeight + 100; // Trigger earlier
+            
             cards.forEach(card => {
-                const top = card.getBoundingClientRect().top;
-                if (top < window.innerHeight - 50) {
+                const box = card.getBoundingClientRect();
+                if (box.top < triggerBottom) {
                     card.classList.add('show');
                 }
             });
         };
 
+        // 1. Listen to Lenis native scroll wrapper
+        lenis.on('scroll', revealCards);
+        // 2. Listen to window scroll fallback
         window.addEventListener('scroll', revealCards);
+        // 3. Initial check and fallback
         document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(revealCards, 100); // Small delay to ensure layout is ready
+            setTimeout(revealCards, 100);
+            setTimeout(revealCards, 1000); // 1s fallback
         });
+        // 4. Fire immediately in case DOMContentLoaded already passed
+        revealCards();
     </script>
     <div data-include="modals"></div>
 </body>
