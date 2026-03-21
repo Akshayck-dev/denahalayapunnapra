@@ -582,25 +582,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
     <script src="./assets/js/courses-data.js"></script>
     <script src="./assets/js/app.js"></script>
     
     <script>
         // AOS and Swiper are now managed by app.js to ensure proper loading sequence
         
-        // Lenis Smooth Scrolling
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-        });
-
-        function raf(t) {
-            lenis.raf(t);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-
         // Course Reveal Animation - Robust Implementation
         const revealCards = () => {
             const cards = document.querySelectorAll('.program-card-premium');
@@ -614,9 +601,7 @@
             });
         };
 
-        // 1. Listen to Lenis native scroll wrapper
-        lenis.on('scroll', revealCards);
-        // 2. Listen to window scroll fallback
+        // 1. Listen to window scroll fallback
         window.addEventListener('scroll', revealCards);
         // 3. Initial check and fallback
         document.addEventListener('DOMContentLoaded', () => {
