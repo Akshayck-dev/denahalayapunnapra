@@ -528,6 +528,47 @@ section:last-child, .section:last-child {
     font-weight: 600;
 }
 
+/* MOBILE RESPONSIVE FIXES (ABOUT SECTION) */
+@media (max-width: 991px) {
+    .about-container {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .about-image {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .about-image img {
+        max-width: 100% !important;
+        width: 100%;
+    }
+
+    .badge-30 {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        bottom: -20px !important;
+        width: auto;
+        white-space: nowrap;
+    }
+
+    .about-content {
+        max-width: 100% !important;
+        margin: 0 auto;
+    }
+
+    .about-content .ornament {
+        justify-content: center;
+    }
+
+    .stat-box {
+        margin: 5px !important;
+    }
+}
+
 /* PREMIUM PROGRAMS SECTION (BALANCED - FULL WIDTH - PARALLAX) */
 .programs-section {
     position: relative;
