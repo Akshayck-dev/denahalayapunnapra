@@ -282,24 +282,24 @@ section:last-child, .section:last-child {
     align-items: center;
     justify-content: center;
 
-    height: 54px; /* Slightly taller for premium feel */
-    min-width: 240px;
-    padding: 12px 35px;
+    height: 48px;
+    min-width: 200px;
+    padding: 10px 28px;
 
-    border-radius: 100px; /* Perfect Pill style */
-    font-size: 15px;
+    border-radius: 8px; /* Professional Geometric Radius */
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px; /* Increased for premium look */
+    letter-spacing: 1px;
 
     text-align: center;
     white-space: nowrap;
     text-decoration: none !important;
 
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.3s ease;
     cursor: pointer;
     border: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .btn-social-small {
@@ -310,15 +310,18 @@ section:last-child, .section:last-child {
     font-size: 14px !important;
 }
 
-/* PRIMARY BUTTON (GOLD) - Matching Image 2 */
+/* PRIMARY BUTTON (GOLD) */
 .btn-primary-custom {
     background-color: var(--accent-gold);
     color: var(--primary-navy) !important;
+    border-bottom: 3px solid rgba(0,0,0,0.15); /* Subtle depth */
 }
 
 .btn-primary-custom:hover {
     background-color: var(--accent-gold-hover);
     color: var(--primary-navy) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(242, 183, 5, 0.25);
 }
 
 /* OUTLINE BUTTON (WHITE/BANNER) */
@@ -331,24 +334,21 @@ section:last-child, .section:last-child {
 .btn-outline-custom:hover {
     background: var(--white);
     color: var(--primary-navy) !important;
+    transform: translateY(-2px);
 }
 
-/* DARK OUTLINE VARIANT (For Admissions Resources) - Matching Image 1 */
+/* DARK OUTLINE VARIANT (Professional Institutional Style) */
 .btn-outline-navy-custom {
     background: #ffffff;
     color: var(--primary-navy) !important;
-    border: 2.5px solid var(--primary-navy);
+    border: 2px solid var(--primary-navy);
 }
 
 .btn-outline-navy-custom:hover {
     background: var(--primary-navy);
     color: var(--white) !important;
-}
-
-/* HOVER EFFECT (LIFT + SHADOW) */
-.btn-custom:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(11, 42, 74, 0.15);
 }
 
 /* HERO BUTTONS CONTAINER */
