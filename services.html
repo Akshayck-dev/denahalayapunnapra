@@ -33,7 +33,7 @@
             <div class="container">
                 <div class="programs-grid-premium">
                     <!-- Program 1 -->
-                    <div class="program-card-wrapper" data-aos="fade-up">
+                    <div class="program-card-wrapper">
                         <div class="program-card-premium">
                             <div class="icon-box-premium gold">
                                 <i class="fas fa-graduation-cap"></i>
@@ -53,7 +53,7 @@
                     </div>
 
                     <!-- Program 2 -->
-                    <div class="program-card-wrapper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="program-card-wrapper">
                         <div class="program-card-premium">
                             <div class="icon-box-premium blue">
                                 <i class="fas fa-university"></i>
@@ -73,7 +73,7 @@
                     </div>
 
                     <!-- Program 3 -->
-                    <div class="program-card-wrapper" data-aos="fade-up" data-aos-delay="200">
+                    <div class="program-card-wrapper">
                         <div class="program-card-premium">
                             <div class="icon-box-premium green">
                                 <i class="fas fa-heart-pulse"></i>
@@ -93,7 +93,7 @@
                     </div>
 
                     <!-- Program 4 -->
-                    <div class="program-card-wrapper" data-aos="fade-up" data-aos-delay="300">
+                    <div class="program-card-wrapper">
                         <div class="program-card-premium">
                             <div class="icon-box-premium blue">
                                 <i class="fas fa-sync-alt"></i>
@@ -113,7 +113,7 @@
                     </div>
 
                     <!-- Program 5 -->
-                    <div class="program-card-wrapper" data-aos="fade-up">
+                    <div class="program-card-wrapper">
                         <div class="program-card-premium">
                             <div class="icon-box-premium gold">
                                 <i class="fas fa-file-medical-alt"></i>
@@ -133,7 +133,7 @@
                     </div>
 
                     <!-- Program 6 -->
-                    <div class="program-card-wrapper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="program-card-wrapper">
                         <div class="program-card-premium">
                             <div class="icon-box-premium green">
                                 <i class="fas fa-user-tie"></i>
@@ -153,7 +153,7 @@
                     </div>
 
                     <!-- Program 7 -->
-                    <div class="program-card-wrapper" data-aos="fade-up" data-aos-delay="200">
+                    <div class="program-card-wrapper">
                         <div class="program-card-premium">
                             <div class="icon-box-premium blue">
                                 <i class="fas fa-user-md"></i>
@@ -173,7 +173,7 @@
                     </div>
 
                     <!-- Program 8 -->
-                    <div class="program-card-wrapper" data-aos="fade-up" data-aos-delay="300">
+                    <div class="program-card-wrapper">
                         <div class="program-card-premium">
                             <div class="icon-box-premium gold">
                                 <i class="fas fa-users"></i>
@@ -256,9 +256,39 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.0.5/bundled/lenis.min.js"></script>
     <script src="./assets/js/courses-data.js"></script>
     <script src="./assets/js/app.js"></script>
-    <script>AOS.init({ duration: 1000, once: true });</script>
+    <script>
+        // Lenis Smooth Scrolling
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smooth: true
+        });
+
+        function raf(t) {
+            lenis.raf(t);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Course Reveal Animation
+        const revealCards = () => {
+            const cards = document.querySelectorAll('.program-card-premium');
+            cards.forEach(card => {
+                const top = card.getBoundingClientRect().top;
+                if (top < window.innerHeight - 50) {
+                    card.classList.add('show');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealCards);
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(revealCards, 100);
+        });
+    </script>
     <div data-include="modals"></div>
 </body>
 </html>
