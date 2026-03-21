@@ -518,12 +518,13 @@ section:last-child, .section:last-child {
     font-weight: 600;
 }
 
-/* PREMIUM PROGRAMS SECTION (BALANCED - FULL WIDTH) */
+/* PREMIUM PROGRAMS SECTION (BALANCED - FULL WIDTH - PARALLAX) */
 .programs-section {
     position: relative;
     padding: 60px 20px !important;
-    background: linear-gradient(rgba(10,37,64,0.65), rgba(10,37,64,0.65)),
+    background: linear-gradient(rgba(10,37,64,0.5), rgba(10,37,64,0.5)),
                 url('../images/about_classroom_1.jpg') center/cover no-repeat;
+    background-attachment: fixed;
     overflow: hidden;
     width: 100%;
     z-index: 1;
@@ -539,12 +540,11 @@ section:last-child, .section:last-child {
     pointer-events: none;
 }
 
-/* Subtle architectural blur */
+/* Subtle architectural overlay */
 .programs-section::before {
     content: "";
     position: absolute;
     inset: 0;
-    backdrop-filter: blur(2px);
     z-index: 1;
 }
 
