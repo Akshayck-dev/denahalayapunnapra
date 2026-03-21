@@ -2200,23 +2200,6 @@ form {
     transform: scale(1.07) translateY(-5px);
 }
 
-/* Featured Badge */
-.featured-badge {
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, #f4c542, #d4af37);
-    color: #0b2c4d;
-    padding: 5px 20px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
-}
-
 /* Premium Gradient Icon Box */
 .icon-box-premium {
   width: 75px;
