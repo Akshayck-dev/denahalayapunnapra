@@ -6,32 +6,55 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
-/* ===== TOP BAR (STABLE) ===== */
+/* ===== TOP BAR (MARQUEE UPGRADE) ===== */
 .top-bar {
     background: linear-gradient(90deg, #0a2540, #002147);
     color: #fff;
     font-size: 13px;
-    padding: 8px 20px;
+    padding: 8px 10px;
     position: sticky;
     top: 0;
     z-index: 9999;
     border-bottom: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
 }
 
 .top-bar .top-content {
     max-width: 1200px;
     margin: auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 20px;
 }
 
-.top-bar .text {
+.marquee-container {
+    flex: 1;
+    overflow: hidden;
     white-space: nowrap;
-    opacity: 0.95;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.marquee-content {
+    display: inline-flex;
+    animation: marquee 30s linear infinite;
+}
+
+.marquee-content span {
+    padding-right: 50px;
     font-weight: 500;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
+    opacity: 0.95;
+}
+
+.top-bar:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .top-bar .apply-btn {
@@ -39,37 +62,31 @@
     border: 1px solid rgba(255,255,255,0.6);
     border-radius: 20px;
     font-size: 11px;
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 1px;
     transition: all 0.3s ease;
+    white-space: nowrap;
+    background: transparent;
 }
 
 .top-bar .apply-btn:hover {
     background: #c8a96a;
     border-color: #c8a96a;
-    color: #000;
+    color: #000 !important;
 }
 
 @media (max-width: 768px) {
     .top-bar {
-        padding: 6px 15px;
+        padding: 6px 10px;
     }
-    .top-bar .top-content {
-        flex-direction: column;
-        gap: 4px;
-        padding: 4px 0;
-    }
-    .top-bar .text {
-        white-space: normal;
-        font-size: 12px;
-        text-align: center;
-        line-height: 1.3;
+    .marquee-content {
+        animation-duration: 20s; /* Faster on mobile due to shorter width */
     }
     .top-bar .apply-btn {
-        padding: 3px 12px;
+        padding: 3px 10px;
         font-size: 10px;
     }
 }
