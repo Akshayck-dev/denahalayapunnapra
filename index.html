@@ -105,8 +105,8 @@
                             Our mission is to foster personal integration and spiritual depth through professional psychological accompaniment.
                         </p>
                         
-                        <!-- Features Row -->
-                        <div class="about-features-grid mt-5">
+                        <!-- Features Grid (Desktop Only) -->
+                        <div class="about-features-grid mt-5 d-none d-md-grid">
                             <div class="about-feature-item">
                                 <i class="fas fa-cross fa-2x text-gold mb-3"></i>
                                 <h6>Catholic Roots</h6>
@@ -121,6 +121,38 @@
                                 <i class="fas fa-shield-heart fa-2x text-gold mb-3"></i>
                                 <h6>Safe Formation</h6>
                                 <p class="small text-muted mb-0">Providing a nurturing environment for personal transformation.</p>
+                            </div>
+                        </div>
+
+                        <!-- Features Carousel (Mobile Only) -->
+                        <div id="featuresCarousel" class="carousel slide d-md-none mt-5 pt-4 border-top" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="text-center px-3">
+                                        <i class="fas fa-cross fa-3x text-gold mb-3"></i>
+                                        <h5 class="text-navy fw-bold">Catholic Roots</h5>
+                                        <p class="small text-muted">Committed to the teachings of the Catholic Church in every programme.</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="text-center px-3">
+                                        <i class="fas fa-spa fa-3x text-gold mb-3"></i>
+                                        <h5 class="text-navy fw-bold">Holistic Care</h5>
+                                        <p class="small text-muted">Integrating psychological maturity with spiritual depth.</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="text-center px-3">
+                                        <i class="fas fa-shield-heart fa-3x text-gold mb-3"></i>
+                                        <h5 class="text-navy fw-bold">Safe Formation</h5>
+                                        <p class="small text-muted">Providing a nurturing environment for personal transformation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-indicators" style="position: relative; margin-top: 20px;">
+                                <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="0" class="active bg-gold rounded-circle" style="width: 10px; height: 10px;"></button>
+                                <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="1" class="bg-gold rounded-circle" style="width: 10px; height: 10px;"></button>
+                                <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="2" class="bg-gold rounded-circle" style="width: 10px; height: 10px;"></button>
                             </div>
                         </div>
 
