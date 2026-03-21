@@ -364,13 +364,39 @@ $(function() {
 
         // 8. Dynamic Course Modal Logic
         window.showCourseDetails = function(courseId) {
-            const data = window.COURSE_DATA[courseId];
-            if (!data) return;
+            const course = window.COURSE_DATA[courseId];
+            if (!course) return;
 
-            $('#modalCourseTitle').text(data.title);
-            $('#modalCourseTagline').text(data.tagline);
-            $('#modalCourseDuration').html(`<i class="far fa-calendar-alt me-2"></i> ${data.duration}`);
-            $('#modalCourseBody').html(data.content);
+            $('#modalCourseTitle').text(course.title);
+            $('#modalCourseTagline').text(course.tagline);
+            document.getElementById('modalCourseDuration').innerHTML = `<i class="far fa-calendar-alt me-2"></i>${course.duration}`;
+    document.getElementById('modalCourseBody').innerHTML = course.content;
+
+    // Populate Highlights
+    const highlightsContainer = document.getElementById('modalHighlights');
+    if (highlightsContainer) {
+        highlightsContainer.innerHTML = '';
+        if (course.highlights && course.highlights.length > 0) {
+            course.highlights.forEach(item => {
+                const span = document.createElement('div');
+                span.className = 'highlight-item mb-1';
+                span.innerHTML = `<i class="fas fa-check text-gold me-2"></i><span style="font-size: 0.95rem; color: #555;">${item}</span>`;
+                highlightsContainer.appendChild(span);
+            });
+        }
+    }
+
+    // Populate Stats
+    const statsContainer = document.getElementById('modalStats');
+    if (statsContainer) {
+        statsContainer.innerHTML = '';
+        if (course.seats) {
+            statsContainer.innerHTML += `<span class="stat-pill"><i class="fas fa-users me-2"></i>Seats: ${course.seats}</span>`;
+        }
+        if (course.age) {
+            statsContainer.innerHTML += `<span class="stat-pill"><i class="fas fa-user-clock me-2"></i>Age: ${course.age}</span>`;
+        }
+    }
 
             const courseModal = new bootstrap.Modal(document.getElementById('courseDetailsModal'));
             courseModal.show();

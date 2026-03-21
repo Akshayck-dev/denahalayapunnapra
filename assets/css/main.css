@@ -7,6 +7,74 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 /* ===== TOP BAR (MARQUEE UPGRADE) ===== */
+/* MINIMALIST VIEW DETAILS BUTTON (Image 2 Style) */
+.btn-view-details-premium {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    background: linear-gradient(135deg, #f4c542, #d4af37);
+    color: #0b2c4d;
+
+    padding: 14px 30px;
+    border-radius: 50px;
+
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    border: none;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 100%;
+    margin-top: auto;
+}
+
+.btn-view-details-premium:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.45);
+    color: #0b2c4d;
+}
+
+.btn-view-details-premium i {
+    transition: transform 0.3s ease;
+}
+
+/* MODAL HIGHLIGHTS & STATS */
+.highlight-item {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 8px 15px;
+    border-radius: 10px;
+    border-left: 3px solid #f4c542;
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    background: white;
+    transform: translateX(5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.stat-pill {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(11, 44, 77, 0.05);
+    color: #0b2c4d;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(11, 44, 77, 0.1);
+}
+
+.text-gold {
+    color: #d4af37;
+}
 .top-bar {
     background: linear-gradient(90deg, #0a2540, #002147);
     color: #fff;

@@ -172,102 +172,175 @@
 
 
         <!-- Programs Section with Background -->
-        <section class="section programs-section fade-in" id="programs">
+        <section class="section programs-section-premium fade-in" id="programs">
             <div class="container position-relative">
                 <div class="text-center mb-5" data-aos="fade-up">
-                    <h2 class="display-6 text-white mb-4">What We Do</h2>
-                    <div class="programs-intro text-white mx-auto" style="max-width: 900px;">
-                        <h5 class="italic mb-4">"We accompany you to live your life fully"</h5>
+                    <h2 class="display-5 text-white mb-4" style="font-family: 'Playfair Display', serif; font-weight: 700;">Academic Programs</h2>
+                    <div class="programs-intro text-white-50 mx-auto" style="max-width: 900px;">
+                        <h5 class="italic mb-3" style="color: #f4c542;">"We accompany you to live your life fully"</h5>
                         <p class="lead" style="font-size: 1.1rem; line-height: 1.8;">
                             Denahalaya equips you to grow in Christian freedom by offering a variety of intensive psycho-spiritual programmes with utmost commitment to the Catholic Teachings
                         </p>
                     </div>
                 </div>
                 
-                <!-- Desktop: 3-column grid -->
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center d-none d-md-flex">
+                <div class="row g-4 justify-content-center">
                     <!-- Program 1 -->
-                    <div class="col" data-aos="fade-up" data-aos-delay="100">
-                        <div class="program-card">
-                            <div class="icon-box icon-gold"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
-                            <span class="program-tag">One-Year Diploma</span>
-                            <h3>Formators’ Diploma</h3>
-                            <span class="text-muted small d-block mb-3"><i class="far fa-calendar-alt me-1"></i> Jun 2026 – Mar 2027</span>
-                            <p>Formators’ Course (One-Year Diploma Course in Formative Spirituality & Pastoral Counselling).</p>
-                            <button onclick="showCourseDetails('diploma_counselling')" class="btn-custom btn-primary-custom">View Details <i class="fas fa-chevron-right ms-2" aria-hidden="true"></i></button>
+                    <div class="col-xl-3 col-md-6 mb-4" data-aos="fade-up">
+                        <div class="program-card-premium h-100 d-flex flex-column">
+                            <div class="icon-box-premium icon-gold">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <span class="category-tag-premium">One-Year Diploma</span>
+                            <h3 class="program-title-premium">Formators’ Diploma</h3>
+                            <div class="program-meta-premium">
+                                <span><i class="far fa-calendar-alt me-1"></i> Jun 2026 – Mar 2027</span>
+                            </div>
+                            <p class="program-description-premium">
+                                One-Year Diploma Course in Formative Spirituality & Pastoral Counselling. Designed for Formators, Superiors, and Spiritual Directors.
+                            </p>
+                            <button onclick="openCourse('diploma_counselling')" class="btn-view-details-premium mt-auto">
+                                VIEW DETAILS <i class="fas fa-chevron-right ms-2"></i>
+                            </button>
                         </div>
                     </div>
                     <!-- Program 2 -->
-                    <div class="col" data-aos="fade-up" data-aos-delay="200">
-                        <div class="program-card">
-                            <div class="icon-box icon-blue"><i class="fas fa-university" aria-hidden="true"></i></div>
-                            <span class="program-tag">Two-Year Master's</span>
-                            <h3>Clinical Psychology</h3>
-                            <span class="text-muted small d-block mb-3"><i class="far fa-calendar-alt me-1"></i> Jun 2026 – Mar 2028</span>
-                            <p>Two-Year master's Programme in Clinical Psychology and Pastoral Counselling (IGNOU).</p>
-                            <button onclick="showCourseDetails('master_psyc')" class="btn-custom btn-primary-custom">View Details <i class="fas fa-chevron-right ms-2" aria-hidden="true"></i></button>
+                    <div class="col-xl-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="program-card-premium h-100 d-flex flex-column">
+                            <div class="icon-box-premium icon-blue">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <span class="category-tag-premium">Two-Year Master's</span>
+                            <h3 class="program-title-premium">Clinical Psychology</h3>
+                            <div class="program-meta-premium">
+                                <span><i class="far fa-calendar-alt me-1"></i> Jun 2026 – Mar 2028</span>
+                            </div>
+                            <p class="program-description-premium">
+                                IGNOU Master's Programme integrated with deep psycho-spiritual formation and clinical ethics.
+                            </p>
+                            <button onclick="openCourse('master_psyc')" class="btn-view-details-premium mt-auto">
+                                VIEW DETAILS <i class="fas fa-chevron-right ms-2"></i>
+                            </button>
                         </div>
                     </div>
                     <!-- Program 3 -->
-                    <div class="col" data-aos="fade-up" data-aos-delay="300">
-                        <div class="program-card">
-                            <div class="icon-box icon-green"><i class="fas fa-heart-pulse" aria-hidden="true"></i></div>
-                            <span class="program-tag">One-Year Diploma</span>
-                            <h3>Psycho-Spiritual Integration</h3>
-                            <span class="text-muted small d-block mb-3"><i class="far fa-calendar-alt me-1"></i> Jun 2026 – Mar 2027</span>
-                            <p>One-Year Diploma Course in Psycho-Spiritual Integration for Junior Religious Sisters.</p>
-                            <button onclick="showCourseDetails('junior_sisters')" class="btn-custom btn-primary-custom">View Details <i class="fas fa-chevron-right ms-2" aria-hidden="true"></i></button>
+                    <div class="col-xl-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="program-card-premium h-100 d-flex flex-column">
+                            <div class="icon-box-premium icon-green">
+                                <i class="fas fa-heart-pulse"></i>
+                            </div>
+                            <span class="category-tag-premium">One-Year Diploma</span>
+                            <h3 class="program-title-premium">Psycho-Spiritual Integration</h3>
+                            <div class="program-meta-premium">
+                                <span><i class="far fa-calendar-alt me-1"></i> Jun 2026 – Mar 2027</span>
+                            </div>
+                            <p class="program-description-premium">
+                                Exclusively for Junior Religious Sisters to accompany them in their vocational journey.
+                            </p>
+                            <button onclick="openCourse('junior_sisters')" class="btn-view-details-premium mt-auto">
+                                VIEW DETAILS <i class="fas fa-chevron-right ms-2"></i>
+                            </button>
                         </div>
                     </div>
-                </div>
-
-                <!-- Mobile: Auto-moving Carousel -->
-                <div id="programsCarousel" class="carousel slide d-md-none" data-bs-ride="carousel" data-bs-interval="4000">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="program-card mx-2">
-                                <div class="icon-box icon-gold"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
-                                <span class="program-tag">One-Year Diploma</span>
-                                <h3>Formators’ Diploma</h3>
-                                <span class="text-muted small d-block mb-3"><i class="far fa-calendar-alt me-1"></i> Jun 2026 – Mar 2027</span>
-                                <p>Formators’ Course (One-Year Diploma Course in Formative Spirituality & Pastoral Counselling).</p>
-                                <button onclick="showCourseDetails('diploma_counselling')" class="btn-custom btn-primary-custom">View Details <i class="fas fa-chevron-right ms-2" aria-hidden="true"></i></button>
+                    <!-- Program 4 -->
+                    <div class="col-xl-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="program-card-premium h-100 d-flex flex-column">
+                            <div class="icon-box-premium icon-purple">
+                                <i class="fas fa-sync-alt"></i>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="program-card mx-2">
-                                <div class="icon-box icon-blue"><i class="fas fa-university" aria-hidden="true"></i></div>
-                                <span class="program-tag">Two-Year Master's</span>
-                                <h3>Clinical Psychology</h3>
-                                <span class="text-muted small d-block mb-3"><i class="far fa-calendar-alt me-1"></i> Jun 2026 – Mar 2028</span>
-                                <p>Two-Year master's Programme in Clinical Psychology and Pastoral Counselling (IGNOU).</p>
-                                <button onclick="showCourseDetails('master_psyc')" class="btn-custom btn-primary-custom">View Details <i class="fas fa-chevron-right ms-2" aria-hidden="true"></i></button>
+                            <span class="category-tag-premium">One-Year Diploma</span>
+                            <h3 class="program-title-premium">Personal Renewal</h3>
+                            <div class="program-meta-premium">
+                                <span><i class="far fa-calendar-alt me-1"></i> Jun 2026 – Mar 2027</span>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="program-card mx-2">
-                                <div class="icon-box icon-green"><i class="fas fa-heart-pulse" aria-hidden="true"></i></div>
-                                <span class="program-tag">One-Year Diploma</span>
-                                <h3>Psycho-Spiritual Integration</h3>
-                                <span class="text-muted small d-block mb-3"><i class="far fa-calendar-alt me-1"></i> Jun 2026 – Mar 2027</span>
-                                <p>One-Year Diploma Course in Psycho-Spiritual Integration for Junior Religious Sisters.</p>
-                                <a href="services.html" class="btn-custom btn-primary-custom">Read More <i class="fas fa-chevron-right ms-2" aria-hidden="true"></i></a>
-                            </div>
+                            <p class="program-description-premium">
+                                One-year intensive programme for personal transformation through holistic Christian anthropology.
+                            </p>
+                            <button onclick="openCourse('renewal')" class="btn-view-details-premium mt-auto">
+                                VIEW DETAILS <i class="fas fa-chevron-right ms-2"></i>
+                            </button>
                         </div>
                     </div>
-                    <!-- Indicators -->
-                    <div class="carousel-indicators" style="position: relative; margin-top: 20px; margin-bottom: 0;">
-                        <button type="button" data-bs-target="#programsCarousel" data-bs-slide-to="0" class="active bg-gold" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#programsCarousel" data-bs-slide-to="1" class="bg-gold" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#programsCarousel" data-bs-slide-to="2" class="bg-gold" aria-label="Slide 3"></button>
+                    <!-- Program 5 -->
+                    <div class="col-xl-3 col-md-6 mb-4" data-aos="fade-up">
+                        <div class="program-card-premium h-100 d-flex flex-column">
+                            <div class="icon-box-premium icon-teal">
+                                <i class="fas fa-file-medical-alt"></i>
+                            </div>
+                            <span class="category-tag-premium">Three-Month Certificate</span>
+                            <h3 class="program-title-premium">Motivational Assessment</h3>
+                            <div class="program-meta-premium">
+                                <span><i class="far fa-calendar-alt me-1"></i> Jun – Sep 2026</span>
+                            </div>
+                            <p class="program-description-premium">
+                                Specialization in psychological assessment of candidates for religious life and spiritual growth.
+                            </p>
+                            <button onclick="openCourse('certificate')" class="btn-view-details-premium mt-auto">
+                                VIEW DETAILS <i class="fas fa-chevron-right ms-2"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
-
-                <div class="text-center mt-5">
-                    <a href="services.html" class="btn-custom btn-primary-custom">VIEW ALL COURSES</a>
+                    <!-- Program 6 -->
+                    <div class="col-xl-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="program-card-premium h-100 d-flex flex-column">
+                            <div class="icon-box-premium icon-orange">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <span class="category-tag-premium">Three-Week Intensive</span>
+                            <h3 class="program-title-premium">Formators' Intensive</h3>
+                            <div class="program-meta-premium">
+                                <span><i class="far fa-calendar-alt me-1"></i> 29 Apr – 19 May 2026</span>
+                            </div>
+                            <p class="program-description-premium">
+                                A practical three-week course focusing on diagnostic skills and formation models for experts.
+                            </p>
+                            <button onclick="openCourse('short_course')" class="btn-view-details-premium mt-auto">
+                                VIEW DETAILS <i class="fas fa-chevron-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Program 7 -->
+                    <div class="col-xl-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="program-card-premium h-100 d-flex flex-column">
+                            <div class="icon-box-premium icon-purple">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <span class="category-tag-premium">Two-Year Integrated Degree</span>
+                            <h3 class="program-title-premium">M.Sc. Counselling</h3>
+                            <div class="program-meta-premium">
+                                <span><i class="far fa-calendar-alt me-1"></i> Jun 2026 – Jun 2028</span>
+                            </div>
+                            <p class="program-description-premium">
+                                Full-time Masters integrated with intensive vocational accompaniment and clinical practicums.
+                            </p>
+                            <button onclick="openCourse('msc')" class="btn-view-details-premium mt-auto">
+                                VIEW DETAILS <i class="fas fa-chevron-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Program 8 -->
+                    <div class="col-xl-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="program-card-premium h-100 d-flex flex-column">
+                            <div class="icon-box-premium icon-blue">
+                                <i class="fas fa-book-reader"></i>
+                            </div>
+                            <span class="category-tag-premium">Integrated Degree Programme</span>
+                            <h3 class="program-title-premium">B.Sc. Psychology</h3>
+                            <div class="program-meta-premium">
+                                <span><i class="far fa-calendar-alt me-1"></i> Jun 2026 – Jun 2029</span>
+                            </div>
+                            <p class="program-description-premium">
+                                Foundation in Psychology integrated with personal awareness modules for candidates.
+                            </p>
+                            <button onclick="openCourse('bsc')" class="btn-view-details-premium mt-auto">
+                                VIEW DETAILS <i class="fas fa-chevron-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
 
         <!-- Leadership Section -->
         <section class="section bg-white" id="administration">
