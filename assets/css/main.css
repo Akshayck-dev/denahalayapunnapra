@@ -60,6 +60,8 @@ html {
 .marquee-content {
     display: inline-flex;
     animation: marquee 30s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .marquee-content span {
