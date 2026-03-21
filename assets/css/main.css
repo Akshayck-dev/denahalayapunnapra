@@ -197,23 +197,24 @@ section:last-child, .section:last-child {
     align-items: center;
     justify-content: center;
 
-    height: 52px;
-    min-width: 220px;
-    padding: 0 32px;
+    height: 54px; /* Slightly taller for premium feel */
+    min-width: 240px;
+    padding: 12px 35px;
 
-    border-radius: 50px; /* Pill style */
+    border-radius: 100px; /* Perfect Pill style */
     font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px; /* Increased for premium look */
 
     text-align: center;
     white-space: nowrap;
     text-decoration: none !important;
 
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     cursor: pointer;
     border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .btn-social-small {
@@ -224,7 +225,7 @@ section:last-child, .section:last-child {
     font-size: 14px !important;
 }
 
-/* PRIMARY BUTTON (GOLD) */
+/* PRIMARY BUTTON (GOLD) - Matching Image 2 */
 .btn-primary-custom {
     background-color: var(--accent-gold);
     color: var(--primary-navy) !important;
@@ -235,7 +236,7 @@ section:last-child, .section:last-child {
     color: var(--primary-navy) !important;
 }
 
-/* OUTLINE BUTTON */
+/* OUTLINE BUTTON (WHITE/BANNER) */
 .btn-outline-custom {
     background: transparent;
     color: var(--white) !important;
@@ -247,11 +248,11 @@ section:last-child, .section:last-child {
     color: var(--primary-navy) !important;
 }
 
-/* DARK OUTLINE VARIANT (For light backgrounds) */
+/* DARK OUTLINE VARIANT (For Admissions Resources) - Matching Image 1 */
 .btn-outline-navy-custom {
-    background: transparent;
+    background: #ffffff;
     color: var(--primary-navy) !important;
-    border: 2px solid var(--primary-navy);
+    border: 2.5px solid var(--primary-navy);
 }
 
 .btn-outline-navy-custom:hover {
