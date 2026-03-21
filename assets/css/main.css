@@ -150,14 +150,41 @@ html {
 
 * {
     box-sizing: border-box;
+    scroll-behavior: smooth; /* Requested by user */
 }
 
-html, body {
+html {
     margin: 0 !important;
     padding: 0 !important;
     width: 100%;
     position: relative;
-    /* Removed overflow-x: hidden to prevent Lenis scroll locking */
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden; /* Restored for native scroll layout stability */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+section {
+    will-change: transform; /* Hardware acceleration */
+}
+
+/* Global Card Performance & Hover (Requested by user) */
+.card {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 .wrapper {
