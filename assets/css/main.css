@@ -766,8 +766,8 @@ section:last-child, .section:last-child {
 }
 
 .leadership-card img {
-    filter: grayscale(100%);
-    opacity: 0.9;
+    /* Grayscale filter removed for natural color */
+    transition: transform 0.5s ease;
 }
 
 .faculty-card .designation {
