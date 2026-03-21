@@ -2142,23 +2142,15 @@ form {
     100% { box-shadow: 0 0 0 0 rgba(212,175,55,0); }
 }
 
-/* /* ===== PREMIUM COURSE SECTION (FEATURED GRID) ===== */
+/* ===== PREMIUM COURSE SECTION (FEATURED GRID) ===== */
 .programs-section-premium {
   padding: 100px 5%;
-  background: 
-    linear-gradient(rgba(11, 44, 77, 0.88), rgba(11, 44, 77, 0.92)),
-    url('../img/programs-bg-premium.png') center/cover no-repeat fixed;
+  background: #fff;
   position: relative;
   overflow: hidden;
 }
 
-.programs-section-premium::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(244, 197, 66, 0.05), transparent);
-    pointer-events: none;
-}
+/* Removed overlay pseudo-element to keep it clean white */
 
 .programs-grid-premium {
   display: grid;
