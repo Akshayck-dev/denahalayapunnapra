@@ -18,7 +18,7 @@
                 </div>
                 <form id="applicationFormGlobal">
                     <input type="text" name="name" class="form-control" placeholder="Applicant's Name" autocomplete="name" required>
-                    <input type="number" name="age" class="form-control" placeholder="Age" required>
+                    <input type="number" name="age" class="form-control" placeholder="Age" min="15" max="100" required>
                     <input type="email" name="email" class="form-control" placeholder="Email Address" autocomplete="email" required>
                     <textarea name="address" class="form-control" placeholder="Contact Address" rows="2" required></textarea>
                     <select name="course" class="form-select mt-3 mb-3" required>
@@ -32,12 +32,12 @@
                         <option value="Three-Month Certificate Programme">Three-Month Certificate Programme</option>
                         <option value="Three-week Formators’ Short Course">Three-week Formators’ Short Course</option>
                     </select>
-                    <input type="text" name="pin" class="form-control" placeholder="Pin" autocomplete="postal-code" inputmode="numeric" required>
-                    <input type="tel" name="phone" class="form-control" placeholder="Phone" autocomplete="tel" inputmode="tel" required>
-                    <input type="text" name="diocese" class="form-control" placeholder="Diocese / Congregation">
-                    <input type="text" name="qualification" class="form-control" placeholder="Highest Qualification">
-                    <input type="text" name="apostolate" class="form-control" placeholder="Present Apostolate / Ministry">
-                    <textarea name="reason" class="form-control" placeholder="Reason for attending this course" rows="2"></textarea>
+                    <input type="text" name="pin" class="form-control" placeholder="Pin Code" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" title="Please enter a 6-digit pin code" required>
+                    <input type="tel" name="phone" class="form-control" placeholder="Phone Number" autocomplete="tel" inputmode="tel" pattern="[0-9]{10,12}" title="Please enter a valid phone number" required>
+                    <input type="text" name="diocese" class="form-control" placeholder="Diocese / Congregation" required>
+                    <input type="text" name="qualification" class="form-control" placeholder="Highest Qualification" required>
+                    <input type="text" name="apostolate" class="form-control" placeholder="Present Apostolate / Ministry" required>
+                    <textarea name="reason" class="form-control" placeholder="Reason for attending this course" rows="2" required></textarea>
                     
                     <button type="submit" class="btn-custom btn-primary-custom w-100 mt-2">
                         Submit Application
