@@ -1,45 +1,103 @@
 <!-- Apply Now Modal -->
 <div class="modal fade" id="applyModal" tabindex="-1" aria-labelledby="applyModalLabel" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg">
-            <div class="modal-header border-0 flex-column align-items-center pt-4 pb-0 position-relative">
-                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close" style="filter: none;"></button>
+        <div class="modal-content premium-modal border-0">
+            <div class="modal-header border-0 pb-0 pt-4 px-4 position-relative">
                 <div class="text-center w-100">
-                    <h1 class="brand-title-modal mb-1">DENAHALAYA</h1>
-                    <p class="brand-subtitle-modal mb-0">Institute of Formation, Punnapra</p>
-                    <div class="app-form-box mx-auto my-3">
-                        <span>COURSE APPLICATION</span>
-                    </div>
+                    <h4 class="premium-modal-title mb-1">Course Application</h4>
+                    <p class="text-muted small mb-0">Institute of Formation, Punnapra</p>
                 </div>
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body p-3 p-md-4 pt-1">
-                <div class="text-center mb-3">
-                    <h2 class="app-main-heading mb-0">Registration Form</h2>
-                </div>
-                <form id="applicationFormGlobal">
-                    <input type="text" name="name" class="form-control" placeholder="Applicant's Name" autocomplete="name" required>
-                    <input type="number" name="age" class="form-control" placeholder="Age" min="15" max="100" required>
-                    <input type="email" name="email" class="form-control" placeholder="Email Address" autocomplete="email" required>
-                    <textarea name="address" class="form-control" placeholder="Contact Address" rows="2" required></textarea>
-                    <select name="course" class="form-select mt-3 mb-3" required>
-                        <option value="" selected disabled>-- Select Course * --</option>
-                        <option value="One-Year Diploma in Formative Spirituality & Pastoral Counselling">One-Year Diploma in Formative Spirituality & Pastoral Counselling</option>
-                        <option value="Two-Year Master’s Programme in Clinical Psychology (IGNOU)">Two-Year Master’s Programme in Clinical Psychology (IGNOU)</option>
-                        <option value="One-Year Diploma in Psycho-Spiritual Integration (Junior Sisters)">One-Year Diploma in Psycho-Spiritual Integration (Junior Sisters)</option>
-                        <option value="One-Year Diploma in Psycho-Spiritual Renewal">One-Year Diploma in Psycho-Spiritual Renewal</option>
-                        <option value="Three-Month Certificate Programme in Motivational & Psychological Assessment">Three-Month Certificate Programme in Motivational & Psychological Assessment</option>
-                        <option value="Three-week Formators’ Short Course">Three-week Formators’ Short Course</option>
-                        <option value="B.Sc. Psychology Plus Psycho-Spiritual Integration">B.Sc. Psychology Plus Psycho-Spiritual Integration</option>
-                        <option value="M.Sc. Counselling Psychology Plus Psycho-Spiritual Integration">M.Sc. Counselling Psychology Plus Psycho-Spiritual Integration</option>
-                    </select>
-                    <input type="text" name="pin" class="form-control" placeholder="Pin Code" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" title="Please enter a 6-digit pin code" required>
-                    <input type="tel" name="phone" class="form-control" placeholder="Phone Number" autocomplete="tel" inputmode="tel" pattern="[0-9]{10,12}" title="Please enter a valid phone number" required>
-                    <input type="text" name="diocese" class="form-control" placeholder="Diocese / Congregation" required>
-                    <input type="text" name="qualification" class="form-control" placeholder="Highest Qualification" required>
-                    <input type="text" name="apostolate" class="form-control" placeholder="Present Apostolate / Ministry" required>
-                    <textarea name="reason" class="form-control" placeholder="Reason for attending this course" rows="2" required></textarea>
+            <div class="modal-body p-4 pt-1">
+                <form id="applicationFormGlobal" class="premium-form mt-4">
+                    <!-- COURSE SELECTION (Floating Label) -->
+                    <div class="form-group">
+                        <select name="course" class="form-select custom-select" required>
+                            <option value="" disabled selected></option>
+                            <option value="One-Year Diploma in Formative Spirituality & Pastoral Counselling">One-Year Diploma in Formative Spirituality & Pastoral Counselling</option>
+                            <option value="Two-Year Master’s Programme in Clinical Psychology (IGNOU)">Two-Year Master’s Programme in Clinical Psychology (IGNOU)</option>
+                            <option value="One-Year Diploma in Psycho-Spiritual Integration (Junior Sisters)">One-Year Diploma in Psycho-Spiritual Integration (Junior Sisters)</option>
+                            <option value="One-Year Diploma in Psycho-Spiritual Renewal">One-Year Diploma in Psycho-Spiritual Renewal</option>
+                            <option value="Three-Month Certificate Programme in Motivational & Psychological Assessment">Three-Month Certificate Programme in Motivational & Psychological Assessment</option>
+                            <option value="Three-week Formators’ Short Course">Three-week Formators’ Short Course</option>
+                            <option value="B.Sc. Psychology Plus Psycho-Spiritual Integration">B.Sc. Psychology Plus Psycho-Spiritual Integration</option>
+                            <option value="M.Sc. Counselling Psychology Plus Psycho-Spiritual Integration">M.Sc. Counselling Psychology Plus Psycho-Spiritual Integration</option>
+                        </select>
+                        <label>Select Your Course *</label>
+                    </div>
+
+                    <!-- NAME -->
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control" placeholder=" " autocomplete="name" required>
+                        <label>Applicant's Full Name *</label>
+                    </div>
+
+                    <div class="row g-3">
+                        <!-- AGE -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="number" name="age" class="form-control" placeholder=" " min="15" max="100" required>
+                                <label>Age *</label>
+                            </div>
+                        </div>
+                        <!-- EMAIL -->
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder=" " autocomplete="email" required>
+                                <label>Email Address *</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ADDRESS -->
+                    <div class="form-group">
+                        <textarea name="address" class="form-control" placeholder=" " rows="2" required></textarea>
+                        <label>Contact Address *</label>
+                    </div>
+
+                    <div class="row g-3">
+                        <!-- PIN -->
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input type="text" name="pin" class="form-control" placeholder=" " autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" title="Please enter a 6-digit pin code" required>
+                                <label>Pin Code *</label>
+                            </div>
+                        </div>
+                        <!-- PHONE -->
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <input type="tel" name="phone" class="form-control" placeholder=" " autocomplete="tel" inputmode="tel" pattern="[0-9]{10,12}" title="Please enter a valid phone number" required>
+                                <label>Phone Number *</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DIOCESE -->
+                    <div class="form-group">
+                        <input type="text" name="diocese" class="form-control" placeholder=" " required>
+                        <label>Diocese / Congregation *</label>
+                    </div>
+
+                    <!-- QUALIFICATION -->
+                    <div class="form-group">
+                        <input type="text" name="qualification" class="form-control" placeholder=" " required>
+                        <label>Highest Qualification *</label>
+                    </div>
+
+                    <!-- APOSTOLATE -->
+                    <div class="form-group">
+                        <input type="text" name="apostolate" class="form-control" placeholder=" " required>
+                        <label>Present Apostolate / Ministry *</label>
+                    </div>
+
+                    <!-- REASON -->
+                    <div class="form-group">
+                        <textarea name="reason" class="form-control" placeholder=" " rows="2" required></textarea>
+                        <label>Reason for attending this course *</label>
+                    </div>
                     
-                    <button type="submit" class="btn-custom btn-primary-custom w-100 mt-2">
+                    <button type="submit" class="btn-custom btn-submit-premium w-100 mt-2">
                         Submit Application
                     </button>
                 </form>

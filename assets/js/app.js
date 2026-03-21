@@ -176,8 +176,16 @@ $(function() {
             let missingFields = [];
             
             required.forEach(field => {
+                const input = form.querySelector(`[name="${field}"]`);
                 if (!dataObj[field] || dataObj[field].toString().trim() === "") {
-                    missingFields.push(form.querySelector(`[name="${field}"]`).placeholder || field);
+                    let labelText = field;
+                    const label = input.parentElement.querySelector('label');
+                    if (label) {
+                        labelText = label.innerText.replace('*', '').trim();
+                    } else if (input.placeholder && input.placeholder.trim() !== "") {
+                        labelText = input.placeholder;
+                    }
+                    missingFields.push(labelText);
                 }
             });
 
