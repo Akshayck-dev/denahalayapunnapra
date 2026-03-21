@@ -2938,3 +2938,23 @@ body.modal-open {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
+/* ==================================
+   MOBILE GRID OPTIMIZATIONS
+   Force 2 columns on mobile below 768px
+===================================*/
+@media (max-width: 768px) {
+    .programs-grid-premium {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+    }
+    .program-title-premium {
+        font-size: 1rem !important;
+    }
+    .program-card-premium {
+        padding: 15px !important;
+    }
+    .program-btn-group button {
+        padding: 8px 10px !important;
+        font-size: 0.7rem !important;
+    }
+}
