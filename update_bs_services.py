@@ -1,37 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Programs | Denahalaya Institute</title>
-    <link rel="stylesheet" href="./assets/css/bootstrap.css">
-    <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-</head>
-<body>
+import re
 
-    <div class="wrapper">
-        <header data-include="header"></header>
-
-        <!-- Banner -->
-        <section class="subpage-banner">
-            <div class="container" data-aos="fade-up">
-                <h1>Academic Programs</h1>
-                <p class="text-white-50">Intensive psycho-spiritual programmes for personal transformation</p>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb justify-content-center mb-0">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Programs</li>
-                    </ol>
-                </nav>
-            </div>
-        </section>
-
-        <!-- Programs Grid -->
-        <section class="section programs-section-premium">
-            <div class="container">
-                <div class="row g-4 justify-content-center">
+html_content = """<div class="row g-4 justify-content-center">
     <!-- Program 1 -->
     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
         <div class="card h-100 border-0 text-center p-4" style="background: rgba(244, 245, 247, 0.95); backdrop-filter: blur(10px); border-radius: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)'">
@@ -207,89 +176,35 @@
             </button>
         </div>
     </div>
-</div>
-            </div>
-        </section>
+</div>"""
 
-        <!-- Clinical & Support Services -->
-        <section class="section bg-light" id="clinical-services">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center mb-5" data-aos="fade-up">
-                        <h2 class="display-font">Clinical & Support Services</h2>
-                        <div class="divider mx-auto mb-3"></div>
-                        <p class="text-muted">Specialized support beyond our academic programmes</p>
-                    </div>
-                    <div class="col-md-6 mb-4" data-aos="fade-up">
-                        <div class="service-mini-card">
-                            <div class="service-mini-icon icon-gold">
-                                <i class="fas fa-comments"></i>
-                            </div>
-                            <h4>Counselling & Psychotherapy</h4>
-                            <p class="small text-muted mb-0">We offer specialized individual therapy and spiritual direction sessions for priests and religious, providing a safe space for healing and growth.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="service-mini-card">
-                            <div class="service-mini-icon icon-teal">
-                                <i class="fas fa-search-plus"></i>
-                            </div>
-                            <h4>MAAP Programme</h4>
-                            <p class="small text-muted mb-0">Our Vocational-Motivational Awareness Assessment Programme is designed to help individuals deeply explore their psychological and spiritual readiness.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+try:
+    with open('services.html', 'r', encoding='utf-8') as f:
+        html = f.read()
 
-        <!-- Downloads Section -->
-        <section class="section">
-            <div class="container">
-                <div class="row g-4 align-items-center">
-                    <div class="col-lg-6 text-center text-lg-start" data-aos="fade-right">
-                        <h2 class="display-font mb-4">Admissions Resources</h2>
-                        <p class="text-muted mx-auto mx-lg-0" style="max-width: 600px;">Access the detailed prospectus and application forms for all our courses. For further enquiries, please contact our office.</p>
-                    </div>
-                    <div class="col-lg-6 text-lg-end" data-aos="fade-left">
-                        <div class="d-flex flex-wrap justify-content-center justify-content-lg-end gap-3 mt-4 mt-lg-0">
-                            <a href="./assets/documents/Brochure 2026.pdf" target="_blank" class="btn-custom btn-outline-navy-custom">
-                                <i class="fas fa-file-pdf me-2" aria-hidden="true"></i> PROSPECTUS 2026
-                            </a>
-                            <a href="./assets/documents/ApplicationForm_Denahalaya.pdf" target="_blank" class="btn-custom btn-primary-custom">
-                                <i class="fas fa-download me-2" aria-hidden="true"></i> DOWNLOAD APPLICATION
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    # Find the generic wrapper to replace
+    start_tag = '<div class="services-grid-premium">'
+    if start_tag not in html:
+        start_tag = '<div class="programs-grid-premium">' # Fallback if it wasn't replaced yet
+    
+    end_tag = '</section>'
+    
+    start_idx = html.find(start_tag)
+    end_idx = html.find(end_tag, start_idx)
+    
+    if start_idx != -1 and end_idx != -1:
+        # Before the wrapper, there might be a <div class="container">. We keep that by replacing string exactly
+        new_html = html[:start_idx] + html_content + "\n            </div>\n        " + html[end_idx:]
+        
+        # Remove the custom reveal script since we are using AOS now
+        script_pattern = r'// Course Reveal Animation - Robust Implementation.*?(</script>)'
+        new_html = re.sub(script_pattern, r'\1', new_html, flags=re.DOTALL)
+        
+        with open('services.html', 'w', encoding='utf-8') as f:
+            f.write(new_html)
+        print("BOOTSTRAP GRID SUCCESS")
+    else:
+        print("COULD NOT FIND TAGS")
 
-        <footer data-include="footer"></footer>
-    </div>
-
-    <script src="./assets/js/jquery.js"></script>
-    <script src="./assets/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-    <script src="./assets/js/courses-data.js"></script>
-    <script src="./assets/js/app.js"></script>
-    <script>
-        // Lenis Smooth Scrolling
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smooth: true
-        });
-
-        function raf(t) {
-            lenis.raf(t);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-
-        </script>
-    <div data-include="modals"></div>
-</body>
-</html>
+except Exception as e:
+    print(f"Error: {e}")
