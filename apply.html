@@ -117,59 +117,13 @@
         AOS.init({ duration: 1000, once: true });
         
         (function() { emailjs.init("RmgrNAAYbmB8BvIJ2"); })();
-
+        
         document.getElementById("applicationForm").addEventListener("submit", function(e) {
-            e.preventDefault();
-            const btn = e.target.querySelector('button');
-            const originalText = btn.innerHTML;
-                    btn.innerHTML = 'Submitting… <i class="fas fa-spinner fa-spin ms-2" aria-hidden="true"></i>';
-            btn.disabled = true;
-
-            // ===== DEBUG LOGGING FOR DATA FLOW VERIFICATION =====
-            const formData = new FormData(this);
-            console.log("===== FORM DATA (APPLY PAGE) =====");
-            for (let [key, value] of formData.entries()) {
-                console.log(key + ":", value);
+            if (typeof window.handleFormSubmission === 'function') {
+                window.handleFormSubmission(e, 'apply-page');
+            } else {
+                console.error("Form handler NOT loaded! Checking dependencies...");
             }
-
-            emailjs.sendForm('service_2kwpecd', 'template_s32jb2z', this)
-                .then((response) => {
-                    console.log("SUCCESS", response.status, response.text);
-                    Swal.fire({
-                        html: `
-                            <div class="text-center">
-                                <img src="./assets/images/denahalaya_logo.png" alt="Logo" style="max-height: 70px; margin-bottom: 20px;">
-                                <h3 style="color: #002147; font-weight: 700; font-size: 1.5rem; margin-bottom: 10px;">Submission Successful!</h3>
-                                <p style="color: #666; font-size: 1rem; line-height: 1.5;">Thank you! Your application has been received.<br>Redirecting you to the home page...</p>
-                            </div>
-                        `,
-                        showConfirmButton: false,
-                        timer: 3000,
-                        timerProgressBar: true,
-                        background: '#fff',
-                        backdrop: 'rgba(0,33,71,0.85)',
-                        customClass: {
-                            popup: 'custom-success-popup'
-                        },
-                        didClose: () => {
-                            window.location.href = "index.html";
-                        }
-                    });
-                    e.target.reset();
-                })
-                .catch((error) => {
-                    console.error("ERROR", error);
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Submission Failed',
-                        text: 'Failed to send application. Please check your connection and try again.',
-                        confirmButtonColor: '#002147'
-                    });
-                })
-                .finally(() => {
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                });
         });
     </script>
     <div data-include="modals"></div>
