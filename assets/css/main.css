@@ -3648,6 +3648,13 @@ body.modal-open-active {
     }
 }
 
+/* Unified Read More Styles for Program Cards */
+.course-card-mobile-sync .btn-primary-custom {
+    font-size: 0.75rem !important;
+    letter-spacing: 1px !important;
+    padding: 10px 12px !important;
+}
+
 /* MOBILE-ONLY EQUAL HEIGHT CARDS (Strictly Responsive) */
 @media (max-width: 991px) {
     .course-card-mobile-sync {
