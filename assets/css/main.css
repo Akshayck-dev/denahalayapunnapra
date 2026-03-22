@@ -3242,9 +3242,21 @@ body.modal-open-active {
   color: #d4a017 !important;
 }
 
-/* spacing fix */
+/* spacing and alignment fix for entire contact section container */
 .contact-section {
   padding: 40px 20px;
+  text-align: left !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important; /* completely override centered columns on mobile */
+  justify-content: flex-start !important;
+}
+
+.contact-section h4,
+.contact-section h5 {
+  text-align: left !important;
+  width: 100%;
+  margin-left: 0 !important;
 }
 
 /* mobile fix */
