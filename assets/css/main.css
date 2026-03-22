@@ -3187,6 +3187,8 @@ body.modal-open-active {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  text-align: left !important; /* Force left alignment over any parent center styling */
+  width: 100%; /* Ensure it spans full width to prevent the flex container itself from centering */
 }
 
 .contact-row {
@@ -3197,6 +3199,7 @@ body.modal-open-active {
   transition: 0.3s ease;
   text-decoration: none !important;
   color: inherit;
+  text-align: left !important; /* Force text column to align strictly left */
 }
 
 .contact-row:hover {
@@ -3232,6 +3235,7 @@ body.modal-open-active {
   text-decoration: none !important;
   font-weight: 500;
   color: inherit !important; /* Allow footer/section to specify base color (white or navy) */
+  text-align: left !important; /* Override any inherited center align */
 }
 
 .contact-row a:hover {
@@ -3247,6 +3251,7 @@ body.modal-open-active {
 @media (max-width: 768px) {
   .contact-row {
     grid-template-columns: 44px 1fr;
+    text-align: left !important;
   }
 }
 .whatsapp-direct-btn {
