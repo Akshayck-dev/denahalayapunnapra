@@ -3188,7 +3188,7 @@ body.modal-open-active {
   flex-direction: column;
   gap: 20px;
   text-align: left !important; /* Force internal left alignment over any parent center styling */
-  width: max-content; /* Shrink list to fit perfectly around text */
+  width: fit-content; /* Shrink list to fit perfectly around text (Allows wrapping if constrained) */
   max-width: 100%; /* Prevent overflow on very small devices */
   margin: 0 auto; /* Allow block to center within parent on mobile */
 }
@@ -3268,8 +3268,11 @@ body.modal-open-active {
     text-align: center !important;
   }
   .contact-list {
+    display: inline-flex !important; /* Forces block to act as inline content so parent can text-align:center it */
     align-self: center !important; /* Bulletproof centering inside Flex column */
     margin: 0 auto !important;
+    width: auto !important; /* Prevent ANY 100% width triggers */
+    padding: 0 10px; /* Slight breathing room so it never hugs the very edge */
   }
   .contact-row {
     grid-template-columns: 44px 1fr;
