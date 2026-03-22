@@ -3182,16 +3182,18 @@ body.modal-open-active {
 }
 
 /* --- 🚀 UPDATED CSS (Important Alignment Fix) --- */
+/* --- 🚀 FULLY UPDATED CSS (Perfect Grid Alignment) --- */
 .contact-list {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
 }
 
 .contact-row {
-  display: flex;
-  align-items: center; /* 🔥 MAIN FIX */
-  gap: 14px;
+  display: grid;
+  grid-template-columns: 50px 1fr; /* 🔥 PERFECT ALIGNMENT */
+  align-items: flex-start; /* EXTRA CLEAN FIX */
+  column-gap: 14px;
   transition: 0.3s ease;
   text-decoration: none !important;
   color: inherit;
@@ -3199,60 +3201,54 @@ body.modal-open-active {
 
 .contact-row:hover {
   transform: translateX(6px);
+  transition: 0.3s ease;
 }
 
 .contact-row .icon {
-  width: 42px;
-  height: 42px;
-  min-width: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: #d4a017;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
   color: #000;
   transition: 0.3s ease;
+  flex-shrink: 0;
+  margin-top: 2px; /* Slight offset to align with first line of flex-start text */
 }
 
-.contact-row i {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.contact-row .icon i {
+  font-size: 16px;
+  line-height: 1;
 }
 
 .contact-row a,
 .contact-row span {
-  color: #fff;
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
+  display: block;
   text-decoration: none !important;
   font-weight: 500;
-  color: inherit !important; /* Allow footer/section to specify base color */
+  color: inherit !important; /* Allow footer/section to specify base color (white or navy) */
 }
 
 .contact-row a:hover {
   color: #d4a017 !important;
 }
 
-/* spacing fix for sections containing contact info */
+/* spacing fix */
 .contact-section {
-  padding-bottom: 40px; 
+  padding: 40px 20px;
 }
 
+/* mobile fix */
 @media (max-width: 768px) {
-  .contact-row a, .contact-row span {
-    font-size: 14px;
-  }
-  .contact-row .icon {
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
-    font-size: 14px;
+  .contact-row {
+    grid-template-columns: 44px 1fr;
   }
 }
-
 .whatsapp-direct-btn {
     display: inline-flex;
     align-items: center;
