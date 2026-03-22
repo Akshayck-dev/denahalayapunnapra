@@ -3647,14 +3647,3 @@ body.modal-open-active {
         order: 3 !important;
     }
 }
-
-/* FLEXBOX EQUAL HEIGHT CARDS (v27: Mobile & Desktop Sync) */
-.academic-card {
-    display: flex !important;
-    flex-direction: column !important;
-    height: 100% !important;
-}
-
-.academic-card .btn-primary-custom {
-    margin-top: auto !important;
-}
