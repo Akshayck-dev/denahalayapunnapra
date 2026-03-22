@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Denahalaya Institute</title>
-    <link rel="stylesheet" href="./assets/css/bootstrap.css?v=2.0">
-    <link rel="stylesheet" href="./assets/css/main.css?v=3.0">
+    <link rel="stylesheet" href="./assets/css/bootstrap.css?v=3.1">
+    <link rel="stylesheet" href="./assets/css/main.css?v=3.1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
@@ -29,85 +29,87 @@
         </section>
 
         <!-- Contact Section -->
-        <section class="section bg-white">
+        <section class="contact-page-optimized">
             <div class="container">
-                <div class="row g-5">
-                    <div class="col-lg-4" data-aos="fade-right">
-                        <div class="card-modern">
-                            <h4 class="display-font text-gold mb-4">Get in Touch</h4>
-                            
-                            <div class="den-contact-list">
-                                <div class="den-contact-row">
-                                    <div class="icon"><i class="fas fa-mobile-alt"></i></div>
-                                    <a href="tel:+916282525648" class="text-navy">+91 6282 525 648</a>
-                                </div>
+                <div class="contact-wrapper">
+                    <!-- Contact Info Sidebar -->
+                    <div class="contact-info" data-aos="fade-right">
+                        <h3>Get in Touch</h3>
+                        
+                        <div class="item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <a href="tel:+916282525648">+91 6282 525 648</a>
+                        </div>
 
-                                <div class="den-contact-row">
-                                    <div class="icon"><i class="fas fa-phone"></i></div>
-                                    <a href="tel:04772287808" class="text-navy">0477 228 7808</a>
-                                </div>
+                        <div class="item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:04772287808">0477 228 7808</a>
+                        </div>
 
-                                <div class="den-contact-row">
-                                    <div class="icon"><i class="fas fa-envelope"></i></div>
-                                    <a href="mailto:danahalaya@gmail.com" class="text-navy">danahalaya@gmail.com</a>
-                                </div>
+                        <div class="item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:danahalaya@gmail.com">danahalaya@gmail.com</a>
+                        </div>
 
-                                <div class="den-contact-row">
-                                    <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-                                    <span class="text-navy">Punnapra, Alappuzha, Kerala - 688004</span>
-                                </div>
+                        <div class="item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Punnapra, Alappuzha, Kerala - 688004</span>
+                        </div>
 
-                                <div class="den-contact-row">
-                                    <div class="icon"><i class="fab fa-whatsapp"></i></div>
-                                    <a href="https://wa.me/916282525648" class="text-navy">Chat on WhatsApp</a>
-                                </div>
-                            </div>
+                        <div class="item">
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/916282525648">Chat on WhatsApp</a>
+                        </div>
 
-                            <hr class="my-4">
-                            <div class="mt-2">
-                                <h5 class="small text-uppercase ls-2 mb-3">Follow Us</h5>
-                                <div class="d-flex gap-2">
-                                    <a href="#" class="btn-custom btn-social-small btn-outline-navy-custom rounded-circle" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#" class="btn-custom btn-social-small btn-outline-navy-custom rounded-circle" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                                    <a href="#" class="btn-custom btn-social-small btn-outline-navy-custom rounded-circle" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                                </div>
+                        <hr style="margin: 25px 0; border-color: #eee;">
+                        
+                        <div class="follow-us">
+                            <h5 style="font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; color: #888;">Follow Us</h5>
+                            <div style="display: flex; gap: 10px;">
+                                <a href="#" style="width: 34px; height: 34px; border-radius: 50%; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; color: #002147; transition: 0.3s;"><i class="fab fa-facebook-f" style="font-size: 14px;"></i></a>
+                                <a href="#" style="width: 34px; height: 34px; border-radius: 50%; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; color: #002147; transition: 0.3s;"><i class="fab fa-instagram" style="font-size: 14px;"></i></a>
+                                <a href="#" style="width: 34px; height: 34px; border-radius: 50%; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; color: #002147; transition: 0.3s;"><i class="fab fa-youtube" style="font-size: 14px;"></i></a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-8" data-aos="fade-left">
-                        <div class="card-modern shadow-lg">
-                            <h3 class="mb-4 display-font">Send a Message</h3>
-                            <form id="contactForm">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label small fw-bold">Full Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Enter your name" autocomplete="name" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label small fw-bold">Email Address</label>
-                                        <input type="email" class="form-control" id="email" placeholder="Enter your email" autocomplete="email" spellcheck="false" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label small fw-bold">Phone Number</label>
-                                        <input type="tel" class="form-control" id="phone" placeholder="Your phone number" autocomplete="tel" inputmode="tel" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label small fw-bold">Subject</label>
-                                        <input type="text" class="form-control" id="subject" placeholder="What is this about?" required>
-                                    </div>
-                                    <div class="col-12">
-                                        <label class="form-label small fw-bold">Message</label>
-                                        <textarea class="form-control" id="message" rows="5" placeholder="Share your enquiry with us" required></textarea>
-                                    </div>
-                                    <div class="col-12 text-center mt-4">
-                                        <button type="submit" class="btn-custom btn-primary-custom w-100">Send Message <i class="fas fa-paper-plane ms-2" aria-hidden="true"></i></button>
-                                    </div>
+                    <!-- Contact Form -->
+                    <div class="contact-form" data-aos="fade-left">
+                        <h3>Send a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-row">
+                                <div style="flex: 1;">
+                                    <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Full Name</label>
+                                    <input type="text" id="name" placeholder="Enter your name" required>
                                 </div>
-                            </form>
-                        </div>
+                                <div style="flex: 1;">
+                                    <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Email Address</label>
+                                    <input type="email" id="email" placeholder="Enter your email" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div style="flex: 1;">
+                                    <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Phone Number</label>
+                                    <input type="tel" id="phone" placeholder="Your phone number" required>
+                                </div>
+                                <div style="flex: 1;">
+                                    <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Subject</label>
+                                    <input type="text" id="subject" placeholder="What is this about?" required>
+                                </div>
+                            </div>
+
+                            <div style="margin-bottom: 10px;">
+                                <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Message</label>
+                                <textarea id="message" placeholder="Write your message here..." required></textarea>
+                            </div>
+
+                            <button type="submit">Send Message via WhatsApp</button>
+                        </form>
                     </div>
                 </div>
+            </div>
+        </section>
 
                 <!-- Map -->
                 <div class="mt-5 rounded overflow-hidden shadow" data-aos="fade-up">
@@ -124,7 +126,7 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script src="./assets/js/app.js?v=3.0"></script>
+    <script src="./assets/js/app.js?v=3.1"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
 
