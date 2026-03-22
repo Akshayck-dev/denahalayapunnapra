@@ -3191,15 +3191,16 @@ body.modal-open-active {
 .contact-item {
   display: flex;
   align-items: center;
+  flex-wrap: nowrap; /* Force single row */
   gap: 12px;
   margin-bottom: 10px;
   font-size: 15px;
-  color: #333;
-  transition: transform 0.3s ease; /* PRO TOUCH Transition */
+  color: inherit; /* Allow footer to override */
+  transition: transform 0.3s ease;
 }
 
 .contact-item:hover {
-  transform: translateX(3px); /* PRO TOUCH */
+  transform: translateX(3px);
 }
 
 .contact-item i {
@@ -3225,8 +3226,8 @@ body.modal-open-active {
   color: inherit !important;
   font-weight: 500;
   transition: 0.3s;
-  line-height: 1.4;
-  word-break: break-word;
+  line-height: 1;
+  white-space: nowrap; /* Force single line */
 }
 
 .contact-item a:hover {
