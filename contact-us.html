@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Denahalaya Institute</title>
-    <link rel="stylesheet" href="./assets/css/bootstrap.css?v=6.0">
-    <link rel="stylesheet" href="./assets/css/main.css?v=6.0">
+    <link rel="stylesheet" href="./assets/css/bootstrap.css?v=7.0">
+    <link rel="stylesheet" href="./assets/css/main.css?v=7.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
@@ -28,50 +28,63 @@
             </div>
         </section>
 
-        <!-- User Provided Contact Section -->
-        <section class="contact-section-new py-5">
-            <div class="contact-wrapper">
+        <!-- Modern Glassmorphism Contact Section -->
+        <section class="contact-section">
+          <div class="container" data-aos="zoom-out">
             
-              <!-- LEFT -->
-              <div class="contact-left" data-aos="fade-right">
-                <h2>Get in Touch</h2>
-            
-                <div class="item"><i class="fas fa-phone"></i> <a href="tel:+916282525648" style="color: inherit; text-decoration: none;">+91 6282 525 648</a></div>
-                <div class="item"><i class="fas fa-phone-alt"></i> <a href="tel:04772287808" style="color: inherit; text-decoration: none;">0477 228 7808</a></div>
-                <div class="item"><i class="fas fa-envelope"></i> <a href="mailto:danahalaya@gmail.com" style="color: inherit; text-decoration: none;">danahalaya@gmail.com</a></div>
-                <div class="item"><i class="fas fa-map-marker-alt"></i> <span>Punnapra, Alappuzha, Kerala - 688004</span></div>
-                <div class="item"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/916282525648" style="color: inherit; text-decoration: none;">Chat on WhatsApp</a></div>
-            
-                <div class="social">
-                  <a href="#" style="color: inherit;"><i class="fab fa-facebook"></i></a>
-                  <a href="#" style="color: inherit;"><i class="fab fa-instagram"></i></a>
-                  <a href="#" style="color: inherit;"><i class="fab fa-youtube"></i></a>
+            <div class="glass-panel">
+                
+                <!-- Breadcrumb -->
+                <div class="contact-breadcrumb">
+                    <a href="index.html" style="color: inherit; text-decoration: none;">HOME</a> / <span class="active">CONTACT</span>
                 </div>
-              </div>
+
+                <div class="row g-5">
             
-              <!-- RIGHT -->
-              <div class="contact-right" data-aos="fade-left">
-                <h2>Send a Message</h2>
+                  <!-- LEFT: INFO -->
+                  <div class="col-lg-5">
+                    <div class="contact-info-glass">
+                      <h3>Get in Touch</h3>
+                      
+                      <p><i class="fas fa-phone-alt"></i> <a href="tel:+916282525648" style="color: inherit; text-decoration: none;">+91 6282 525 648</a></p>
+                      <p><i class="fas fa-phone"></i> <a href="tel:04772287808" style="color: inherit; text-decoration: none;">0477 228 7808</a></p>
+                      <p><i class="fas fa-envelope"></i> <a href="mailto:danahalaya@gmail.com" style="color: inherit; text-decoration: none;">danahalaya@gmail.com</a></p>
+                      <p><i class="fas fa-map-marker-alt"></i> Punnapra, Alappuzha, Kerala - 688004</p>
+                      <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/916282525648" style="color: inherit; text-decoration: none;">Chat on WhatsApp</a></p>
+
+                    </div>
+                  </div>
             
-                <form id="contactForm">
-                  <input type="text" id="name" placeholder="Full Name" required>
-                  <input type="email" id="email" placeholder="Email Address" required>
-                  <input type="text" id="phone" placeholder="Phone Number" required>
-                  <input type="text" id="subject" placeholder="Subject">
-                  <textarea id="message" placeholder="Your message..." required></textarea>
+                  <!-- RIGHT: FORM -->
+                  <div class="col-lg-7">
+                    <div class="contact-form-glass">
             
-                  <button type="submit">Send Message via WhatsApp</button>
-                </form>
-              </div>
+                      <h5>Send a Message</h5>
             
-            </div>
+                      <form id="contactForm">
             
-            <!-- Map -->
-            <div class="container mt-4">
-                <div class="rounded overflow-hidden shadow" data-aos="fade-up">
-                    <iframe width="100%" height="450" style="border:0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15730.0!2d76.32!3d9.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMjUnNDguMCJOIDc2wrAxOScxMi4wIkU!5e0!3m2!1sen!2sin!4v1717171717171" allowfullscreen="" loading="lazy"></iframe>
+                        <input type="text" placeholder="Full Name" id="name" required>
+                        <input type="email" placeholder="Email Address" id="email" required>
+                        <input type="text" placeholder="Phone Number" id="phone" required>
+                        <input type="text" placeholder="Subject" id="subject">
+                        <textarea placeholder="Your message..." id="message" required></textarea>
+            
+                        <button type="submit" class="btn-whatsapp-glass">Send Message via WhatsApp</button>
+            
+                      </form>
+            
+                    </div>
+                  </div>
+            
                 </div>
             </div>
+
+            <!-- Map (Matching Greyscale Design) -->
+            <div class="mt-5 glass-panel" style="padding: 10px !important; border-radius: 20px !important; filter: grayscale(1) invert(0.1); opacity: 0.7;">
+                <iframe width="100%" height="400" style="border:0; border-radius: 12px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15730.0!2d76.32!3d9.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMjUnNDguMCJOIDc2wrAxOScxMi4wIkU!5e0!3m2!1sen!2sin!4v1717171717171" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+          </div>
         </section>
 
         <footer data-include="footer"></footer>
@@ -82,7 +95,7 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script src="./assets/js/app.js?v=6.0"></script>
+    <script src="./assets/js/app.js?v=7.0"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
 
@@ -104,7 +117,6 @@ Subject: ${subject}%0A
 Message: ${message}`;
 
             const phoneNumber = "916282525648";
-            // Fixed syntax error (added backticks)
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
 
             window.open(whatsappUrl, "_blank");
