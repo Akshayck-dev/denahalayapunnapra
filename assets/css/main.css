@@ -23,6 +23,54 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 /* ======================================== */
+/* 🚀 ULTIMATE DESKTOP CONTACT ALIGNMENT (REINFORCED) */
+.den-contact-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+  width: fit-content !important;
+  margin: 0 auto; /* Allow desktop centering if container allows */
+}
+
+.den-contact-row {
+  display: grid !important;
+  grid-template-columns: 50px 1fr !important;
+  align-items: flex-start !important;
+  column-gap: 14px !important;
+  text-align: left !important;
+}
+
+.den-contact-row .icon {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: #d4a017 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #000 !important;
+  flex-shrink: 0 !important;
+  margin-top: 2px !important;
+}
+
+.den-contact-row .icon i {
+  font-size: 16px !important;
+}
+
+.den-contact-row a,
+.den-contact-row span {
+  font-size: 15px !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  line-height: 1.6 !important;
+  display: block !important;
+  text-align: left !important;
+}
+
+.den-contact-row a:hover {
+  color: #d4a017 !important;
+}
+
 
 /* Native smooth scrolling removed per user request for Lenis override */
 
@@ -3181,67 +3229,21 @@ body.modal-open-active {
     }
 }
 
-/* --- 🚀 UPDATED CSS (Important Alignment Fix) --- */
-/* --- 🚀 FULLY UPDATED CSS (Perfect Grid Alignment) --- */
-.contact-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  text-align: left !important; /* Force internal left alignment over any parent center styling */
-  width: fit-content; /* Shrink list to fit perfectly around text (Allows wrapping if constrained) */
-  max-width: 100%; /* Prevent overflow on very small devices */
-  margin: 0 auto; /* Allow block to center within parent on mobile */
-}
-
-.contact-row {
-  display: grid;
-  grid-template-columns: 50px 1fr; /* 🔥 PERFECT ALIGNMENT */
-  align-items: flex-start; /* EXTRA CLEAN FIX */
-  column-gap: 14px;
-  transition: 0.3s ease;
-  text-decoration: none !important;
-  color: inherit;
-  text-align: left !important; /* Force text column to align strictly left */
-}
-
-.contact-row:hover {
-  transform: translateX(6px);
-  transition: 0.3s ease;
-}
-
-.contact-row .icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #d4a017;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #000;
-  transition: 0.3s ease;
-  flex-shrink: 0;
-  margin-top: 2px; /* Slight offset to align with first line of flex-start text */
-}
-
-.contact-row .icon i {
-  font-size: 16px;
-  line-height: 1;
-}
-
-.contact-row a,
-.contact-row span {
-  font-size: 15px;
-  line-height: 1.6;
-  margin: 0;
-  display: block;
-  text-decoration: none !important;
-  font-weight: 500;
-  color: inherit !important; /* Allow footer/section to specify base color (white or navy) */
-  text-align: left !important; /* Override any inherited center align */
-}
-
-.contact-row a:hover {
-  color: #d4a017 !important;
+/* mobile & tablet fix */
+@media (max-width: 991px) {
+  .contact-section {
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .den-contact-list {
+    display: inline-flex !important;
+    align-self: center !important;
+    margin: 0 auto !important;
+    width: auto !important;
+  }
+  .den-contact-row {
+    grid-template-columns: 44px 1fr !important;
+  }
 }
 
 /* spacing and alignment fix for entire contact section container */
