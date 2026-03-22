@@ -3647,3 +3647,15 @@ body.modal-open-active {
         order: 3 !important;
     }
 }
+
+/* MOBILE-ONLY EQUAL HEIGHT CARDS (Strictly Responsive) */
+@media (max-width: 991px) {
+    .course-card-mobile-sync {
+        display: flex !important;
+        flex-direction: column !important;
+        height: 100% !important;
+    }
+    .course-card-mobile-sync .btn-primary-custom {
+        margin-top: auto !important;
+    }
+}
