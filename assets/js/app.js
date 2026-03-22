@@ -22,7 +22,7 @@ $(function() {
             const file = $this.data('include') + '.html';
             
             // Simplified load with error handling and cache-busting
-            fetch(file + '?v=7.0')
+            fetch(file + '?v=10.0')
                 .then(response => {
                     if (!response.ok) throw new Error('CORS or File Not Found');
                     return response.text();
@@ -176,33 +176,33 @@ $(function() {
             // 1. Duplicate Prevention Check
             if ($form.data('submitting') === true) return false;
 
-            // 2. Data Capture & Validation
+            // 2. Data Capture & Custom Validation (v23 Sync)
             const formData = new FormData(form);
             const dataObj = Object.fromEntries(formData.entries());
             const required = ['name', 'age', 'email', 'address', 'course', 'pin', 'phone', 'diocese', 'qualification', 'apostolate', 'reason'];
-            let missingFields = [];
+            let isValid = true;
             
             required.forEach(field => {
                 const input = form.querySelector(`[name="${field}"]`);
+                if (!input) return;
+                
                 if (!dataObj[field] || dataObj[field].toString().trim() === "") {
                     let labelText = field;
                     const label = input.parentElement.querySelector('label');
                     if (label) {
                         labelText = label.innerText.replace('*', '').trim();
-                    } else if (input.placeholder && input.placeholder.trim() !== "") {
-                        labelText = input.placeholder;
                     }
-                    missingFields.push(labelText);
+                    showError(input, `${labelText} is required`);
+                    isValid = false;
+                } else {
+                    removeError(input);
                 }
             });
 
-            if (missingFields.length > 0) {
-                Swal.fire({
-                    icon: 'warning',
-                    title: 'Incomplete Application',
-                    text: 'Please fill out all fields. Missing: ' + missingFields.join(', '),
-                    confirmButtonColor: '#0b2a4a'
-                });
+            if (!isValid) {
+                // Scroll to first error for better UX
+                const firstError = form.querySelector('.input-error');
+                if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 return false;
             }
 
@@ -223,8 +223,8 @@ $(function() {
                 console.error("Backup failed:", err);
             }
 
-            // 4. EmailJS Execution
-            emailjs.sendForm('service_2kwpecd', 'template_s32jb2z', form)
+            // 4. EmailJS Execution (Updated v25)
+            emailjs.sendForm('service_xobfjk8', 'template_jeonbnf', form)
                 .then((response) => {
                     console.log("EmailJS Success:", response.status);
                     markBackupAsSent(dataObj.email);
@@ -279,6 +279,32 @@ $(function() {
                     $btn.html(originalText).prop('disabled', false);
                 });
         };
+
+        /** Global Validation Helpers (v23) */
+        function showError(input, msg) {
+            let error = input.nextElementSibling;
+            if (error && error.tagName === 'LABEL') {
+                error = error.nextElementSibling;
+            }
+            if (error && error.classList.contains('error-message')) {
+                error.innerText = msg;
+                error.style.display = "block";
+            }
+            input.classList.add("input-error");
+        }
+
+        function removeError(input) {
+            let error = input.nextElementSibling;
+            if (error && error.tagName === 'LABEL') {
+                error = error.nextElementSibling;
+            }
+            if (error && error.classList.contains('error-message')) {
+                error.innerText = "";
+                error.style.display = "none";
+            }
+            input.classList.remove("input-error");
+        }
+
 
         /** Internal helper for backup state management */
         function markBackupAsSent(email) {
@@ -423,6 +449,13 @@ $(function() {
             if (!courseModalInstance) {
                 courseModalInstance = new bootstrap.Modal(modalEl);
             }
+
+            // [Auto-Fill Update] - Set the course title on the "Apply Now" button inside the modal
+            const $modalApplyBtn = $('#modalApplyBtn');
+            if ($modalApplyBtn.length) {
+                $modalApplyBtn.attr('data-course', course.title);
+            }
+
             courseModalInstance.show();
         };
 
@@ -501,6 +534,73 @@ $(function() {
             setTimeout(() => { AOS.refresh(); }, 100);
         }
     });
+
+    // WhatsApp Floating Button Logic
+    $(document).on('click', '#whatsappBtn', function(e) {
+        e.preventDefault();
+        const message = `Hello Denahalaya,\nI am interested in your course.\nPage: ${window.location.href}`;
+        const phone = "916282525648";
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        window.open(url, "_blank");
+    });
+
+    /**
+     * ==========================================
+     * 7. COURSE AUTO-FILL ENGINE (URL & Modals)
+     * ==========================================
+     */
+    function autoFillCourse(courseName) {
+        if (!courseName) return;
+        
+        // Find visible or hidden course fields (Select or Input)
+        const courseFields = $('select[name="course"], input[name="course"], #app_course');
+        
+        courseFields.each(function() {
+            const $field = $(this);
+            
+            if ($field.is('select')) {
+                // Try to find exact match in options
+                $field.val(courseName);
+                
+                // If direct val() fails (no exact value match), try matching by text
+                if (!$field.val()) {
+                    $field.find('option').each(function() {
+                        if ($(this).text().trim() === courseName.trim()) {
+                            $field.val($(this).val());
+                        }
+                    });
+                }
+                
+                // Bonus: Make the field "read-only" (visual lock for selects)
+                if ($field.val()) {
+                    $field.css({
+                        'pointer-events': 'none',
+                        'background-color': '#f8f9fa',
+                        'color': '#6c757d',
+                        'cursor': 'not-allowed'
+                    });
+                }
+            } else {
+                $field.val(courseName).attr('readonly', true).css('background-color', '#f8f9fa');
+            }
+        });
+    }
+
+    // 7a. On Click Bridge (Used when moving from Details Modal to Apply Modal)
+    $(document).on('click', '[data-course]', function() {
+        const courseName = $(this).attr('data-course');
+        if (courseName) {
+            autoFillCourse(courseName);
+        }
+    });
+
+    // 7b. URL Parameter Check (e.g. apply.html?course=Clinical%20Psychology)
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlCourse = urlParams.get('course');
+    if (urlCourse) {
+        // Delay slightly to ensure form is rendered (especially for dynamic inclusions)
+        setTimeout(() => autoFillCourse(urlCourse), 500);
+    }
 
     // Set initial state
     $(window).trigger('scroll');

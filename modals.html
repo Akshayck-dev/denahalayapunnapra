@@ -12,94 +12,105 @@
                 </div>
                 <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
 
-                <form id="applicationFormGlobal" class="premium-form mt-2">
+                <form id="applicationFormGlobal" class="premium-form mt-2" novalidate>
                     <!-- NAME -->
                     <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder=" " autocomplete="name" required>
+                        <input type="text" name="name" id="app_name" class="form-control" placeholder=" " autocomplete="name" required>
                         <label>Applicant's Full Name *</label>
+                        <span class="error-message"></span>
                     </div>
 
                     <div class="row g-2">
                         <!-- AGE -->
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="number" name="age" class="form-control" placeholder=" " min="15" max="100" required>
+                                <input type="number" name="age" id="app_age" class="form-control" placeholder=" " min="15" max="100" required>
                                 <label>Age *</label>
+                                <span class="error-message"></span>
                             </div>
                         </div>
                         <!-- EMAIL -->
                         <div class="col-md-8">
                             <div class="form-group">
-                                <input type="email" name="email" class="form-control" placeholder=" " autocomplete="email" required>
+                                <input type="email" name="email" id="app_email" class="form-control" placeholder=" " autocomplete="email" required>
                                 <label>Email Address *</label>
+                                <span class="error-message"></span>
                             </div>
                         </div>
                     </div>
 
                     <!-- ADDRESS -->
                     <div class="form-group">
-                        <textarea name="address" class="form-control" placeholder=" " rows="2" required></textarea>
+                        <textarea name="address" id="app_address" class="form-control" placeholder=" " rows="2" required></textarea>
                         <label>Contact Address *</label>
+                        <span class="error-message"></span>
                     </div>
 
                     <!-- COURSE SELECTION (Floating Label) -->
                     <div class="form-group">
-                        <select name="course" class="form-select custom-select" required>
+                        <select name="course" id="app_course" class="form-select custom-select" required>
                             <option value="" disabled selected></option>
                             <option value="One-Year Diploma in Formative Spirituality & Pastoral Counselling">One-Year Diploma in Formative Spirituality & Pastoral Counselling</option>
-                            <option value="Two-Year Master’s Programme in Clinical Psychology (IGNOU)">Two-Year Master’s Programme in Clinical Psychology (IGNOU)</option>
+                            <option value="Two-Year Master's Programme in Clinical Psychology (IGNOU)">Two-Year Master's Programme in Clinical Psychology (IGNOU)</option>
                             <option value="One-Year Diploma in Psycho-Spiritual Integration (Junior Sisters)">One-Year Diploma in Psycho-Spiritual Integration (Junior Sisters)</option>
                             <option value="One-Year Diploma in Psycho-Spiritual Renewal">One-Year Diploma in Psycho-Spiritual Renewal</option>
                             <option value="Three-Month Certificate Programme in Motivational & Psychological Assessment">Three-Month Certificate Programme in Motivational & Psychological Assessment</option>
-                            <option value="Three-week Formators’ Short Course">Three-week Formators’ Short Course</option>
+                            <option value="Three-Week Short Course for Formators">Three-Week Short Course for Formators</option>
                             <option value="B.Sc. Psychology Plus Psycho-Spiritual Integration">B.Sc. Psychology Plus Psycho-Spiritual Integration</option>
                             <option value="M.Sc. Counselling Psychology Plus Psycho-Spiritual Integration">M.Sc. Counselling Psychology Plus Psycho-Spiritual Integration</option>
                         </select>
                         <label>Select Your Course *</label>
+                        <span class="error-message"></span>
                     </div>
 
                     <div class="row g-2">
                         <!-- PIN -->
                         <div class="col-md-5">
                             <div class="form-group">
-                                <input type="text" name="pin" class="form-control" placeholder=" " autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" title="Please enter a 6-digit pin code" required>
+                                <input type="text" name="pin" id="app_pin" class="form-control" placeholder=" " autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" required>
                                 <label>Pin Code *</label>
+                                <span class="error-message"></span>
                             </div>
                         </div>
                         <!-- PHONE -->
                         <div class="col-md-7">
                             <div class="form-group">
-                                <input type="tel" name="phone" class="form-control" placeholder=" " autocomplete="tel" inputmode="tel" pattern="[0-9]{10,12}" title="Please enter a valid phone number" required>
+                                <input type="tel" name="phone" id="app_phone" class="form-control" placeholder=" " autocomplete="tel" inputmode="tel" pattern="[0-9]{10,12}" required>
                                 <label>Phone Number *</label>
+                                <span class="error-message"></span>
                             </div>
                         </div>
                     </div>
 
                     <!-- DIOCESE -->
                     <div class="form-group">
-                        <input type="text" name="diocese" class="form-control" placeholder=" " required>
+                        <input type="text" name="diocese" id="app_diocese" class="form-control" placeholder=" " required>
                         <label>Diocese / Congregation *</label>
+                        <span class="error-message"></span>
                     </div>
 
                     <!-- QUALIFICATION -->
                     <div class="form-group">
-                        <input type="text" name="qualification" class="form-control" placeholder=" " required>
+                        <input type="text" name="qualification" id="app_qualification" class="form-control" placeholder=" " required>
                         <label>Highest Qualification *</label>
+                        <span class="error-message"></span>
                     </div>
 
                     <!-- APOSTOLATE -->
                     <div class="form-group">
-                        <input type="text" name="apostolate" class="form-control" placeholder=" " required>
+                        <input type="text" name="apostolate" id="app_apostolate" class="form-control" placeholder=" " required>
                         <label>Present Apostolate / Ministry *</label>
+                        <span class="error-message"></span>
                     </div>
 
                     <!-- REASON -->
                     <div class="form-group">
-                        <textarea name="reason" class="form-control" placeholder=" " rows="2" required></textarea>
+                        <textarea name="reason" id="app_reason" class="form-control" placeholder=" " rows="2" required></textarea>
                         <label>Reason for attending this course *</label>
+                        <span class="error-message"></span>
                     </div>
                     
-                    <button type="submit" class="btn-custom btn-submit-premium w-100 mt-2">
+                    <button type="submit" class="btn-primary-custom w-100 mt-2">
                         Submit Application
                     </button>
                 </form>
@@ -137,7 +148,7 @@
                     </div>
 
                     <div class="d-flex flex-column flex-sm-row gap-3 mt-5">
-                        <a href="#" class="btn-custom btn-primary-custom flex-grow-1 py-3" data-bs-toggle="modal" data-bs-target="#applyModal">
+                        <a href="#" id="modalApplyBtn" class="btn-primary-custom flex-grow-1 py-3" data-bs-toggle="modal" data-bs-target="#applyModal">
                             Apply Now
                         </a>
                     </div>
