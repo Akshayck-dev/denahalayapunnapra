@@ -101,10 +101,8 @@ html.lenis, html.lenis body {
     overflow: hidden;
 }
 
-/* Offset sticky navbar below top-bar */
-.sticky-top {
-    top: 36px !important;
-}
+
+/* Header Content Alignment */
 
 .top-bar .top-content {
     max-width: 1200px;
@@ -1160,18 +1158,28 @@ section:last-child, .section:last-child {
 }
 
 /* Navigation Overrides */
+/* Offset sticky navbar below top-bar */
+.sticky-top {
+    top: 34px !important;
+}
+
 .navbar {
     background-color: var(--white);
     transition: var(--transition-base);
-    padding: 15px 0;
+    padding: 8px 0;
     position: relative;
     z-index: 1030 !important; /* Proper sticky priority, below modals */
 }
 
 .navbar.sticky {
     box-shadow: var(--shadow-sm);
-    padding: 10px 0;
+    padding: 5px 0;
     z-index: 1030 !important;
+}
+
+.navbar-brand {
+    padding: 0;
+    margin: 0;
 }
 
 .nav-link {
