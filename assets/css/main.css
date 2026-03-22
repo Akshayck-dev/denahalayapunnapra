@@ -3192,8 +3192,14 @@ body.modal-open-active {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-bottom: 10px;
   font-size: 15px;
   color: #333;
+  transition: transform 0.3s ease; /* PRO TOUCH Transition */
+}
+
+.contact-item:hover {
+  transform: translateX(3px); /* PRO TOUCH */
 }
 
 .contact-item i {
@@ -3205,8 +3211,7 @@ body.modal-open-active {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  transition: transform 0.3s ease;
+  font-size: 16px;
   flex-shrink: 0;
 }
 
@@ -3214,11 +3219,14 @@ body.modal-open-active {
   transform: scale(1.1);
 }
 
-.contact-item a {
+.contact-item a,
+.contact-item span {
   text-decoration: none !important;
   color: inherit !important;
   font-weight: 500;
   transition: 0.3s;
+  line-height: 1.4;
+  word-break: break-word;
 }
 
 .contact-item a:hover {
