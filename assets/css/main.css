@@ -3257,15 +3257,19 @@ body.modal-open-active {
   margin-bottom: 20px;
 }
 
-/* mobile fix */
-@media (max-width: 768px) {
+/* mobile & tablet fix */
+@media (max-width: 991px) {
   .contact-section {
-    align-items: center; /* Center the whole block natively on mobile */
+    align-items: center; /* Center the whole block natively when footer columns stack */
     text-align: center;
   }
   .contact-section h4,
   .contact-section h5 {
     text-align: center !important;
+  }
+  .contact-list {
+    align-self: center !important; /* Bulletproof centering inside Flex column */
+    margin: 0 auto !important;
   }
   .contact-row {
     grid-template-columns: 44px 1fr;
