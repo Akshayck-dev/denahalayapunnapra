@@ -3187,8 +3187,10 @@ body.modal-open-active {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  text-align: left !important; /* Force left alignment over any parent center styling */
-  width: 100%; /* Ensure it spans full width to prevent the flex container itself from centering */
+  text-align: left !important; /* Force internal left alignment over any parent center styling */
+  width: max-content; /* Shrink list to fit perfectly around text */
+  max-width: 100%; /* Prevent overflow on very small devices */
+  margin: 0 auto; /* Allow block to center within parent on mobile */
 }
 
 .contact-row {
@@ -3245,25 +3247,29 @@ body.modal-open-active {
 /* spacing and alignment fix for entire contact section container */
 .contact-section {
   padding: 40px 20px;
-  text-align: left !important;
   display: flex;
   flex-direction: column;
-  align-items: flex-start !important; /* completely override centered columns on mobile */
-  justify-content: flex-start !important;
 }
 
 .contact-section h4,
 .contact-section h5 {
-  text-align: left !important;
   width: 100%;
-  margin-left: 0 !important;
+  margin-bottom: 20px;
 }
 
 /* mobile fix */
 @media (max-width: 768px) {
+  .contact-section {
+    align-items: center; /* Center the whole block natively on mobile */
+    text-align: center;
+  }
+  .contact-section h4,
+  .contact-section h5 {
+    text-align: center !important;
+  }
   .contact-row {
     grid-template-columns: 44px 1fr;
-    text-align: left !important;
+    text-align: left !important; /* Text inside the grid column stays left aligned unconditionally */
   }
 }
 .whatsapp-direct-btn {
