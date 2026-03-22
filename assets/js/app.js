@@ -21,8 +21,8 @@ $(function() {
             const $this = $(this);
             const file = $this.data('include') + '.html';
             
-            // Simplified load with error handling
-            fetch(file)
+            // Simplified load with error handling and cache-busting
+            fetch(file + '?v=2.0')
                 .then(response => {
                     if (!response.ok) throw new Error('CORS or File Not Found');
                     return response.text();
