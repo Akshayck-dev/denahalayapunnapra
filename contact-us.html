@@ -35,40 +35,43 @@
                     <div class="col-lg-4" data-aos="fade-right">
                         <div class="card-modern">
                             <h4 class="display-font text-gold mb-4">Get in Touch</h4>
-                            <div class="d-flex mb-4">
-                                <div class="bg-light p-3 rounded-circle me-3">
-                                    <i class="fas fa-phone text-gold" aria-hidden="true"></i>
+                            
+                            <div class="contact-info-premium">
+                                <div class="contact-item">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <a href="tel:+916282525648">+91 6282 525 648</a>
                                 </div>
-                                <div>
-                                    <p class="mb-0 fw-bold">Call Us</p>
-                                    <p class="text-muted">82810 15322</p>
+
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <a href="tel:04772287808">0477 228 7808</a>
+                                </div>
+
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="mailto:danahalaya@gmail.com">danahalaya@gmail.com</a>
+                                </div>
+
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Punnapra, Alappuzha, Kerala - 688004</span>
+                                </div>
+
+                                <div class="contact-item">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <a href="https://wa.me/916282525648" target="_blank">
+                                        Chat on WhatsApp
+                                    </a>
                                 </div>
                             </div>
-                            <div class="d-flex mb-4">
-                                <div class="bg-light p-3 rounded-circle me-3">
-                                    <i class="fas fa-envelope text-gold" aria-hidden="true"></i>
-                                </div>
-                                <div>
-                                    <p class="mb-0 fw-bold">Email Us</p>
-                                    <p class="text-muted">danahalaya@gmail.com</p>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="bg-light p-3 rounded-circle me-3">
-                                    <i class="fas fa-location-dot text-gold" aria-hidden="true"></i>
-                                </div>
-                                <div>
-                                    <p class="mb-0 fw-bold">Visit Us</p>
-                                    <p class="text-muted">Punnapra, Alappuzha,<br>Kerala, India</p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="mt-4">
-                                <h5 class="small text-uppercase ls-2 mb-3">Connect</h5>
+
+                            <hr class="my-4">
+                            <div class="mt-2">
+                                <h5 class="small text-uppercase ls-2 mb-3">Follow Us</h5>
                                 <div class="d-flex gap-2">
-                                    <a href="#" class="btn-custom btn-social-small btn-outline-navy-custom rounded-circle" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                                    <a href="#" class="btn-custom btn-social-small btn-outline-navy-custom rounded-circle" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                                    <a href="https://wa.me/918281015322" class="btn-custom btn-social-small btn-outline-navy-custom rounded-circle" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                                    <a href="#" class="btn-custom btn-social-small btn-outline-navy-custom rounded-circle" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="btn-custom btn-social-small btn-outline-navy-custom rounded-circle" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                    <a href="#" class="btn-custom btn-social-small btn-outline-navy-custom rounded-circle" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +139,7 @@
             const message = document.getElementById("message").value;
 
             const text = `Hello Denahalaya…%0ANew Enquiry Details,%0AName: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone)}%0ASubject: ${encodeURIComponent(subject)} %0AMessage: ${encodeURIComponent(message)}`;
-            const phoneNumber = "918281015322";
+            const phoneNumber = "916282525648";
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${text}`;
             window.open(whatsappUrl, "_blank");
         });

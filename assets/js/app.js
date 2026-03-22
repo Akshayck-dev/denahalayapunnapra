@@ -262,7 +262,7 @@ $(function() {
                                 <p style="color: #666; font-size: 1rem; line-height: 1.5;">Thank you! We have securely noted your application details.</p>
                                 <div class="alert alert-info py-2 small mt-3 text-start">
                                     <p class="mb-1"><strong><i class="fas fa-info-circle me-1"></i> Note:</strong> Your form data is saved successfully.</p>
-                                    <p class="mb-0">Please also contact us at <strong>+91 94464 69599</strong> to confirm.</p>
+                                    <p class="mb-0">Please also contact us at <strong>+91 6282 525 648</strong> to confirm.</p>
                                 </div>
                             </div>
                         `,
