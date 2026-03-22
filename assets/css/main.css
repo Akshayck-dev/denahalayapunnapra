@@ -3181,22 +3181,20 @@ body.modal-open-active {
     }
 }
 
-/* --- Professional Contact Section (Premium Polish) --- */
+/* --- Professional Contact Section (Clean Alignment Fix) --- */
 .contact-info-premium {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px; /* Vertical gap between items */
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap; /* Force single row */
   gap: 12px;
   margin-bottom: 10px;
-  font-size: 15px;
-  color: inherit; /* Allow footer to override */
-  transition: transform 0.3s ease;
+  transition: 0.3s;
+  color: inherit;
 }
 
 .contact-item:hover {
@@ -3204,20 +3202,11 @@ body.modal-open-active {
 }
 
 .contact-item i {
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(135deg, #d4af37, #f5d76e);
-  color: #0b2545;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-width: 20px;
+  text-align: center;
   font-size: 16px;
+  color: #d4af37; /* Maintain gold accent for icons */
   flex-shrink: 0;
-}
-
-.contact-item:hover i {
-  transform: scale(1.1);
 }
 
 .contact-item a,
@@ -3225,47 +3214,19 @@ body.modal-open-active {
   text-decoration: none !important;
   color: inherit !important;
   font-weight: 500;
-  transition: 0.3s;
-  line-height: 1;
-  white-space: nowrap; /* Force single line */
+  line-height: 1.4;
+  word-break: break-word;
+  font-size: 15px;
 }
 
 .contact-item a:hover {
   color: #d4af37 !important;
 }
 
-@media (max-width: 576px) {
-  .contact-info-premium {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px 0;
-    text-align: center;
-  }
-
+/* Ensure single row on mobile too */
+@media (max-width: 768px) {
   .contact-item {
-    flex: 0 0 50%; /* Two items per row */
-    flex-direction: row !important; /* Back to horizontal alignment */
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 6px !important;
-    margin-bottom: 0 !important;
-  }
-
-  .contact-item a,
-  .contact-item span {
-    white-space: nowrap !important; /* Force single line for numbers/email */
-    text-align: left;
-    font-size: 11px !important; /* Scaled down to fit side-by-side */
-    max-width: none;
-    margin: 0;
-  }
-
-  .contact-item i {
-    width: 30px !important;
-    height: 30px !important;
-    font-size: 13px !important;
-    flex-shrink: 0;
+    font-size: 14px;
   }
 }
 
