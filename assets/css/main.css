@@ -3234,9 +3234,38 @@ body.modal-open-active {
   color: #d4af37 !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
+  .contact-info-premium {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px 0;
+    text-align: center;
+  }
+
   .contact-item {
-    font-size: 14px;
+    flex: 0 0 50%; /* Two items per row */
+    flex-direction: row !important; /* Back to horizontal alignment */
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .contact-item a,
+  .contact-item span {
+    white-space: nowrap !important; /* Force single line for numbers/email */
+    text-align: left;
+    font-size: 11px !important; /* Scaled down to fit side-by-side */
+    max-width: none;
+    margin: 0;
+  }
+
+  .contact-item i {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 13px !important;
+    flex-shrink: 0;
   }
 }
 
