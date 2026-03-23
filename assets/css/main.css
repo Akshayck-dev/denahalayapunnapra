@@ -2507,6 +2507,24 @@ section:last-child, .section:last-child {
     color: white;
 }
 
+/* Integrated Programs Hero (Full-Bleed Image) */
+.programs-hero-integrated {
+    background:
+        linear-gradient(rgba(11, 44, 77, 0.8), rgba(11, 44, 77, 0.85)),
+        url('../images/about_classroom_1.jpg') center/cover no-repeat fixed;
+    padding-bottom: 80px; /* Expand image area below cards */
+}
+
+.programs-hero-integrated .subpage-banner {
+    background: transparent !important;
+    padding: 120px 0 40px !important; /* Reduced bottom padding to "expand" title */
+}
+
+.programs-hero-integrated .programs-section-premium {
+    background: transparent !important;
+    padding-top: 0 !important;
+}
+
 .subpage-banner h1 {
     font-size: 3.5rem;
     color: white;
