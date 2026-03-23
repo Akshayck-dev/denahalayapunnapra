@@ -557,22 +557,21 @@ $(function() {
         const phone = "916282525648";
         const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank");
-    });
-    /**
+    });    /**
      * ==========================================
-     * 7. CUSTOM DROPDOWN & AUTO-FILL ENGINE (v7 - DELEGATED)
+     * 7. CUSTOM DROPDOWN & AUTO-FILL ENGINE (v8 - FULL NAME SYNC)
      * ==========================================
      */
     
     const COURSES = [
-        { id: "junior_sisters", name: "One-Year Diploma Course in Psycho-Spiritual Integration" },
-        { id: "renewal", name: "One-Year Diploma Course in Psycho-Spiritual Renewal" },
-        { id: "certificate", name: "Three-Month Certificate Programme in Candidate Assessment" },
-        { id: "short_course", name: "Three-Week Short Course for Formators" },
-        { id: "diploma_counselling", name: "One-Year Diploma Course in Formative Spirituality" },
-        { id: "master_psyc", name: "M.Sc. Clinical Psychology + Diploma Course in Psycho-Spiritual Integration" },
-        { id: "bsc", name: "B.Sc. Psychology + Psycho-Spiritual Integration" },
-        { id: "msc", name: "M.Sc. Counselling Psychology + Integration" }
+        "One-Year Diploma Course in Psycho-Spiritual Integration",
+        "One-Year Diploma Course in Psycho-Spiritual Renewal",
+        "Three-Month Certificate Programme in Candidate Assessment",
+        "Three-Week Short Course for Formators",
+        "One-Year Diploma Course in Formative Spirituality",
+        "M.Sc. Clinical Psychology + Diploma Course in Psycho-Spiritual Integration",
+        "B.Sc. Psychology + Psycho-Spiritual Integration",
+        "M.Sc. Counselling Psychology + Integration"
     ];
 
     // 7a. Populate all lists (Run once or when needed)
@@ -581,10 +580,10 @@ $(function() {
             const $list = $(this);
             if ($list.children().length > 0) return; // already populated
 
-            COURSES.forEach(course => {
+            COURSES.forEach(courseName => {
                 const $item = $('<div class="dropdown-item"></div>')
-                    .text(course.name)
-                    .attr('data-id', course.id);
+                    .text(courseName) // Safe: jQuery .text() uses textContent
+                    .attr('data-id', courseName);
                 $list.append($item);
             });
         });
@@ -613,15 +612,14 @@ $(function() {
     $(document).on('click', '.dropdown-item', function(e) {
         e.stopPropagation();
         const $item = $(this);
-        const courseId = $item.attr('data-id');
+        const courseName = $item.attr('data-id');
         const $container = $item.closest('.custom-dropdown');
         const $display = $container.find('.dropdown-selected');
         const $input = $container.find('input[type="hidden"]');
         
-        const course = COURSES.find(c => c.id === courseId);
-        if (course) {
-            $display.text(course.name).css('color', '#333');
-            $input.val(course.id).trigger('change');
+        if (courseName) {
+            $display.text(courseName).css('color', '#333');
+            $input.val(courseName).trigger('change');
             
             // Highlight check
             $container.find('.dropdown-item').removeClass('active');
@@ -653,6 +651,7 @@ $(function() {
         
         $('.custom-dropdown').each(function() {
             const $container = $(this);
+            // Search for item with matching data-id (full name)
             const $item = $container.find(`.dropdown-item[data-id="${value}"]`);
             if ($item.length > 0) {
                 $item.click(); 

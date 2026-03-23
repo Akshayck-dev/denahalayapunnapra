@@ -5060,13 +5060,15 @@ body.modal-open-active {
 }
 
 .dropdown-item {
-    padding: 12px 15px;
-    font-size: 13.5px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-    line-height: 1.4;
-    color: #444;
+  padding: 12px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  color: #555;
+  white-space: normal; /* Fix truncation issue */
+  word-wrap: break-word; /* Ensure long words wrap */
+  line-height: 1.4;
 }
 
 .dropdown-item:hover {
