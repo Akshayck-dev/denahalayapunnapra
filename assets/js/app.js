@@ -646,23 +646,19 @@ $(function() {
     });
 
     // Initial population for static pages
-    setTimeout(populateDropdownLists, 100);
-
-    // 7f. MODAL EVENTS
-    $(document).on('show.bs.modal', '#applyModal', function() {
-        resetCourseSelect();
-        setTimeout(populateDropdownLists, 200); // Ensure populated after fetch
-    });
-
-    // 7d. NORMAL APPLY NOW BUTTON (RESET) (Delegated)
+    setTimeout(populateDropdownLists, 100)    // 7d. NORMAL APPLY NOW BUTTON (RESET) (Delegated)
     $(document).on('click', '.apply-now-btn', function() {
         resetCourseSelect();
+        $('.is-invalid').removeClass('is-invalid');
+        $('.error-message').hide().text('');
     });
 
     // 7e. COURSE BASED APPLY BUTTON (SET VALUE) (Delegated)
     $(document).on('click', '.apply-course-btn', function() {
         const courseSlug = $(this).attr("data-course");
         resetCourseSelect(); // clear first
+        $('.is-invalid').removeClass('is-invalid');
+        $('.error-message').hide().text('');
         
         if (courseSlug) {
             localStorage.setItem("selectedCourse", courseSlug);
@@ -671,6 +667,15 @@ $(function() {
             }, 100);
         }
     });
+
+    // 7f. MODAL EVENTS (Cleanup on Open)
+    $(document).on('show.bs.modal', '#applyModal', function() {
+        resetCourseSelect();
+        $('.is-invalid').removeClass('is-invalid');
+        $('.error-message').hide().text('');
+        setTimeout(populateDropdownLists, 200);
+    });
+;
 
     // 7f. AFTER MODAL FULLY OPEN (Delegated)
     $(document).on('shown.bs.modal', '#applyModal', function() {
