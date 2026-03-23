@@ -2507,22 +2507,33 @@ section:last-child, .section:last-child {
     color: white;
 }
 
-/* Integrated Programs Hero (Full-Bleed Image) */
+/* Integrated Programs Hero (Clean Look - No Background Image) */
 .programs-hero-integrated {
-    background:
-        linear-gradient(rgba(11, 44, 77, 0.8), rgba(11, 44, 77, 0.85)),
-        url('../images/about_classroom_1.jpg') center/cover no-repeat fixed;
-    padding-bottom: 80px; /* Expand image area below cards */
+    background: var(--white);
+    padding-bottom: 20px; /* Tighter integration */
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .programs-hero-integrated .subpage-banner {
     background: transparent !important;
-    padding: 120px 0 40px !important; /* Reduced bottom padding to "expand" title */
+    padding: 100px 0 20px !important;
+    color: var(--primary-navy) !important;
 }
 
-.programs-hero-integrated .programs-section-premium {
-    background: transparent !important;
-    padding-top: 0 !important;
+.programs-hero-integrated .subpage-banner h1 {
+    color: var(--primary-navy) !important;
+}
+
+.programs-hero-integrated .text-white-50 {
+    color: rgba(0, 33, 43, 0.6) !important; /* Muted navy for subtitle */
+}
+
+.programs-hero-integrated .breadcrumb-item.active {
+    color: rgba(0, 33, 43, 0.5) !important;
+}
+
+.programs-hero-integrated .breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(0, 33, 43, 0.3) !important;
 }
 
 .subpage-banner h1 {
