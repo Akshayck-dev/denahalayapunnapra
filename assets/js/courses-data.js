@@ -5,7 +5,7 @@
 
 const COURSE_DATA = {
     diploma_counselling: {
-        title: "One-Year Diploma in Formative Spirituality & Pastoral Counselling",
+        title: "One-Year Diploma Course in Formative Spirituality & Pastoral Counselling (Formators' Course)",
         tagline: "Formators' Diploma",
         duration: "15 June 2026 to 15 March 2027",
         seats: "20 (15 Religious Sisters and 5 Priests)",
@@ -33,7 +33,7 @@ const COURSE_DATA = {
         `
     },
     master_psyc: {
-        title: "Two-Year Master's Programme in Clinical Psychology (IGNOU)",
+        title: "Two-year Master's programme in Clinical Psychology (IGNOU) along with Diploma Course in Formative Spirituality & Pastoral Counselling (Formators' Course)",
         tagline: "M.A. Clinical Psychology + Diploma",
         duration: "15 June 2026 to 30 March 2028",
         seats: "15 (10 Religious Sisters and 5 Priests)",
@@ -61,7 +61,7 @@ const COURSE_DATA = {
         `
     },
     junior_sisters: {
-        title: "One-Year Diploma in Psycho-Spiritual Integration (Junior Sisters)",
+        title: "One-Year Diploma Course in Psycho-Spiritual Integration (designed for junior religious sisters)",
         tagline: "For Junior Religious Sisters",
         duration: "15 June 2026 to 15 March 2027",
         seats: "10",
@@ -87,7 +87,7 @@ const COURSE_DATA = {
         `
     },
     renewal: {
-        title: "One-Year Diploma in Psycho-Spiritual Renewal",
+        title: "One-Year Diploma Course in Psycho-Spiritual Renewal for religious sisters and priests",
         tagline: "Intensive Renewal Programme",
         duration: "15 June 2026 to 15 March 2027",
         seats: "10",
@@ -113,7 +113,7 @@ const COURSE_DATA = {
         `
     },
     certificate: {
-        title: "Three-Month Certificate Programme in Motivational & Psychological Assessment",
+        title: "Three-Month Certificate Programme in Motivational and Psychological Assessment of Candidates For Consecrated Life and Priesthood",
         tagline: "Formators & Superiors Specialization",
         duration: "15 June 2026 to 15 September 2026",
         seats: "10",
@@ -170,7 +170,7 @@ const COURSE_DATA = {
         `
     },
     bsc: {
-        title: "B.Sc. Psychology Plus Psycho-Spiritual Integration",
+        title: "Three/Four-Year B.Sc. in Psychology + Psycho-Spiritual Integration (designed for junior religious sisters only)",
         tagline: "Integrated B.Sc. Programme",
         duration: "15 June 2026 to 30 June 2029",
         seats: "5",
@@ -200,7 +200,7 @@ const COURSE_DATA = {
         `
     },
     msc: {
-        title: "M.Sc. Counselling Psychology Plus Psycho-Spiritual Integration",
+        title: "M.Sc. in Counselling Psychology + Psycho-Spiritual Integration (designed for religious sisters)",
         tagline: "Integrated Master's Programme",
         duration: "15 June 2026 to 30 June 2028",
         seats: "3",
