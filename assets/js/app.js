@@ -561,37 +561,110 @@ $(function() {
 
     /**
      * ==========================================
-     * 7. COURSE AUTO-FILL & RESET ENGINE (v5 - EVENT DELEGATED)
-     * - Handles dynamically loaded elements (fetch)
-     * - Uses Event Delegation for maximum reliability
-     * - Reset on show.bs.modal
+     * 7. CUSTOM DROPDOWN & AUTO-FILL ENGINE (v6)
      * ==========================================
      */
     
-    // 7a. RESET DROPDOWN (FORCE)
+    const COURSES = [
+        { id: "junior_sisters", name: "One-Year Diploma Course in Psycho-Spiritual Integration" },
+        { id: "renewal", name: "One-Year Diploma Course in Psycho-Spiritual Renewal" },
+        { id: "certificate", name: "Three-Month Certificate Programme in Candidate Assessment" },
+        { id: "short_course", name: "Three-Week Short Course for Formators" },
+        { id: "diploma_counselling", name: "One-Year Diploma Course in Formative Spirituality" },
+        { id: "master_psyc", name: "M.Sc. Clinical Psychology + Diploma Course in Psycho-Spiritual Integration" },
+        { id: "bsc", name: "B.Sc. Psychology + Psycho-Spiritual Integration" },
+        { id: "msc", name: "M.Sc. Counselling Psychology + Integration" }
+    ];
+
+    function initCustomDropdowns() {
+        const dropdownConfigs = [
+            { container: '#courseDropdownGlobal', display: '#selectedCourseDisplay', list: '#courseListGlobal', input: '#courseSelect' },
+            { container: '#courseDropdownApply', display: '#selectedCourseDisplayApply', list: '#courseListApply', input: '#courseSelectApply' }
+        ];
+
+        dropdownConfigs.forEach(cfg => {
+            const $container = $(cfg.container);
+            const $display = $(cfg.display);
+            const $list = $(cfg.list);
+            const $input = $(cfg.input);
+
+            if ($container.length === 0) return;
+
+            // Populate List
+            $list.empty();
+            COURSES.forEach(course => {
+                const $item = $('<div class="dropdown-item"></div>').text(course.name).attr('data-id', course.id);
+                $item.on('click', function() {
+                    selectItem(course.id, cfg);
+                });
+                $list.append($item);
+            });
+
+            // Toggle logic
+            $display.on('click', function(e) {
+                e.stopPropagation();
+                $('.dropdown-list').not($list).removeClass('show');
+                $('.custom-dropdown').not($container).removeClass('active');
+                $list.toggleClass('show');
+                $container.toggleClass('active');
+            });
+        });
+    }
+
+    function selectItem(courseId, cfg) {
+        const course = COURSES.find(c => c.id === courseId || c.name === courseId);
+        if (!course) return;
+
+        $(cfg.display).text(course.name).css('color', '#333');
+        $(cfg.input).val(course.id);
+        $(cfg.list).removeClass('show');
+        $(cfg.container).removeClass('active');
+        
+        // Highlight active item
+        $(cfg.list).find('.dropdown-item').removeClass('active');
+        $(cfg.list).find(`.dropdown-item[data-id="${course.id}"]`).addClass('active');
+
+        // Trigger change for any validation logic
+        $(cfg.input).trigger('change');
+    }
+
     function resetCourseSelect() {
-        const $select = $("#courseSelect");
-        if ($select.length === 0) return;
+        const dropdownConfigs = [
+            { container: '#courseDropdownGlobal', display: '#selectedCourseDisplay', list: '#courseListGlobal', input: '#courseSelect', default: 'Select Your Course *' },
+            { container: '#courseDropdownApply', display: '#selectedCourseDisplayApply', list: '#courseListApply', input: '#courseSelectApply', default: '-- Choose a Programme --' }
+        ];
+
+        dropdownConfigs.forEach(cfg => {
+            $(cfg.display).text(cfg.default).css('color', '#999');
+            $(cfg.input).val('');
+            $(cfg.list).find('.dropdown-item').removeClass('active');
+        });
         
-        $select.prop('selectedIndex', 0);
-        
-        // Force UI refresh
-        $select.blur();
-        $select.focus();
-        
-        // Remove stored value
         localStorage.removeItem("selectedCourse");
     }
 
-    // 7b. SET COURSE
     function setCourse(value) {
-        const $select = $("#courseSelect");
-        if ($select.length === 0 || !value) return;
-        
-        setTimeout(() => {
-            $select.val(value).trigger('change');
-        }, 50);
+        if (!value) return;
+        const dropdownConfigs = [
+            { container: '#courseDropdownGlobal', display: '#selectedCourseDisplay', list: '#courseListGlobal', input: '#courseSelect' },
+            { container: '#courseDropdownApply', display: '#selectedCourseDisplayApply', list: '#courseListApply', input: '#courseSelectApply' }
+        ];
+
+        dropdownConfigs.forEach(cfg => {
+            if ($(cfg.container).length > 0) {
+                selectItem(value, cfg);
+            }
+        });
     }
+
+    // Global outside click handler
+    $(document).on('click', function() {
+        $('.dropdown-list').removeClass('show');
+        $('.custom-dropdown').removeClass('active');
+    });
+
+    // Initialize on load
+    initCustomDropdowns();
 
     // 7c. MODAL OPEN -> ALWAYS RESET FIRST (Delegated)
     $(document).on('show.bs.modal', '#applyModal', function() {

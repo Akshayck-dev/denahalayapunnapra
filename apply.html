@@ -44,15 +44,17 @@
                             </div>
 
                             <form id="applicationForm" class="row g-4">
-
-                                        <option value="Three/Four-Year B.Sc. in Psychology + Psycho-Spiritual Integration (designed for junior religious sisters only)">
-                                            B.Sc. Psychology + Integration
-                                        </option>
-
-                                        <option value="M.Sc. in Counselling Psychology + Psycho-Spiritual Integration (designed for religious sisters)">
-                                            M.Sc. Counselling Psychology + Integration
-                                        </option>
-                                    </select>
+                                <div class="col-md-12 text-start mb-3">
+                                    <label class="form-label fw-bold">Select Programme / Course *</label>
+                                    <div class="custom-dropdown" id="courseDropdownApply">
+                                        <div class="dropdown-selected" id="selectedCourseDisplayApply">
+                                            -- Choose a Programme --
+                                        </div>
+                                        <div class="dropdown-list" id="courseListApply">
+                                            <!-- Populated via JS -->
+                                        </div>
+                                        <input type="hidden" name="course" id="courseSelectApply" required>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label fw-bold">Applicant Name *</label>
