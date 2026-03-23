@@ -293,77 +293,9 @@
     <script src="./assets/js/bootstrap.bundle.min.js" defer></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js" defer></script>
-    <script>
-        Fancybox.bind("[data-fancybox]", {
-            // Fancybox 5 Pro Zoom Options
-            Toolbar: {
-                display: {
-                    left: ["infobar"],
-                    middle: [],
-                    right: ["zoomIn", "zoomOut", "zoom100", "slideshow", "fullscreen", "close"],
-                },
-                items: {
-                    zoomIn: {
-                        tpl: '<button class="f-button"><i class="fas fa-plus"></i></button>',
-                        click: (fancybox) => {
-                            fancybox.getSlide().panzoom.zoomIn();
-                        },
-                    },
-                    zoomOut: {
-                        tpl: '<button class="f-button"><i class="fas fa-minus"></i></button>',
-                        click: (fancybox) => {
-                            fancybox.getSlide().panzoom.zoomOut();
-                        },
-                    },
-                    zoom100: {
-                        tpl: '<button class="f-button" style="font-size: 10px; font-weight: bold;">100%</button>',
-                        click: (fancybox) => {
-                            fancybox.getSlide().panzoom.zoomTo(1);
-                        },
-                    }
-                }
-            },
-            Images: {
-                Panzoom: {
-                    maxScale: 3, // Allow deep zooming
-                },
-            },
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
     <script src="./assets/js/app.js?v=8.0" defer></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-        
-        // Gallery View More / View Less Logic
-        const viewMoreBtn = document.getElementById('viewMoreBtn');
-        viewMoreBtn.addEventListener('click', function() {
-            const extraItems = document.querySelectorAll('.gallery-item-extra');
-            const isExpanding = viewMoreBtn.textContent.includes('More');
-            
-            if (isExpanding) {
-                extraItems.forEach(item => {
-                    item.classList.remove('d-none');
-                    // Ensure AOS animations trigger when viewing more
-                    item.setAttribute('data-aos', 'fade-up');
-                });
-                AOS.refresh();
-                viewMoreBtn.innerHTML = 'View Less Moments <i class="fas fa-chevron-up ms-2"></i>';
-            } else {
-                extraItems.forEach(item => {
-                    item.classList.add('d-none');
-                });
-                viewMoreBtn.innerHTML = 'View More Moments <i class="fas fa-chevron-down ms-2"></i>';
-                
-                // Smooth scroll back to top of gallery section
-                document.getElementById('gallery-start').scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    </script>
     <div data-include="modals"></div>
 </body>
 </html>

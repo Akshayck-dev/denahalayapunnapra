@@ -349,40 +349,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
     <script src="./assets/js/app.js?v=8.0" defer></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-
-        $(document).ready(function() {
-            const itemsPerLoad = 8;
-            let itemsShown = 8;
-            const $items = $('.faculty-item');
-            const $loadMoreBtn = $('#loadMoreFaculty');
-            const $loadMoreContainer = $('#loadMoreContainer');
-
-            // Hide items beyond initial limit
-            $items.slice(itemsShown).addClass('d-none');
-
-            // Hide button if no more items to show
-            if ($items.length <= itemsShown) {
-                $loadMoreContainer.hide();
-            }
-
-            $loadMoreBtn.on('click', function() {
-                const $hiddenItems = $items.slice(itemsShown);
-                
-                // Show all remaining items with a smooth fade
-                $hiddenItems.removeClass('d-none').hide().fadeIn(800);
-                
-                // Hide the button container immediately
-                $loadMoreContainer.fadeOut(400);
-                
-                // Refresh AOS to catch new elements
-                setTimeout(() => {
-                    AOS.refresh();
-                }, 100);
-            });
-        });
-    </script>
     <div data-include="modals"></div>
 </body>
 </html>

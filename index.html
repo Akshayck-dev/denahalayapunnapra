@@ -250,7 +250,7 @@
                                 <span class="d-lg-none">Spirituality & Pastoral Counselling</span>
                                 <span class="d-none d-lg-block">One-Year Diploma Course in Formative Spirituality & Pastoral Counselling (Formators' Course)</span>
                             </h3>
-                            <button onclick="openCourse('One-Year Diploma Course in Formative Spirituality')" class="btn-pill-gold apply-course-btn" data-course="One-Year Diploma Course in Formative Spirituality">
+                            <button onclick="openCourse('diploma_counselling')" class="btn-pill-gold apply-course-btn" data-course="diploma_counselling">
                                 READ MORE <i class="fas fa-chevron-right ms-1"></i>
                             </button>
                         </div>
@@ -267,7 +267,7 @@
                                 <span class="d-lg-none">Clinical Psychology (IGNOU)</span>
                                 <span class="d-none d-lg-block">Two-year Master's programme in Clinical Psychology (IGNOU) along with Diploma Course</span>
                             </h3>
-                            <button onclick="openCourse('M.Sc. Clinical Psychology + Diploma Course in Psycho-Spiritual Integration')" class="btn-pill-gold apply-course-btn" data-course="M.Sc. Clinical Psychology + Diploma Course in Psycho-Spiritual Integration">
+                            <button onclick="openCourse('master_psyc')" class="btn-pill-gold apply-course-btn" data-course="master_psyc">
                                 READ MORE <i class="fas fa-chevron-right ms-1"></i>
                             </button>
                         </div>
@@ -284,7 +284,7 @@
                                 <span class="d-lg-none">Psycho-Spiritual Integration</span>
                                 <span class="d-none d-lg-block">One-Year Diploma Course in Psycho-Spiritual Integration</span>
                             </h3>
-                            <button onclick="openCourse('One-Year Diploma Course in Psycho-Spiritual Integration')" class="btn-pill-gold apply-course-btn" data-course="One-Year Diploma Course in Psycho-Spiritual Integration">
+                            <button onclick="openCourse('junior_sisters')" class="btn-pill-gold apply-course-btn" data-course="junior_sisters">
                                 READ MORE <i class="fas fa-chevron-right ms-1"></i>
                             </button>
                         </div>
@@ -710,16 +710,19 @@
                     data-bs-interval="3500">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="./assets/images/denahalaya_building.jpg" class="d-block w-100 rounded shadow-sm"
-                                alt="Denahalaya">
+                            <a href="./assets/images/denahalaya_building.jpg" data-fancybox="gallery">
+                                <img src="./assets/images/denahalaya_building.jpg" class="d-block w-100 rounded shadow-sm" alt="Denahalaya">
+                            </a>
                         </div>
                         <div class="carousel-item">
-                            <img src="./assets/images/denahalaya_slider1.jpg" class="d-block w-100 rounded shadow-sm"
-                                alt="Formation">
+                            <a href="./assets/images/denahalaya_slider1.jpg" data-fancybox="gallery">
+                                <img src="./assets/images/denahalaya_slider1.jpg" class="d-block w-100 rounded shadow-sm" alt="Formation">
+                            </a>
                         </div>
                         <div class="carousel-item">
-                            <img src="./assets/images/ALLEPPEY.jpg" class="d-block w-100 rounded shadow-sm"
-                                alt="Activities">
+                            <a href="./assets/images/ALLEPPEY.jpg" data-fancybox="gallery">
+                                <img src="./assets/images/ALLEPPEY.jpg" class="d-block w-100 rounded shadow-sm" alt="Activities">
+                            </a>
                         </div>
                     </div>
                     <!-- Indicators (Sync with 3 images) -->
@@ -765,41 +768,6 @@
     <script src="./assets/js/app.js?v=8.0" defer></script>
 
     <script>
-        Fancybox.bind("[data-fancybox]", {
-            Toolbar: {
-                display: {
-                    left: ["infobar"],
-                    middle: [],
-                    right: ["zoomIn", "zoomOut", "zoom100", "slideshow", "fullscreen", "close"],
-                },
-                items: {
-                    zoomIn: {
-                        tpl: '<button class="f-button"><i class="fas fa-plus"></i></button>',
-                        click: (fancybox) => {
-                            fancybox.getSlide().panzoom.zoomIn();
-                        },
-                    },
-                    zoomOut: {
-                        tpl: '<button class="f-button"><i class="fas fa-minus"></i></button>',
-                        click: (fancybox) => {
-                            fancybox.getSlide().panzoom.zoomOut();
-                        },
-                    },
-                    zoom100: {
-                        tpl: '<button class="f-button" style="font-size: 10px; font-weight: bold;">100%</button>',
-                        click: (fancybox) => {
-                            fancybox.getSlide().panzoom.zoomTo(1);
-                        },
-                    }
-                }
-            },
-            Images: {
-                Panzoom: {
-                    maxScale: 3,
-                },
-            },
-        });
-
         // AOS and Swiper are now managed by app.js to ensure proper loading sequence
 
         // Course Reveal Animation - Robust Implementation

@@ -4,6 +4,80 @@
  */
 
 $(function() {
+    // 8. Dynamic Course Modal Logic (Unified & Exalted to Global Scope Early)
+    let courseModalInstance = null;
+
+    window.showCourseDetails = function(courseId) {
+        const course = window.COURSE_DATA ? window.COURSE_DATA[courseId] : null;
+        if (!course) {
+            if (window.COURSE_DATA) console.error("Course data not found for:", courseId);
+            return;
+        }
+
+        const modalEl = document.getElementById('courseDetailsModal');
+        if (!modalEl) {
+            // Silently retry if modals.html is still loading
+            setTimeout(() => window.showCourseDetails(courseId), 100);
+            return;
+        }
+
+        // Populate Modal Content
+        $('#modalCourseTitle').text(course.title);
+        $('#modalCourseTagline').text(course.tagline);
+        
+        const durationEl = document.getElementById('modalCourseDuration');
+        if (durationEl) {
+            durationEl.innerHTML = `<i class="far fa-calendar-alt me-2"></i>${course.duration}`;
+        }
+
+        const bodyEl = document.getElementById('modalCourseBody');
+        if (bodyEl) {
+            bodyEl.innerHTML = course.content;
+        }
+
+        // Populate Highlights
+        const highlightsContainer = document.getElementById('modalHighlights');
+        if (highlightsContainer) {
+            highlightsContainer.innerHTML = '';
+            if (course.highlights && course.highlights.length > 0) {
+                course.highlights.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'highlight-item mb-1';
+                    div.innerHTML = `<i class="fas fa-check text-gold me-2"></i><span style="font-size: 0.95rem; color: #555;">${item}</span>`;
+                    highlightsContainer.appendChild(div);
+                });
+            }
+        }
+
+        // Populate Stats
+        const statsContainer = document.getElementById('modalStats');
+        if (statsContainer) {
+            statsContainer.innerHTML = '';
+            if (course.seats) {
+                statsContainer.innerHTML += `<span class="stat-pill"><i class="fas fa-users me-2"></i>Seats: ${course.seats}</span>`;
+            }
+            if (course.age) {
+                statsContainer.innerHTML += `<span class="stat-pill"><i class="fas fa-user-clock me-2"></i>Age: ${course.age}</span>`;
+            }
+        }
+
+        // Reuse or create Bootstrap modal instance
+        if (!courseModalInstance && typeof bootstrap !== 'undefined') {
+            courseModalInstance = new bootstrap.Modal(modalEl);
+        }
+
+        // [Auto-Fill Update] - Set the course slug on the "Apply Now" button inside the modal
+        const $modalApplyBtn = $('#modalApplyBtn');
+        if ($modalApplyBtn.length) {
+            $modalApplyBtn.attr('data-course', courseId);
+        }
+
+        if (courseModalInstance) courseModalInstance.show();
+    };
+
+    // Alias for user request (Globally Available)
+    window.openCourse = window.showCourseDetails;
+
     // Detect local file protocol
     const isLocalFile = window.location.protocol === 'file:';
 
@@ -66,6 +140,7 @@ $(function() {
         loadedCount++;
         if (loadedCount === includes.length) {
             initializePlugins();
+            $(document).trigger('include-complete');
         }
     }
 
@@ -74,15 +149,116 @@ $(function() {
             AOS.init({
                 duration: 1000,
                 once: true,
-                offset: 100,
-                disable: window.innerWidth < 768 // Disable gracefully on mobile if needed, but run locally
+                offset: window.innerWidth < 768 ? 0 : 100, // No offset on mobile to ensure clicks aren't blocked
+                disable: false // Support AOS on all devices for continuity
             });
             AOS.refresh();
+        }
+
+        // 3c. Faculty Grid View Toggle (3 Rows Limit)
+        const $facultyGrid = $('#facultyGrid');
+        if ($facultyGrid.length > 0) {
+            const initialShown = 12; // 3 rows of 4
+            const $items = $('.faculty-item');
+            const $loadMoreBtn = $('#loadMoreFaculty');
+            const $loadMoreContainer = $('#loadMoreContainer');
+
+            if ($items.length > initialShown) {
+                $items.slice(initialShown).addClass('d-none');
+                $loadMoreContainer.show(); // Ensure visible if more than limit
+            } else {
+                $loadMoreContainer.hide();
+            }
+
+            $loadMoreBtn.off('click').on('click', function() {
+                const isExpanded = $(this).hasClass('expanded');
+                
+                if (!isExpanded) {
+                    // View More Actions
+                    $items.slice(initialShown).removeClass('d-none').hide().fadeIn(800);
+                    $(this).addClass('expanded').html('View Less <i class="fas fa-arrow-up ms-2"></i>');
+                } else {
+                    // View Less Actions - Optimize to prevent flickering
+                    // 1. Scroll to top of grid first
+                    const targetTop = $facultyGrid.offset().top - (window.innerWidth < 768 ? 150 : 100);
+                    
+                    $('html, body').animate({
+                        scrollTop: targetTop
+                    }, {
+                        duration: 600,
+                        easing: 'swing',
+                        complete: function() {
+                            // 2. Hide extra items ONLY after scroll reaches target area
+                            $items.slice(initialShown).fadeOut(300, function() {
+                                $(this).addClass('d-none');
+                                if (typeof AOS !== 'undefined') AOS.refresh();
+                            });
+                            $loadMoreBtn.removeClass('expanded').html('View More <i class="fas fa-arrow-down ms-2"></i>');
+                        }
+                    });
+                }
+            });
+        }
+
+        // 3d. Gallery Lightbox (Fancybox 5) - Premium Zoom & Play
+        if (typeof Fancybox !== 'undefined') {
+            Fancybox.bind("[data-fancybox]", {
+                Toolbar: {
+                    display: {
+                        left: ["infobar"],
+                        middle: [],
+                        right: ["zoomIn", "zoomOut", "slideshow", "fullscreen", "thumbs", "close"],
+                    },
+                },
+                Images: {
+                    Panzoom: {
+                        maxScale: 3,
+                    },
+                },
+                Slideshow: {
+                    playOnStart: false,
+                    timeout: 3000,
+                },
+                Thumbs: {
+                    autoStart: false,
+                }
+            });
+        }
+
+        // 3e. Gallery View More / View Less Toggle
+        const $viewMoreBtn = $('#viewMoreBtn');
+        if ($viewMoreBtn.length > 0) {
+            $viewMoreBtn.off('click').on('click', function() {
+                const $extraItems = $('.gallery-item-extra');
+                const isExpanding = $(this).text().includes('More');
+                
+                if (isExpanding) {
+                    $extraItems.removeClass('d-none').hide().fadeIn(800);
+                    $(this).html('View Less Moments <i class="fas fa-chevron-up ms-2"></i>');
+                    if (typeof AOS !== 'undefined') {
+                        setTimeout(() => AOS.refresh(), 100);
+                    }
+                } else {
+                    $extraItems.fadeOut(400, function() {
+                        $(this).addClass('d-none');
+                    });
+                    $(this).html('View More Moments <i class="fas fa-chevron-down ms-2"></i>');
+                    
+                    // Smooth scroll back to start of gallery
+                    const $galleryStart = $('#gallery-start');
+                    if ($galleryStart.length > 0) {
+                        $('html, body').animate({
+                            scrollTop: $galleryStart.offset().top - 100
+                        }, 600);
+                    }
+                }
+            });
         }
 
         // 3b. Premium CTA Highlights (v29)
         // Animations now handled directly in HTML classes for reliability.
         // JS timeout removed per user request for continuous movement.
+
 
         // 4. Hero Slider
         if ($('.hero-slider').length > 0 && typeof Swiper !== 'undefined') {
@@ -383,80 +559,7 @@ $(function() {
             }
         });
 
-        // Close dropdown when clicking outside
-        $(document).on('click', function(e) {
-            if (!$(e.target).closest('.nav-item.dropdown').length) {
-                $('.nav-item.dropdown').removeClass('active');
-            }
-        });
-
-        // 8. Dynamic Course Modal Logic
-        let courseModalInstance = null;
-
-        window.showCourseDetails = function(courseId) {
-            const course = window.COURSE_DATA[courseId];
-            if (!course) return;
-
-            const modalEl = document.getElementById('courseDetailsModal');
-            if (!modalEl) return;
-
-            // Populate Modal Content
-            $('#modalCourseTitle').text(course.title);
-            $('#modalCourseTagline').text(course.tagline);
-            
-            const durationEl = document.getElementById('modalCourseDuration');
-            if (durationEl) {
-                durationEl.innerHTML = `<i class="far fa-calendar-alt me-2"></i>${course.duration}`;
-            }
-
-            const bodyEl = document.getElementById('modalCourseBody');
-            if (bodyEl) {
-                bodyEl.innerHTML = course.content;
-            }
-
-            // Populate Highlights
-            const highlightsContainer = document.getElementById('modalHighlights');
-            if (highlightsContainer) {
-                highlightsContainer.innerHTML = '';
-                if (course.highlights && course.highlights.length > 0) {
-                    course.highlights.forEach(item => {
-                        const div = document.createElement('div');
-                        div.className = 'highlight-item mb-1';
-                        div.innerHTML = `<i class="fas fa-check text-gold me-2"></i><span style="font-size: 0.95rem; color: #555;">${item}</span>`;
-                        highlightsContainer.appendChild(div);
-                    });
-                }
-            }
-
-            // Populate Stats
-            const statsContainer = document.getElementById('modalStats');
-            if (statsContainer) {
-                statsContainer.innerHTML = '';
-                if (course.seats) {
-                    statsContainer.innerHTML += `<span class="stat-pill"><i class="fas fa-users me-2"></i>Seats: ${course.seats}</span>`;
-                }
-                if (course.age) {
-                    statsContainer.innerHTML += `<span class="stat-pill"><i class="fas fa-user-clock me-2"></i>Age: ${course.age}</span>`;
-                }
-            }
-
-            // Reuse or create Bootstrap modal instance
-            if (!courseModalInstance) {
-                courseModalInstance = new bootstrap.Modal(modalEl);
-            }
-
-            // [Auto-Fill Update] - Set the course slug on the "Apply Now" button inside the modal
-            const $modalApplyBtn = $('#modalApplyBtn');
-            if ($modalApplyBtn.length) {
-                $modalApplyBtn.attr('data-course', courseId);
-            }
-
-            courseModalInstance.show();
-        };
-
-        // Alias for user request
-        window.openCourse = window.showCourseDetails;
-    }
+    } // Close initializePlugins
 
     // 6. Global Utilities (Smart Scroll Toggle & Floating Buttons)
     $(window).scroll(function() {
@@ -477,11 +580,26 @@ $(function() {
 
         // 6b. Smart Toggle Icon/Mode logic (only if button exists)
         if ($scrollBtn.length) {
+            // Show button after 300px scroll
+            if (scrollTop > 300) {
+                $scrollBtn.addClass('show');
+            } else {
+                $scrollBtn.removeClass('show');
+            }
+
             if (scrollTop + windowHeight > documentHeight - 150) {
                 $scrollBtn.addClass('up').attr('aria-label', 'Scroll to top');
             } else {
                 $scrollBtn.removeClass('up').attr('aria-label', 'Scroll to bottom');
             }
+        }
+    });
+
+    // Move floating actions to body once footer is loaded (Dynamic Include)
+    $(document).on('include-complete', function() {
+        const $floatingActions = $('.floating-actions');
+        if ($floatingActions.length > 0) {
+            $floatingActions.appendTo('body');
         }
     });
 
@@ -507,15 +625,7 @@ $(function() {
         return false;
     });
 
-    // Faculty Load More Logic (Mobile Only)
-    $('#loadMoreFaculty').on('click', function() {
-        $('.faculty-hidden-mobile').removeClass('faculty-hidden-mobile').fadeIn();
-        $(this).parent().fadeOut();
-        
-        if(typeof AOS !== 'undefined') {
-            setTimeout(() => { AOS.refresh(); }, 100);
-        }
-    });
+    // Faculty Load More Logic (Mobile Only) - REMOVED: CONSOLIDATED IN INITIALIZEPLUGINS
 
     // WhatsApp Floating Button Logic
     $(document).on('click', '#whatsappBtn', function(e) {
@@ -524,7 +634,9 @@ $(function() {
         const phone = "916282525648";
         const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank");
-    });    /**
+    });
+
+    /**
      * ==========================================
      * 7. CUSTOM DROPDOWN & AUTO-FILL ENGINE (v8 - FULL NAME SYNC)
      * ==========================================
@@ -573,7 +685,9 @@ $(function() {
         // Toggle current
         $list.toggleClass('show');
         $container.toggleClass('active');
-    })    // 7c. ITEM SELECTION (DELEGATED - Generic)
+    });
+
+    // 7c. ITEM SELECTION (DELEGATED - Generic)
     $(document).on('click', '.dropdown-item', function(e) {
         e.stopPropagation();
         const $item = $(this);

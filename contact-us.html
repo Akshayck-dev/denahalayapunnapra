@@ -12,10 +12,10 @@
     <!-- CSS START (v22 Scoped Modern Split - Custom Validation) -->
     <style>
         .contact-v12 {
-            padding: 80px 20px !important;
+            padding: 20px 10px !important;
             background: #f9fafb !important;
             font-family: 'Inter', sans-serif !important;
-            min-height: 80vh;
+            min-height: auto !important;
             display: flex !important;
             align-items: center !important;
         }
@@ -80,7 +80,7 @@
         .v12-form-card {
             flex: 1.1 !important;
             background: #fff !important;
-            padding: 45px !important;
+            padding: 25px !important;
             border-radius: 16px !important;
             box-shadow: 0 15px 50px rgba(0,0,0,0.06) !important;
             border: 1px solid rgba(0,0,0,0.03) !important;
@@ -89,10 +89,10 @@
             font-family: 'Playfair Display', serif !important;
             font-weight: 700 !important;
             color: #0b2a4a !important;
-            margin-bottom: 30px !important;
-            font-size: 30px !important;
+            margin-bottom: 20px !important;
+            font-size: 26px !important;
         }
-        .form-group { width: 100% !important; margin-bottom: 22px !important; position: relative !important; }
+        .form-group { width: 100% !important; margin-bottom: 15px !important; position: relative !important; }
         .v12-form-card input, .v12-form-card textarea {
             width: 100% !important;
             padding: 14px !important;
@@ -121,7 +121,7 @@
             border-color: #e74c3c !important;
             background: #fff5f5 !important;
         }
-        .v12-form-card textarea { height: 120px !important; resize: none !important; }
+        .v12-form-card textarea { height: 80px !important; resize: none !important; }
         .v12-submit-btn {
             width: 100% !important;
             padding: 15px !important;
@@ -206,7 +206,9 @@
                             <textarea id="message" name="message" placeholder="Your message..." required></textarea>
                             <span class="error-message"></span>
                         </div>
-                        <button type="submit" class="btn-primary-custom w-100">Send Message</button>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn-custom btn-primary-custom px-5">Send Message</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -234,109 +236,117 @@
     <script src="./assets/js/app.js?v=8.0" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
+        document.addEventListener('DOMContentLoaded', function() {
+            // AOS Sync
+            if (typeof AOS !== 'undefined') AOS.init({ duration: 1000, once: true });
 
-        const contactForm = document.getElementById("contactForm");
+            // Contact Form Validation & Submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    let valid = true;
 
-        contactForm.addEventListener("submit", function(e) {
-            e.preventDefault();
+                    const name = document.getElementById('name');
+                    const email = document.getElementById('email');
+                    const phone = document.getElementById('phone');
+                    const message = document.getElementById('message');
 
-            let valid = true;
-            const name = document.getElementById("name");
-            const email = document.getElementById("email");
-            const phone = document.getElementById("phone");
-            const message = document.getElementById("message");
+                    if (name.value.trim() === "") {
+                        showError(name, "Name is required");
+                        valid = false;
+                    } else {
+                        removeError(name);
+                    }
 
-            // Validation Logic (v22 Sync)
-            if (name.value.trim() === "") {
-                showError(name, "Name is required");
-                valid = false;
-            } else {
-                removeError(name);
-            }
+                    if (email.value.trim() === "" || !email.value.includes("@")) {
+                        showError(email, "Enter a valid email");
+                        valid = false;
+                    } else {
+                        removeError(email);
+                    }
 
-            // Email Validation (High-Fidelity Regex v24)
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (email.value.trim() === "") {
-                showError(email, "Email Address is required");
-                valid = false;
-            } else if (!emailRegex.test(email.value)) {
-                showError(email, "Please enter a valid email address");
-                valid = false;
-            } else {
-                removeError(email);
-            }
+                    if (phone.value.trim() === "" || phone.value.length < 10) {
+                        showError(phone, "Minimum 10 digits required");
+                        valid = false;
+                    } else {
+                        removeError(phone);
+                    }
 
-            // Phone Validation (10-digit institutional standard v24)
-            const phoneRegex = /^\d{10,12}$/;
-            if (phone.value.trim() === "") {
-                showError(phone, "Phone number is required");
-                valid = false;
-            } else if (!phoneRegex.test(phone.value.replace(/\D/g, ''))) {
-                showError(phone, "Please enter a valid 10-digit phone number");
-                valid = false;
-            } else {
-                removeError(phone);
-            }
+                    if (message.value.trim() === "") {
+                        showError(message, "Message cannot be empty");
+                        valid = false;
+                    } else {
+                        removeError(message);
+                    }
 
-            if (message.value.trim() === "") {
-                showError(message, "Message cannot be empty");
-                valid = false;
-            } else {
-                removeError(message);
-            }
+                    if (!valid) return;
 
-            if (!valid) return;
+                    // EmailJS Execution (v25 Centralized)
+                    const $btn = typeof $ !== 'undefined' ? $(this).find('button[type="submit"]') : null;
+                    const originalText = $btn ? $btn.html() : 'Send Message';
+                    
+                    if ($btn) $btn.html('Sending… <i class="fas fa-spinner fa-spin ms-2"></i>').prop('disabled', true);
 
-            // EmailJS Execution (v25 Centralized)
-            const $btn = $(this).find('button[type="submit"]');
-            const originalText = $btn.html();
-            $btn.html('Sending… <i class="fas fa-spinner fa-spin ms-2"></i>').prop('disabled', true);
-
-            emailjs.sendForm('service_xobfjk8', 'template_jeonbnf', this)
-                .then(() => {
-                    Swal.fire({
-                        title: 'Sent!',
-                        text: 'Your message has been sent successfully.',
-                        icon: 'success',
-                        timer: 3000,
-                        showConfirmButton: false,
-                        background: '#fff',
-                        color: '#0b2a4a',
-                        iconColor: '#d4a63a'
-                    });
-                    contactForm.reset();
-                })
-                .catch((err) => {
-                    console.error("EmailJS Error:", err);
-                    Swal.fire({
-                        title: 'Oops!',
-                        text: 'Failed to send message. Please try again or WhatsApp us.',
-                        icon: 'error',
-                        confirmButtonColor: '#0b2a4a'
-                    });
-                })
-                .finally(() => {
-                    $btn.html(originalText).prop('disabled', false);
+                    emailjs.sendForm('service_xobfjk8', 'template_jeonbnf', this)
+                        .then(() => {
+                            if (typeof Swal !== 'undefined') {
+                                Swal.fire({
+                                    title: 'Sent!',
+                                    text: 'Your message has been sent successfully.',
+                                    icon: 'success',
+                                    timer: 3000,
+                                    showConfirmButton: false,
+                                    background: '#fff',
+                                    color: '#0b2a4a',
+                                    iconColor: '#d4a63a'
+                                });
+                            } else {
+                                alert("Sent successfully!");
+                            }
+                            contactForm.reset();
+                        })
+                        .catch((err) => {
+                            console.error("EmailJS Error:", err);
+                            if (typeof Swal !== 'undefined') {
+                                Swal.fire({
+                                    title: 'Oops!',
+                                    text: 'Failed to send message. Please try again or WhatsApp us.',
+                                    icon: 'error',
+                                    confirmButtonColor: '#0b2a4a'
+                                });
+                            } else {
+                                alert("Failed to send. Please check your connection.");
+                            }
+                        })
+                        .finally(() => {
+                            if ($btn) $btn.html(originalText).prop('disabled', false);
+                        });
                 });
-        });
+            }
+        }); // Close DOMContentLoaded
 
         function showError(input, msg) {
             const error = input.nextElementSibling;
-            error.innerText = msg;
-            error.style.display = "block";
+            if (error && error.classList && error.classList.contains('error-message')) {
+                error.innerText = msg;
+                error.style.display = "block";
+            }
             input.classList.add("input-error");
         }
 
         function removeError(input) {
             const error = input.nextElementSibling;
-            error.innerText = "";
-            error.style.display = "none";
+            if (error && error.classList && error.classList.contains('error-message')) {
+                error.innerText = "";
+                error.style.display = "none";
+            }
             input.classList.remove("input-error");
         }
 
         function loadMap() {
             const container = document.getElementById("mapContainer");
+            if (!container) return;
             container.innerHTML = `<iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.8444061027776!2d76.3426343!3d9.435042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b089b40f02392b9%3A0xe1bb3b0ecc337698!2sDanahalaya%20Counselling%20Centre%20Punnapra!5e0!3m2!1sen!2sin!4v1774247029683!5m2!1sen!2sin"
                     width="100%" 

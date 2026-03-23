@@ -35,18 +35,14 @@ html {
 }
 
 body {
-    will-change: transform;
     -webkit-overflow-scrolling: touch;
     text-rendering: optimizeLegibility;
 }
 
 /* 📱 MOBILE PERFORMANCE OVERRIDES */
 @media (max-width: 768px) {
-    * {
-        /* Reduce heavy effects for smoother scroll */
-        /* backdrop-filter: none !important; */
-        /* text-shadow: none !important; */
-    }
+    /* Reduce heavy effects for smoother scroll */
+    /* .some-class { backdrop-filter: none !important; } */
     
     .aos-animate {
         /* Keep AOS but make it snappier */
@@ -57,6 +53,18 @@ body {
     .hero-wrapper::before,
     .denahalaya-bg::after {
         animation-duration: 20s !important; /* Slow down instead of killing for design integrity */
+    }
+
+    /* Force interactivity for interactive elements */
+    .btn-custom,
+    .btn-primary-custom,
+    .apply-course-btn,
+    .nav-link,
+    .floating-actions a,
+    .floating-actions button {
+        pointer-events: auto !important;
+        position: relative;
+        z-index: 10;
     }
 }
 /* ======================================== */
@@ -764,6 +772,7 @@ section:last-child,
 .btn-primary-custom {
     background-color: var(--accent-gold);
     color: var(--primary-navy) !important;
+    pointer-events: auto !important;
 }
 
 .btn-primary-custom:hover {
@@ -1503,6 +1512,12 @@ section:last-child,
 /* Offset sticky navbar below top-bar */
 .sticky-top {
     top: 34px !important;
+}
+
+@media (max-width: 768px) {
+    .sticky-top {
+        top: 28px !important; /* Adjusted for smaller mobile top-bar */
+    }
 }
 
 .navbar {
@@ -2759,9 +2774,17 @@ section:last-child,
     background:
         linear-gradient(rgba(11, 44, 77, 0.8), rgba(11, 44, 77, 0.85)),
         url('../images/about_classroom_1.jpg') center/cover no-repeat fixed;
-    padding: 80px 0 40px;
+    padding: 100px 0 60px;
     text-align: center;
     color: white;
+}
+
+/* MOBILE HEADER CLIPPING FIX */
+@media (max-width: 768px) {
+    .subpage-banner {
+        padding: 160px 0 40px !important; /* Extra padding to clear mobile navbar */
+        background-attachment: scroll !important; /* Better mobile compatibility */
+    }
 }
 
 /* Integrated Programs Hero (High-Fidelity Background) */
@@ -2784,6 +2807,12 @@ section:last-child,
     background: transparent !important;
     padding: 60px 0 20px !important;
     color: white !important;
+}
+
+@media (max-width: 768px) {
+    .programs-hero-integrated .subpage-banner {
+        padding: 130px 0 20px !important; /* Specific mobile fix for integrated hero */
+    }
 }
 
 .programs-hero-integrated .subpage-banner h1 {
