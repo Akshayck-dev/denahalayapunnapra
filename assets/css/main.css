@@ -4132,7 +4132,7 @@ body.modal-open-active {
     /* Stack up from bottom */
     align-items: center !important;
     gap: 12px !important;
-    z-index: 9999 !important;
+    z-index: 99999 !important; /* Increased for maximum priority */
 }
 
 /* WhatsApp Icon */
