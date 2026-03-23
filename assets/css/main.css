@@ -2681,12 +2681,15 @@ section:last-child,
     color: white;
 }
 
-/* Integrated Programs Hero (Clean Look - No Background Image) */
+/* Integrated Programs Hero (High-Fidelity Background) */
 .programs-hero-integrated {
-    background: var(--white);
-    padding-bottom: 20px;
-    /* Tighter integration */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background:
+        linear-gradient(rgba(11, 44, 77, 0.8), rgba(11, 44, 77, 0.85)),
+        url('../images/about_classroom_1.jpg') center/cover no-repeat fixed;
+    padding-bottom: 50px;
+    /* Expanded breathing room */
+    position: relative;
+    overflow: hidden;
 }
 
 .programs-hero-integrated .programs-section-premium {
@@ -2697,24 +2700,32 @@ section:last-child,
 .programs-hero-integrated .subpage-banner {
     background: transparent !important;
     padding: 100px 0 20px !important;
-    color: var(--primary-navy) !important;
+    color: white !important;
 }
 
 .programs-hero-integrated .subpage-banner h1 {
-    color: var(--primary-navy) !important;
+    color: white !important;
 }
 
 .programs-hero-integrated .text-white-50 {
-    color: rgba(0, 33, 43, 0.6) !important;
-    /* Muted navy for subtitle */
+    color: rgba(255, 255, 255, 0.7) !important;
 }
 
 .programs-hero-integrated .breadcrumb-item.active {
-    color: rgba(0, 33, 43, 0.5) !important;
+    color: rgba(255, 255, 255, 0.6) !important;
 }
 
 .programs-hero-integrated .breadcrumb-item+.breadcrumb-item::before {
-    color: rgba(0, 33, 43, 0.3) !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Mobile Background Optimization */
+@media (max-width: 991px) {
+    .programs-hero-integrated {
+        background-attachment: scroll !important;
+        /* Better performance on mobile */
+        padding-bottom: 30px;
+    }
 }
 
 .subpage-banner h1 {
