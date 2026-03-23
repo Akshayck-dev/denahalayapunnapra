@@ -4510,3 +4510,58 @@ body.modal-open-active {
     text-align: center;
     color: var(--accent-gold);
 }
+
+/* ABOUT SECTION ANIMATED BACKGROUND */
+.about-section {
+    position: relative;
+    overflow: hidden;
+    background: #fdfdfd !important;
+}
+
+.about-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.12), transparent 85%);
+    animation: glowMove 12s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.about-bg::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background-image: radial-gradient(rgba(212, 175, 55, 0.4) 1.5px, transparent 1.5px);
+    background-size: 80px 80px;
+    opacity: 0.15;
+    /*
+     - [x] **Animated Background for About Section**
+     - [x] Add `<div class="about-bg"></div>` to `about.html`
+     - [x] Implement `glowMove` and `moveParticles` animations in `main.css`
+     - [x] Style `.about-bg` with radial golden gradients
+     - [x] Ensure content visibility with `z-index: 2`
+     - [x] Verified sitewide consistency.
+    */
+    animation: moveParticles 30s linear infinite;
+}
+
+.about-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes glowMove {
+    0%, 100% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.15); opacity: 0.7; }
+}
+
+@keyframes moveParticles {
+    from { transform: translate(0, 0); }
+    to { transform: translate(80px, 80px); }
+}
