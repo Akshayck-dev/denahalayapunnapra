@@ -4578,3 +4578,64 @@ body.modal-open-active {
     0%, 100% { opacity: 0.2; transform: translate(-50%, -52%) scale(1); }
     50% { opacity: 0.5; transform: translate(-50%, -48%) scale(1.1); }
 }
+
+/* SHIMMERING REVEAL COMPONENT */
+.mask-container {
+    overflow: hidden;
+    position: relative;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.shimmer-header {
+    color: #E2B240; 
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    /* Reveal Animation */
+    transform: translateY(100%);
+    animation: revealAndShine 1.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    animation-delay: 0.2s;
+    
+    /* Shine Background Logic */
+    background: linear-gradient(120deg, #E2B240 40%, #ffffff 50%, #E2B240 60%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.shimmer-subheader {
+    color: var(--primary-navy); 
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    
+    /* Reveal Animation */
+    transform: translateY(105%);
+    animation: revealAndShine 2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    animation-delay: 0.5s;
+    display: inline-block;
+}
+
+@keyframes revealAndShine {
+    0% {
+        transform: translateY(100%);
+        background-position: 200% center;
+    }
+    100% {
+        transform: translateY(0);
+        background-position: -200% center;
+    }
+}
+
+.lead-text-animate {
+    opacity: 0;
+    animation: simpleFadeIn 2s ease forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes simpleFadeIn {
+    to { opacity: 1; }
+}
