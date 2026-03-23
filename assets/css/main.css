@@ -29,6 +29,37 @@ html.lenis body {
 }
 
 /* ======================================== */
+/* ⚡ PERFORMANCE & SMOOTH SCROLL OPTIMIZATION */
+html {
+    scroll-behavior: smooth !important;
+}
+
+body {
+    will-change: transform;
+    -webkit-overflow-scrolling: touch;
+    text-rendering: optimizeLegibility;
+}
+
+/* 📱 MOBILE PERFORMANCE OVERRIDES */
+@media (max-width: 768px) {
+    * {
+        /* Reduce heavy effects for smoother scroll */
+        /* backdrop-filter: none !important; */
+        /* text-shadow: none !important; */
+    }
+    
+    .aos-animate {
+        /* Keep AOS but make it snappier */
+        transition-duration: 400ms !important;
+    }
+    
+    /* Disable complex animations that cause lag */
+    .hero-wrapper::before,
+    .denahalaya-bg::after {
+        animation-duration: 20s !important; /* Slow down instead of killing for design integrity */
+    }
+}
+/* ======================================== */
 /* ðŸš€ ULTIMATE DESKTOP CONTACT ALIGNMENT (REINFORCED) */
 .den-contact-list {
     display: flex !important;
