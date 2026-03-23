@@ -85,15 +85,17 @@
             <div class="container">
                 <div class="about-container">
                     <div class="about-image-wrapper" data-aos="fade-right">
-                        <div class="about-shape shape-1"></div>
-                        <div class="about-shape shape-2"></div>
-                        <div class="about-image mb-4">
+                        <!-- Desktop Only Shapes -->
+                        <div class="about-shape shape-1 d-none d-lg-block"></div>
+                        <div class="about-shape shape-2 d-none d-lg-block"></div>
+                        
+                        <div class="about-image mb-lg-4">
                             <img src="./assets/images/denahalaya_building.jpg" alt="Denahalaya Institute" class="img-fluid" loading="lazy">
                             <div class="badge-30">30+ Years of Excellence</div>
                         </div>
 
-                        <!-- Stats Grid Staggered (Moved to Left) -->
-                        <div class="about-stats-staggered">
+                        <!-- Stats Grid Staggered (Desktop ONLY - Left Position) -->
+                        <div class="about-stats-staggered d-none d-lg-grid">
                             <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
                                 <i class="fas fa-history stat-icon"></i>
                                 <div class="stat-info">
@@ -183,6 +185,14 @@
                                 <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="1" class="bg-gold rounded-circle" style="width: 10px; height: 10px;"></button>
                                 <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="2" class="bg-gold rounded-circle" style="width: 10px; height: 10px;"></button>
                             </div>
+                        </div>
+
+                        <!-- Original Mobile Stats Grid (Mobile ONLY) -->
+                        <div class="mb-5 mt-5 d-lg-none">
+                            <div class="stat-box">30+ Years</div>
+                            <div class="stat-box">National Level</div>
+                            <div class="stat-box">Formation</div>
+                            <div class="stat-box">Clinical Counselling</div>
                         </div>
 
                         <a href="about.html" class="btn-primary-custom">Read More About Us</a>
