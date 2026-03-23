@@ -48,16 +48,16 @@
 
                     <!-- COURSE SELECTION (Floating Label) -->
                     <div class="form-group">
-                        <select name="course" id="app_course" class="form-select custom-select" required>
+                        <select name="course" id="courseSelect" class="form-select custom-select" required>
                             <option value="" disabled selected></option>
-                            <option value="One-Year Diploma Course in Psycho-Spiritual Integration (designed for junior religious sisters)">One-Year Diploma (Psycho-Spiritual Integration)</option>
-                            <option value="One-Year Diploma Course in Psycho-Spiritual Renewal for religious sisters and priests">One-Year Diploma (Psycho-Spiritual Renewal)</option>
-                            <option value="Three-Month Certificate Programme in Motivational and Psychological Assessment of Candidates For Consecrated Life and Priesthood">Three-Month Cert (Candidate Assessment)</option>
-                            <option value="Three-Week Short Course for Formators">Three-Week Short Course (Formators)</option>
-                            <option value="One-Year Diploma Course in Formative Spirituality & Pastoral Counselling (Formators' Course)">One-Year Diploma (Formative Spirituality)</option>
-                            <option value="Two-year Master's programme in Clinical Psychology (IGNOU) along with Diploma Course in Formative Spirituality & Pastoral Counselling (Formators' Course)">M.Sc. Clinical Psychology + Diploma</option>
-                            <option value="Three/Four-Year B.Sc. in Psychology + Psycho-Spiritual Integration (designed for junior religious sisters only)">B.Sc. Psychology + Integration</option>
-                            <option value="M.Sc. in Counselling Psychology + Psycho-Spiritual Integration (designed for religious sisters)">M.Sc. Counselling Psychology + Integration</option>
+                            <option value="junior_sisters">One-Year Diploma (Psycho-Spiritual Integration)</option>
+                            <option value="renewal">One-Year Diploma (Psycho-Spiritual Renewal)</option>
+                            <option value="certificate">Three-Month Cert (Candidate Assessment)</option>
+                            <option value="short_course">Three-Week Short Course (Formators)</option>
+                            <option value="diploma_counselling">One-Year Diploma (Formative Spirituality)</option>
+                            <option value="master_psyc">M.Sc. Clinical Psychology + Diploma</option>
+                            <option value="bsc">B.Sc. Psychology + Integration</option>
+                            <option value="msc">M.Sc. Counselling Psychology + Integration</option>
                         </select>
                         <label>Select Your Course *</label>
                         <span class="error-message"></span>
@@ -157,7 +157,7 @@
                     </div>
 
                     <div class="d-flex flex-column flex-sm-row gap-3 mt-5">
-                        <a href="#" id="modalApplyBtn" class="btn-primary-custom flex-grow-1 py-3" data-bs-toggle="modal" data-bs-target="#applyModal">
+                        <a href="#" id="modalApplyBtn" class="btn-primary-custom flex-grow-1 py-3 apply-course-btn apply-now-btn" data-bs-toggle="modal" data-bs-target="#applyModal">
                             Apply Now
                         </a>
                     </div>

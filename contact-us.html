@@ -167,10 +167,18 @@
                 <div class="v12-info-card">
                     <h3>Get in Touch</h3>
                     <div class="v12-info-items">
-                        <p><i class="fas fa-phone-alt"></i> <a href="tel:+916282525648" class="contact-link">+91 6282 525 648</a></p>
-                        <p><i class="fas fa-phone-square"></i> <a href="tel:04772287808" class="contact-link">0477 228 7808</a></p>
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:danahalaya@gmail.com" class="contact-link">danahalaya@gmail.com</a></p>
-                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps?q=Punnapra,Alappuzha,Kerala" target="_blank" class="contact-link">Punnapra, Alappuzha</a></p>
+                        <a href="tel:+916282525648" class="contact-item">
+                            <i class="fas fa-phone-alt"></i> +91 6282 525 648
+                        </a>
+                        <a href="tel:04772287808" class="contact-item">
+                            <i class="fas fa-phone-square"></i> 0477 228 7808
+                        </a>
+                        <a href="mailto:danahalaya@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i> danahalaya@gmail.com
+                        </a>
+                        <a href="https://www.google.com/maps?q=Danahalaya+Counselling+Centre+Punnapra" target="_blank" class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i> Punnapra, Alappuzha
+                        </a>
                     </div>
                     <a href="https://wa.me/916282525648" target="_blank" class="v12-whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
                 </div>
@@ -179,23 +187,23 @@
                     <h2>Send a Message</h2>
                     <form id="contactForm" novalidate>
                         <div class="form-group">
-                            <input type="text" id="name" placeholder="Full Name" required>
+                            <input type="text" id="name" name="name" placeholder="Full Name" required>
                             <span class="error-message"></span>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" placeholder="Email Address" required>
+                            <input type="email" id="email" name="email" placeholder="Email Address" required>
                             <span class="error-message"></span>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="phone" placeholder="Phone Number" required>
+                            <input type="text" id="phone" name="phone" placeholder="Phone Number" required>
                             <span class="error-message"></span>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="subject" placeholder="Subject">
+                            <input type="text" id="subject" name="subject" placeholder="Subject">
                             <span class="error-message"></span>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" placeholder="Your message..." required></textarea>
+                            <textarea id="message" name="message" placeholder="Your message..." required></textarea>
                             <span class="error-message"></span>
                         </div>
                         <button type="submit" class="btn-primary-custom w-100">Send Message</button>
@@ -206,7 +214,15 @@
 
         <section class="v12-map-section" style="padding: 0 20px 80px;">
             <div style="max-width: 1100px; margin: auto; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
-                <iframe width="100%" height="450" style="border:0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15730.0!2d76.32!3d9.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMjUnNDguMCJOIDc2wrAxOScxMi4wIkU!5e0!3m2!1sen!2sin!4v1717171717171" allowfullscreen="" loading="lazy"></iframe>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.8444061027776!2d76.3426343!3d9.435042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b089b40f02392b9%3A0xe1bb3b0ecc337698!2sDanahalaya%20Counselling%20Centre%20Punnapra!5e0!3m2!1sen!2sin!4v1774247029683!5m2!1sen!2sin"
+                    width="100%" 
+                    height="450" 
+                    style="border:0;"
+                    allowfullscreen="" 
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </section>
 
@@ -216,7 +232,8 @@
     <script src="./assets/js/jquery.js"></script>
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="./assets/js/app.js?v=7.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="./assets/js/app.js?v=8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
@@ -273,24 +290,37 @@
 
             if (!valid) return;
 
-            // WhatsApp Logic (v21 Sync)
-            const subject = document.getElementById("subject").value;
-            const text = `Hello Denahalaya,\n\nNew Enquiry:\nName: ${name.value}\nEmail: ${email.value}\nPhone: ${phone.value}\nSubject: ${subject}\nMessage: ${message.value}`;
-            const encodedText = encodeURIComponent(text);
-            const whatsappUrl = `https://wa.me/916282525648?text=${encodedText}`;
-            
-            window.open(whatsappUrl, "_blank");
+            // EmailJS Execution (v25 Centralized)
+            const $btn = $(this).find('button[type="submit"]');
+            const originalText = $btn.html();
+            $btn.html('Sending… <i class="fas fa-spinner fa-spin ms-2"></i>').prop('disabled', true);
 
-            Swal.fire({
-                title: 'Sent!',
-                text: 'Your enquiry has been prepared for WhatsApp.',
-                icon: 'success',
-                timer: 3000,
-                showConfirmButton: false,
-                background: '#fff',
-                color: '#0b2a4a',
-                iconColor: '#d4a63a'
-            });
+            emailjs.sendForm('service_xobfjk8', 'template_jeonbnf', this)
+                .then(() => {
+                    Swal.fire({
+                        title: 'Sent!',
+                        text: 'Your message has been sent successfully.',
+                        icon: 'success',
+                        timer: 3000,
+                        showConfirmButton: false,
+                        background: '#fff',
+                        color: '#0b2a4a',
+                        iconColor: '#d4a63a'
+                    });
+                    contactForm.reset();
+                })
+                .catch((err) => {
+                    console.error("EmailJS Error:", err);
+                    Swal.fire({
+                        title: 'Oops!',
+                        text: 'Failed to send message. Please try again or WhatsApp us.',
+                        icon: 'error',
+                        confirmButtonColor: '#0b2a4a'
+                    });
+                })
+                .finally(() => {
+                    $btn.html(originalText).prop('disabled', false);
+                });
         });
 
         function showError(input, msg) {

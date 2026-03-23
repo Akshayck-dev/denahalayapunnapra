@@ -164,12 +164,23 @@ $(function() {
 
         /**
          * ==========================================
-         * CORE FORM ENGINE (Production-Ready)
-         * - Prevents duplicate submissions
-         * - Persistent localStorage backup
-         * - Centralized error/success feedback
+         * 7. CORE EMAIL ENGINE (EmailJS v25)
+         * - Service: service_xobfjk8
+         * - Template: template_jeonbnf
+         * - Public Key: XxDgOKwmxVpCQ1zx6
          * ==========================================
          */
+        const EMAILJS_CONFIG = {
+            PUBLIC_KEY: "XxDgOKwmxVpCQ1zx6",
+            SERVICE_ID: "service_xobfjk8",
+            TEMPLATE_ID: "template_jeonbnf"
+        };
+
+        // Initialize EmailJS Globally
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+        }
+
         window.handleFormSubmission = function(e, formId = 'generic') {
             e.preventDefault();
             const form = e.target;
@@ -227,8 +238,8 @@ $(function() {
                 console.error("Backup failed:", err);
             }
 
-            // 4. EmailJS Execution (Updated v25)
-            emailjs.sendForm('service_xobfjk8', 'template_jeonbnf', form)
+            // 4. EmailJS Execution (Centralized Config)
+            emailjs.sendForm(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_ID, form)
                 .then((response) => {
                     console.log("EmailJS Success:", response.status);
                     markBackupAsSent(dataObj.email);
@@ -454,10 +465,10 @@ $(function() {
                 courseModalInstance = new bootstrap.Modal(modalEl);
             }
 
-            // [Auto-Fill Update] - Set the course title on the "Apply Now" button inside the modal
+            // [Auto-Fill Update] - Set the course slug on the "Apply Now" button inside the modal
             const $modalApplyBtn = $('#modalApplyBtn');
             if ($modalApplyBtn.length) {
-                $modalApplyBtn.attr('data-course', course.title);
+                $modalApplyBtn.attr('data-course', courseId);
             }
 
             courseModalInstance.show();
@@ -550,61 +561,77 @@ $(function() {
 
     /**
      * ==========================================
-     * 7. COURSE AUTO-FILL ENGINE (URL & Modals)
+     * 7. COURSE AUTO-FILL & RESET ENGINE (v5 - EVENT DELEGATED)
+     * - Handles dynamically loaded elements (fetch)
+     * - Uses Event Delegation for maximum reliability
+     * - Reset on show.bs.modal
      * ==========================================
      */
-    function autoFillCourse(courseName) {
-        if (!courseName) return;
+    
+    // 7a. RESET DROPDOWN (FORCE)
+    function resetCourseSelect() {
+        const $select = $("#courseSelect");
+        if ($select.length === 0) return;
         
-        // Find visible or hidden course fields (Select or Input)
-        const courseFields = $('select[name="course"], input[name="course"], #app_course');
+        $select.prop('selectedIndex', 0);
         
-        courseFields.each(function() {
-            const $field = $(this);
-            
-            if ($field.is('select')) {
-                // Try to find exact match in options
-                $field.val(courseName);
-                
-                // If direct val() fails (no exact value match), try matching by text
-                if (!$field.val()) {
-                    $field.find('option').each(function() {
-                        if ($(this).text().trim() === courseName.trim()) {
-                            $field.val($(this).val());
-                        }
-                    });
-                }
-                
-                // Bonus: Make the field "read-only" (visual lock for selects)
-                if ($field.val()) {
-                    $field.css({
-                        'pointer-events': 'none',
-                        'background-color': '#f8f9fa',
-                        'color': '#6c757d',
-                        'cursor': 'not-allowed'
-                    });
-                }
-            } else {
-                $field.val(courseName).attr('readonly', true).css('background-color', '#f8f9fa');
-            }
-        });
+        // Force UI refresh
+        $select.blur();
+        $select.focus();
+        
+        // Remove stored value
+        localStorage.removeItem("selectedCourse");
     }
 
-    // 7a. On Click Bridge (Used when moving from Details Modal to Apply Modal)
-    $(document).on('click', '[data-course]', function() {
-        const courseName = $(this).attr('data-course');
-        if (courseName) {
-            autoFillCourse(courseName);
+    // 7b. SET COURSE
+    function setCourse(value) {
+        const $select = $("#courseSelect");
+        if ($select.length === 0 || !value) return;
+        
+        setTimeout(() => {
+            $select.val(value).trigger('change');
+        }, 50);
+    }
+
+    // 7c. MODAL OPEN -> ALWAYS RESET FIRST (Delegated)
+    $(document).on('show.bs.modal', '#applyModal', function() {
+        resetCourseSelect();
+    });
+
+    // 7d. NORMAL APPLY NOW BUTTON (RESET) (Delegated)
+    $(document).on('click', '.apply-now-btn', function() {
+        resetCourseSelect();
+    });
+
+    // 7e. COURSE BASED APPLY BUTTON (SET VALUE) (Delegated)
+    $(document).on('click', '.apply-course-btn', function() {
+        const courseSlug = $(this).attr("data-course");
+        resetCourseSelect(); // clear first
+        
+        if (courseSlug) {
+            localStorage.setItem("selectedCourse", courseSlug);
+            setTimeout(() => {
+                setCourse(courseSlug);
+            }, 100);
         }
     });
 
-    // 7b. URL Parameter Check (e.g. apply.html?course=Clinical%20Psychology)
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlCourse = urlParams.get('course');
-    if (urlCourse) {
-        // Delay slightly to ensure form is rendered (especially for dynamic inclusions)
-        setTimeout(() => autoFillCourse(urlCourse), 500);
-    }
+    // 7f. AFTER MODAL FULLY OPEN (Delegated)
+    $(document).on('shown.bs.modal', '#applyModal', function() {
+        const savedCourse = localStorage.getItem("selectedCourse");
+        if (savedCourse) {
+            setCourse(savedCourse);
+        }
+    });
+
+    // 7g. URL Parameter Support (Runs after a delay to allow fetch completion)
+    setTimeout(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlCourse = urlParams.get('course');
+        if (urlCourse) {
+            setCourse(urlCourse);
+        }
+    }, 1500); 
 
     // Set initial state
     $(window).trigger('scroll');

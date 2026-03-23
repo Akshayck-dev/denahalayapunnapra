@@ -156,11 +156,11 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script src="./assets/js/app.js?v=3.0"></script>
+    <script src="./assets/js/app.js?v=8.0"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        (function () { emailjs.init("RmgrNAAYbmB8BvIJ2"); })();
+        // Initialized globally in app.js
 
         document.getElementById("applicationForm").addEventListener("submit", function (e) {
             if (typeof window.handleFormSubmission === 'function') {
