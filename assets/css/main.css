@@ -4059,29 +4059,33 @@ body.modal-open-active {
 /* Mobile Symmetry Enforcement */
 @media (max-width: 767px) {
     .course-card-v3 {
-        padding: 15px 10px 10px !important; /* v7: Ultra-compact padding */
-        border-radius: 18px !important;
-        min-height: 250px !important; /* v7: Significantly shorter card */
+        padding: 15px 10px !important; 
+        border-radius: 12px !important; /* Slightly more compact corners */
+        min-height: auto !important;     /* v8: Shrink to content */
+        height: auto !important;
     }
     .course-card-v3 .card-title {
         font-size: 0.9rem !important;
-        line-height: 1.15 !important;
-        margin-top: 0px !important;    /* v7: Zero gap above */
-        margin-bottom: 0px !important; /* v7: Zero gap below */
+        line-height: 1.1 !important;
+        margin-top: 2px !important;    /* v8: Ultra-tight */
+        margin-bottom: 2px !important; /* v8: Ultra-tight */
+        flex-grow: 0 !important;      /* v8: Don't stretch */
     }
     .course-card-v3 .icon-box-v3 {
-        width: 45px !important;
-        height: 45px !important;
-        font-size: 18px !important;
-        margin-bottom: 4px !important; /* v7: Minimal gap */
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 16px !important;
+        margin-bottom: 2px !important; /* v8: Ultra-tight */
     }
     .course-card-v3 .category-tag {
-        font-size: 0.55rem !important;
-        margin-bottom: 2px !important; /* v7: Minimal gap */
+        font-size: 0.52rem !important;
+        margin-bottom: 0px !important; /* v8: Zero gap */
     }
     .course-card-v3 .btn-pill-gold {
-        padding: 8px 15px !important;
-        font-size: 0.65rem !important;
-        margin-top: 10px !important; /* Controlled gap to button */
+        padding: 6px 15px !important;
+        font-size: 0.62rem !important;
+        margin-top: 8px !important;   /* v8: Minimal gap to button */
+        width: auto !important;       /* v8: Don't force full width if not needed */
+        min-width: 100px !important;
     }
 }
