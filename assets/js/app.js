@@ -201,10 +201,10 @@ $(function() {
             const $btn = $form.find('button[type="submit"]');
             const originalText = $btn.html();
 
-            // 1. Validation (Simplified v25)
+            // 1. Validation (Full Sync v26)
             const formData = new FormData(form);
             const dataObj = Object.fromEntries(formData.entries());
-            const required = ['name', 'email', 'phone', 'course'];
+            const required = ['name', 'age', 'email', 'phone', 'address', 'pin', 'diocese', 'qualification', 'apostolate', 'course', 'reason'];
             let isValid = true;
             
             required.forEach(field => {
@@ -216,7 +216,6 @@ $(function() {
                     $(input).removeClass('is-invalid');
                 }
             });
-
             if (!isValid) return false;
 
             // 2. Loading State (Stabilized)
