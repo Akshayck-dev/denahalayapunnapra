@@ -50,14 +50,14 @@
                     <div class="form-group">
                         <select name="course" id="app_course" class="form-select custom-select" required>
                             <option value="" disabled selected></option>
-                            <option value="One-Year Diploma Course in Formative Spirituality & Pastoral Counselling (Formators' Course)">One-Year Diploma Course in Formative Spirituality & Pastoral Counselling (Formators' Course)</option>
-                            <option value="Two-year Master's programme in Clinical Psychology (IGNOU) along with Diploma Course in Formative Spirituality & Pastoral Counselling (Formators' Course)">Two-year Master's programme in Clinical Psychology (IGNOU) along with Diploma Course in Formative Spirituality & Pastoral Counselling (Formators' Course)</option>
-                            <option value="One-Year Diploma Course in Psycho-Spiritual Integration (designed for junior religious sisters)">One-Year Diploma Course in Psycho-Spiritual Integration (designed for junior religious sisters)</option>
-                            <option value="One-Year Diploma Course in Psycho-Spiritual Renewal for religious sisters and priests">One-Year Diploma Course in Psycho-Spiritual Renewal for religious sisters and priests</option>
-                            <option value="Three-Month Certificate Programme in Motivational and Psychological Assessment of Candidates For Consecrated Life and Priesthood">Three-Month Certificate Programme in Motivational and Psychological Assessment of Candidates For Consecrated Life and Priesthood</option>
-                            <option value="Three-Week Short Course for Formators">Three-Week Short Course for Formators</option>
-                            <option value="Three/Four-Year B.Sc. in Psychology + Psycho-Spiritual Integration (designed for junior religious sisters only)">Three/Four-Year B.Sc. in Psychology + Psycho-Spiritual Integration (designed for junior religious sisters only)</option>
-                            <option value="M.Sc. in Counselling Psychology + Psycho-Spiritual Integration (designed for religious sisters)">M.Sc. in Counselling Psychology + Psycho-Spiritual Integration (designed for religious sisters)</option>
+                            <option value="One-Year Diploma Course in Psycho-Spiritual Integration (designed for junior religious sisters)">One-Year Diploma (Psycho-Spiritual Integration)</option>
+                            <option value="One-Year Diploma Course in Psycho-Spiritual Renewal for religious sisters and priests">One-Year Diploma (Psycho-Spiritual Renewal)</option>
+                            <option value="Three-Month Certificate Programme in Motivational and Psychological Assessment of Candidates For Consecrated Life and Priesthood">Three-Month Cert (Candidate Assessment)</option>
+                            <option value="Three-Week Short Course for Formators">Three-Week Short Course (Formators)</option>
+                            <option value="One-Year Diploma Course in Formative Spirituality & Pastoral Counselling (Formators' Course)">One-Year Diploma (Formative Spirituality)</option>
+                            <option value="Two-year Master's programme in Clinical Psychology (IGNOU) along with Diploma Course in Formative Spirituality & Pastoral Counselling (Formators' Course)">M.Sc. Clinical Psychology + Diploma</option>
+                            <option value="Three/Four-Year B.Sc. in Psychology + Psycho-Spiritual Integration (designed for junior religious sisters only)">B.Sc. Psychology + Integration</option>
+                            <option value="M.Sc. in Counselling Psychology + Psycho-Spiritual Integration (designed for religious sisters)">M.Sc. Counselling Psychology + Integration</option>
                         </select>
                         <label>Select Your Course *</label>
                         <span class="error-message"></span>
@@ -91,7 +91,16 @@
 
                     <!-- QUALIFICATION -->
                     <div class="form-group">
-                        <input type="text" name="qualification" id="app_qualification" class="form-control" placeholder=" " required>
+                        <select name="qualification" id="app_qualification" class="form-select" required>
+                            <option value="" disabled selected hidden></option>
+                            <option value="SSLC">SSLC</option>
+                            <option value="Plus Two">Plus Two</option>
+                            <option value="Diploma">Diploma</option>
+                            <option value="Bachelor's Degree">Bachelor's Degree</option>
+                            <option value="Master's Degree">Master's Degree</option>
+                            <option value="PhD / M.Phil">PhD / M.Phil</option>
+                            <option value="Others">Others</option>
+                        </select>
                         <label>Highest Qualification *</label>
                         <span class="error-message"></span>
                     </div>

@@ -13,7 +13,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <style>
+        /* Fancybox Premium Blur Effect */
+        .fancybox__backdrop {
+            background: rgba(0, 0, 0, 0.7) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
@@ -540,8 +548,8 @@
                             <h4>Download Application Form</h4>
                             <p class="text-muted small mb-4">Printable admission forms for all courses.</p>
                             <div class="d-flex flex-wrap gap-2">
-                                <a href="#" class="btn-primary-custom flex-grow-1" data-bs-toggle="modal" data-bs-target="#applyModal"><i class="fas fa-download me-2" aria-hidden="true"></i>Short Form</a>
-                                <a href="#" class="btn-primary-custom flex-grow-1" data-bs-toggle="modal" data-bs-target="#applyModal"><i class="fas fa-download me-2" aria-hidden="true"></i>Master/Diploma</a>
+                                <a href="./assets/documents/Three-Week Application_Denahalaya.pdf" target="_blank" class="btn-primary-custom flex-grow-1"><i class="fas fa-download me-2" aria-hidden="true"></i>Short Form</a>
+                                <a href="./assets/documents/ApplicationForm_Denahalaya.pdf" target="_blank" class="btn-primary-custom flex-grow-1"><i class="fas fa-download me-2" aria-hidden="true"></i>Master/Diploma</a>
                             </div>
                         </div>
                     </div>
@@ -572,62 +580,25 @@
                 </div>
 
                 <div class="row g-3 gallery-section-row mb-5 d-none d-md-flex">
-                    <!-- Row 1 -->
+                    <!-- Row 1 (Only 3 Images shown on Home Page) -->
                     <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                        <a href="./assets/images/denahalaya_building.jpg" data-lightbox="home">
+                        <a href="./assets/images/denahalaya_building.jpg" data-fancybox="gallery">
                             <img src="./assets/images/denahalaya_building.jpg" class="img-fluid rounded shadow-sm hover-zoom" alt="Denahalaya" loading="lazy" style="height: 250px; width: 100%; object-fit: cover;">
                         </a>
                     </div>
                     <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-                        <a href="./assets/images/denahalaya_slider1.jpg" data-lightbox="home">
+                        <a href="./assets/images/denahalaya_slider1.jpg" data-fancybox="gallery">
                             <img src="./assets/images/denahalaya_slider1.jpg" class="img-fluid rounded shadow-sm hover-zoom" alt="Formation" loading="lazy" style="height: 250px; width: 100%; object-fit: cover;">
                         </a>
                     </div>
                     <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-                        <a href="./assets/images/ALLEPPEY.jpg" data-lightbox="home">
+                        <a href="./assets/images/ALLEPPEY.jpg" data-fancybox="gallery">
                             <img src="./assets/images/ALLEPPEY.jpg" class="img-fluid rounded shadow-sm hover-zoom" alt="Activities" loading="lazy" style="height: 250px; width: 100%; object-fit: cover;">
-                        </a>
-                    </div>
-                    <!-- Row 2 -->
-                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
-                        <a href="./assets/images/about_classroom_1.jpg" data-lightbox="home">
-                            <img src="./assets/images/about_classroom_1.jpg" class="img-fluid rounded shadow-sm hover-zoom" alt="Formation" loading="lazy" style="height: 250px; width: 100%; object-fit: cover;">
-                        </a>
-                    </div>
-                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
-                        <a href="./assets/images/about_classroom_3.jpg" data-lightbox="home">
-                            <img src="./assets/images/about_classroom_3.jpg" class="img-fluid rounded shadow-sm hover-zoom" alt="Study" loading="lazy" style="height: 250px; width: 100%; object-fit: cover;">
-                        </a>
-                    </div>
-                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
-                        <a href="./assets/images/img_1.jpg" data-lightbox="home">
-                            <img src="./assets/images/img_1.jpg" class="img-fluid rounded shadow-sm hover-zoom" alt="Moments" loading="lazy" style="height: 250px; width: 100%; object-fit: cover;">
-                        </a>
-                    </div>
-                    <!-- Row 3 -->
-                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="700">
-                        <a href="./assets/images/img_2.jpg" data-lightbox="home">
-                            <img src="./assets/images/img_2.jpg" class="img-fluid rounded shadow-sm hover-zoom" alt="Moments" loading="lazy" style="height: 250px; width: 100%; object-fit: cover;">
-                        </a>
-                    </div>
-                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="800">
-                        <a href="./assets/images/img_3.jpg" data-lightbox="home">
-                            <img src="./assets/images/img_3.jpg" class="img-fluid rounded shadow-sm hover-zoom" alt="Moments" loading="lazy" style="height: 250px; width: 100%; object-fit: cover;">
-                        </a>
-                    </div>
-                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="900">
-                        <a href="./assets/images/img_4.jpg" data-lightbox="home">
-                            <img src="./assets/images/img_4.jpg" class="img-fluid rounded shadow-sm hover-zoom" alt="Moments" loading="lazy" style="height: 250px; width: 100%; object-fit: cover;">
-                        </a>
-                    </div>
-                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="1000">
-                        <a href="./assets/images/img-12.jpg" data-lightbox="home">
-                            <img src="./assets/images/img-12.jpg" class="img-fluid rounded shadow-sm hover-zoom" alt="Moments" loading="lazy" style="height: 250px; width: 100%; object-fit: cover;">
                         </a>
                     </div>
                 </div>
 
-                <!-- Mobile: Gallery Carousel -->
+                <!-- Mobile: Gallery Carousel (Limited to 3 Images) -->
                 <div id="galleryCarousel" class="carousel slide d-md-none mb-5" data-bs-ride="carousel" data-bs-interval="3500">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -639,60 +610,12 @@
                         <div class="carousel-item">
                             <img src="./assets/images/ALLEPPEY.jpg" class="d-block w-100 rounded shadow-sm" alt="Activities">
                         </div>
-                        <div class="carousel-item">
-                            <img src="./assets/images/about_classroom_1.jpg" class="d-block w-100 rounded shadow-sm" alt="Formation">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./assets/images/about_classroom_3.jpg" class="d-block w-100 rounded shadow-sm" alt="Study">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./assets/images/img_1.jpg" class="d-block w-100 rounded shadow-sm" alt="Moments">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./assets/images/img_2.jpg" class="d-block w-100 rounded shadow-sm" alt="Moments">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./assets/images/img_3.jpg" class="d-block w-100 rounded shadow-sm" alt="Moments">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./assets/images/img_4.jpg" class="d-block w-100 rounded shadow-sm" alt="Moments">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./assets/images/img_5.jpg" class="d-block w-100 rounded shadow-sm" alt="Moments">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./assets/images/img_6.jpg" class="d-block w-100 rounded shadow-sm" alt="Moments">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./assets/images/img_7.jpg" class="d-block w-100 rounded shadow-sm" alt="Moments">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./assets/images/img_8.jpg" class="d-block w-100 rounded shadow-sm" alt="Moments">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./assets/images/img_9.jpg" class="d-block w-100 rounded shadow-sm" alt="Moments">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./assets/images/img-12.jpg" class="d-block w-100 rounded shadow-sm" alt="Moments">
-                        </div>
                     </div>
-                    <!-- Indicators -->
+                    <!-- Indicators (Sync with 3 images) -->
                     <div class="carousel-indicators" style="position: relative; margin-top: 15px; margin-bottom: 0;">
                         <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active bg-gold" aria-current="true"></button>
                         <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1" class="bg-gold"></button>
                         <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2" class="bg-gold"></button>
-                        <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="3" class="bg-gold"></button>
-                        <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="4" class="bg-gold"></button>
-                        <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="5" class="bg-gold"></button>
-                        <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="6" class="bg-gold"></button>
-                        <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="7" class="bg-gold"></button>
-                        <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="8" class="bg-gold"></button>
-                        <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="9" class="bg-gold"></button>
-                        <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="10" class="bg-gold"></button>
-                        <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="11" class="bg-gold"></button>
-                        <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="12" class="bg-gold"></button>
-                        <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="13" class="bg-gold"></button>
-                        <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="14" class="bg-gold"></button>
                     </div>
                 </div>
 
@@ -719,13 +642,48 @@
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="./assets/js/courses-data.js"></script>
     <script src="./assets/js/app.js?v=7.0"></script>
     
     <script>
+        Fancybox.bind("[data-fancybox]", {
+            Toolbar: {
+                display: {
+                    left: ["infobar"],
+                    middle: [],
+                    right: ["zoomIn", "zoomOut", "zoom100", "slideshow", "fullscreen", "close"],
+                },
+                items: {
+                    zoomIn: {
+                        tpl: '<button class="f-button"><i class="fas fa-plus"></i></button>',
+                        click: (fancybox) => {
+                            fancybox.getSlide().panzoom.zoomIn();
+                        },
+                    },
+                    zoomOut: {
+                        tpl: '<button class="f-button"><i class="fas fa-minus"></i></button>',
+                        click: (fancybox) => {
+                            fancybox.getSlide().panzoom.zoomOut();
+                        },
+                    },
+                    zoom100: {
+                        tpl: '<button class="f-button" style="font-size: 10px; font-weight: bold;">100%</button>',
+                        click: (fancybox) => {
+                            fancybox.getSlide().panzoom.zoomTo(1);
+                        },
+                    }
+                }
+            },
+            Images: {
+                Panzoom: {
+                    maxScale: 3,
+                },
+            },
+        });
+    </script>
         // AOS and Swiper are now managed by app.js to ensure proper loading sequence
         
         // Course Reveal Animation - Robust Implementation

@@ -80,6 +80,10 @@ $(function() {
             AOS.refresh();
         }
 
+        // 3b. Premium CTA Highlights (v29)
+        // Animations now handled directly in HTML classes for reliability.
+        // JS timeout removed per user request for continuous movement.
+
         // 4. Hero Slider
         if ($('.hero-slider').length > 0 && typeof Swiper !== 'undefined') {
             new Swiper('.hero-slider', {
