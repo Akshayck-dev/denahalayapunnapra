@@ -558,10 +558,9 @@ $(function() {
         const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank");
     });
-
     /**
      * ==========================================
-     * 7. CUSTOM DROPDOWN & AUTO-FILL ENGINE (v6)
+     * 7. CUSTOM DROPDOWN & AUTO-FILL ENGINE (v7 - DELEGATED)
      * ==========================================
      */
     
@@ -576,99 +575,104 @@ $(function() {
         { id: "msc", name: "M.Sc. Counselling Psychology + Integration" }
     ];
 
-    function initCustomDropdowns() {
-        const dropdownConfigs = [
-            { container: '#courseDropdownGlobal', display: '#selectedCourseDisplay', list: '#courseListGlobal', input: '#courseSelect' },
-            { container: '#courseDropdownApply', display: '#selectedCourseDisplayApply', list: '#courseListApply', input: '#courseSelectApply' }
-        ];
+    // 7a. Populate all lists (Run once or when needed)
+    function populateDropdownLists() {
+        $('.dropdown-list').each(function() {
+            const $list = $(this);
+            if ($list.children().length > 0) return; // already populated
 
-        dropdownConfigs.forEach(cfg => {
-            const $container = $(cfg.container);
-            const $display = $(cfg.display);
-            const $list = $(cfg.list);
-            const $input = $(cfg.input);
-
-            if ($container.length === 0) return;
-
-            // Populate List
-            $list.empty();
             COURSES.forEach(course => {
-                const $item = $('<div class="dropdown-item"></div>').text(course.name).attr('data-id', course.id);
-                $item.on('click', function() {
-                    selectItem(course.id, cfg);
-                });
+                const $item = $('<div class="dropdown-item"></div>')
+                    .text(course.name)
+                    .attr('data-id', course.id);
                 $list.append($item);
             });
-
-            // Toggle logic
-            $display.on('click', function(e) {
-                e.stopPropagation();
-                $('.dropdown-list').not($list).removeClass('show');
-                $('.custom-dropdown').not($container).removeClass('active');
-                $list.toggleClass('show');
-                $container.toggleClass('active');
-            });
         });
     }
 
-    function selectItem(courseId, cfg) {
-        const course = COURSES.find(c => c.id === courseId || c.name === courseId);
-        if (!course) return;
+    // 7b. TOGGLE HANDLER (DELEGATED)
+    $(document).on('click', '.dropdown-selected', function(e) {
+        e.stopPropagation();
+        const $selected = $(this);
+        const $container = $selected.closest('.custom-dropdown');
+        const $list = $container.find('.dropdown-list');
 
-        $(cfg.display).text(course.name).css('color', '#333');
-        $(cfg.input).val(course.id);
-        $(cfg.list).removeClass('show');
-        $(cfg.container).removeClass('active');
+        // Ensure list is populated first
+        populateDropdownLists();
+
+        // Close others
+        $('.dropdown-list').not($list).removeClass('show');
+        $('.custom-dropdown').not($container).removeClass('active');
+
+        // Toggle current
+        $list.toggleClass('show');
+        $container.toggleClass('active');
+    });
+
+    // 7c. ITEM SELECTION (DELEGATED)
+    $(document).on('click', '.dropdown-item', function(e) {
+        e.stopPropagation();
+        const $item = $(this);
+        const courseId = $item.attr('data-id');
+        const $container = $item.closest('.custom-dropdown');
+        const $display = $container.find('.dropdown-selected');
+        const $input = $container.find('input[type="hidden"]');
         
-        // Highlight active item
-        $(cfg.list).find('.dropdown-item').removeClass('active');
-        $(cfg.list).find(`.dropdown-item[data-id="${course.id}"]`).addClass('active');
+        const course = COURSES.find(c => c.id === courseId);
+        if (course) {
+            $display.text(course.name).css('color', '#333');
+            $input.val(course.id).trigger('change');
+            
+            // Highlight check
+            $container.find('.dropdown-item').removeClass('active');
+            $item.addClass('active');
+        }
 
-        // Trigger change for any validation logic
-        $(cfg.input).trigger('change');
-    }
+        $container.find('.dropdown-list').removeClass('show');
+        $container.removeClass('active');
+    });
 
+    // 7d. RESET DROPDOWS
     function resetCourseSelect() {
-        const dropdownConfigs = [
-            { container: '#courseDropdownGlobal', display: '#selectedCourseDisplay', list: '#courseListGlobal', input: '#courseSelect', default: 'Select Your Course *' },
-            { container: '#courseDropdownApply', display: '#selectedCourseDisplayApply', list: '#courseListApply', input: '#courseSelectApply', default: '-- Choose a Programme --' }
-        ];
-
-        dropdownConfigs.forEach(cfg => {
-            $(cfg.display).text(cfg.default).css('color', '#999');
-            $(cfg.input).val('');
-            $(cfg.list).find('.dropdown-item').removeClass('active');
+        $('.custom-dropdown').each(function() {
+            const $container = $(this);
+            const isApplyPage = $container.attr('id') === 'courseDropdownApply';
+            const defaultText = isApplyPage ? '-- Choose a Programme --' : 'Select Your Course *';
+            
+            $container.find('.dropdown-selected').text(defaultText).css('color', '#999');
+            $container.find('input[type="hidden"]').val('');
+            $container.find('.dropdown-item').removeClass('active');
         });
-        
         localStorage.removeItem("selectedCourse");
     }
 
+    // 7e. SET VALUES
     function setCourse(value) {
         if (!value) return;
-        const dropdownConfigs = [
-            { container: '#courseDropdownGlobal', display: '#selectedCourseDisplay', list: '#courseListGlobal', input: '#courseSelect' },
-            { container: '#courseDropdownApply', display: '#selectedCourseDisplayApply', list: '#courseListApply', input: '#courseSelectApply' }
-        ];
-
-        dropdownConfigs.forEach(cfg => {
-            if ($(cfg.container).length > 0) {
-                selectItem(value, cfg);
+        populateDropdownLists(); // Ensure lists exist
+        
+        $('.custom-dropdown').each(function() {
+            const $container = $(this);
+            const $item = $container.find(`.dropdown-item[data-id="${value}"]`);
+            if ($item.length > 0) {
+                $item.click(); 
             }
         });
     }
 
-    // Global outside click handler
+    // Outside click closer
     $(document).on('click', function() {
         $('.dropdown-list').removeClass('show');
         $('.custom-dropdown').removeClass('active');
     });
 
-    // Initialize on load
-    initCustomDropdowns();
+    // Initial population for static pages
+    setTimeout(populateDropdownLists, 100);
 
-    // 7c. MODAL OPEN -> ALWAYS RESET FIRST (Delegated)
+    // 7f. MODAL EVENTS
     $(document).on('show.bs.modal', '#applyModal', function() {
         resetCourseSelect();
+        setTimeout(populateDropdownLists, 200); // Ensure populated after fetch
     });
 
     // 7d. NORMAL APPLY NOW BUTTON (RESET) (Delegated)
