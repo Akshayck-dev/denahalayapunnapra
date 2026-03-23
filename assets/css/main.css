@@ -4089,3 +4089,11 @@ body.modal-open-active {
         min-width: 100px !important;
     }
 }
+
+/* Desktop Uniformity (Large Screens Only) */
+@media (min-width: 992px) {
+    .course-card-v3 {
+        min-height: 360px !important;
+        flex: 1 1 auto !important;
+    }
+}
