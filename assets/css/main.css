@@ -3960,3 +3960,127 @@ body.modal-open-active {
 .whatsapp-btn.premium-float.pulse {
   animation: floatingFloat 3s ease-in-out infinite, pulseWhatsapp 2.5s infinite !important;
 }
+
+/* ==========================================
+   PREMIUM COURSE CARD v3 (High-Fidelity)
+   Based on user reference image
+   ========================================== */
+.course-card-v3 {
+    background: #f4f5f7 !important;
+    border: none !important;
+    border-radius: 28px !important;
+    padding: 35px 25px 30px !important; /* v3: Increased top padding */
+    text-align: center !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03) !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    position: relative !important;
+    overflow: visible !important; /* v3: Crucial for floating icons */
+}
+
+.course-card-v3:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08) !important;
+    background: #ffffff !important;
+}
+
+.course-card-v3 .icon-box-v3 {
+    width: 65px !important;
+    height: 65px !important;
+    border-radius: 18px !important;
+    background: linear-gradient(135deg, #d4af37, #b8860b) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 26px !important;
+    color: #fff !important;
+    margin-bottom: 20px !important;
+    box-shadow: 0 8px 15px rgba(212, 175, 55, 0.2) !important;
+    transition: transform 0.3s ease !important;
+    flex-shrink: 0 !important;
+}
+
+.course-card-v3:hover .icon-box-v3 {
+    transform: scale(1.1) rotate(5deg) !important;
+}
+
+.course-card-v3 .category-tag {
+    color: #d4af37 !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 12px !important;
+    display: block !important;
+}
+
+.course-card-v3 .card-title {
+    font-family: 'Playfair Display', serif !important;
+    color: #0b2c4d !important;
+    font-size: 1.15rem !important; /* Slightly optimized */
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 25px !important;
+    flex-grow: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.course-card-v3 .btn-pill-gold {
+    background: #f3c14b !important;
+    color: #000 !important;
+    padding: 12px 25px !important;
+    border-radius: 30px !important;
+    font-weight: 700 !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    border: none !important;
+    box-shadow: 0 8px 15px rgba(243, 193, 75, 0.2) !important;
+    transition: all 0.3s ease !important;
+    width: 100% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin-top: auto !important; /* Push to bottom */
+}
+
+.course-card-v3 .btn-pill-gold:hover {
+    background: #e0aa2e !important;
+    transform: scale(1.02) !important;
+    box-shadow: 0 10px 25px rgba(243, 193, 75, 0.3) !important;
+}
+
+/* Mobile Symmetry Enforcement */
+@media (max-width: 767px) {
+    .course-card-v3 {
+        padding: 20px 15px 15px !important; /* Reduced top/bottom padding */
+        border-radius: 20px !important;
+        min-height: 310px !important; /* v5: Compressed height */
+    }
+    .course-card-v3 .card-title {
+        font-size: 0.88rem !important; /* v5: Slightly smaller titles */
+        line-height: 1.2 !important;
+        margin-top: 5px !important;    /* v6: Minimal space above title */
+        margin-bottom: 5px !important; /* v6: Minimal space below title */
+    }
+    .course-card-v3 .icon-box-v3 {
+        width: 48px !important; /* v5: More compact icons */
+        height: 48px !important;
+        font-size: 18px !important;
+        margin-bottom: 8px !important; /* v5: Significantly reduced gap below icon */
+    }
+    .course-card-v3 .category-tag {
+        font-size: 0.58rem !important;
+        margin-bottom: 6px !important; /* v5: Significantly reduced gap below category */
+    }
+    .course-card-v3 .btn-pill-gold {
+        padding: 10px 15px !important;
+        font-size: 0.68rem !important;
+    }
+}
