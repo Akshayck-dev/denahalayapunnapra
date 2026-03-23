@@ -234,7 +234,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6 faculty-item" data-aos="fade-up">
                         <div class="faculty-card">
                             <div class="profile-img-wrapper">
-                                <div class="profile-img-placeholder"><i class="fas fa-user-graduate" aria-hidden="true"></i></div>
+                                <img src="./assets/images/nirmala.jpg" alt="Sr. Nirmala FCC" loading="lazy" onerror="this.src='./assets/images/faculty_placeholder.png'">
                             </div>
                             <h5>Sr. Nirmala FCC</h5>
                             <span class="designation">Depth Psychology</span>
@@ -322,7 +322,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6 faculty-item" data-aos="fade-up">
                         <div class="faculty-card">
                             <div class="profile-img-wrapper">
-                                <div class="profile-img-placeholder"><i class="fas fa-user-graduate" aria-hidden="true"></i></div>
+                                <img src="./assets/images/Siju Thomas.jpg" alt="Mr. Siju Thomas Alencherry" loading="lazy" onerror="this.src='./assets/images/faculty_placeholder.png'">
                             </div>
                             <h5>Mr. Siju Thomas Alencherry</h5>
                             <span class="designation">Catholic Leadership</span>
@@ -368,17 +368,13 @@
             }
 
             $loadMoreBtn.on('click', function() {
-                const $nextItems = $items.slice(itemsShown, itemsShown + itemsPerLoad);
+                const $hiddenItems = $items.slice(itemsShown);
                 
-                // Show items with a subtle fade effect
-                $nextItems.removeClass('d-none').hide().fadeIn(600);
+                // Show all remaining items with a smooth fade
+                $hiddenItems.removeClass('d-none').hide().fadeIn(800);
                 
-                itemsShown += itemsPerLoad;
-
-                // Hide container if all items are shown
-                if (itemsShown >= $items.length) {
-                    $loadMoreContainer.fadeOut();
-                }
+                // Hide the button container immediately
+                $loadMoreContainer.fadeOut(400);
                 
                 // Refresh AOS to catch new elements
                 setTimeout(() => {
