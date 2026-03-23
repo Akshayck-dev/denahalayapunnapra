@@ -4579,6 +4579,87 @@ body.modal-open-active {
     50% { opacity: 0.5; transform: translate(-50%, -48%) scale(1.1); }
 }
 
+/* MISSION SECTION & BLOBS */
+.mission-section {
+    position: relative;
+    background: #fdfdfd; 
+    overflow: hidden;
+    padding: 100px 0;
+}
+
+.blob-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    filter: blur(80px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: moveBlob 15s infinite alternate;
+}
+
+.blob-1 {
+    width: 400px;
+    height: 400px;
+    background: #ffeeb3; 
+    top: -10%;
+    left: -10%;
+}
+
+.blob-2 {
+    width: 500px;
+    height: 500px;
+    background: #fff5e6; 
+    bottom: -10%;
+    right: -10%;
+    animation-delay: -5s;
+}
+
+@keyframes moveBlob {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(100px, 50px) scale(1.2); }
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.mission-label {
+    color: #d4a017; 
+    font-weight: 800;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    opacity: 0;
+    animation: fadeInTracking 1.5s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
+
+.main-title {
+    color: #002d5b; 
+    font-size: 3.5rem;
+    font-family: 'Playfair Display', serif;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUpMission 1.8s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInTracking {
+    0% { opacity: 0; letter-spacing: 15px; filter: blur(10px); }
+    100% { opacity: 1; letter-spacing: 4px; filter: blur(0); }
+}
+
+@keyframes fadeInUpMission {
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* SHIMMERING REVEAL COMPONENT */
 .mask-container {
     overflow: hidden;
