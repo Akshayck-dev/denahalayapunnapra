@@ -5093,3 +5093,51 @@ body.modal-open-active {
     background: #E2B240;
     border-radius: 10px;
 }
+
+/* SUCCESS POPUP (CENTER + SMOOTH) */
+.success-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: #1e7e34;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  display: none;
+  z-index: 11000; /* Above everything */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  opacity: 0;
+  animation: popupFade 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popupFade {
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* MODAL STABILITY (PREVENT SHAKE/FLICKER) */
+body.modal-open {
+  overflow: hidden !important;
+  padding-right: 0 !important; /* Prevent shift if scrollbar exists */
+}
+
+.modal {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important; /* Prevents background scroll shake */
+}
+
+.modal-content {
+  max-height: 92vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* smooth mobile scroll */
+}
+

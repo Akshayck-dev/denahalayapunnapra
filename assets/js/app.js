@@ -181,119 +181,71 @@ $(function() {
             emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
         }
 
+        // 7. Success Popup Helper
+        function showSuccessPopup() {
+            const popup = document.getElementById("successPopup");
+            if (!popup) return;
+            
+            $(popup).fadeIn(300).css('display', 'flex');
+            
+            setTimeout(() => {
+                $(popup).fadeOut(300);
+            }, 3000);
+        }
+
         window.handleFormSubmission = function(e, formId = 'generic') {
-            e.preventDefault();
+            e.preventDefault(); // 🚀 prevents flicker
+            
             const form = e.target;
             const $form = $(form);
             const $btn = $form.find('button[type="submit"]');
             const originalText = $btn.html();
 
-            // 1. Duplicate Prevention Check
-            if ($form.data('submitting') === true) return false;
-
-            // 2. Data Capture & Custom Validation (v23 Sync)
+            // 1. Validation (Simplified v25)
             const formData = new FormData(form);
             const dataObj = Object.fromEntries(formData.entries());
-            const required = ['name', 'age', 'email', 'address', 'course', 'pin', 'phone', 'diocese', 'qualification', 'apostolate', 'reason'];
+            const required = ['name', 'email', 'phone', 'course'];
             let isValid = true;
             
             required.forEach(field => {
                 const input = form.querySelector(`[name="${field}"]`);
-                if (!input) return;
-                
-                if (!dataObj[field] || dataObj[field].toString().trim() === "") {
-                    let labelText = field;
-                    const label = input.parentElement.querySelector('label');
-                    if (label) {
-                        labelText = label.innerText.replace('*', '').trim();
-                    }
-                    showError(input, `${labelText} is required`);
+                if (input && (!dataObj[field] || dataObj[field].toString().trim() === "")) {
                     isValid = false;
-                } else {
-                    removeError(input);
+                    $(input).addClass('is-invalid');
+                } else if (input) {
+                    $(input).removeClass('is-invalid');
                 }
             });
 
-            if (!isValid) {
-                // Scroll to first error for better UX
-                const firstError = form.querySelector('.input-error');
-                if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                return false;
-            }
+            if (!isValid) return false;
 
-            // 3. Status Transition & Backup
-            $form.data('submitting', true); // Set internal flag
-            $btn.html('Submitting… <i class="fas fa-spinner fa-spin ms-2"></i>').prop('disabled', true);
+            // 2. Loading State (Stabilized)
+            $btn.prop('disabled', true).text("Sending...");
 
-            try {
-                const submissions = JSON.parse(localStorage.getItem('denahalaya_submissions') || '[]');
-                submissions.push({
-                    timestamp: new Date().toISOString(),
-                    formId: formId,
-                    data: dataObj,
-                    status: 'pending'
-                });
-                localStorage.setItem('denahalaya_submissions', JSON.stringify(submissions));
-            } catch (err) {
-                console.error("Backup failed:", err);
-            }
-
-            // 4. EmailJS Execution (Centralized Config)
+            // 3. EmailJS Execution
             emailjs.sendForm(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_ID, form)
-                .then((response) => {
-                    console.log("EmailJS Success:", response.status);
-                    markBackupAsSent(dataObj.email);
-
-                    Swal.fire({
-                        html: `
-                            <div class="text-center">
-                                <img src="./assets/images/denahalaya_logo.png" alt="Logo" style="max-height: 70px; margin-bottom: 20px;">
-                                <div class="success-checkmark mb-4">
-                                    <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
-                                </div>
-                                <h3 style="color: #002147; font-weight: 700; font-size: 1.5rem; margin-bottom: 10px;">Submission Successful!</h3>
-                                <p style="color: #666; font-size: 1rem; line-height: 1.5;">Thank you! Your application for <strong>${dataObj.course}</strong> has been received by the institute.</p>
-                                <p class="small text-muted mt-3">Redirecting to homepage in 3 seconds...</p>
-                            </div>
-                        `,
-                        showConfirmButton: false,
-                        timer: 3500,
-                        timerProgressBar: true,
-                        background: '#fff',
-                        backdrop: 'rgba(0,33,71,0.85)',
-                        customClass: { popup: 'custom-success-popup' },
-                        didClose: () => { window.location.href = "index.html"; }
-                    });
+                .then(function() {
+                    showSuccessPopup(); // ✅ show confirmation
                     form.reset();
-                })
-                .catch((error) => {
-                    console.error("EmailJS Error:", error);
-                    // Fallback success feedback as data is backed up
-                    Swal.fire({
-                        html: `
-                            <div class="text-center">
-                                <img src="./assets/images/denahalaya_logo.png" alt="Logo" style="max-height: 70px; margin-bottom: 20px;">
-                                <h3 style="color: #002147; font-weight: 700; font-size: 1.5rem; margin-bottom: 10px;">Submission Received</h3>
-                                <p style="color: #666; font-size: 1rem; line-height: 1.5;">Thank you! We have securely noted your application details.</p>
-                                <div class="alert alert-info py-2 small mt-3 text-start">
-                                    <p class="mb-1"><strong><i class="fas fa-info-circle me-1"></i> Note:</strong> Your form data is saved successfully.</p>
-                                    <p class="mb-0">Please also contact us at <strong>+91 6282 525 648</strong> to confirm.</p>
-                                </div>
-                            </div>
-                        `,
-                        confirmButtonText: 'I Understand, Finish',
-                        confirmButtonColor: '#002147',
-                        background: '#fff',
-                        backdrop: 'rgba(0,33,71,0.85)',
-                        customClass: { popup: 'custom-success-popup' },
-                        didClose: () => { window.location.href = "index.html"; }
-                    });
+                    
+                    // Reset custom dropdowns if present
+                    if (typeof resetCourseSelect === 'function') resetCourseSelect();
+                    
+                    // Close modal after delay
+                    setTimeout(() => {
+                        $('.modal').modal('hide');
+                        if (formId === 'apply-page') window.location.href = "index.html";
+                    }, 2500);
+
+                }, function(error) {
+                    console.error("FAILED...", error);
+                    alert("Failed to send. Please check your connection and try again.");
                 })
                 .finally(() => {
-                    $form.data('submitting', false); // Release flag
-                    $btn.html(originalText).prop('disabled', false);
+                    $btn.prop('disabled', false).html(originalText);
                 });
         };
+
 
         /** Global Validation Helpers (v23) */
         function showError(input, msg) {
