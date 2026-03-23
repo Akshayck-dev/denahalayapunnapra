@@ -636,15 +636,24 @@ $(function() {
     // 8. Leader Card Reveal (Staggered Scroll Trigger)
     const leaderCards = document.querySelectorAll('.leader-card');
     if (leaderCards.length > 0) {
+        const observerOptions = {
+            threshold: 0.05,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    const idx = Array.from(leaderCards).indexOf(entry.target);
-                    setTimeout(() => entry.target.classList.add('active'), idx * 100);
+                    const allCards = Array.from(document.querySelectorAll('.leader-card'));
+                    const idx = allCards.indexOf(entry.target);
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, idx * 150);
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, observerOptions);
+
         leaderCards.forEach(card => observer.observe(card));
     }
 
