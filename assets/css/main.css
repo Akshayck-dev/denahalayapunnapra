@@ -618,14 +618,14 @@ h6,
 /* Base Layout & Section Spacing */
 section,
 .section {
-    padding: 50px 0 !important;
+    padding: 30px 0 !important;
 }
 
 @media (max-width: 768px) {
 
     section,
     .section {
-        padding: 35px 0 !important;
+        padding: 20px 0 !important;
     }
 }
 
@@ -2676,7 +2676,7 @@ section:last-child,
     background:
         linear-gradient(rgba(11, 44, 77, 0.8), rgba(11, 44, 77, 0.85)),
         url('../images/about_classroom_1.jpg') center/cover no-repeat fixed;
-    padding: 120px 0 80px;
+    padding: 80px 0 40px;
     text-align: center;
     color: white;
 }
@@ -2805,7 +2805,7 @@ form {
 /* ===== PREMIUM COURSE SECTION (FEATURED GRID) ===== */
 /* ===== PREMIUM COURSE SECTION (FEATURED GRID) ===== */
 .programs-section-premium {
-    padding: 100px 5%;
+    padding: 40px 5%;
     background:
         linear-gradient(rgba(11, 44, 77, 0.8), rgba(11, 44, 77, 0.85)),
         url('../images/about_classroom_1.jpg') center/cover no-repeat fixed;
