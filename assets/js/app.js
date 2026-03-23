@@ -199,24 +199,53 @@ $(function() {
             const form = e.target;
             const $form = $(form);
             const $btn = $form.find('button[type="submit"]');
-            const originalText = $btn.html();
+            const originalText = $btn.html();            // 1. Reset Errors
+            $form.find('.is-invalid').removeClass('is-invalid');
+            $form.find('.error-message').hide().text('');
 
-            // 1. Validation (Full Sync v26)
+            // 2. Validation Mapping (Full Sync v26)
             const formData = new FormData(form);
             const dataObj = Object.fromEntries(formData.entries());
             const required = ['name', 'age', 'email', 'phone', 'address', 'pin', 'diocese', 'qualification', 'apostolate', 'course', 'reason'];
+            
+            const fieldLabels = {
+                name: "Full Name",
+                age: "Age",
+                email: "Email Address",
+                phone: "Phone Number",
+                address: "Address",
+                pin: "Pin Code",
+                diocese: "Diocese / Congregation",
+                qualification: "Qualification",
+                apostolate: "Present Apostolate",
+                course: "Programme Selection",
+                reason: "Reason for applying"
+            };
+
             let isValid = true;
+            let firstErrorInput = null;
             
             required.forEach(field => {
                 const input = form.querySelector(`[name="${field}"]`);
                 if (input && (!dataObj[field] || dataObj[field].toString().trim() === "")) {
                     isValid = false;
                     $(input).addClass('is-invalid');
-                } else if (input) {
-                    $(input).removeClass('is-invalid');
+                    
+                    const $group = $(input).closest('.form-group, .col-md-9, .col-md-3, .col-md-6, .col-md-12, .col-12');
+                    const $error = $group.find('.error-message');
+                    if ($error.length) {
+                        $error.text(`${fieldLabels[field] || field} is required`).show();
+                    }
+
+                    if (!firstErrorInput) firstErrorInput = input;
                 }
             });
-            if (!isValid) return false;
+
+            if (!isValid) {
+                if (firstErrorInput) firstErrorInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return false;
+            }
+;
 
             // 2. Loading State (Stabilized)
             $btn.prop('disabled', true).text("Sending...");

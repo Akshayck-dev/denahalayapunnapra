@@ -5094,6 +5094,38 @@ body.modal-open-active {
     border-radius: 10px;
 }
 
+/* FORM VALIDATION STYLES (v26) */
+.error-message {
+    color: #dc3545;
+    font-size: 11px;
+    font-weight: 500;
+    margin-top: 4px;
+    display: none;
+    animation: errorFadeIn 0.3s ease;
+}
+
+.is-invalid {
+    border-color: #dc3545 !important;
+    background-color: rgba(220, 53, 69, 0.02) !important;
+}
+
+.is-invalid:focus {
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1) !important;
+}
+
+@keyframes errorFadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ensure form groups can contain spans correctly */
+.form-group, .col-md-9, .col-md-3, .col-md-6, .col-md-12, .col-12 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
 /* SUCCESS POPUP (CENTER + SMOOTH) */
 .success-popup {
   position: fixed;
