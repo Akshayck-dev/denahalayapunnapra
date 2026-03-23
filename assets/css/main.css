@@ -783,7 +783,7 @@ section:last-child, .section:last-child {
 
 @media (min-width: 992px) {
     .about-section {
-        padding: 100px 0 !important;
+        padding: 50px 0 100px !important; /* Reduced top padding from 100px to 50px */
         background-color: #ffffff;
         background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
         background-size: 30px 30px;
