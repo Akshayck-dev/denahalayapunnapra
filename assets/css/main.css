@@ -2483,25 +2483,77 @@ section:last-child,
 }
 
 /* Mobile Fix (Very Important) */
-@media (max-width: 768px) {
-    .modal-body {
-        padding: 10px 15px;
-    }
-
-    .premium-form .form-group {
-        margin-bottom: 6px !important;
-    }
-
-    .modal-brand-name {
-        font-size: 26px;
-    }
-
-    .modal-main-title {
-        font-size: 22px;
+/* Mobile Fix (Premium Modal Optimization) */
+@media (max-width: 600px) {
+    .modal-dialog {
+        margin: 10px;
+        width: auto !important;
     }
 
     .premium-modal {
+        border-radius: 12px;
         margin: 5px;
+    }
+
+    .modal-body {
+        padding: 12px 15px;
+        max-height: 82vh;
+        overflow-x: hidden !important;
+    }
+
+    .modal-branding {
+        padding: 5px 0;
+    }
+
+    .modal-brand-name {
+        font-size: 24px;
+        letter-spacing: 0.5px;
+    }
+
+    .modal-main-title {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .modal-header-divider {
+        width: 80%;
+        margin-bottom: 8px;
+    }
+
+    .premium-form .form-group {
+        margin-bottom: 15px !important;
+    }
+
+    .premium-form .form-control,
+    .premium-form .form-select,
+    .dropdown-selected {
+        font-size: 13px !important;
+        padding: 12px !important;
+    }
+
+    .dropdown-item {
+        font-size: 13px !important;
+        white-space: normal !important; /* Force text wrapping */
+        line-height: 1.4 !important;
+        padding: 10px 12px !important;
+    }
+
+    .dropdown-list {
+        max-height: 220px !important;
+    }
+
+    /* Fixed visibility of floating labels on mobile */
+    .premium-form .form-group label {
+        font-size: 13px;
+        top: 12px;
+    }
+
+    .premium-form .form-control:focus+label,
+    .premium-form .form-control:not(:placeholder-shown)+label,
+    .premium-form .form-select:focus+label,
+    .premium-form .form-select:valid+label {
+        top: -8px;
+        font-size: 10.5px;
     }
 }
 
