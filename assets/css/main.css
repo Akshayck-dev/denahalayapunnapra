@@ -5107,6 +5107,7 @@ body.modal-open-active {
 .is-invalid {
     border-color: #dc3545 !important;
     background-color: rgba(220, 53, 69, 0.02) !important;
+    background-image: none !important; /* Remove repeating/default icons */
 }
 
 .is-invalid:focus {
