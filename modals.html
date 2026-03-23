@@ -46,20 +46,17 @@
                         <span class="error-message"></span>
                     </div>
 
-                    <!-- COURSE SELECTION (Floating Label) -->
-                    <div class="form-group">
-                        <select name="course" id="courseSelect" class="form-select custom-select" required>
-                            <option value="" disabled selected></option>
-                            <option value="junior_sisters">One-Year Diploma (Psycho-Spiritual Integration)</option>
-                            <option value="renewal">One-Year Diploma (Psycho-Spiritual Renewal)</option>
-                            <option value="certificate">Three-Month Cert (Candidate Assessment)</option>
-                            <option value="short_course">Three-Week Short Course (Formators)</option>
-                            <option value="diploma_counselling">One-Year Diploma (Formative Spirituality)</option>
-                            <option value="master_psyc">M.Sc. Clinical Psychology + Diploma</option>
-                            <option value="bsc">B.Sc. Psychology + Integration</option>
-                            <option value="msc">M.Sc. Counselling Psychology + Integration</option>
-                        </select>
-                        <label>Select Your Course *</label>
+                    <!-- COURSE SELECTION (Custom Dropdown) -->
+                    <div class="form-group mb-3">
+                        <div class="custom-dropdown" id="courseDropdownGlobal">
+                            <div class="dropdown-selected" id="selectedCourseDisplay">
+                                Select Your Course *
+                            </div>
+                            <div class="dropdown-list" id="courseListGlobal">
+                                <!-- Populated via JS -->
+                            </div>
+                            <input type="hidden" name="course" id="courseSelect" required>
+                        </div>
                         <span class="error-message"></span>
                     </div>
 
