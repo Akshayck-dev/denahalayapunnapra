@@ -4602,6 +4602,7 @@ body.modal-open-active {
     background: linear-gradient(120deg, #E2B240 40%, #ffffff 50%, #E2B240 60%);
     background-size: 200% auto;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
 }
