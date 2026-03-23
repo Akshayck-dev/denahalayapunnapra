@@ -4624,14 +4624,54 @@ body.modal-open-active {
     z-index: 2;
 }
 
-@keyframes glowMove {
-    0%, 100% { transform: scale(1); opacity: 0.4; }
-    50% { transform: scale(1.15); opacity: 0.7; }
-}
-
 @keyframes moveParticles {
     from { transform: translate(0, 0); }
     to { transform: translate(80px, 80px); }
+}
+
+/* CHRISTIAN-STYLE ANIMATED BACKGROUND */
+.about-section {
+    position: relative;
+    overflow: hidden;
+    background: #fdfdfd; 
+}
+
+.about-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle at center, rgba(212,175,55,0.15), transparent 70%);
+    animation: glowMove 8s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.about-bg::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background-image: radial-gradient(#d4af37 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.1;
+    animation: moveParticlesCustom 20s linear infinite;
+}
+
+@keyframes glowMove {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes moveParticlesCustom {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-50px, -50px); }
+}
+
+.about-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 @keyframes crossGlow {
