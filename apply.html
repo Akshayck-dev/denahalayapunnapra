@@ -99,16 +99,21 @@
                                 </div>
                                 <div class="col-md-6 text-start">
                                     <label class="form-label fw-bold">Highest Qualification *</label>
-                                    <select name="qualification" class="form-select py-3" required>
-                                        <option value="" selected disabled>-- Select Qualification --</option>
-                                        <option value="SSLC">SSLC</option>
-                                        <option value="Plus Two">Plus Two</option>
-                                        <option value="Diploma">Diploma</option>
-                                        <option value="Bachelor's Degree">Bachelor's Degree</option>
-                                        <option value="Master's Degree">Master's Degree</option>
-                                        <option value="PhD / M.Phil">PhD / M.Phil</option>
-                                        <option value="Others">Others</option>
-                                    </select>
+                                    <div class="custom-dropdown" id="qualDropdownApply">
+                                        <div class="dropdown-selected" id="selectedQualDisplayApply">
+                                            -- Select Qualification --
+                                        </div>
+                                        <div class="dropdown-list" id="qualListApply">
+                                            <div class="dropdown-item" data-value="SSLC">SSLC</div>
+                                            <div class="dropdown-item" data-value="Plus Two">Plus Two</div>
+                                            <div class="dropdown-item" data-value="Diploma">Diploma</div>
+                                            <div class="dropdown-item" data-value="Bachelor's Degree">Bachelor's Degree</div>
+                                            <div class="dropdown-item" data-value="Master's Degree">Master's Degree</div>
+                                            <div class="dropdown-item" data-value="PhD / M.Phil">PhD / M.Phil</div>
+                                            <div class="dropdown-item" data-value="Others">Others</div>
+                                        </div>
+                                        <input type="hidden" name="qualification" id="qualSelectApply" required>
+                                    </div>
                                     <span class="error-message"></span>
                                 </div>
                                 <div class="col-12">

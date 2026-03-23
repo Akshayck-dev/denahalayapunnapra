@@ -586,20 +586,19 @@ $(function() {
         // Toggle current
         $list.toggleClass('show');
         $container.toggleClass('active');
-    });
-
-    // 7c. ITEM SELECTION (DELEGATED)
+    })    // 7c. ITEM SELECTION (DELEGATED - Generic)
     $(document).on('click', '.dropdown-item', function(e) {
         e.stopPropagation();
         const $item = $(this);
-        const courseName = $item.attr('data-id');
+        // Supports data-id (Courses) or data-value (Qualifications)
+        const selectedValue = $item.attr('data-id') || $item.attr('data-value');
         const $container = $item.closest('.custom-dropdown');
         const $display = $container.find('.dropdown-selected');
         const $input = $container.find('input[type="hidden"]');
         
-        if (courseName) {
-            $display.text(courseName).css('color', '#333');
-            $input.val(courseName).trigger('change');
+        if (selectedValue) {
+            $display.text(selectedValue).css('color', '#333');
+            $input.val(selectedValue).trigger('change');
             
             // Highlight check
             $container.find('.dropdown-item').removeClass('active');
@@ -610,12 +609,18 @@ $(function() {
         $container.removeClass('active');
     });
 
-    // 7d. RESET DROPDOWS
+    // 7d. RESET ALL CUSTOM DROPDOWNS
     function resetCourseSelect() {
         $('.custom-dropdown').each(function() {
             const $container = $(this);
-            const isApplyPage = $container.attr('id') === 'courseDropdownApply';
-            const defaultText = isApplyPage ? '-- Choose a Programme --' : 'Select Your Course *';
+            const id = $container.attr('id');
+            let defaultText = 'Select Option *';
+            
+            if (id.includes('course')) {
+                defaultText = id.includes('Apply') ? '-- Choose a Programme --' : 'Select Your Course *';
+            } else if (id.includes('qual')) {
+                defaultText = id.includes('Apply') ? '-- Select Qualification --' : 'Highest Qualification *';
+            }
             
             $container.find('.dropdown-selected').text(defaultText).css('color', '#999');
             $container.find('input[type="hidden"]').val('');
