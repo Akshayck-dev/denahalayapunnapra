@@ -4578,3 +4578,86 @@ body.modal-open-active {
     0%, 100% { opacity: 0.2; transform: translate(-50%, -52%) scale(1); }
     50% { opacity: 0.5; transform: translate(-50%, -48%) scale(1.1); }
 }
+
+/* DIVINE HEADER COMPONENT */
+.divine-header {
+    position: relative;
+    height: 80vh;
+    min-height: 500px;
+    background-color: #fdfbf7;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.serif-font { 
+    font-family: 'Playfair Display', serif; 
+    color: #2c3e50; 
+    font-weight: 700; 
+}
+
+.text-gold { 
+    color: #b8924a; 
+    letter-spacing: 5px; 
+    font-size: 0.85rem; 
+    font-weight: 600; 
+}
+
+.italic { 
+    font-style: italic; 
+    font-family: 'Playfair Display', serif; 
+}
+
+.sacred-glow {
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(255, 223, 127, 0.35) 0%, rgba(255, 255, 255, 0) 75%);
+    filter: blur(80px);
+    z-index: 0;
+    animation: pulseFlare 10s infinite ease-in-out;
+}
+
+@keyframes pulseFlare {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+    50% { transform: translateX(-50%) scale(1.4); opacity: 0.8; }
+}
+
+.content-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUpDivine 2.5s forwards cubic-bezier(0.2, 1, 0.3, 1);
+    z-index: 1;
+}
+
+@keyframes fadeInUpDivine {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.elegant-line {
+    width: 60px;
+    height: 2px;
+    background: #b8924a;
+}
+
+.btn-divine {
+    background-color: #b8924a;
+    color: white !important;
+    border: none;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(184, 146, 74, 0.2);
+}
+
+.btn-divine:hover {
+    background-color: #9a783a;
+    color: white !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(184, 146, 74, 0.4);
+}
