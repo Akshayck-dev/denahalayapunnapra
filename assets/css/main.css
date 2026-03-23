@@ -4540,15 +4540,23 @@ body.modal-open-active {
     background-image: radial-gradient(rgba(212, 175, 55, 0.4) 1.5px, transparent 1.5px);
     background-size: 80px 80px;
     opacity: 0.15;
-    /*
-     - [x] **Animated Background for About Section**
-     - [x] Add `<div class="about-bg"></div>` to `about.html`
-     - [x] Implement `glowMove` and `moveParticles` animations in `main.css`
-     - [x] Style `.about-bg` with radial golden gradients
-     - [x] Ensure content visibility with `z-index: 2`
-     - [x] Verified sitewide consistency.
-    */
     animation: moveParticles 30s linear infinite;
+}
+
+.about-bg::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: 
+        linear-gradient(to right, transparent 49%, rgba(212, 175, 55, 0.06) 49%, rgba(212, 175, 55, 0.06) 51%, transparent 51%),
+        linear-gradient(to bottom, transparent 29%, rgba(212, 175, 55, 0.06) 29%, rgba(212, 175, 55, 0.06) 31%, transparent 31%);
+    filter: blur(40px);
+    z-index: -1;
+    animation: crossGlow 15s ease-in-out infinite;
 }
 
 .about-section .container {
@@ -4564,4 +4572,9 @@ body.modal-open-active {
 @keyframes moveParticles {
     from { transform: translate(0, 0); }
     to { transform: translate(80px, 80px); }
+}
+
+@keyframes crossGlow {
+    0%, 100% { opacity: 0.2; transform: translate(-50%, -52%) scale(1); }
+    50% { opacity: 0.5; transform: translate(-50%, -48%) scale(1.1); }
 }
