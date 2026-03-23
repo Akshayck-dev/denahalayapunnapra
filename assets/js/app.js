@@ -633,6 +633,21 @@ $(function() {
         }
     }, 1500); 
 
+    // 8. Leader Card Reveal (Staggered Scroll Trigger)
+    const leaderCards = document.querySelectorAll('.leader-card');
+    if (leaderCards.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const idx = Array.from(leaderCards).indexOf(entry.target);
+                    setTimeout(() => entry.target.classList.add('active'), idx * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        leaderCards.forEach(card => observer.observe(card));
+    }
+
     // Set initial state
     $(window).trigger('scroll');
 });
