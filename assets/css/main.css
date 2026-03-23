@@ -4059,28 +4059,29 @@ body.modal-open-active {
 /* Mobile Symmetry Enforcement */
 @media (max-width: 767px) {
     .course-card-v3 {
-        padding: 20px 15px 15px !important; /* Reduced top/bottom padding */
-        border-radius: 20px !important;
-        min-height: 310px !important; /* v5: Compressed height */
+        padding: 15px 10px 10px !important; /* v7: Ultra-compact padding */
+        border-radius: 18px !important;
+        min-height: 250px !important; /* v7: Significantly shorter card */
     }
     .course-card-v3 .card-title {
-        font-size: 0.88rem !important; /* v5: Slightly smaller titles */
-        line-height: 1.2 !important;
-        margin-top: 5px !important;    /* v6: Minimal space above title */
-        margin-bottom: 5px !important; /* v6: Minimal space below title */
+        font-size: 0.9rem !important;
+        line-height: 1.15 !important;
+        margin-top: 0px !important;    /* v7: Zero gap above */
+        margin-bottom: 0px !important; /* v7: Zero gap below */
     }
     .course-card-v3 .icon-box-v3 {
-        width: 48px !important; /* v5: More compact icons */
-        height: 48px !important;
+        width: 45px !important;
+        height: 45px !important;
         font-size: 18px !important;
-        margin-bottom: 8px !important; /* v5: Significantly reduced gap below icon */
+        margin-bottom: 4px !important; /* v7: Minimal gap */
     }
     .course-card-v3 .category-tag {
-        font-size: 0.58rem !important;
-        margin-bottom: 6px !important; /* v5: Significantly reduced gap below category */
+        font-size: 0.55rem !important;
+        margin-bottom: 2px !important; /* v7: Minimal gap */
     }
     .course-card-v3 .btn-pill-gold {
-        padding: 10px 15px !important;
-        font-size: 0.68rem !important;
+        padding: 8px 15px !important;
+        font-size: 0.65rem !important;
+        margin-top: 10px !important; /* Controlled gap to button */
     }
 }
