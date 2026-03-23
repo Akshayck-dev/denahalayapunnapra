@@ -523,6 +523,16 @@ h1, h2, h3, h4, h5, h6, .display-font {
     }
 }
 
+.ornament {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 15px;
+    margin: 15px 0;
+    color: var(--accent-gold);
+    font-size: 1rem;
+    width: 100%;
+}
+
 /* Base Layout & Section Spacing */
 section, .section {
     padding: 50px 0 !important;
