@@ -1195,11 +1195,18 @@ section:last-child, .section:last-child {
 
 @media (max-width: 767px) {
     .course-card-mobile-sync {
-        padding: 25px 15px !important;
+        padding: 20px 10px !important;
+        min-height: 400px !important; /* Force identical height for symmetry */
     }
     .course-card-mobile-sync .card-title {
-        font-size: 1rem !important;
-        margin-bottom: 20px !important;
+        font-size: 0.9rem !important;
+        margin-bottom: 15px !important;
+        min-height: 120px; /* Aligns text areas */
+    }
+    .course-card-mobile-sync .icon-box-sync {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
     }
 }
 
