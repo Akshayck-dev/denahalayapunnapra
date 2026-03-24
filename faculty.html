@@ -164,7 +164,11 @@
                             <span class="qualifications">MSc (Christ University Bangalore)</span>
                         </div>
                     </div>
-                    <!-- Faculty Item 13: Prakash -->
+                </div>
+
+                <div id="extraFaculty" class="expand-section">
+                    <div class="row g-4 mt-0 pt-4">
+                        <!-- Faculty Item 13: Prakash -->
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6 faculty-item" data-aos="fade-up">
                         <div class="faculty-card">
                             <div class="profile-img-wrapper">
@@ -330,15 +334,21 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
                 <!-- View More Button -->
                 <div class="text-center mt-5" id="loadMoreContainer">
-                    <button id="loadMoreFaculty" class="btn-primary-custom px-5">
+                    <button id="loadMoreFaculty" class="btn btn-primary btn-toggle px-5" 
+                        data-target="extraFaculty" 
+                        data-more-text='View More <i class="fas fa-arrow-down ms-2"></i>' 
+                        data-less-text='View Less <i class="fas fa-arrow-up ms-2"></i>'>
                         View More <i class="fas fa-arrow-down ms-2"></i>
                     </button>
                 </div>
             </div>
         </section>
+
+
 
         <footer data-include="footer"></footer>
     </div>
@@ -350,5 +360,7 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
     <script src="./assets/js/app.js?v=8.0" defer></script>
     <div data-include="modals"></div>
+
+
 </body>
 </html>

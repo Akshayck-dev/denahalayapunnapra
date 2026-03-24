@@ -298,6 +298,33 @@ $(function() {
             });
         }
 
+        // 6. Premium Testimonial Swiper (v32)
+        if ($('.testimonial-slider').length > 0 && typeof Swiper !== 'undefined') {
+            new Swiper('.testimonial-slider', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                centeredSlides: true,
+                loop: true,
+                autoplay: {
+                    delay: 3500,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                pagination: {
+                    el: '.testimonial-pagination',
+                    clickable: true
+                },
+                speed: 1000,
+                breakpoints: {
+                    // Desktop: 3 cards visible
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 40
+                    }
+                }
+            });
+        }
+
         // 5b. Faculty Carousel
         if ($('.facultySwiper').length > 0 && typeof Swiper !== 'undefined') {
             new Swiper(".facultySwiper", {
@@ -358,29 +385,49 @@ $(function() {
         }
 
         // 7. Success Toast Helper (v30)
+        // 7. Success Toast Helper (v30) - [LEGACY - Keep for compatibility if needed elsewhere]
         window.showToast = function(message) {
             const toast = document.getElementById("toast");
             if (!toast) return;
-            
             if (message) toast.innerHTML = `✔ ${message}`;
             toast.classList.add("show");
-
             setTimeout(() => {
                 toast.classList.remove("show");
             }, 3000);
         }
 
+        // 7b. Premium Success Alert (v31)
+        window.showSuccessAlert = function() {
+            const alertBox = document.getElementById("successAlert");
+            if (!alertBox) return;
+            
+            alertBox.classList.add("active");
+            
+            // Auto close after 5 seconds
+            setTimeout(() => {
+                alertBox.classList.remove("active");
+            }, 5000);
+            
+            // Allow manual close on overlay click
+            alertBox.onclick = function(e) {
+                if (e.target === alertBox) {
+                    alertBox.classList.remove("active");
+                }
+            };
+        }
+
         window.handleFormSubmission = function(e, formId = 'generic') {
-            e.preventDefault(); // 🚀 prevents flicker
+            e.preventDefault(); 
             
             const form = e.target;
             const $form = $(form);
             const $btn = $form.find('button[type="submit"]');
-            const originalText = $btn.html();            // 1. Reset Errors
+            const originalText = $btn.html();            
+            
             $form.find('.is-invalid').removeClass('is-invalid');
             $form.find('.error-message').hide().text('');
 
-            // 2. Validation Mapping (Full Sync v26)
+            // 2. Validation Mapping
             const formData = new FormData(form);
             const dataObj = Object.fromEntries(formData.entries());
             const required = ['name', 'age', 'email', 'phone', 'address', 'pin', 'diocese', 'qualification', 'apostolate', 'course', 'reason'];
@@ -422,25 +469,22 @@ $(function() {
                 if (firstErrorInput) firstErrorInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 return false;
             }
-;
 
-            // 2. Loading State (Stabilized)
+            // 2. Loading State
             $btn.prop('disabled', true).text("Sending...");
 
             // 3. EmailJS Execution
             emailjs.sendForm(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_ID, form)
                 .then(function() {
-                    showToast(); // ✅ show animated toast
+                    window.showSuccessAlert(); // ✅ Trigger Premium Alert
                     form.reset();
                     
-                    // Reset custom dropdowns if present
                     if (typeof resetCourseSelect === 'function') resetCourseSelect();
                     
-                    // Close modal after delay
                     setTimeout(() => {
                         $('.modal').modal('hide');
                         if (formId === 'apply-page') window.location.href = "index.html";
-                    }, 2500);
+                    }, 1000); // Close modal sooner as alert is overlaying
 
                 }, function(error) {
                     console.error("FAILED...", error);
@@ -449,7 +493,7 @@ $(function() {
                 .finally(() => {
                     $btn.prop('disabled', false).html(originalText);
                 });
-        };
+        }
 
 
         /** Global Validation Helpers (v23) */
@@ -560,9 +604,106 @@ $(function() {
             }
         });
 
+
+        // 8. Support Us Form Submission (Newly Added & Validated)
+        $(document).on('submit', '#supportForm', function(e) {
+            e.preventDefault();
+            const form = this;
+            const $form = $(form);
+            const $btn = $form.find('button[type="submit"]');
+            const originalText = $btn.html();
+
+            // 1. Reset Errors
+            $form.find('.is-invalid').removeClass('is-invalid');
+            $form.find('.error-message').hide().text('');
+
+            // 2. Validation
+            const formData = new FormData(form);
+            const dataObj = Object.fromEntries(formData.entries());
+            const required = ['name', 'address', 'phone', 'email', 'subject', 'description'];
+            
+            const fieldLabels = {
+                name: "Full Name",
+                address: "Contact Address",
+                phone: "Phone Number",
+                email: "Email Address",
+                subject: "Subject",
+                description: "Description"
+            };
+
+            let isValid = true;
+            let firstErrorInput = null;
+            
+            required.forEach(field => {
+                const input = form.querySelector(`[name="${field}"]`);
+                if (input && (!dataObj[field] || dataObj[field].toString().trim() === "")) {
+                    isValid = false;
+                    $(input).addClass('is-invalid');
+                    
+                    const $group = $(input).closest('.form-group');
+                    const $error = $group.find('.error-message');
+                    if ($error.length) {
+                        $error.text(`${fieldLabels[field] || field} is required`).show();
+                    }
+                    if (!firstErrorInput) firstErrorInput = input;
+                }
+            });
+
+            if (!isValid) {
+                if (firstErrorInput) firstErrorInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return false;
+            }
+
+            $btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin me-2"></i> Sending...');
+
+            // 3. EmailJS Execution
+            emailjs.sendForm(EMAILJS_CONFIG.SERVICE_ID, 'template_gde1f34', form)
+                .then(function() {
+                    if (typeof window.showSuccessAlert === 'function') {
+                        window.showSuccessAlert();
+                    } else {
+                        alert("Request submitted successfully!");
+                    }
+                    form.reset();
+                    bootstrap.Modal.getInstance(document.getElementById('supportModal')).hide();
+                }, function(error) {
+                    console.error("Support Mail FAILED...", error);
+                    alert("Failed to send. Please check your connection and try again.");
+                })
+                .finally(() => {
+                    $btn.prop('disabled', false).html(originalText);
+                });
+        });
+
     } // Close initializePlugins
 
+
     // 6. Global Utilities (Smart Scroll Toggle & Floating Buttons)
+    
+    // Generic View More / View Less Toggle System
+    $(document).on('click', '.btn-toggle', function(e) {
+        e.preventDefault();
+        const $btn = $(this);
+        const targetId = $btn.data('target');
+        const $content = $(`#${targetId}`);
+        
+        if ($content.length) {
+            const isExpanding = !$content.hasClass('expanded');
+            $content.toggleClass('expanded');
+            
+            // Handle Button Text and Icon
+            const moreText = $btn.data('more-text') || "View More ↓";
+            const lessText = $btn.data('less-text') || "View Less ↑";
+            
+            $btn.html(isExpanding ? lessText : moreText);
+            
+            // Refresh AOS if present
+            if (typeof AOS !== 'undefined') {
+                setTimeout(() => AOS.refresh(), 400);
+            }
+        }
+    });
+
     $(window).scroll(function() {
         const scrollTop = $(this).scrollTop();
         const windowHeight = $(this).height();
@@ -825,6 +966,36 @@ I would like to know more about your courses.`;
 
         leaderCards.forEach(card => observer.observe(card));
     }
+
+
+
+    // 9. Custom Modal Logic (Fixed: Renamed to avoid Bootstrap conflicts)
+    $(document).on('click', '.read-more-btn', function() {
+        const modal = document.getElementById("legacyModal");
+        const $btn = $(this);
+        const name = $btn.data('name');
+        const img = $btn.data('img');
+        const content = $btn.data('content');
+
+        if (modal) {
+            document.getElementById("legacy-modal-title").innerText = name;
+            document.getElementById("legacy-modal-text").innerText = content;
+            document.getElementById("legacy-modal-img").src = img;
+            modal.style.display = "flex";
+        }
+    });
+
+    $(document).on('click', '.legacy-modal-close', function() {
+        const modal = document.getElementById("legacyModal");
+        if (modal) modal.style.display = "none";
+    });
+
+    $(window).on('click', function(e) {
+        const modal = document.getElementById("legacyModal");
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
 
     // Set initial state
     $(window).trigger('scroll');
