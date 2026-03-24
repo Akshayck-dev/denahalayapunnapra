@@ -631,8 +631,9 @@ $(function() {
     // WhatsApp Floating Button Logic
     $(document).on('click', '#whatsappBtn', function(e) {
         e.preventDefault();
-        const message = `Hello Denahalaya,\nI am interested in your course.\nPage: ${window.location.href}`;
         const phone = "916282525648";
+        const message = `Hello Denahalaya,
+I would like to know more about your courses.`;
         const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank");
     });

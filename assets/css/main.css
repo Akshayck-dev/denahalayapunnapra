@@ -5274,3 +5274,72 @@ body.modal-open {
     transform: translateY(0) scale(1);
   }
 }
+
+/* ABOUT SECTION ANIMATION (v30) */
+.about-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f2a44, #1e3c72);
+  color: #fff;
+  contain: layout paint; /* Performance optimization */
+}
+
+.bg-animation {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.bg-animation::after {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -25%;
+  left: -25%;
+  background: radial-gradient(circle, rgba(255,255,255,0.06), transparent 60%);
+  animation: rotateLight 25s linear infinite;
+}
+
+.bg-animation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.4) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.08;
+  animation: moveParticles 40s linear infinite;
+}
+
+@keyframes rotateLight {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes moveParticles {
+  from { transform: translateY(0); }
+  to { transform: translateY(-80px); }
+}
+
+.about-content {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .bg-animation::after {
+    animation-duration: 40s;
+    opacity: 0.04;
+  }
+  .bg-animation::before {
+    animation: none;
+    opacity: 0.05;
+  }
+}
+
+@media (max-width: 480px) {
+  .bg-animation {
+    display: none;
+  }
+}
