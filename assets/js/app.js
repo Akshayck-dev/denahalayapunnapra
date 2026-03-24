@@ -357,15 +357,16 @@ $(function() {
             emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
         }
 
-        // 7. Success Popup Helper
-        function showSuccessPopup() {
-            const popup = document.getElementById("successPopup");
-            if (!popup) return;
+        // 7. Success Toast Helper (v30)
+        window.showToast = function(message) {
+            const toast = document.getElementById("toast");
+            if (!toast) return;
             
-            $(popup).fadeIn(300).css('display', 'flex');
-            
+            if (message) toast.innerHTML = `✔ ${message}`;
+            toast.classList.add("show");
+
             setTimeout(() => {
-                $(popup).fadeOut(300);
+                toast.classList.remove("show");
             }, 3000);
         }
 
@@ -429,7 +430,7 @@ $(function() {
             // 3. EmailJS Execution
             emailjs.sendForm(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_ID, form)
                 .then(function() {
-                    showSuccessPopup(); // ✅ show confirmation
+                    showToast(); // ✅ show animated toast
                     form.reset();
                     
                     // Reset custom dropdowns if present

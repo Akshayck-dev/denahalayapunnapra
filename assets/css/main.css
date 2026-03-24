@@ -5234,3 +5234,43 @@ body.modal-open {
   -webkit-overflow-scrolling: touch; /* smooth mobile scroll */
 }
 
+
+/* MODERN SUCCESS TOAST (v30) */
+.toast {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  background: #28a745;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3);
+  opacity: 0;
+  transform: translateY(-20px) scale(0.9);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (max-width: 768px) {
+  .toast {
+    top: auto;
+    bottom: 30px;
+    right: 20px;
+    left: 20px;
+    justify-content: center;
+    transform: translateY(20px) scale(0.9);
+  }
+  .toast.show {
+    transform: translateY(0) scale(1);
+  }
+}

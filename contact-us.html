@@ -290,17 +290,8 @@
 
                     emailjs.sendForm('service_xobfjk8', 'template_jeonbnf', this)
                         .then(() => {
-                            if (typeof Swal !== 'undefined') {
-                                Swal.fire({
-                                    title: 'Sent!',
-                                    text: 'Your message has been sent successfully.',
-                                    icon: 'success',
-                                    timer: 3000,
-                                    showConfirmButton: false,
-                                    background: '#fff',
-                                    color: '#0b2a4a',
-                                    iconColor: '#d4a63a'
-                                });
+                            if (typeof showToast === 'function') {
+                                showToast("Message sent successfully!");
                             } else {
                                 alert("Sent successfully!");
                             }
