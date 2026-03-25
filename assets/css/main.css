@@ -1525,7 +1525,7 @@ section,
 }
 
 .profile-img-wrapper img[src*="FrAnish.webp"] {
-    transform: scale(1.8);
+    transform: scale(1.2); /* Adjusted for new high-quality source */
     object-position: center 0%; /* Aligned higher as per user arrow */
 }
 
