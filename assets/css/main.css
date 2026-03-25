@@ -6020,9 +6020,14 @@ body.modal-open {
     .whatsapp-btn {
         width: 55px;
         height: 55px;
+        padding: 0 !important;
     }
     .whatsapp-btn i {
         font-size: 22px;
+        margin: 0 !important;
+    }
+    .whatsapp-btn span {
+        display: none !important;
     }
 }
 
