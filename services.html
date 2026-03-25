@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="./assets/css/bootstrap.css?v=7.0">
     <link rel="stylesheet" href="./assets/css/main.css?v=11.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        // Fix Click Lag (Passive Touch Listener)
+        document.addEventListener("touchstart", function(){}, {passive: true});
+    </script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 

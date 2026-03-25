@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <script>
+        // Fix Click Lag (Passive Touch Listener)
+        document.addEventListener("touchstart", function(){}, {passive: true});
+    </script>
     <style>
         /* Fancybox Premium Blur Effect */
         .fancybox__backdrop {
@@ -807,7 +811,7 @@
         // 4. Fire immediately in case DOMContentLoaded already passed
         revealCards();
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.29/bundled/lenis.min.js" defer></script>
     <script>
         window.lenis = new Lenis({
             duration: 1.2,
