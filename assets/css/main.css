@@ -5859,11 +5859,11 @@ body.modal-open {
     z-index: 9999;
 }
 
-/* WHATSAPP BUTTON (GOLD STYLE - MATCHES APPLY NOW) */
+/* WHATSAPP BUTTON (CLASSIC GREEN STYLE - PILL SHAPE) */
 .whatsapp-btn {
-    background: #d4a24c !important;
-    color: #fff !important;
-    border: none !important;
+    background: #ffffff !important;
+    color: #25D366 !important;
+    border: 2px solid #25D366 !important;
     padding: 14px 24px !important;
     border-radius: 50px !important;
     display: inline-flex !important;
@@ -5873,7 +5873,7 @@ body.modal-open {
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(212, 162, 76, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     text-decoration: none !important;
     position: relative;
@@ -5888,7 +5888,7 @@ body.modal-open {
     align-items: center;
     justify-content: center;
     line-height: 1;
-    color: #fff !important;
+    color: #25D366 !important;
     margin: 0;
 }
 
@@ -5949,8 +5949,9 @@ body.modal-open {
 }
 
 .whatsapp-btn:hover {
-    background: #c89b3c !important; /* Slightly darker gold on hover */
-    color: #fff !important;
+    background: #f0fff4 !important; /* Subtle green tint on hover */
+    color: #25D366 !important;
+    border-color: #25D366 !important;
 }
 
 /* ANIMATIONS */
