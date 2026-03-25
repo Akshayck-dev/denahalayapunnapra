@@ -1525,8 +1525,8 @@ section,
 }
 
 .profile-img-wrapper img[src*="FrAnish.webp"] {
-    transform: scale(1.6);
-    object-position: center 10%; /* Maximum facial clarity zoom */
+    transform: scale(1.8);
+    object-position: center 0%; /* Aligned higher as per user arrow */
 }
 
 .profile-img-wrapper img[src*="Philo uthuppan.webp"],
