@@ -18,6 +18,11 @@
             position: relative;
             background: #f0f0f0;
         }
+        /* Specific Aspect Ratio for Videos to avoid bottom gap */
+        .video-item {
+            aspect-ratio: 16 / 9 !important;
+            background: #000;
+        }
         .gallery-item img {
             width: 100% !important;
             height: 100% !important;
@@ -27,12 +32,6 @@
         }
         .gallery-item:hover img {
             transform: scale(1.1);
-        }
-        /* Fancybox Premium Blur Effect */
-        .fancybox__backdrop {
-            background: rgba(0, 0, 0, 0.7) !important;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
         }
     </style>
 </head>
@@ -56,15 +55,15 @@
         </section>
 
         <!-- Video Gallery (New) -->
-        <section class="section bg-light py-5">
+        <section class="section bg-light pt-4 pb-0">
             <div class="container">
-                <div class="text-center mb-5" data-aos="fade-up">
+                <div class="text-center mb-3" data-aos="fade-up">
                     <h2 class="display-6">Latest Videos</h2>
                     <p class="text-muted small">Highlights from recent Denahalaya programmes</p>
                 </div>
                 <div class="row g-4 justify-content-center">
                     <div class="col-lg-6 col-12" data-aos="zoom-in">
-                        <div class="gallery-item shadow-sm rounded overflow-hidden">
+                        <div class="gallery-item video-item shadow-sm rounded overflow-hidden">
                             <video controls class="w-100 rounded" poster="./assets/images/background.jpg">
                                 <source src="./assets/images/vdeo-1.MP4" type="video/mp4">
                                 Your browser does not support the video tag.
@@ -72,7 +71,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-12" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="gallery-item shadow-sm rounded overflow-hidden">
+                        <div class="gallery-item video-item shadow-sm rounded overflow-hidden">
                             <video controls class="w-100 rounded" poster="./assets/images/background.jpg">
                                 <source src="./assets/images/vdeo-2.MP4" type="video/mp4">
                                 Your browser does not support the video tag.
@@ -84,9 +83,9 @@
         </section>
 
         <!-- Gallery Grid -->
-        <section class="section bg-white" id="gallery-start">
+        <section class="section bg-white pt-2" id="gallery-start">
             <div class="container">
-                <div class="text-center mb-5" data-aos="fade-up">
+                <div class="text-center mb-3" data-aos="fade-up">
                     <h2 class="display-6">Latest Images</h2>
                     <p class="text-muted small">Capturing the heart of our mission and community</p>
                 </div>
@@ -159,119 +158,119 @@
                 <!-- Extra Gallery Items (Functional Toggle) -->
                 <div id="extraGallery" class="expand-section">
                     <div class="row g-4 mt-0 pt-4">
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="200">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img_5.jpg" data-fancybox="gallery" data-title="Institute Moments">
                                     <img src="./assets/images/img_5.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 5" loading="lazy" width="600" height="450">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="300">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img_6.jpg" data-fancybox="gallery" data-title="Institute Moments">
                                     <img src="./assets/images/img_6.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 6" loading="lazy" width="600" height="450">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="100">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img_7.jpg" data-fancybox="gallery" data-title="Institute Moments">
                                     <img src="./assets/images/img_7.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 7" loading="lazy" width="600" height="450">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="200">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img_8.jpg" data-fancybox="gallery" data-title="Institute Moments">
                                     <img src="./assets/images/img_8.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 8" loading="lazy" width="600" height="450">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="300">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img_9.jpg" data-fancybox="gallery" data-title="Institute Moments">
                                     <img src="./assets/images/img_9.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 9" loading="lazy" width="600" height="450">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="400">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img-12.jpg" data-fancybox="gallery" data-title="Institute Moments">
                                     <img src="./assets/images/img-12.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 12" loading="lazy" width="600" height="450">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="100">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img_10.jpg" data-fancybox="gallery" data-title="Institute Moments">
                                     <img src="./assets/images/img_10.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 10" loading="lazy" width="600" height="450">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="200">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img_11.jpg" data-fancybox="gallery" data-title="Institute Moments">
                                     <img src="./assets/images/img_11.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 11" loading="lazy" width="600" height="450">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="300">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img-13.jpg" data-fancybox="gallery" data-title="Latest Moments">
                                     <img src="./assets/images/img-13.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 13" loading="lazy" width="600" height="450">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="100">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img-14.jpg" data-fancybox="gallery" data-title="Latest Moments">
                                     <img src="./assets/images/img-14.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 14" loading="lazy" width="600" height="450">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="200">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img-15.jpg" data-fancybox="gallery" data-title="Latest Moments">
                                     <img src="./assets/images/img-15.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 15" loading="lazy" width="600" height="450">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="300">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img-16.jpg" data-fancybox="gallery" data-title="Latest Moments">
                                     <img src="./assets/images/img-16.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 16" loading="lazy" width="600" height="450">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="100">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img-17.jpg" data-fancybox="gallery" data-title="Latest Moments">
                                     <img src="./assets/images/img-17.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 17" loading="lazy" width="600" height="450">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="200">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img-18.jpg" data-fancybox="gallery" data-title="Latest Moments">
                                     <img src="./assets/images/img-18.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 18" loading="lazy" width="600" height="450">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="300">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img-19.jpg" data-fancybox="gallery" data-title="Latest Moments">
                                     <img src="./assets/images/img-19.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 19" loading="lazy" width="600" height="450">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="100">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img-20.jpg" data-fancybox="gallery" data-title="Latest Moments">
                                     <img src="./assets/images/img-20.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 20" loading="lazy" width="600" height="450">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="col-lg-4 col-md-6 col-12 gallery-item-extra d-none" data-aos="zoom-in" data-aos-delay="200">
                             <div class="gallery-item shadow-sm h-100">
                                 <a href="./assets/images/img-21.jpg" data-fancybox="gallery" data-title="Latest Moments">
                                     <img src="./assets/images/img-21.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image 21" loading="lazy" width="600" height="450">
@@ -282,8 +281,8 @@
                 </div>
 
                 <!-- View More / View Less Button -->
-                <div class="text-center mt-5" id="viewMoreContainer">
-                    <button id="viewMoreBtn" class="btn btn-primary btn-toggle px-5 py-3" 
+                <div class="text-center mt-3" id="viewMoreContainer">
+                    <button id="viewMoreBtn" class="btn btn-primary px-5 py-3" 
                         data-target="extraGallery" 
                         data-more-text='View More Moments <i class="fas fa-chevron-down ms-2"></i>' 
                         data-less-text='View Less Moments <i class="fas fa-chevron-up ms-2"></i>'>

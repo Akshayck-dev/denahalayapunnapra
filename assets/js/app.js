@@ -230,27 +230,30 @@ $(function() {
         if ($viewMoreBtn.length > 0) {
             $viewMoreBtn.off('click').on('click', function() {
                 const $extraItems = $('.gallery-item-extra');
-                const isExpanding = $(this).text().includes('More');
+                const isExpanding = !$(this).hasClass('expanded');
                 
+                const moreText = $(this).data('more-text') || 'View More Moments <i class="fas fa-chevron-down ms-2"></i>';
+                const lessText = $(this).data('less-text') || 'View Less Moments <i class="fas fa-chevron-up ms-2"></i>';
+
                 if (isExpanding) {
                     $extraItems.removeClass('d-none').hide().fadeIn(800);
-                    $(this).html('View Less Moments <i class="fas fa-chevron-up ms-2"></i>');
+                    $(this).addClass('expanded').html(lessText);
                     if (typeof AOS !== 'undefined') {
                         setTimeout(() => AOS.refresh(), 100);
                     }
                 } else {
-                    $extraItems.fadeOut(400, function() {
-                        $(this).addClass('d-none');
-                    });
-                    $(this).html('View More Moments <i class="fas fa-chevron-down ms-2"></i>');
-                    
-                    // Smooth scroll back to start of gallery
+                    // Smooth scroll back to start of gallery before hiding
                     const $galleryStart = $('#gallery-start');
-                    if ($galleryStart.length > 0) {
-                        $('html, body').animate({
-                            scrollTop: $galleryStart.offset().top - 100
-                        }, 600);
-                    }
+                    const targetTop = ($galleryStart.length > 0) ? $galleryStart.offset().top - 100 : 0;
+                    
+                    $('html, body').animate({
+                        scrollTop: targetTop
+                    }, 600, function() {
+                        $extraItems.fadeOut(400, function() {
+                            $(this).addClass('d-none');
+                        });
+                        $viewMoreBtn.removeClass('expanded').html(moreText);
+                    });
                 }
             });
         }
@@ -351,19 +354,53 @@ $(function() {
         }
 
         // 6. Global Modal Scroll Locking & Lenis Integration
-        // This ensures that when ANY modal opens, the smooth scroll (Lenis) is paused
+        // This ensures that when ANY modal or Fancybox opens, the smooth scroll (Lenis) is paused
         // and floating UI elements are hidden for a focused experience.
-        $(document).on('shown.bs.modal', function () {
-            if (window.lenis) window.lenis.stop();
-            $('html, body').addClass('modal-open-active');
-            $('.floating-buttons').fadeOut(300);
-        });
-        
-        $(document).on('hidden.bs.modal', function () {
-            if (window.lenis) window.lenis.start();
-            $('html, body').removeClass('modal-open-active');
-            $('.floating-buttons').fadeIn(300);
-        });
+        const toggleUIForModal = (show) => {
+            const $floaters = $('.cta-wrapper, #floatingActions, .floating-actions, .floating-buttons');
+            if (show) {
+                if (window.lenis) window.lenis.start();
+                $('html, body').removeClass('modal-open-active');
+                $floaters.fadeIn(300);
+            } else {
+                if (window.lenis) window.lenis.stop();
+                $('html, body').addClass('modal-open-active');
+                $floaters.fadeOut(300);
+            }
+        };
+
+        $(document).on('shown.bs.modal', () => toggleUIForModal(false));
+        $(document).on('hidden.bs.modal', () => toggleUIForModal(true));
+
+        // 6b. Fancybox v5 Integration (Robust Scroll & UI Restore)
+        const initFancyboxObservers = () => {
+            if (typeof Fancybox === 'undefined') return;
+
+            // Use global defaults to catch all Fancybox instances
+            Fancybox.defaults.on = {
+                reveal: () => toggleUIForModal(false),
+                destroy: () => toggleUIForModal(true)
+            };
+
+            // MutationObserver safety fallback: 
+            // If .fancybox__container is removed from DOM, restore UI
+            const observer = new MutationObserver((mutations) => {
+                const fancyboxGone = !document.querySelector('.fancybox__container');
+                const fancyboxActive = document.documentElement.classList.contains('has-fancybox');
+                
+                if (fancyboxGone && !fancyboxActive) {
+                    // Ensure UI is restored if Fancybox closed but events missed
+                    const $floaters = $('.cta-wrapper, #floatingActions, .floating-actions, .floating-buttons');
+                    if ($floaters.is(':hidden')) {
+                         toggleUIForModal(true);
+                    }
+                }
+            });
+
+            observer.observe(document.body, { childList: true });
+        };
+
+        initFancyboxObservers();
 
         /**
          * ==========================================
@@ -656,21 +693,36 @@ $(function() {
 
             $btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin me-2"></i> Sending...');
 
-            // 3. EmailJS Execution
-            emailjs.sendForm(EMAILJS_CONFIG.SERVICE_ID, 'template_gde1f34', form)
-                .then(function() {
+            // 3. EmailJS — explicit variable mapping for template_gde1f34
+            const templateParams = {
+                name:        (form.querySelector('[name="name"]') || {}).value || '',
+                address:     (form.querySelector('[name="address"]') || {}).value || '',
+                phone:       (form.querySelector('[name="phone"]') || {}).value || '',
+                email:       (form.querySelector('[name="email"]') || {}).value || '',
+                subject:     (form.querySelector('[name="subject"]') || {}).value || '',
+                description: (form.querySelector('[name="description"]') || {}).value || ''
+            };
+
+            console.log('[EmailJS] Sending support form data:', templateParams);
+
+            emailjs.send('service_xobfjk8', 'template_gde1f34', templateParams, 'XxDgOKwmxVpCQ1zx6')
+                .then(function(response) {
+                    console.log('[EmailJS] SUCCESS:', response.status, response.text);
                     if (typeof window.showSuccessAlert === 'function') {
                         window.showSuccessAlert();
-                    } else {
-                        alert("Request submitted successfully!");
                     }
                     form.reset();
-                    bootstrap.Modal.getInstance(document.getElementById('supportModal')).hide();
-                }, function(error) {
-                    console.error("Support Mail FAILED...", error);
-                    alert("Failed to send. Please check your connection and try again.");
+                    const supportModal = document.getElementById('supportModal');
+                    if (supportModal) {
+                        const instance = bootstrap.Modal.getInstance(supportModal);
+                        if (instance) instance.hide();
+                    }
                 })
-                .finally(() => {
+                .catch(function(error) {
+                    console.error('[EmailJS] FAILED:', error);
+                    alert('Failed to send. Please check your connection and try again.');
+                })
+                .finally(function() {
                     $btn.prop('disabled', false).html(originalText);
                 });
         });
