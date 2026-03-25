@@ -1515,35 +1515,39 @@ section,
 }
 
 /* Faculty & Leadership Face-Centering Overrides (Crop Optimization) */
-.profile-img-wrapper img[src*="andrews3.png"] {
-    object-position: center 20%; /* Restored to standard framing for new image */
+.profile-img-wrapper img[src*="andrews3.webp"] {
+    object-position: center 20%;
 }
 
-.profile-img-wrapper img[src*="Linta SH.jpeg"] {
+.profile-img-wrapper img[src*="Linta SH.webp"] {
     transform: scale(1.6);
-    object-position: center 30%; /* Higher zoom level for clearer face */
+    object-position: center 30%;
 }
 
-.profile-img-wrapper img[src*="Philo uthuppan.jpeg"],
-.profile-img-wrapper img[src*="jeslet.jpeg"],
-.profile-img-wrapper img[src*="FrAnish.jpeg"],
-.profile-img-wrapper img[src*="Cheriyan.jpg"],
-.profile-img-wrapper img[src*="Antony.jpeg"],
-.profile-img-wrapper img[src*="Rolins.jpeg"],
-.profile-img-wrapper img[src*="prakash.jpeg"],
-.profile-img-wrapper img[src*="SrJiya Maria FCC.jpg"],
-.profile-img-wrapper img[src*="nirmala.jpg"],
-.profile-img-wrapper img[src*="Siju Thomas.jpg"],
-.profile-img-wrapper img[src*="FRthomas_tharayil.png"],
-.profile-img-wrapper img[src*="FRScaria.jpg"] {
-    object-position: center 20%; /* Standard for well-framed portraits */
+.profile-img-wrapper img[src*="FrAnish.webp"] {
+    transform: scale(1.4);
+    object-position: center 15%; /* Enhanced zoom for Fr. Anish */
 }
 
-.profile-img-wrapper img[src*="Tijo John.jpg"] {
+.profile-img-wrapper img[src*="Philo uthuppan.webp"],
+.profile-img-wrapper img[src*="jeslet.webp"],
+.profile-img-wrapper img[src*="Cheriyan.webp"],
+.profile-img-wrapper img[src*="Antony.webp"],
+.profile-img-wrapper img[src*="Rolins.webp"],
+.profile-img-wrapper img[src*="prakash.webp"],
+.profile-img-wrapper img[src*="SrJiya Maria FCC.webp"],
+.profile-img-wrapper img[src*="nirmala.webp"],
+.profile-img-wrapper img[src*="Siju Thomas.webp"],
+.profile-img-wrapper img[src*="FRthomas_tharayil.webp"],
+.profile-img-wrapper img[src*="FRScaria.webp"] {
+    object-position: center 20%;
+}
+
+.profile-img-wrapper img[src*="Tijo John.webp"] {
     object-position: center 25%;
 }
 
-.profile-img-wrapper img[src*="FR.VARGHESE PULICKAL.jpg"] {
+.profile-img-wrapper img[src*="FR.VARGHESE PULICKAL.webp"] {
     object-position: center top;
 }
 
