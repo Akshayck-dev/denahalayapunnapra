@@ -1525,8 +1525,8 @@ section,
 }
 
 .profile-img-wrapper img[src*="FrAnish.webp"] {
-    transform: scale(1.2); /* Adjusted for new high-quality source */
-    object-position: center 0%; /* Aligned higher as per user arrow */
+    transform: scale(1.35); /* Increased zoom */
+    object-position: center -8%; /* Pulling head higher into the circle */
 }
 
 .profile-img-wrapper img[src*="Philo uthuppan.webp"],
