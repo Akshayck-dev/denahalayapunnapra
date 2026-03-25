@@ -37,7 +37,7 @@ html {
 body {
     -webkit-overflow-scrolling: touch;
     text-rendering: optimizeLegibility;
-    padding-top: 120px; /* Compelsate for fixed header height */
+    padding-top: 95px; /* Compelsate for fixed header height */
 }
 
 /* 📱 MOBILE PERFORMANCE OVERRIDES */
@@ -165,7 +165,7 @@ header {
     background: linear-gradient(90deg, #0a2540, #002147);
     color: #fff;
     font-size: 13px;
-    padding: 8px 10px;
+    padding: 4px 10px;
     position: relative; /* Changed from sticky */
     z-index: 10;
     border-bottom: none;
@@ -1240,7 +1240,7 @@ section,
 .navbar {
     background-color: var(--white);
     transition: var(--transition-base);
-    padding: 8px 0;
+    padding: 4px 0;
     position: relative;
     z-index: 1000 !important;
     /* Proper sticky priority, below modals */
@@ -1248,7 +1248,7 @@ section,
 
 .navbar.sticky {
     box-shadow: var(--shadow-sm);
-    padding: 5px 0;
+    padding: 2px 0;
     z-index: 1000 !important;
 }
 
