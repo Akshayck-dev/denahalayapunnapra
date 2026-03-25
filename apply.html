@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Now | Denahalaya Institute</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.css?v=2.0">
+    <link rel="stylesheet" href="./assets/css/main.css?v=10.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header data-include="header"></header>
+
+        <!-- Banner -->
+        <section class="subpage-banner">
+            <div class="container" data-aos="fade-up">
+                <h1>Apply Now</h1>
+                <p class="text-white-50">Secure your place in our transformative academic programmes</p>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center mb-0">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Apply</li>
+                    </ol>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Application Form Section -->
+        <section class="section bg-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card-modern shadow-lg border-0 p-4 p-md-5" data-aos="fade-up">
+                            <div class="text-center mb-5">
+                                <h2 class="display-font text-navy">Online Application Form</h2>
+                                <p class="text-muted">Please fill out the details below to register for your preferred
+                                    course.</p>
+                                <div class="ornament">✦ ✦ ✦</div>
+                            </div>
+
+                            <form id="applicationForm" class="row g-4">
+                                <div class="col-md-12 text-start mb-3">
+                                    <label class="form-label fw-bold">Select Programme / Course *</label>
+                                    <div class="custom-dropdown" id="courseDropdownApply">
+                                        <div class="dropdown-selected" id="selectedCourseDisplayApply">
+                                            -- Choose a Programme --
+                                        </div>
+                                        <div class="dropdown-list" id="courseListApply">
+                                            <!-- Populated via JS -->
+                                        </div>
+                                        <input type="hidden" name="course" id="courseSelectApply" required>
+                                    </div>
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="col-md-9">
+                                    <label class="form-label fw-bold">Applicant Name *</label>
+                                    <input type="text" name="name" class="form-control py-3"
+                                        placeholder="Enter your name" autocomplete="name" required>
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-bold">Age *</label>
+                                    <input type="number" name="age" class="form-control py-3"
+                                        placeholder="Age" min="15" max="100" required>
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Email Address *</label>
+                                    <input type="email" name="email" class="form-control py-3"
+                                        placeholder="Enter your email" autocomplete="email" spellcheck="false" required>
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label fw-bold">Contact Address *</label>
+                                    <textarea name="address" class="form-control py-3" placeholder="Full postal address"
+                                        rows="3" required></textarea>
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Phone Number *</label>
+                                    <input type="tel" name="phone" class="form-control py-3"
+                                        placeholder="Your phone number" autocomplete="tel" inputmode="tel" required>
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Pin Code</label>
+                                    <input type="text" name="pin" class="form-control py-3"
+                                        placeholder="Postal pin code" autocomplete="postal-code" inputmode="numeric">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Diocese / Congregation</label>
+                                    <input type="text" name="diocese" class="form-control py-3"
+                                        placeholder="Your religious affiliation">
+                                </div>
+                                <div class="col-md-6 text-start">
+                                    <label class="form-label fw-bold">Highest Qualification *</label>
+                                    <div class="custom-dropdown" id="qualDropdownApply">
+                                        <div class="dropdown-selected" id="selectedQualDisplayApply">
+                                            -- Select Qualification --
+                                        </div>
+                                        <div class="dropdown-list" id="qualListApply">
+                                            <div class="dropdown-item" data-value="SSLC">SSLC</div>
+                                            <div class="dropdown-item" data-value="Plus Two">Plus Two</div>
+                                            <div class="dropdown-item" data-value="Diploma">Diploma</div>
+                                            <div class="dropdown-item" data-value="Bachelor's Degree">Bachelor's Degree</div>
+                                            <div class="dropdown-item" data-value="Master's Degree">Master's Degree</div>
+                                            <div class="dropdown-item" data-value="PhD / M.Phil">PhD / M.Phil</div>
+                                            <div class="dropdown-item" data-value="Others">Others</div>
+                                        </div>
+                                        <input type="hidden" name="qualification" id="qualSelectApply" required>
+                                    </div>
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold">Present Apostolate / Ministry</label>
+                                    <textarea name="apostolate" class="form-control py-3"
+                                        placeholder="Current role or ministry" rows="2"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold">Reason for applying</label>
+                                    <textarea name="reason" class="form-control py-3"
+                                        placeholder="Why do you wish to attend this course?" rows="3"></textarea>
+                                </div>
+                                <div class="col-12 text-center mt-5">
+                                    <button type="submit" class="btn-primary-custom w-100">
+                                        Submit My Application <i class="fas fa-paper-plane ms-2" aria-hidden="true"></i>
+                                    </button>
+                                    <p class="small text-muted mt-3 italic">* Required fields. We will contact you for
+                                        further admission steps.</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <footer data-include="footer"></footer>
+    </div>
+
+    <script src="./assets/js/jquery.js" defer></script>
+    <script src="./assets/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
+    <script src="./assets/js/app.js?v=8.0" defer></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Initialized globally in app.js
+
+        document.getElementById("applicationForm").addEventListener("submit", function (e) {
+            if (typeof window.handleFormSubmission === 'function') {
+                window.handleFormSubmission(e, 'apply-page');
+            } else {
+                console.error("Form handler NOT loaded! Checking dependencies...");
+            }
+        });
+    </script>
+    <div data-include="modals"></div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Denahalaya Institute</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.css?v=22.0">
+    <link rel="stylesheet" href="./assets/css/main.css?v=10.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- CSS START (v22 Scoped Modern Split - Custom Validation) -->
+    <style>
+        .contact-v12 {
+            padding: 20px 10px !important;
+            background: #f9fafb !important;
+            font-family: 'Inter', sans-serif !important;
+            min-height: auto !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+        .v12-container {
+            max-width: 1100px !important;
+            margin: auto !important;
+            display: flex !important;
+            gap: 50px !important;
+            align-items: stretch !important;
+            width: 100%;
+        }
+        /* LEFT CARD: GET IN TOUCH (v15: Transparent Theme) */
+        .v12-info-card {
+            flex: 1 !important;
+            background: transparent !important;
+            color: #0b2a4a !important;
+            padding: 45px 0 !important;
+            border-radius: 16px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+        .v12-info-card h3 {
+            font-family: 'Playfair Display', serif !important;
+            font-size: 38px !important;
+            font-weight: 700 !important;
+            margin-bottom: 30px !important;
+            color: #0b2a4a !important;
+        }
+        .v12-info-items p {
+            margin-bottom: 25px !important;
+            font-size: 17px !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 15px !important;
+            color: #4b5563 !important;
+        }
+        .v12-info-items i {
+            color: #d4a63a !important;
+            font-size: 20px;
+            width: 30px;
+            text-align: center;
+        }
+        .v12-whatsapp-btn {
+            display: inline-block !important;
+            margin-top: 30px !important;
+            background: #25d366 !important;
+            padding: 15px 30px !important;
+            border-radius: 12px !important;
+            color: #fff !important;
+            text-decoration: none !important;
+            font-weight: 700 !important;
+            transition: all 0.3s ease !important;
+            text-align: center !important;
+            width: fit-content;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2) !important;
+        }
+
+        /* RIGHT CARD: FORM (Clean Shadow) */
+        .v12-form-card {
+            flex: 1.1 !important;
+            background: #fff !important;
+            padding: 25px !important;
+            border-radius: 16px !important;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.06) !important;
+            border: 1px solid rgba(0,0,0,0.03) !important;
+        }
+        .v12-form-card h2 {
+            font-family: 'Playfair Display', serif !important;
+            font-weight: 700 !important;
+            color: #0b2a4a !important;
+            margin-bottom: 20px !important;
+            font-size: 26px !important;
+        }
+        .form-group { width: 100% !important; margin-bottom: 15px !important; position: relative !important; }
+        .v12-form-card input, .v12-form-card textarea {
+            width: 100% !important;
+            padding: 14px !important;
+            border-radius: 10px !important;
+            border: 1px solid #e5e5e5 !important;
+            background: #fafafa !important;
+            color: #333 !important;
+            font-family: 'Inter', sans-serif !important;
+            transition: all 0.2s ease-in-out !important;
+            font-size: 15px !important;
+        }
+        .v12-form-card input:focus, .v12-form-card textarea:focus {
+            border-color: #d4a63a !important;
+            background: #ffffff !important;
+            box-shadow: 0 0 0 3px rgba(212, 166, 58, 0.15) !important;
+            outline: none !important;
+        }
+        .error-message {
+            color: #e74c3c !important;
+            font-size: 12px !important;
+            margin-top: 5px !important;
+            display: none;
+            font-weight: 500 !important;
+        }
+        .input-error {
+            border-color: #e74c3c !important;
+            background: #fff5f5 !important;
+        }
+        .v12-form-card textarea { height: 80px !important; resize: none !important; }
+        .v12-submit-btn {
+            width: 100% !important;
+            padding: 15px !important;
+            background: #d4a63a !important;
+            color: #fff !important;
+            border-radius: 10px !important;
+            border: none !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            font-size: 15px !important;
+        }
+        .v12-submit-btn:hover { background: #b88e2d !important; transform: translateY(-1px) !important; }
+
+        @media (max-width: 768px) {
+            .v12-container { flex-direction: column !important; gap: 30px !important; }
+            .v12-info-card, .v12-form-card { width: 100% !important; padding: 35px 25px !important; }
+            .contact-v12 { padding: 40px 15px !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header data-include="header"></header>
+        <section class="subpage-banner">
+            <div class="container" data-aos="fade-up">
+                <h1>Contact Us</h1>
+                <p class="text-white-50">Reach out for enquiries and admissions</p>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center mb-0">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                    </ol>
+                </nav>
+            </div>
+        </section>
+
+        <!-- HTML START (v22 Transparent Split - Custom Validation) -->
+        <section class="contact-v12">
+            <div class="v12-container" data-aos="fade-up">
+                <div class="v12-info-card">
+                    <h3>Get in Touch</h3>
+                    <div class="v12-info-items">
+                        <a href="tel:+916282525648" class="contact-item">
+                            <i class="fas fa-phone-alt"></i> +91 6282 525 648
+                        </a>
+                        <a href="tel:04772287808" class="contact-item">
+                            <i class="fas fa-phone-square"></i> 0477 228 7808
+                        </a>
+                        <a href="mailto:danahalaya@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i> danahalaya@gmail.com
+                        </a>
+                        <a href="https://www.google.com/maps?q=Danahalaya+Counselling+Centre+Punnapra" target="_blank" class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i> Punnapra, Alappuzha
+                        </a>
+                    </div>
+                    <a href="https://wa.me/916282525648" target="_blank" class="v12-whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+                </div>
+
+                <div class="v12-form-card">
+                    <h2>Send a Message</h2>
+                    <form id="contactForm" novalidate>
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Full Name" required>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email Address" required>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="phone" name="phone" placeholder="Phone Number" required>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject">
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary px-5">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="v12-map-section" style="padding: 0 20px 80px;">
+            <div id="mapContainer" style="max-width: 1100px; margin: auto; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); height: 450px; background: #eaecf0; display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative;" onclick="loadMap()">
+                <div style="text-align: center; color: #0b2a4a; z-index: 2;">
+                    <i class="fas fa-map-marked-alt" style="font-size: 50px; margin-bottom: 15px; color: #d4a63a;"></i>
+                    <h4 style="font-family: 'Playfair Display', serif;">Click to View Map</h4>
+                    <p class="small text-muted">View our location in Alappuzha</p>
+                </div>
+                <!-- Premium Background Blur Effect -->
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('./assets/images/denahalaya_building.jpg') center/cover; opacity: 0.15; filter: grayscale(1);"></div>
+            </div>
+        </section>
+
+        <!-- Support / Donation Section -->
+
+
+        <footer data-include="footer"></footer>
+    </div>
+
+    <script src="./assets/js/jquery.js" defer></script>
+    <script src="./assets/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+    <script src="./assets/js/app.js?v=8.0" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // AOS Sync
+            if (typeof AOS !== 'undefined') AOS.init({ duration: 1000, once: true });
+
+            // Contact Form Validation & Submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    let valid = true;
+
+                    const name = document.getElementById('name');
+                    const email = document.getElementById('email');
+                    const phone = document.getElementById('phone');
+                    const message = document.getElementById('message');
+
+                    if (name.value.trim() === "") {
+                        showError(name, "Name is required");
+                        valid = false;
+                    } else {
+                        removeError(name);
+                    }
+
+                    if (email.value.trim() === "" || !email.value.includes("@")) {
+                        showError(email, "Enter a valid email");
+                        valid = false;
+                    } else {
+                        removeError(email);
+                    }
+
+                    if (phone.value.trim() === "" || phone.value.length < 10) {
+                        showError(phone, "Minimum 10 digits required");
+                        valid = false;
+                    } else {
+                        removeError(phone);
+                    }
+
+                    if (message.value.trim() === "") {
+                        showError(message, "Message cannot be empty");
+                        valid = false;
+                    } else {
+                        removeError(message);
+                    }
+
+                    if (!valid) return;
+
+                    // WhatsApp Integration (Multi-line Formatted Message)
+                    const $btn = typeof $ !== 'undefined' ? $(this).find('button[type="submit"]') : null;
+                    const originalText = $btn ? $btn.html() : 'Send Message';
+                    
+                    if ($btn) $btn.html('Preparing WhatsApp… <i class="fas fa-spinner fa-spin ms-2"></i>').prop('disabled', true);
+
+                    // Message Construction
+                    const waTitle = "NEW MESSAGE - DENAHALAYA WEBSITE";
+                    const waMessage = `*${waTitle}*\n` +
+                                     `--------------------------------\n` +
+                                     `*Name:* ${name.value}\n` +
+                                     `*Email:* ${email.value}\n` +
+                                     `*Phone:* ${phone.value}\n` +
+                                     `*Subject:* ${subject.value || 'N/A'}\n` +
+                                     `*Message:* ${message.value}`;
+
+                    const waNumber = "916282525648";
+                    const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
+
+                    // Opening WhatsApp
+                    setTimeout(() => {
+                        window.open(waLink, '_blank');
+                        
+                        // Show Success Alert
+                        if (typeof window.showSuccessAlert === 'function') {
+                            window.showSuccessAlert();
+                        } else if (typeof showToast === 'function') {
+                            showToast("Redirecting to WhatsApp...");
+                        } else {
+                            alert("Redirecting to WhatsApp...");
+                        }
+
+                        if ($btn) $btn.html(originalText).prop('disabled', false);
+                        contactForm.reset();
+                    }, 800);
+                });
+            }
+        }); // Close DOMContentLoaded
+
+        function showError(input, msg) {
+            const error = input.nextElementSibling;
+            if (error && error.classList && error.classList.contains('error-message')) {
+                error.innerText = msg;
+                error.style.display = "block";
+            }
+            input.classList.add("input-error");
+        }
+
+        function removeError(input) {
+            const error = input.nextElementSibling;
+            if (error && error.classList && error.classList.contains('error-message')) {
+                error.innerText = "";
+                error.style.display = "none";
+            }
+            input.classList.remove("input-error");
+        }
+
+        function loadMap() {
+            const container = document.getElementById("mapContainer");
+            if (!container) return;
+            container.innerHTML = `<iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.8444061027776!2d76.3426343!3d9.435042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b089b40f02392b9%3A0xe1bb3b0ecc337698!2sDanahalaya%20Counselling%20Centre%20Punnapra!5e0!3m2!1sen!2sin!4v1774247029683!5m2!1sen!2sin"
+                    width="100%" 
+                    height="450" 
+                    style="border:0;"
+                    allowfullscreen="" 
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>`;
+            container.removeAttribute('onclick');
+            container.style.cursor = 'default';
+        }
+    </script>
+    <div data-include="modals"></div>
+
+
+</body>
+</html>
