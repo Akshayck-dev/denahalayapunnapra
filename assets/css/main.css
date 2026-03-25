@@ -1525,8 +1525,8 @@ section,
 }
 
 .profile-img-wrapper img[src*="FrAnish.webp"] {
-    transform: scale(1.4);
-    object-position: center 15%; /* Enhanced zoom for Fr. Anish */
+    transform: scale(1.6);
+    object-position: center 10%; /* Maximum facial clarity zoom */
 }
 
 .profile-img-wrapper img[src*="Philo uthuppan.webp"],
