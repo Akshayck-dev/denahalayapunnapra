@@ -235,7 +235,6 @@
     <script src="./assets/js/jquery.js" defer></script>
     <script src="./assets/js/bootstrap.bundle.min.js" defer></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
     <script src="./assets/js/app.js?v=8.0" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script>
@@ -285,39 +284,41 @@
 
                     if (!valid) return;
 
-                    // EmailJS Execution (v25 Centralized)
+                    // WhatsApp Integration (Multi-line Formatted Message)
                     const $btn = typeof $ !== 'undefined' ? $(this).find('button[type="submit"]') : null;
                     const originalText = $btn ? $btn.html() : 'Send Message';
                     
-                    if ($btn) $btn.html('Sending… <i class="fas fa-spinner fa-spin ms-2"></i>').prop('disabled', true);
+                    if ($btn) $btn.html('Preparing WhatsApp… <i class="fas fa-spinner fa-spin ms-2"></i>').prop('disabled', true);
 
-                    emailjs.sendForm('service_xobfjk8', 'template_jeonbnf', this)
-                        .then(() => {
-                            if (typeof window.showSuccessAlert === 'function') {
-                                window.showSuccessAlert();
-                            } else if (typeof showToast === 'function') {
-                                showToast("Message sent successfully!");
-                            } else {
-                                alert("Sent successfully!");
-                            }
-                            contactForm.reset();
-                        })
-                        .catch((err) => {
-                            console.error("EmailJS Error:", err);
-                            if (typeof Swal !== 'undefined') {
-                                Swal.fire({
-                                    title: 'Oops!',
-                                    text: 'Failed to send message. Please try again or WhatsApp us.',
-                                    icon: 'error',
-                                    confirmButtonColor: '#0b2a4a'
-                                });
-                            } else {
-                                alert("Failed to send. Please check your connection.");
-                            }
-                        })
-                        .finally(() => {
-                            if ($btn) $btn.html(originalText).prop('disabled', false);
-                        });
+                    // Message Construction
+                    const waTitle = "NEW MESSAGE - DENAHALAYA WEBSITE";
+                    const waMessage = `*${waTitle}*\n` +
+                                     `--------------------------------\n` +
+                                     `*Name:* ${name.value}\n` +
+                                     `*Email:* ${email.value}\n` +
+                                     `*Phone:* ${phone.value}\n` +
+                                     `*Subject:* ${subject.value || 'N/A'}\n` +
+                                     `*Message:* ${message.value}`;
+
+                    const waNumber = "916282525648";
+                    const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
+
+                    // Opening WhatsApp
+                    setTimeout(() => {
+                        window.open(waLink, '_blank');
+                        
+                        // Show Success Alert
+                        if (typeof window.showSuccessAlert === 'function') {
+                            window.showSuccessAlert();
+                        } else if (typeof showToast === 'function') {
+                            showToast("Redirecting to WhatsApp...");
+                        } else {
+                            alert("Redirecting to WhatsApp...");
+                        }
+
+                        if ($btn) $btn.html(originalText).prop('disabled', false);
+                        contactForm.reset();
+                    }, 800);
                 });
             }
         }); // Close DOMContentLoaded
