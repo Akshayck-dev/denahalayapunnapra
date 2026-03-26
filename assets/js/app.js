@@ -301,29 +301,16 @@ $(function() {
             });
         }
 
-        // 6. Premium Testimonial Marquee (Continuous Scroll)
-        if ($('.testimonial-slider').length > 0 && typeof Swiper !== 'undefined') {
-            new Swiper('.testimonial-slider', {
-                slidesPerView: 1,
-                spaceBetween: 30,
-                centeredSlides: false,
-                loop: true,
-                speed: 10000,
-                allowTouchMove: false,
-                autoplay: {
-                    delay: 0,
-                    disableOnInteraction: false,
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 30
-                    },
-                    1200: {
-                        slidesPerView: 3,
-                        spaceBetween: 40
-                    }
-                }
+        // 6. Custom Testimonial Marquee (Seamless Loop + Click to Stop)
+        const $marqueeTrack = $('.testimonial-marquee-track');
+        if ($marqueeTrack.length > 0) {
+            // Clone cards for seamless marquee effect
+            const $cards = $marqueeTrack.find('.testimonial-box');
+            $marqueeTrack.append($cards.clone());
+
+            // Click to stop the flow
+            $marqueeTrack.on('click', '.testimonial-box', function() {
+                $marqueeTrack.addClass('paused');
             });
         }
 

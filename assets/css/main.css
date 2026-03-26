@@ -349,18 +349,44 @@ nav.navbar {
 /* ======================================== */
 section,
 .section {
-    padding: 45px 0;
-    /* Reduced from 80-100px to follow standard website spacing */
+    padding: 60px 0;
+    /* Increased from 45px for better breathing room */
     position: relative;
 }
 
 @media (max-width: 768px) {
-
     section,
     .section {
-        padding: 30px 0;
-        /* Compact spacing for mobile */
+        padding: 40px 0;
+        /* Adjusted for mobile */
     }
+}
+
+/* SECTION DIVIDER SYSTEM */
+.section-divider {
+    height: 1px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(90deg, transparent, rgba(184, 134, 11, 0.15), transparent);
+    position: relative;
+}
+
+.section-divider::after {
+    content: "✦";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 0 15px;
+    color: var(--accent-gold);
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+.bg-light .section-divider::after {
+    background: #f8fafc;
 }
 
 .wrapper {
@@ -5800,17 +5826,18 @@ body.modal-open {
 }
 
 .testimonial-avatar {
-    width: 80px;
-    height: 80px;
+    width: 65px;
+    height: 65px;
     background: #fff;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid var(--accent-gold);
-    box-shadow: 0 8px 25px rgba(184, 142, 45, 0.2);
+    border: 3px solid #d4a017; /* Use gold for visibility */
+    box-shadow: 0 4px 15px rgba(212, 160, 23, 0.2);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    flex-shrink: 0;
 }
 
 .testimonial-avatar img {
@@ -5820,9 +5847,10 @@ body.modal-open {
 }
 
 .swiper-slide-active .testimonial-avatar {
-    border-color: var(--accent-gold);
+    border-color: #d4a017;
     background: #fff;
     transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(212, 160, 23, 0.3);
 }
 
 .testimonial-author {
@@ -6194,16 +6222,39 @@ body.modal-open {
 
 }
 
-.testimonial-slider .swiper-wrapper {
-    transition-timing-function: linear !important;
+
+/* CUSTOM MARQUEE SYSTEM */
+.testimonial-marquee-wrapper {
+    overflow: hidden;
+    padding: 40px 0;
+    position: relative;
+    width: 100%;
+}
+
+.testimonial-marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 30px;
+    animation: marquee 40s linear infinite;
+    padding-left: 30px; /* Initial space */
+}
+
+.testimonial-marquee-track.paused {
+    animation-play-state: paused !important;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Optimized for cloned content */
+    }
 }
 
 .testimonial-box {
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
-    height: 220px !important;
-    /* 🔥 STRICT FIXED HEIGHT */
+    flex: 0 0 380px; /* Consistent card width for marquee */
+    height: 280px !important;
     padding: 25px !important;
     border-radius: 15px;
     background: #fff;
@@ -6211,28 +6262,51 @@ body.modal-open {
     flex-direction: column;
     justify-content: flex-start;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.testimonial-avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #d4a017;
+    box-shadow: 0 4px 15px rgba(212, 160, 23, 0.3);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Hover Highlight */
+.testimonial-box:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: #d4a017;
+    z-index: 10;
 }
 
 .testimonial-text {
     font-size: 15px !important;
     line-height: 1.6 !important;
-    /* Slightly tighter for perfect 4-line fit 🔥 */
     color: #555 !important;
-    height: 110px !important;
-    /* Refined to fit 4 lines perfectly @ 1.6 LH 🔥 */
+    height: 160px !important;
     overflow: hidden;
     font-style: italic;
     margin-bottom: 0 !important;
     transition: all 0.3s ease;
-
     display: block !important;
 }
 
-
-/* CUSTOM SCROLLBAR */
+/* Custom Scrollbar */
 .testimonial-text::-webkit-scrollbar {
     width: 4px;
 }
@@ -6290,6 +6364,7 @@ body.modal-open {
         display: block !important;
 
         /* REMOVE CLAMP */
+        line-clamp: unset !important;
         -webkit-line-clamp: unset !important;
         -webkit-box-orient: unset !important;
 
