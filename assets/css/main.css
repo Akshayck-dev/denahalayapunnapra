@@ -6189,3 +6189,42 @@ body.modal-open {
 .swal2-container {
     z-index: 200001 !important;
 }
+
+/* ============================= */
+/* MOBILE FULL TITLE FIX (FINAL) */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  /* REMOVE TEXT CUTTING */
+  .program-card-premium h4,
+  .program-card-premium .card-title,
+  .course-card-v3 .card-title {
+
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+
+    display: block !important;
+
+    /* REMOVE CLAMP */
+    -webkit-line-clamp: unset !important;
+    -webkit-box-orient: unset !important;
+
+    overflow: visible !important;
+    text-overflow: unset !important;
+
+    white-space: normal !important;
+
+    height: auto !important;
+    max-height: none !important;
+
+  }
+
+  /* REMOVE CARD HEIGHT LIMIT */
+  .program-card-premium,
+  .course-card-v3 {
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+}
