@@ -910,6 +910,24 @@ section,
     line-height: 1.5 !important;
 }
 
+/* DESKTOP BOX SIZE UNIFORMITY (v37) */
+@media (min-width: 992px) {
+    .about-features-grid {
+        grid-auto-rows: 1fr !important;
+    }
+    .about-feature-item {
+        background: #fff;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        height: 100% !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+}
+
 @media (max-width: 991px) {
     .about-features-grid {
         grid-template-columns: 1fr;
