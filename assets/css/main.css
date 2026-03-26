@@ -6102,6 +6102,23 @@ body.modal-open {
    Ensures uniformity across ALL devices 🔥
    ========================================== */
 
+/* Reduced Section Padding & Standardized Typography 🔥 */
+#testimonials {
+  padding: 30px 0 !important;
+}
+
+#testimonials .section-header .subtitle {
+  font-size: 14px !important;
+  letter-spacing: 2px !important;
+  margin-bottom: 10px !important;
+  display: block;
+}
+
+#testimonials .section-header .title {
+  font-size: 32px !important;
+  line-height: 1.2 !important;
+}
+
 
 .testimonial-slider .swiper-wrapper {
   transition-timing-function: linear !important;
