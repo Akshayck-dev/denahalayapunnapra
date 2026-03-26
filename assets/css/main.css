@@ -4343,14 +4343,12 @@ footer {
     }
 
     .course-card-v3 .card-title {
-        font-size: 0.9rem !important;
-        line-height: 1.1 !important;
-        margin-top: 2px !important;
-        /* v8: Ultra-tight */
-        margin-bottom: 2px !important;
-        /* v8: Ultra-tight */
-        flex-grow: 0 !important;
-        /* v8: Don't stretch */
+        font-size: 0.72rem !important;
+        line-height: 1.25 !important;
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+        flex-grow: 1 !important;
+        /* Allow stretching to align buttons again */
     }
 
     .course-card-v3 .icon-box-v3 {
