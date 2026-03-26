@@ -37,7 +37,8 @@ html {
 body {
     -webkit-overflow-scrolling: touch;
     text-rendering: optimizeLegibility;
-    padding-top: 120px; /* Compelsate for fixed header height */
+    padding-top: 120px;
+    /* Compelsate for fixed header height */
 }
 
 /* 📱 MOBILE PERFORMANCE OVERRIDES */
@@ -166,7 +167,8 @@ header {
     color: #fff;
     font-size: 13px;
     padding: 8px 10px;
-    position: relative; /* Changed from sticky */
+    position: relative;
+    /* Changed from sticky */
     z-index: 10;
     border-bottom: none;
     overflow: hidden;
@@ -175,7 +177,8 @@ header {
 
 nav.navbar {
     margin-top: 0 !important;
-    position: relative; /* Ensure it's not overriding parent sticky-top if any */
+    position: relative;
+    /* Ensure it's not overriding parent sticky-top if any */
     background: #fff !important;
 }
 
@@ -264,7 +267,8 @@ nav.navbar {
     }
 
     body {
-        padding-top: 110px !important; /* Smaller header height on mobile */
+        padding-top: 110px !important;
+        /* Smaller header height on mobile */
     }
 
     .top-bar {
@@ -351,8 +355,11 @@ section,
 }
 
 @media (max-width: 768px) {
-    section, .section {
-        padding: 30px 0; /* Compact spacing for mobile */
+
+    section,
+    .section {
+        padding: 30px 0;
+        /* Compact spacing for mobile */
     }
 }
 
@@ -488,7 +495,8 @@ section,
 /* View More/Less Toggle Styles */
 .expand-section {
     width: 100%;
-    margin-top: 0; /* Tightened as per screenshot request */
+    margin-top: 0;
+    /* Tightened as per screenshot request */
 }
 
 .expand-content {
@@ -1338,16 +1346,21 @@ section,
 
 /* --- Bootstrap Modal Premium Overrides --- */
 .modal-backdrop {
-    background-color: rgba(0, 0, 0, 0.05) !important; /* Minimal tint for maximum visibility */
-    backdrop-filter: blur(3px) !important; /* Ultra-low blur for near-perfect clarity */
+    background-color: rgba(0, 0, 0, 0.05) !important;
+    /* Minimal tint for maximum visibility */
+    backdrop-filter: blur(3px) !important;
+    /* Ultra-low blur for near-perfect clarity */
     -webkit-backdrop-filter: blur(3px) !important;
-    z-index: 200000 !important; /* Fixed z-index layers */
+    z-index: 200000 !important;
+    /* Fixed z-index layers */
     transition: all 0.5s ease;
 }
 
 .modal {
-    z-index: 200001 !important; /* Absolute top priority */
-    backdrop-filter: none !important; /* Prevent double blur */
+    z-index: 200001 !important;
+    /* Absolute top priority */
+    backdrop-filter: none !important;
+    /* Prevent double blur */
 }
 
 .modal-backdrop.show {
@@ -1479,6 +1492,7 @@ section,
 .faculty-card:hover {
     transform: translateY(-8px);
 }
+
 .profile-img-wrapper,
 .director-img {
     display: block !important;
@@ -1488,7 +1502,8 @@ section,
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
-    border: 8px solid #ffffff !important; /* Slightly thinner, more elegant border */
+    border: 8px solid #ffffff !important;
+    /* Slightly thinner, more elegant border */
     background: #ffffff;
     position: relative;
     z-index: 1;
@@ -1500,8 +1515,10 @@ section,
     object-fit: cover !important;
     border-radius: 50%;
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transform: scale(1.05) !important; /* Zoom out maximum as requested 🔥 */
-    object-position: center 20% !important; /* Standardized headroom for broader view */
+    transform: scale(1.05) !important;
+    /* Zoom out maximum as requested 🔥 */
+    object-position: center 20% !important;
+    /* Standardized headroom for broader view */
 }
 
 @media (max-width: 768px) {
@@ -1611,7 +1628,8 @@ section,
 }
 
 .leadership-card .designation-text {
-    color: #f1b71c !important; /* Brighter gold to match reference */
+    color: #f1b71c !important;
+    /* Brighter gold to match reference */
     font-size: 0.74rem !important;
     font-weight: 800;
     text-transform: uppercase;
@@ -5695,7 +5713,8 @@ body.modal-open {
 }
 
 .testimonial-card {
-    background: #ffffff !important; /* Force solid background 🔥 */
+    background: #ffffff !important;
+    /* Force solid background 🔥 */
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 20px;
     padding: 40px;
@@ -5711,7 +5730,8 @@ body.modal-open {
     flex-direction: column;
     justify-content: space-between;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 30px 25px; /* Lighter padding for new box structure 🔥 */
+    padding: 30px 25px;
+    /* Lighter padding for new box structure 🔥 */
     z-index: 1;
 }
 
@@ -5922,7 +5942,8 @@ body.modal-open {
     text-decoration: none !important;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Added subtle shadow for depth */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* Added subtle shadow for depth */
 }
 
 .whatsapp-btn i {
@@ -5994,28 +6015,56 @@ body.modal-open {
 }
 
 .whatsapp-btn:hover {
-    background: #f0fff4 !important; /* Subtle green tint on hover */
+    background: #f0fff4 !important;
+    /* Subtle green tint on hover */
     color: #25D366 !important;
     border-color: #25D366 !important;
 }
 
 /* ANIMATIONS */
 @keyframes floatUpDown {
-    0%   { transform: translateY(0); }
-    50%  { transform: translateY(-6px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 @keyframes ctaPulse {
-    0%   { transform: scale(1); opacity: 0.6; }
-    70%  { transform: scale(1.5); opacity: 0; }
-    100% { transform: scale(1.5); opacity: 0; }
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    70% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
 }
 
 @keyframes shineLoop {
-    0%   { left: -75%; }
-    40%  { left: 125%; }
-    100% { left: 125%; }
+    0% {
+        left: -75%;
+    }
+
+    40% {
+        left: 125%;
+    }
+
+    100% {
+        left: 125%;
+    }
 }
 
 .whatsapp-btn {
@@ -6038,12 +6087,10 @@ body.modal-open {
     left: -75%;
     width: 50%;
     height: 100%;
-    background: linear-gradient(
-        120deg,
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,0.45) 50%,
-        rgba(255,255,255,0) 100%
-    );
+    background: linear-gradient(120deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.45) 50%,
+            rgba(255, 255, 255, 0) 100%);
     transform: skewX(-20deg);
     animation: shineLoop 3.5s ease-in-out infinite;
     pointer-events: none;
@@ -6089,7 +6136,12 @@ body.modal-open {
 
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
-    .whatsapp-btn, .apply-btn, .whatsapp-btn::after, .whatsapp-btn::before, .apply-btn::before {
+
+    .whatsapp-btn,
+    .apply-btn,
+    .whatsapp-btn::after,
+    .whatsapp-btn::before,
+    .apply-btn::before {
         animation: none !important;
     }
 }
@@ -6102,67 +6154,96 @@ body.modal-open {
 
 /* Reduced Section Padding & Standardized Typography 🔥 */
 #testimonials {
-  padding: 30px 0 !important;
+    padding: 30px 0 !important;
 }
 
+/* ============================= */
+/* TESTIMONIAL SUBTITLE FINAL FIX */
+/* ============================= */
+
+/* DESKTOP */
 #testimonials .section-header .subtitle {
-  font-size: 14px !important;
-  letter-spacing: 2px !important;
-  margin-bottom: 10px !important;
-  display: block;
+    font-size: 20px !important;
+    /* main size */
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    display: block;
+    text-transform: uppercase;
+    color: #c9a45c;
+    /* optional gold color */
 }
 
+/* TITLE (optional alignment) */
 #testimonials .section-header .title {
-  font-size: 32px !important;
-  line-height: 1.2 !important;
+    font-size: 32px !important;
+    line-height: 1.2;
 }
 
+/* MOBILE */
+@media (max-width: 768px) {
+
+    #testimonials .section-header .subtitle {
+        font-size: 16px !important;
+        letter-spacing: 1px;
+    }
+
+    #testimonials .section-header .title {
+        font-size: 22px !important;
+    }
+
+}
 
 .testimonial-slider .swiper-wrapper {
-  transition-timing-function: linear !important;
+    transition-timing-function: linear !important;
 }
 
 .testimonial-box {
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
-  height: 220px !important; /* 🔥 STRICT FIXED HEIGHT */
-  padding: 25px !important;
-  border-radius: 15px;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  border: 1px solid rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    height: 220px !important;
+    /* 🔥 STRICT FIXED HEIGHT */
+    padding: 25px !important;
+    border-radius: 15px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .testimonial-text {
-  font-size: 15px !important;
-  line-height: 1.6 !important; /* Slightly tighter for perfect 4-line fit 🔥 */
-  color: #555 !important;
-  height: 110px !important; /* Refined to fit 4 lines perfectly @ 1.6 LH 🔥 */
-  overflow: hidden;
-  font-style: italic;
-  margin-bottom: 0 !important;
-  transition: all 0.3s ease;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    /* Slightly tighter for perfect 4-line fit 🔥 */
+    color: #555 !important;
+    height: 110px !important;
+    /* Refined to fit 4 lines perfectly @ 1.6 LH 🔥 */
+    overflow: hidden;
+    font-style: italic;
+    margin-bottom: 0 !important;
+    transition: all 0.3s ease;
 
-  display: block !important;
+    display: block !important;
 }
 
 
 /* CUSTOM SCROLLBAR */
 .testimonial-text::-webkit-scrollbar {
-  width: 4px;
+    width: 4px;
 }
+
 .testimonial-text::-webkit-scrollbar-track {
-  background: #f8f9fa;
+    background: #f8f9fa;
 }
+
 .testimonial-text::-webkit-scrollbar-thumb {
-  background: #d4a64a;
-  border-radius: 10px;
+    background: #d4a64a;
+    border-radius: 10px;
 }
 
 
@@ -6174,7 +6255,8 @@ body.modal-open {
    And adds a high-fidelity blur backdrop.
    ========================================== */
 .fancybox__container {
-    z-index: 200000 !important; /* Higher than any 99999 priority */
+    z-index: 200000 !important;
+    /* Higher than any 99999 priority */
 }
 
 /* Premium Blur Backdrop */
@@ -6182,7 +6264,8 @@ body.modal-open {
     background: rgba(0, 0, 0, 0.7) !important;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    z-index: -1 !important; /* Internal to container, must stay below carousel */
+    z-index: -1 !important;
+    /* Internal to container, must stay below carousel */
 }
 
 /* Ensure SweetAlert modals also stay above EVERYTHING */
@@ -6196,35 +6279,35 @@ body.modal-open {
 
 @media (max-width: 768px) {
 
-  /* REMOVE TEXT CUTTING */
-  .program-card-premium h4,
-  .program-card-premium .card-title,
-  .course-card-v3 .card-title {
+    /* REMOVE TEXT CUTTING */
+    .program-card-premium h4,
+    .program-card-premium .card-title,
+    .course-card-v3 .card-title {
 
-    font-size: 14px !important;
-    line-height: 1.4 !important;
+        font-size: 14px !important;
+        line-height: 1.4 !important;
 
-    display: block !important;
+        display: block !important;
 
-    /* REMOVE CLAMP */
-    -webkit-line-clamp: unset !important;
-    -webkit-box-orient: unset !important;
+        /* REMOVE CLAMP */
+        -webkit-line-clamp: unset !important;
+        -webkit-box-orient: unset !important;
 
-    overflow: visible !important;
-    text-overflow: unset !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
 
-    white-space: normal !important;
+        white-space: normal !important;
 
-    height: auto !important;
-    max-height: none !important;
+        height: auto !important;
+        max-height: none !important;
 
-  }
+    }
 
-  /* REMOVE CARD HEIGHT LIMIT */
-  .program-card-premium,
-  .course-card-v3 {
-    height: auto !important;
-    min-height: unset !important;
-  }
+    /* REMOVE CARD HEIGHT LIMIT */
+    .program-card-premium,
+    .course-card-v3 {
+        height: auto !important;
+        min-height: unset !important;
+    }
 
 }
