@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="./assets/css/bootstrap.css?v=7.0">
-    <link rel="stylesheet" href="./assets/css/main.css?v=13.0">
+    <link rel="stylesheet" href="./assets/css/main.css?v=14.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -23,6 +23,37 @@
             background: rgba(0, 0, 0, 0.7) !important;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+        }
+    </style>
+    <style>
+        /* Force Uniform Feature Box Heights on Desktop */
+        @media (min-width: 768px) {
+            .about-features-grid {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr) !important;
+                grid-auto-rows: 1fr !important;
+                align-items: stretch !important;
+            }
+            .about-feature-item {
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                text-align: center !important;
+                background: #fff !important;
+                padding: 25px 15px !important; /* Further Reduced Padding */
+                border-radius: 15px !important;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+                border: 1px solid rgba(0,0,0,0.03) !important;
+                height: 100% !important;
+                min-height: 280px !important; /* Further Reduced for more compact look */
+            }
+            .about-feature-item h6 {
+                margin-top: 5px !important; /* Minimal top margin */
+                margin-bottom: 12px !important;
+                font-weight: 700 !important;
+                color: var(--primary-navy) !important;
+            }
         }
     </style>
 </head>
