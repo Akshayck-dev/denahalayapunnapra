@@ -910,8 +910,8 @@ section,
     line-height: 1.5 !important;
 }
 
-/* DESKTOP BOX SIZE UNIFORMITY (v38) */
-@media (min-width: 992px) {
+/* DESKTOP BOX SIZE UNIFORMITY (v39) */
+@media (min-width: 768px) {
     .about-features-grid {
         display: grid !important;
         grid-template-columns: repeat(3, 1fr) !important;
@@ -6409,3 +6409,22 @@ body.modal-open {
     }
 
 }
+/* ===== IMPACT PAGE STYLES ===== */
+.hero-impact { position: relative; background: url(\ ../images/denahalaya_building.jpg\) center/cover no-repeat; padding: 160px 20px 120px; color: #fff; }
+.hero-impact .overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,33,43,0.7), rgba(0,33,43,0.4)); }
+.hero-impact .container { position: relative; z-index: 2; }
+.hero-impact h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+.hero-impact p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+.grid-layout-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.rounded-16 { border-radius: 16px; }
+.shadow-premium { box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+.bg-light-gold { background-color: #fdfaf3; }
+.stats-grid-row { display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; gap: 30px; }
+.stat-card h3 { color: #c9a45c; font-size: 3rem; font-weight: 700; margin-bottom: 5px; }
+.stat-card p { font-weight: 600; color: #00212b; text-transform: uppercase; letter-spacing: 1px; }
+.testimonial-card { transition: transform 0.3s ease; border: 1px solid rgba(201,164,92,0.1); }
+.testimonial-card:hover { transform: translateY(-5px); }
+.final-cta { background: #00212b; color: #fff; }
+.btn-gold-outline { border: 2px solid #c9a45c; color: #c9a45c; transition: all 0.3s ease; }
+.btn-gold-outline:hover { background: #c9a45c; color: #fff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(201,164,92,0.2); }
+@media(max-width:991px){ .grid-layout-2 { grid-template-columns: 1fr; gap: 40px; text-align: center; } .hero-impact { padding: 140px 20px 80px; } }
