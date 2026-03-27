@@ -308,8 +308,17 @@ $(function() {
             const $cards = $marqueeTrack.find('.testimonial-box');
             $marqueeTrack.append($cards.clone());
 
-            // Click to stop the flow
+            // 6a. Pause on hover, resume on leave (Standard Marquee Behavior)
+            $marqueeTrack.on('mouseenter', '.testimonial-box', function() {
+                $marqueeTrack.addClass('paused');
+            }).on('mouseleave', '.testimonial-box', function() {
+                $marqueeTrack.removeClass('paused');
+            });
+
+            // 6b. Safety: Clicking also ensures it doesn't stay permanently stuck
             $marqueeTrack.on('click', '.testimonial-box', function() {
+                // If clicked, we still want it to pause while hovering, 
+                // but mouseleave will eventually trigger a resume.
                 $marqueeTrack.addClass('paused');
             });
         }
