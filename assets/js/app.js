@@ -301,26 +301,28 @@ $(function() {
             });
         }
 
-        // 6. Custom Testimonial Marquee (Seamless Loop + Click to Stop)
+        // 6. Custom Testimonial Marquee (Disabled for small count)
         const $marqueeTrack = $('.testimonial-marquee-track');
         if ($marqueeTrack.length > 0) {
-            // Clone cards for seamless marquee effect
             const $cards = $marqueeTrack.find('.testimonial-box');
-            $marqueeTrack.append($cards.clone());
+            if ($cards.length > 2) {
+                // Clone cards for seamless marquee effect only if many items
+                $marqueeTrack.append($cards.clone());
 
-            // 6a. Pause on hover, resume on leave (Standard Marquee Behavior)
-            $marqueeTrack.on('mouseenter', '.testimonial-box', function() {
-                $marqueeTrack.addClass('paused');
-            }).on('mouseleave', '.testimonial-box', function() {
-                $marqueeTrack.removeClass('paused');
-            });
-
-            // 6b. Safety: Clicking also ensures it doesn't stay permanently stuck
-            $marqueeTrack.on('click', '.testimonial-box', function() {
-                // If clicked, we still want it to pause while hovering, 
-                // but mouseleave will eventually trigger a resume.
-                $marqueeTrack.addClass('paused');
-            });
+                $marqueeTrack.on('mouseenter', '.testimonial-box', function() {
+                    $marqueeTrack.addClass('paused');
+                }).on('mouseleave', '.testimonial-box', function() {
+                    $marqueeTrack.removeClass('paused');
+                });
+            } else {
+                // For small counts, show them statically centered
+                $marqueeTrack.css({
+                    'animation': 'none',
+                    'justify-content': 'center',
+                    'width': '100%',
+                    'padding-left': '0'
+                });
+            }
         }
 
 

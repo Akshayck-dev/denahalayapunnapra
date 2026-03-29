@@ -3,134 +3,541 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Impact | Denahalaya Institute</title>
+    <title>Our Impact & Support | Denahalaya Institute</title>
     <link rel="icon" type="image/png" href="./assets/images/denahalaya_logo.png">
     <link rel="stylesheet" href="./assets/css/bootstrap.css?v=7.0">
-    <link rel="stylesheet" href="./assets/css/main.css?v=12.0">
+    <link rel="stylesheet" href="./assets/css/main.css?v=13.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+    <style>
+        body { font-family: 'Manrope', sans-serif; margin: 0; padding: 0; }
+        h1, h2, h3, .font-serif { font-family: 'Noto Serif', serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .bg-surface { background-color: #fbf9f4 !important; }
+        .wrapper { margin-top: 0 !important; padding-top: 0 !important; }
+        
+        /* Custom form overrides */
+        .donation-input:disabled { background-color: #eee; cursor: not-allowed; }
+        .iti { width: 100%; display: block; margin-bottom: 20px; z-index: 1; position: relative; }
+        .iti__selected-flag { border-radius: 4px 0 0 4px !important; background-color: #f1f1f1 !important; border-right: 1px solid #ddd; }
+        #phoneInput { padding-left: 95px !important; }
+        
+        /* Choices.js overrides for premium feel */
+        .choices__inner { 
+            background-color: #fff; border: 1px solid #dee2e6; border-radius: 8px; 
+            min-height: 50px; display: flex; align-items: center; padding: 0 16px; 
+            font-size: 1rem; color: #212529; font-family: 'Manrope', sans-serif;
+            box-shadow: none;
+        }
+        .choices.is-focused .choices__inner { border-color: #0d2847; box-shadow: 0 0 0 0.25rem rgba(13, 40, 71, 0.25); }
+        .choices[data-type*="select-one"]:after { border-color: #888 transparent transparent transparent; right: 16px; margin-top: -3px; }
+        .choices.is-disabled .choices__inner, .choices.is-disabled .choices__input { background-color: #e9ecef; cursor: not-allowed; opacity: 1; }
+        .choices__list--dropdown { border-radius: 8px; border-color: #dee2e6; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 1060; }
+        .choices__list--dropdown .choices__item--selectable.is-highlighted { background-color: #fbf9f4; color: #0d2847; }
+        .choices { text-align: left; margin-bottom: 0; position: relative; }
+        .choices.is-open { z-index: 1000; }
+        
+        /* Validation Overrides */
+        .donation-input.is-invalid {
+            border-color: #e74c3c !important; 
+            background-color: #fff5f5 !important; 
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1) !important;
+        }
+        .is-invalid + .choices .choices__inner { 
+            border-color: #e74c3c !important; 
+            background-color: #fff5f5 !important;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1) !important;
+        }
+        
+        /* intl-tel-input specific override so it shows the red border */
+        .iti .donation-input.is-invalid {
+            border-color: #e74c3c !important;
+        }
+    </style>
 </head>
-<body>
-
+<body class="bg-surface">
     <div class="wrapper denahalaya-bg">
-        <header data-include="header"></header>
-
-        <!-- Hero Section -->
-        <section class="hero-impact">
-            <div class="overlay"></div>
-            <div class="container text-center" data-aos="fade-up">
-                <h1>Transform Lives Through Formation</h1>
-                <p>Join a journey of spiritual growth, healing, and purpose.</p>
-            </div>
-        </section>
-
-        <!-- Why Section -->
-        <section class="why-section py-5">
-            <div class="container grid-layout-2">
-                <div data-aos="fade-right">
-                    <h2 class="mb-4">Why This Matters</h2>
-                    <p class="lead text-muted">
-                        Denahalaya helps individuals grow spiritually, emotionally, and professionally. Our mission is to provide a supportive environment for holistic formation, enabling priests, religious, and laity to serve with greater depth and resilience.
-                    </p>
-                </div>
-                <div class="image-card" data-aos="fade-left">
-                    <img src="assets/images/about.jpg" alt="About Denahalaya" loading="lazy" class="img-fluid rounded-16 shadow-premium">
-                </div>
-            </div>
-        </section>
-
-        <!-- Stats Section -->
-        <section class="stats-section py-5 bg-light-gold">
-            <div class="container py-4">
-                <div class="stats-grid-row">
-                    <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
-                        <h3>7000+</h3>
-                        <p>Students</p>
-                    </div>
-                    <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
-                        <h3>600+</h3>
-                        <p>Priests</p>
-                    </div>
-                    <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
-                        <h3>20+</h3>
-                        <p>Programs</p>
+        <!-- INLINED HEADER -->
+        <div class="top-bar">
+            <div class="top-content">
+                <div class="marquee-container">
+                    <div class="marquee-content">
+                        <span>Admissions Open 2026 • Apply before May 30th, 2026 • Limited Seats Available &nbsp; &nbsp; &nbsp; &nbsp;</span>
+                        <span>Admissions Open 2026 • Apply before May 30th, 2026 • Limited Seats Available &nbsp; &nbsp; &nbsp; &nbsp;</span>
                     </div>
                 </div>
+                <a href="#" class="btn btn-primary ms-2 pulse shine premium-float apply-now-btn" data-bs-toggle="modal" data-bs-target="#applyModal"><i class="fas fa-pencil-alt me-1" style="font-size: 10px;"></i> Apply Now</a>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="./assets/images/denahalaya_logo.png" alt="Denahalaya Logo" style="max-height: 55px; width: auto;" width="55" height="55" loading="lazy">
+                    <div class="ms-2 ms-sm-3">
+                        <span class="d-block h6 h5-sm mb-0 fw-bold text-navy" style="font-size: clamp(1rem, 4vw, 1.25rem);">DENAHALAYA</span>
+                        <span class="small text-muted display-font" style="font-size: clamp(0.65rem, 2.5vw, 0.85rem);">Psycho-Spiritual Institute</span>
+                    </div>
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-collapse="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="about.html" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About Us <span class="arrow ms-1">▼</span></a>
+                            <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="aboutDropdown">
+                                <li><a class="dropdown-item" href="about.html">Our Profile</a></li>
+                                <li><a class="dropdown-item" href="about.html#leadership">Leadership</a></li>
+                                <li><a class="dropdown-item" href="contact-us.html">Location</a></li>
+                                <li><a class="dropdown-item" href="faculty.html">Academic Team</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="services.html" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Programs <span class="arrow ms-1">▼</span></a>
+                            <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="programsDropdown">
+                                <li><a class="dropdown-item" href="services.html">All Programs</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="faculty.html">Faculty</a></li>
+                        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="impact.html">Our Impact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section v2 -->
+        <section class="hero-impact-v2" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAHHN_qCJzt4LQWT-MfEvlc4R64QhqT6i4STwdq4uRVQssTUqwWwHTlZloPcXxG72a8DAWa61PktI8Ij0kXtc3IwFfMD-o6zKiylR6DOd9-mfBSLkZunkjSA8eR3UkLbK4gGyEI3GeRh7Op_0ZQqN6sh_Fi3Q0wTBHZHhKFAkUc8qxtTe8nMd1Q9uGJEQ_ukj_tjFq061lo8kqUam5FEMbOS38k-atokTsRHXy5D5Wm9EdEWuEoFfA9-pBvrNl03K54OpcPc95KTo8');">
+            <div class="hero-impact-overlay"></div>
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h1 class="display-3 fw-bold mb-4">Your support forms the future leaders of the Church.</h1>
+                        <div class="accent-line mb-4" style="width: 80px; height: 4px; background: var(--accent-gold);"></div>
+                        <p class="lead mb-0 opacity-90">Through psycho-spiritual integration, Denahalaya forms mature, compassionate, and spiritually grounded leaders.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Content Block 1 -->
-        <section class="content-block py-5">
-            <div class="container grid-layout-2">
-                <div class="image-card order-2 order-lg-1" data-aos="fade-right">
-                    <img src="assets/images/denahalaya_building.jpg" alt="Holistic Formation" loading="lazy" class="img-fluid rounded-16 shadow-premium">
-                </div>
-                <div class="order-1 order-lg-2" data-aos="fade-left">
-                    <h2 class="mb-4">Holistic Formation</h2>
-                    <p class="text-muted">
-                        Our programs integrate spirituality, psychology, and leadership to provide a comprehensive growth experience. We believe that true transformation happens when the mind, heart, and spirit are aligned in pursuit of a higher calling.
-                    </p>
-                </div>
-            </div>
-        </section>
+        <!-- Content & Donation Grid -->
+        <section class="py-5 mt-n5">
+            <div class="container">
+                <div class="row g-5">
+                    <!-- Left: Mission & Impact -->
+                    <div class="col-lg-7" data-aos="fade-right">
+                        <div class="pe-lg-5">
+                            <h2 class="text-primary-den mb-4">A Sacred Mission</h2>
+                            <p class="text-muted mb-5" style="font-size: 1.1rem; line-height: 1.8;">
+                                Denahalaya's mission is to provide a supportive environment for holistic formation, enabling priests, religious, and laity to serve with greater depth and resilience. Join us in this sacred mission — your support will help bring God’s love to countless faithful.
+                            </p>
 
-        <!-- Content Block 2 (Alternating) -->
-        <section class="content-block py-5 bg-white">
-            <div class="container grid-layout-2">
-                <div data-aos="fade-right">
-                    <h2 class="mb-4">Spiritual Maturity</h2>
-                    <p class="text-muted">
-                        We accompany individuals in their journey toward deeper self-understanding and emotional maturity. Through guided reflection and expert mentorship, participants gain the tools needed to navigate the complexities of modern religious life.
-                    </p>
-                </div>
-                <div class="image-card" data-aos="fade-left">
-                    <img src="assets/images/img1.jpg" alt="Spiritual Growth" loading="lazy" class="img-fluid rounded-16 shadow-premium">
-                </div>
-            </div>
-        </section>
+                            <div class="bg-white p-5 rounded-16 shadow-premium border-start border-4 border-gold-den mb-5">
+                                <blockquote class="h4 fst-italic text-primary-den mb-0">
+                                    "The formation of those who serve the Church is not merely an academic exercise, but a deep spiritual journey toward the heart of Christ."
+                                </blockquote>
+                            </div>
 
-        <!-- Testimonials (Lightweight) -->
-        <section class="testimonials py-5">
-            <div class="container text-center">
-                <h2 class="mb-5">Real Stories of Transformation</h2>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-md-5" data-aos="fade-up">
-                        <div class="testimonial-card p-4 rounded-16 shadow-premium bg-white">
-                            <p class="fst-italic">"Denahalaya provided me with the space and guidance I needed to reconnect with my vocation and find emotional healing."</p>
-                            <h5 class="mt-3 mb-0">- Fr. Joseph K.</h5>
+                            <div class="row g-4 pt-4">
+                                <div class="col-md-6">
+                                    <div class="p-4 bg-white rounded-16 shadow-sm border h-100">
+                                        <div class="icon-box mb-3 text-gold-den">
+                                            <span class="material-symbols-outlined fs-1">church</span>
+                                        </div>
+                                        <h4 class="h5 mb-2">Holistic Maturity</h4>
+                                        <p class="text-muted small">Our alumni lead parishes with a profound understanding of the human heart, bridging the gap between theology and experience.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-4 bg-white rounded-16 shadow-sm border h-100">
+                                        <div class="icon-box mb-3 text-gold-den">
+                                            <span class="material-symbols-outlined fs-1">diversity_3</span>
+                                        </div>
+                                        <h4 class="h5 mb-2">Global Reach</h4>
+                                        <p class="text-muted small">Donations ensure that those called to serve from developing communities have access to the highest quality training.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-5" data-aos="fade-up" data-aos-delay="100">
-                        <div class="testimonial-card p-4 rounded-16 shadow-premium bg-white">
-                            <p class="fst-italic">"The integration of psychology and spirituality in their programs is truly unique and life-changing."</p>
-                            <h5 class="mt-3 mb-0">- Sr. Mary L.</h5>
+
+                    <!-- Right: Donation Form -->
+                    <div class="col-lg-5" data-aos="fade-left">
+                        <div class="donation-card sticky-top" style="top: 100px;">
+                            <div class="text-center mb-4">
+                                <h3 class="text-primary-den h4">Support Us</h3>
+                                <p class="text-muted small">Your gift empowers the future leaders of the Church</p>
+                            </div>
+
+                            <div class="mb-4">
+                                <h4 class="h6 fw-bold mb-3 text-primary-den border-bottom pb-2">Your information</h4>
+                                <div class="row g-2 mb-3">
+                                    <div class="col-md-6 form-group">
+                                        <input type="text" id="donorFirstName" class="donation-input" placeholder="First name">
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <input type="text" id="donorLastName" class="donation-input" placeholder="Last name">
+                                        <span class="error-message"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3 form-group">
+                                    <select id="countrySelect" class="donation-input form-select" data-placeholder="Select Country">
+                                        <option value="">Select Country</option>
+                                    </select>
+                                    <span class="error-message"></span>
+                                </div>
+
+                                <div class="mb-3 form-group">
+                                    <input type="text" id="donorAddress" class="donation-input" placeholder="Address">
+                                    <span class="error-message"></span>
+                                </div>
+
+                                <div class="row g-2 mb-3">
+                                    <div class="col-12 form-group">
+                                        <select id="stateSelect" class="donation-input form-select" data-placeholder="Select State">
+                                            <option value="">Select State</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row g-2 mb-3">
+                                    <div class="col-12 form-group">
+                                        <input type="text" id="donorZip" class="donation-input" placeholder="ZIP code">
+                                        <span class="error-message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 form-group">
+                                    <input type="tel" id="phoneInput" class="donation-input" placeholder="Phone" style="height: 50px;">
+                                    <span class="error-message"></span>
+                                    <small class="text-muted d-block mt-1" style="font-size: 10px;">(optional) Flag and country code will be added automatically</small>
+                                </div>
+
+                                <div class="mb-3 form-group">
+                                    <input type="email" id="donorEmail" class="donation-input" placeholder="Email">
+                                    <span class="error-message"></span>
+                                </div>
+                            </div>
+
+                            <button id="donorSubmitBtn" class="btn btn-navy w-100 py-3 rounded-3 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2">
+                                <span class="material-symbols-outlined">lock</span>
+                                <span>Give securely</span>
+                            </button>
+                            
+                            <p class="text-center text-muted mt-3 small opacity-60">
+                                Secure, encrypted transaction. Your support changes lives.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Final CTA -->
-        <section class="final-cta py-5">
-            <div class="container text-center py-5" data-aos="zoom-in">
-                <h2 class="mb-4">Start Your Journey Today</h2>
-                <p class="mb-5 opacity-75">Connect with us to learn more about our transformative programs and how they can help you grow.</p>
-                <a href="contact-us.html" class="btn btn-gold-outline px-5 py-3 rounded-pill fw-bold">Contact Us</a>
+        <!-- Volunteer Section -->
+        <section class="py-5 bg-dark position-relative overflow-hidden text-white my-5">
+            <div class="position-absolute w-100 h-100 top-0 start-0 opacity-25" style="background: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBsHdDnDaIB_loIMB9iDr6ZKyI_r7LNr4xgTfLBDJhCHu3tqwH3sbzitmFqeszTavW1wZON9wO8T0MapZBireooJBK_0MaD29guJ3ipbQq3Bh387DtLwpW_aUiu7UXbSkFK49JTg2UV91HpIBUe3LERvnt0fe96kQtTvVrYglfdjRpgMC-TC66kk3WbOql4_Suqr_Eqpcc3dCedMigESBXgbc-YPSTnwF3igmhHfx9pjG1oxjdpkPzt8HSwBcBYuF_0jIZSIQQaYv8') center/cover;"></div>
+            <div class="container position-relative z-1 text-center py-5" data-aos="zoom-in">
+                <h2 class="display-5 mb-4">Support with Your Time</h2>
+                <p class="lead mb-5 opacity-75 max-w-700 mx-auto">Please contact us if you volunteer to support Denahalaya. Your skills and time are precious gifts to our community.</p>
+                <a href="contact-us.html" class="btn btn-light px-5 py-3 fw-bold rounded-pill text-primary-den d-inline-flex align-items-center gap-2">
+                    Get in Touch to Volunteer
+                    <span class="material-symbols-outlined">mail</span>
+                </a>
             </div>
         </section>
+
+        <!-- Stories of Impact (Bento Grid) -->
+        <section class="py-5 bg-light">
+            <div class="container py-5">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <span class="text-gold-den fw-bold text-uppercase tracking-wider small">Testimonials</span>
+                    <h2 class="display-5 text-primary-den">Voices of Integration</h2>
+                </div>
+
+                <div class="bento-grid" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bento-item bento-main">
+                        <div class="shrink-0 d-none d-md-block">
+                            <img src="./assets/images/Fr Ashish Plamparampil.jpg" alt="Fr. Ashish" class="rounded-circle border border-4 border-light shadow-sm" style="width: 180px; height: 180px; object-fit: cover;">
+                        </div>
+                        <div>
+                            <span class="material-symbols-outlined text-gold-den fs-1 mb-3">format_quote</span>
+                            <blockquote class="h4 fst-italic text-primary-den mb-4">
+                                "Denahalaya offers a profound journey of discovery. The unique integration of clinical psychology, spirituality, and discipline has fostered my inner freedom and self-compassion."
+                            </blockquote>
+                            <h5 class="mb-0 fw-bold">Fr. Ashish Plamparampil</h5>
+                            <small class="text-muted">M.Sc. Student</small>
+                        </div>
+                    </div>
+
+                    <div class="bento-item bento-highlight d-flex flex-column justify-content-center">
+                        <span class="material-symbols-outlined text-gold-den fs-1 mb-4">church</span>
+                        <p class="h5 fw-light fst-italic lh-base">
+                            "The holistic approach to psychological health within spiritual vocation is exactly what the modern Church needs."
+                        </p>
+                        <div class="mt-4">
+                            <p class="mb-0 fw-bold">Denahalaya Institute</p>
+                            <small class="opacity-75">Center for Formation</small>
+                        </div>
+                    </div>
+
+                    <div class="bento-item d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex text-gold-den mb-3">
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                            </div>
+                            <p class="text-muted fst-italic small">
+                                "Denahalaya has been a close-knit family where mentors and batchmates helped me embrace my growth. Through spiritual discipline and profound silence, I’ve learned to value brokenness."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-top">
+                            <h6 class="mb-0 fw-bold">Sr. Elizabeth SD</h6>
+                            <small class="text-muted">Gaziabad</small>
+                        </div>
+                    </div>
+
+                    <div class="bento-item bento-main bg-white">
+                        <div class="w-100">
+                            <h3 class="h2 text-primary-den mb-3">Why Form the Formators?</h3>
+                            <p class="text-muted mb-4 lead">
+                                Every leader formed at Denahalaya goes on to impact hundreds of other lives. By supporting one person's integration journey, you are essentially providing spiritual guidance for entire communities.
+                            </p>
+                            <a href="about-us.html" class="text-gold-den fw-bold text-decoration-none d-inline-flex align-items-center gap-2 hover-translate-x">
+                                Learn more about our curriculum
+                                <span class="material-symbols-outlined">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INLINED FOOTER -->
+        <div class="floating-buttons" id="floatingActions">
+            <a href="https://wa.me/919447476535" id="whatsappBtn" class="whatsapp-btn apply-now-btn" aria-label="Chat with us on WhatsApp" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+            <a href="#" class="apply-btn apply-now-btn" data-bs-toggle="modal" data-bs-target="#applyModal" aria-label="Apply Now">
+                <i class="fas fa-pen"></i>
+                <span>APPLY NOW</span>
+            </a>
+        </div>
 
         <footer data-include="footer"></footer>
+
+        <div data-include="modals"></div>
     </div>
 
     <!-- Scripts -->
-    <script src="./assets/js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="./assets/js/jquery.js"></script>
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/app.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="./assets/js/location-data.js"></script>
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+
+            // Initialize Phone Input
+            const phoneInputField = document.querySelector("#phoneInput");
+            if (phoneInputField) {
+                const iti = window.intlTelInput(phoneInputField, {
+                    initialCountry: "in",
+                    separateDialCode: true,
+                    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+                });
+            }
+
+            // Local Location Data Logic with Choices.js
+            const countryEl = document.querySelector("#countrySelect");
+            const stateEl = document.querySelector("#stateSelect");
+
+            if (countryEl && stateEl && window.locationData) {
+                // Initialize Choices
+                const countryChoices = new Choices(countryEl, {
+                    searchEnabled: true,
+                    itemSelectText: '',
+                    shouldSort: false,
+                    placeholder: true,
+                    placeholderValue: 'Select Country',
+                    position: 'bottom'
+                });
+
+                const stateChoices = new Choices(stateEl, {
+                    searchEnabled: true,
+                    itemSelectText: '',
+                    shouldSort: false,
+                    placeholder: true,
+                    placeholderValue: 'Select State',
+                    position: 'bottom'
+                });
+                
+                // Start with state disabled
+                stateChoices.disable();
+
+                // Populate All Countries Instantly
+                const countryOptions = window.locationData.map(item => ({
+                    value: item.name,
+                    label: item.name
+                }));
+                countryOptions.unshift({ value: '', label: 'Select Country', placeholder: true });
+                
+                countryChoices.setChoices(countryOptions, 'value', 'label', true);
+
+                // Handle Country selection -> Load States
+                countryEl.addEventListener("change", function(e) {
+                    const countryName = e.detail.value;
+                    
+                    stateChoices.clearStore();
+                    stateChoices.disable();
+
+                    if (!countryName) return;
+
+                    const countryData = window.locationData.find(c => c.name === countryName);
+
+                    if (countryData && countryData.states && countryData.states.length) {
+                        const stateOptions = countryData.states.map(stateName => ({
+                            value: stateName,
+                            label: stateName
+                        }));
+                        stateOptions.unshift({ value: '', label: 'Select State', placeholder: true });
+                        
+                        stateChoices.setChoices(stateOptions, 'value', 'label', true);
+                        stateChoices.enable();
+                    } else {
+                        stateChoices.setChoices([{ value: '', label: 'No States Available', placeholder: true }], 'value', 'label', true);
+                    }
+                });
+                // EmailJS Submission Logic
+                const donorSubmitBtn = document.getElementById("donorSubmitBtn");
+                if (donorSubmitBtn) {
+                    donorSubmitBtn.addEventListener("click", function(e) {
+                        e.preventDefault();
+                        
+                        const btn = this;
+                        const originalText = btn.innerHTML;
+                        
+                        const fNameInput = document.getElementById("donorFirstName");
+                        const lNameInput = document.getElementById("donorLastName");
+                        const emailInput = document.getElementById("donorEmail");
+                        const countryInput = document.getElementById("countrySelect");
+                        const addressInput = document.getElementById("donorAddress");
+                        const zipInput = document.getElementById("donorZip");
+                        const phoneInput = document.getElementById("phoneInput");
+                        
+                        const fName = fNameInput.value.trim();
+                        const lName = lNameInput.value.trim();
+                        const email = emailInput.value.trim();
+                        const country = countryChoices.getValue(true) || '';
+
+                        // Reset Errors
+                        $('.is-invalid').removeClass('is-invalid');
+                        $('.error-message').hide().text('');
+
+                        // Validation Matching Site Standards
+                        let isValid = true;
+                        let firstErrorInput = null;
+
+                        const validateField = (inputElement, fieldName) => {
+                            if (!inputElement.value || inputElement.value.trim() === "") {
+                                isValid = false;
+                                $(inputElement).addClass('is-invalid');
+                                const $group = $(inputElement).closest('.form-group');
+                                const $error = $group.find('.error-message');
+                                if ($error.length) {
+                                    $error.text(`${fieldName} is required`).show();
+                                }
+                                if (!firstErrorInput) firstErrorInput = inputElement;
+                            }
+                        };
+
+                        validateField(fNameInput, "First name");
+                        validateField(lNameInput, "Last name");
+                        validateField(countryInput, "Country");
+                        validateField(addressInput, "Address");
+                        validateField(zipInput, "ZIP code");
+                        validateField(phoneInput, "Phone number");
+                        validateField(emailInput, "Email address");
+                        
+                        // Basic email validation regex
+                        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                            isValid = false;
+                            $(emailInput).addClass('is-invalid');
+                            const $group = $(emailInput).closest('.form-group');
+                            const $error = $group.find('.error-message');
+                            if ($error.length) {
+                                $error.text(`Please enter a valid email address`).show();
+                            }
+                            if (!firstErrorInput) firstErrorInput = emailInput;
+                        }
+
+                        if (!isValid) {
+                            if (firstErrorInput) firstErrorInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            return;
+                        }
+
+                        btn.disabled = true;
+                        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Processing...';
+
+                        const state = (stateChoices && !stateChoices.containerOuter.classList.contains('is-disabled')) ? stateChoices.getValue(true) : '';
+                        const address = document.getElementById("donorAddress").value.trim();
+                        const zip = document.getElementById("donorZip").value.trim();
+                        const phone = window.intlTelInputGlobals ? window.intlTelInputGlobals.getInstance(document.querySelector("#phoneInput")).getNumber() : '';
+
+                        const templateParams = {
+                            name: fName + ' ' + lName,
+                            address: `${address}\n${state ? state + ', ' : ''}${country}\nZIP: ${zip}`,
+                            phone: phone,
+                            email: email,
+                            subject: 'Impact Page Donation Submission - Give Securely',
+                            description: `A new donor has submitted their details via the secure Impact page form.`
+                        };
+
+                        emailjs.send('service_xobfjk8', 'template_gde1f34', templateParams, 'XxDgOKwmxVpCQ1zx6')
+                            .then(function(response) {
+                                btn.innerHTML = '<span class="material-symbols-outlined">check_circle</span><span>Request Sent</span>';
+                                btn.classList.replace('btn-navy', 'btn-success');
+                                
+                                document.getElementById("donorFirstName").value = '';
+                                document.getElementById("donorLastName").value = '';
+                                document.getElementById("donorEmail").value = '';
+                                document.getElementById("donorAddress").value = '';
+                                document.getElementById("donorZip").value = '';
+                                
+                                setTimeout(() => {
+                                    btn.disabled = false;
+                                    btn.innerHTML = originalText;
+                                    btn.classList.replace('btn-success', 'btn-navy');
+                                }, 3000);
+                            })
+                            .catch(function(error) {
+                                console.error('[EmailJS] FAILED:', error);
+                                alert('Failed to connect securely. Please verify your connection.');
+                                btn.disabled = false;
+                                btn.innerHTML = originalText;
+                            });
+                    });
+                }
+            }
         });
     </script>
 </body>
