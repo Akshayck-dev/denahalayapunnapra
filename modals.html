@@ -183,7 +183,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content support-modal-content border-0 shadow-lg" data-lenis-prevent>
             <div class="modal-header border-0 pb-0 position-relative">
-                <h3 class="modal-title w-100 text-center text-navy mt-3" style="font-family: 'Playfair Display', serif; font-weight: 700;">Get in Touch</h3>
+                <h3 class="modal-title w-100 text-center text-navy mt-3" style="font-family: 'Playfair Display', serif; font-weight: 700;">Denahalaya Enquiry Form</h3>
                 <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">&times;</button>
             </div>
             <div class="modal-body p-4 pt-0">
@@ -204,7 +204,24 @@
                     </div>
 
                     <div class="row g-2">
-                        <!-- PHONE -->
+                        <!-- COUNTRY -->
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select name="country" id="sup_country" class="form-control" required>
+                                    <option value="" disabled selected>Select Country *</option>
+                                    <option value="India">India</option>
+                                    <option value="United States">United States</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-2">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <input type="tel" name="phone" id="sup_phone" class="form-control" placeholder=" " required>
@@ -232,12 +249,12 @@
                     <!-- DESCRIPTION -->
                     <div class="form-group">
                         <textarea name="description" id="sup_desc" class="form-control" placeholder=" " rows="3" required></textarea>
-                        <label>How can we help you? *</label>
+                        <label>Brief Description *</label>
                         <span class="error-message"></span>
                     </div>
 
-                    <button type="submit" class="btn btn-gold-support w-100 py-3 mt-2">
-                        Submit Request <i class="fas fa-paper-plane ms-2"></i>
+                    <button type="submit" class="btn btn-navy w-100 py-3 rounded-3 fw-bold shadow-sm mt-3">
+                        Submit Enquiry <i class="fas fa-paper-plane ms-2"></i>
                     </button>
                 </form>
             </div>

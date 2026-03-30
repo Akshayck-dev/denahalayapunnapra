@@ -70,7 +70,7 @@
                         <span>Admissions Open 2026 • Apply before May 30th, 2026 • Limited Seats Available &nbsp; &nbsp; &nbsp; &nbsp;</span>
                     </div>
                 </div>
-                <a href="#" class="btn btn-primary ms-2 pulse shine premium-float apply-now-btn" data-bs-toggle="modal" data-bs-target="#applyModal"><i class="fas fa-pencil-alt me-1" style="font-size: 10px;"></i> Apply Now</a>
+                <a href="#" class="btn btn-primary ms-2 pulse shine premium-float apply-now-btn" data-bs-toggle="modal" data-bs-target="#supportModal"><i class="fas fa-pencil-alt me-1" style="font-size: 10px;"></i> Apply Now</a>
             </div>
         </div>
 
@@ -335,7 +335,7 @@
                 <i class="fab fa-whatsapp"></i>
                 <span>WhatsApp</span>
             </a>
-            <a href="#" class="apply-btn apply-now-btn" data-bs-toggle="modal" data-bs-target="#applyModal" aria-label="Apply Now">
+            <a href="#" class="apply-btn apply-now-btn" data-bs-toggle="modal" data-bs-target="#supportModal" aria-label="Apply Now">
                 <i class="fas fa-pen"></i>
                 <span>APPLY NOW</span>
             </a>
@@ -510,15 +510,19 @@
 
                         const templateParams = {
                             name: fName + ' ' + lName,
-                            address: `${address}\n${state ? state + ', ' : ''}${country}\nZIP: ${zip}`,
+                            address: `${address}\n${state ? state + ', ' : ''}${zip ? 'ZIP: ' + zip : ''}`,
+                            country: country,
                             phone: phone,
                             email: email,
-                            subject: 'Impact Page Donation Submission - Give Securely',
-                            description: `A new donor has submitted their details via the secure Impact page form.`
+                            subject: 'Impact Page Submission - ' + (fName + ' ' + lName),
+                            description: `Details: \nAddress: ${address}\nState: ${state}\nZIP: ${zip}\nCountry: ${country}`
                         };
 
-                        emailjs.send('service_xobfjk8', 'suportus', templateParams, 'XxDgOKwmxVpCQ1zx6')
+                        emailjs.send('service_xobfjk8', 'template_gde1f34', templateParams, 'XxDgOKwmxVpCQ1zx6')
                             .then(function(response) {
+                                if (typeof window.showSuccessAlert === 'function') {
+                                    window.showSuccessAlert();
+                                }
                                 btn.innerHTML = '<span class="material-symbols-outlined">check_circle</span><span>Request Sent</span>';
                                 btn.classList.replace('btn-navy', 'btn-success');
                                 
@@ -527,6 +531,18 @@
                                 document.getElementById("donorEmail").value = '';
                                 document.getElementById("donorAddress").value = '';
                                 document.getElementById("donorZip").value = '';
+                                
+                                // Reset Choices.js Dropdowns
+                                if (countryChoices) countryChoices.setChoiceByValue('');
+                                if (stateChoices) {
+                                    stateChoices.clearStore();
+                                    stateChoices.disable();
+                                }
+                                
+                                // Reset Phone Input
+                                const iti = window.intlTelInputGlobals ? window.intlTelInputGlobals.getInstance(document.querySelector("#phoneInput")) : null;
+                                if (iti) iti.setNumber('');
+                                else document.querySelector("#phoneInput").value = '';
                                 
                                 setTimeout(() => {
                                     btn.disabled = false;

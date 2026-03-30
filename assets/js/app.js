@@ -640,7 +640,7 @@ $(function() {
         });
 
 
-        // 8. Support Us Form Submission (Newly Added & Validated)
+        // 8. Support Us / Enquiry Form Submission (v32 - template_gde1f34)
         $(document).on('submit', '#supportForm', function(e) {
             e.preventDefault();
             const form = this;
@@ -655,11 +655,12 @@ $(function() {
             // 2. Validation
             const formData = new FormData(form);
             const dataObj = Object.fromEntries(formData.entries());
-            const required = ['name', 'address', 'phone', 'email', 'subject', 'description'];
+            const required = ['name', 'address', 'country', 'phone', 'email', 'subject', 'description'];
             
             const fieldLabels = {
                 name: "Full Name",
                 address: "Contact Address",
+                country: "Country",
                 phone: "Phone Number",
                 email: "Email Address",
                 subject: "Subject",
@@ -689,21 +690,23 @@ $(function() {
                 return false;
             }
 
+            // 3. Loading State
             $btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin me-2"></i> Sending...');
 
-            // 3. EmailJS — explicit variable mapping for template_gde1f34
+            // 4. EmailJS — Variable mapping for template_gde1f34
             const templateParams = {
-                name:        (form.querySelector('[name="name"]') || {}).value || '',
-                address:     (form.querySelector('[name="address"]') || {}).value || '',
-                phone:       (form.querySelector('[name="phone"]') || {}).value || '',
-                email:       (form.querySelector('[name="email"]') || {}).value || '',
-                subject:     (form.querySelector('[name="subject"]') || {}).value || '',
-                description: (form.querySelector('[name="description"]') || {}).value || ''
+                name:        dataObj.name,
+                address:     dataObj.address,
+                country:     dataObj.country,
+                phone:       dataObj.phone,
+                email:       dataObj.email,
+                subject:     dataObj.subject,
+                description: dataObj.description
             };
 
-            console.log('[EmailJS] Sending support form data:', templateParams);
+            console.log('[EmailJS] Sending enquiry data:', templateParams);
 
-            emailjs.send('service_xobfjk8', 'suportus', templateParams, 'XxDgOKwmxVpCQ1zx6')
+            emailjs.send(EMAILJS_CONFIG.SERVICE_ID, "template_gde1f34", templateParams)
                 .then(function(response) {
                     console.log('[EmailJS] SUCCESS:', response.status, response.text);
                     if (typeof window.showSuccessAlert === 'function') {

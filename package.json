@@ -1,0 +1,22 @@
+{
+  "name": "denahalayapunnapra-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx serve .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akshayck-dev/denahalayapunnapra.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Akshayck-dev/denahalayapunnapra/issues"
+  },
+  "homepage": "https://github.com/Akshayck-dev/denahalayapunnapra#readme"
+}
