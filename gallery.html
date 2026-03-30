@@ -19,11 +19,6 @@
             position: relative;
             background: #f0f0f0;
         }
-        /* Specific Aspect Ratio for Videos to avoid bottom gap */
-        .video-item {
-            aspect-ratio: 16 / 9 !important;
-            background: #000;
-        }
         .gallery-item img {
             width: 100% !important;
             height: 100% !important;
@@ -55,33 +50,6 @@
             </div>
         </section>
 
-        <!-- Video Gallery (New) -->
-        <section class="section bg-light pt-4 pb-0">
-            <div class="container">
-                <div class="text-center mb-3" data-aos="fade-up">
-                    <h2 class="display-6">Latest Videos</h2>
-                    <p class="text-muted small">Highlights from recent Denahalaya programmes</p>
-                </div>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-lg-6 col-12" data-aos="zoom-in">
-                        <div class="gallery-item video-item shadow-sm rounded overflow-hidden">
-                            <video controls class="w-100 rounded" poster="./assets/images/background.jpg">
-                                <source src="./assets/images/vdeo-1.MP4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-12" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="gallery-item video-item shadow-sm rounded overflow-hidden">
-                            <video controls class="w-100 rounded" poster="./assets/images/background.jpg">
-                                <source src="./assets/images/vdeo-2.MP4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Gallery Grid -->
         <section class="section bg-white pt-2" id="gallery-start">
