@@ -511,7 +511,7 @@
                         btn.disabled = true;
                         btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Processing...';
 
-                        const state = (stateChoices && !stateChoices.containerOuter.classList.contains('is-disabled')) ? stateChoices.getValue(true) : '';
+                        const state = (stateChoices && stateChoices.containerOuter && !stateChoices.containerOuter.classList.contains('is-disabled')) ? stateChoices.getValue(true) : '';
                         const address = document.getElementById("donorAddress").value.trim();
                         const zip = document.getElementById("donorZip").value.trim();
                         const phone = window.intlTelInputGlobals ? window.intlTelInputGlobals.getInstance(document.querySelector("#phoneInput")).getNumber() : '';
