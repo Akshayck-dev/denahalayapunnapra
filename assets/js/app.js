@@ -703,7 +703,7 @@ $(function() {
 
             console.log('[EmailJS] Sending support form data:', templateParams);
 
-            emailjs.send('service_xobfjk8', 'template_gde1f34', templateParams, 'XxDgOKwmxVpCQ1zx6')
+            emailjs.send('service_xobfjk8', 'suportus', templateParams, 'XxDgOKwmxVpCQ1zx6')
                 .then(function(response) {
                     console.log('[EmailJS] SUCCESS:', response.status, response.text);
                     if (typeof window.showSuccessAlert === 'function') {

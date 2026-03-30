@@ -146,9 +146,9 @@
                                     <p class="mb-0 text-dark fw-medium">
                                         Join us in this sacred mission — your support will help bring God’s love and guidance to countless faithful through well-formed future priests and sisters.
                                     </p>
-                                    <a href="contact-us.html" class="btn btn-link text-gold-den fw-bold ps-0 mt-2 text-decoration-none d-inline-flex align-items-center gap-2">
+                                    <button type="button" class="btn btn-link text-gold-den fw-bold ps-0 mt-2 text-decoration-none d-inline-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#supportModal">
                                         Volunteer to support us <span class="material-symbols-outlined fs-5">arrow_forward</span>
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
 
@@ -525,7 +525,7 @@
                             description: `A new donor has submitted their details via the secure Impact page form.`
                         };
 
-                        emailjs.send('service_xobfjk8', 'template_gde1f34', templateParams, 'XxDgOKwmxVpCQ1zx6')
+                        emailjs.send('service_xobfjk8', 'suportus', templateParams, 'XxDgOKwmxVpCQ1zx6')
                             .then(function(response) {
                                 btn.innerHTML = '<span class="material-symbols-outlined">check_circle</span><span>Request Sent</span>';
                                 btn.classList.replace('btn-navy', 'btn-success');

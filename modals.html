@@ -178,6 +178,73 @@
   </div>
 </div>
 
+<!-- Support Us Modal -->
+<div class="modal fade" id="supportModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content support-modal-content border-0 shadow-lg" data-lenis-prevent>
+            <div class="modal-header border-0 pb-0 position-relative">
+                <h3 class="modal-title w-100 text-center text-navy mt-3" style="font-family: 'Playfair Display', serif; font-weight: 700;">Get in Touch</h3>
+                <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body p-4 pt-0">
+                <p class="text-center text-muted small mb-4">Fill the form below and our team will get back to you shortly.</p>
+                <form id="supportForm" class="premium-form" novalidate>
+                    <!-- NAME -->
+                    <div class="form-group">
+                        <input type="text" name="name" id="sup_name" class="form-control" placeholder=" " required>
+                        <label>Full Name *</label>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <!-- ADDRESS -->
+                    <div class="form-group">
+                        <textarea name="address" id="sup_address" class="form-control" placeholder=" " rows="2" required></textarea>
+                        <label>Contact Address *</label>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="row g-2">
+                        <!-- PHONE -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="tel" name="phone" id="sup_phone" class="form-control" placeholder=" " required>
+                                <label>Phone Number *</label>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+                        <!-- EMAIL -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="email" name="email" id="sup_email" class="form-control" placeholder=" " required>
+                                <label>Email Address *</label>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUBJECT -->
+                    <div class="form-group">
+                        <input type="text" name="subject" id="sup_subject" class="form-control" placeholder=" " required>
+                        <label>Subject *</label>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <!-- DESCRIPTION -->
+                    <div class="form-group">
+                        <textarea name="description" id="sup_desc" class="form-control" placeholder=" " rows="3" required></textarea>
+                        <label>How can we help you? *</label>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-gold-support w-100 py-3 mt-2">
+                        Submit Request <i class="fas fa-paper-plane ms-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div id="toast" class="toast">✔ Application submitted successfully!</div>
 
 <!-- Premium Success Alert (v31) -->
