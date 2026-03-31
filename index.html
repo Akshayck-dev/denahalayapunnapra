@@ -342,6 +342,33 @@
         </section>
 
 
+        <!-- Present Director Section (Mobile Only) -->
+        <section class="section bg-light d-md-none" id="present-director">
+            <div class="container text-center">
+                <div class="row g-4">
+                    <div class="col-12" data-aos="fade-up">
+                        <span class="text-gold fw-bold text-uppercase ls-2">Present Director</span>
+                        <h2 class="text-navy mb-4">Fr. Anish Ettakakunnel, Ph.D.</h2>
+                        <div class="about-image-wrapper mb-4">
+                            <!-- Desktop Only Shapes (Defined in main.css) -->
+                            <div class="about-shape shape-1 d-none d-lg-block"></div>
+                            <div class="about-shape shape-2 d-none d-lg-block"></div>
+                            <div class="about-image">
+                                <img src="./assets/images/FrAnish.jpeg" alt="Fr. Anish Ettakakunnel"
+                                    class="img-fluid rounded shadow-lg" style="max-width: 280px;">
+                            </div>
+                        </div>
+                        <div class="ornament mb-4">✦ ✦ ✦</div>
+                        <p class="px-2">Rev. Dr. Thomas (Anish) Ettakakunnel currently serves as the Director of
+                            Denahalaya Institute. Under his leadership, the institute continues its mission of
+                            psycho-spiritual formation and clinical counselling, building on the rich legacy of its
+                            founders.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <!-- Leadership Section -->
         <section class="section bg-white pb-3" id="administration">
             <div class="container">
@@ -586,8 +613,8 @@
         <!-- Premium Testimonials - Restored (v35 - 220px Fixed) -->
         <section id="testimonials" class="bg-light overflow-hidden pt-4 pb-4">
             <style>
-                /* Critical Mobile Override to bypass cache */
-                @media (max-width: 768px) {
+                /* Critical Mobile Override to bypass cache (V42: Extended Centering) */
+                @media (max-width: 1024px) {
                     .testim-text {
                         display: -webkit-box;
                         -webkit-line-clamp: 3;
@@ -611,7 +638,6 @@
                         padding-bottom: 25px !important;
                     }
 
-
                     .testimonial-modal-v2 #testim-modal-img {
                         width: 90px;
                         height: 90px;
@@ -623,12 +649,22 @@
                         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
                     }
 
+                    .testim-modal-header {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        align-items: center !important;
+                        text-align: center !important;
+                        width: 100% !important;
+                    }
+
                     #testim-modal-name {
                         color: #1a237e;
                         font-weight: 700;
                         font-family: 'Playfair Display', serif;
                         margin-bottom: 5px;
                         font-size: 1.4rem;
+                        text-align: center !important;
+                        width: 100% !important;
                     }
 
                     #testim-modal-info {
@@ -638,6 +674,12 @@
                         text-transform: uppercase;
                         letter-spacing: 1px;
                         margin-bottom: 20px;
+                        text-align: center !important;
+                        width: 100% !important;
+                    }
+
+                    #testim-modal-text {
+                        text-align: center !important;
                     }
                 }
 
