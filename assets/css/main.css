@@ -6292,11 +6292,11 @@ body.modal-open {
 }
 
 .testimonial-box {
-    flex: 0 0 380px; /* Consistent card width for marquee */
-    height: 280px !important;
-    padding: 25px !important;
-    border-radius: 15px;
-    background: #fff;
+    flex: 0 0 480px; /* Increased width for landscape feel */
+    height: 310px !important; /* Reduced height as requested */
+    padding: 30px !important;
+    border-radius: 20px; /* Slightly smoother corners */
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -6304,7 +6304,7 @@ body.modal-open {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     cursor: pointer;
 }
 
@@ -6335,14 +6335,15 @@ body.modal-open {
 
 .testimonial-text {
     font-size: 15px !important;
-    line-height: 1.6 !important;
-    color: #555 !important;
-    height: 160px !important;
-    overflow: hidden;
+    line-height: 1.7 !important;
+    color: #444 !important;
+    height: 190px !important; /* Reduced height to fit 310px box */
+    overflow-y: auto; /* Allow scrolling for long text */
     font-style: italic;
     margin-bottom: 0 !important;
     transition: all 0.3s ease;
     display: block !important;
+    padding-right: 10px;
 }
 
 /* Custom Scrollbar */
