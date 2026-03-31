@@ -123,6 +123,8 @@ $(function() {
         initializePlugins();
     }
 
+
+
     // 2b. Smooth Anchor Scrolling (Requested by user)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -300,27 +302,83 @@ $(function() {
                 },
             });
         }
+        // 6. Testimonial Logic: Restore Platform-Specific Interactions
+        
+        // A. Desktop Marquee: Infinite Cloning (d-md-block only)
+        const $desktopMarquee = $('.testimonial-marquee-wrapper.d-none.d-md-block .testimonial-marquee-track');
+        if ($desktopMarquee.length > 0) {
+            const $cards = $desktopMarquee.find('.testimonial-box');
+            if ($cards.length > 0) {
+                $desktopMarquee.append($cards.clone());
+            }
+        }
 
-        // 6. Custom Testimonial Marquee (Disabled for small count)
-        const $marqueeTrack = $('.testimonial-marquee-track');
-        if ($marqueeTrack.length > 0) {
-            const $cards = $marqueeTrack.find('.testimonial-box');
-            if ($cards.length > 2) {
-                // Clone cards for seamless marquee effect only if many items
-                $marqueeTrack.append($cards.clone());
+        // B. Custom Mobile Slider: Swipe & Dots (d-md-none)
+        const $mobileSlider = $('#mobileTestimonialSlider');
+        const $dots = $('#mobileSliderDots .dot');
+        if ($mobileSlider.length > 0) {
+            let currentIndex = 0;
+            let startX = 0;
+            let isDragging = false;
+            const totalSlides = $mobileSlider.find('.testimonial-slide').length;
 
-                $marqueeTrack.on('mouseenter', '.testimonial-box', function() {
-                    $marqueeTrack.addClass('paused');
-                }).on('mouseleave', '.testimonial-box', function() {
-                    $marqueeTrack.removeClass('paused');
+            const updateSlider = (index) => {
+                currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
+                $mobileSlider.css('transform', `translateX(-${currentIndex * 100}%)`);
+                $dots.removeClass('active').eq(currentIndex).addClass('active');
+            };
+
+            $mobileSlider.on('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+                $mobileSlider.css('transition', 'none');
+            });
+
+            $mobileSlider.on('touchmove', function(e) {
+                if (!isDragging) return;
+                const diff = (e.touches[0].clientX - startX);
+                const resistance = (currentIndex === 0 && diff > 0) || (currentIndex === totalSlides - 1 && diff < 0) ? 0.3 : 1;
+                $mobileSlider.css('transform', `translateX(calc(-${currentIndex * 100}% + ${diff * resistance}px))`);
+            });
+
+            $mobileSlider.on('touchend', function(e) {
+                if (!isDragging) return;
+                isDragging = false;
+                $mobileSlider.css('transition', 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)');
+                const diff = e.changedTouches[0].clientX - startX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0 && currentIndex > 0) updateSlider(currentIndex - 1);
+                    else if (diff < 0 && currentIndex < totalSlides - 1) updateSlider(currentIndex + 1);
+                    else updateSlider(currentIndex);
+                } else {
+                    updateSlider(currentIndex);
+                }
+            });
+
+            // Dot clicks
+            $dots.on('click', function() {
+                updateSlider($(this).index());
+            });
+
+            // C. Mobile Testimonial 'Read More' Popup Logic
+            const $testimModal = $('#testimonialDetailModal');
+            if ($testimModal.length > 0) {
+                $(document).on('click', '.read-more-trigger', function() {
+                    const name = $(this).data('name');
+                    const info = $(this).data('info');
+                    const text = $(this).data('text');
+
+                    $('#testim-modal-name').text(name);
+                    $('#testim-modal-info').text(info);
+                    $('#testim-modal-text').text(text);
+
+                    $testimModal.addClass('active');
+                    $('body').css('overflow', 'hidden'); // Prevent background scroll
                 });
-            } else {
-                // For small counts, show them statically centered
-                $marqueeTrack.css({
-                    'animation': 'none',
-                    'justify-content': 'center',
-                    'width': '100%',
-                    'padding-left': '0'
+
+                $('.testim-modal-close, .testim-modal-overlay').on('click', function() {
+                    $testimModal.removeClass('active');
+                    $('body').css('overflow', ''); // Restore scroll
                 });
             }
         }
