@@ -658,80 +658,6 @@
             line-height: 1.6;
         }
 
-        /* --- TESTIMONIALS --- */
-        .testimonial-marquee-wrapper {
-            width: 100%;
-            overflow: hidden;
-            padding: 20px 0;
-            position: relative;
-            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        }
-
-        .testimonial-marquee-track {
-            display: flex;
-            gap: 40px;
-            width: max-content;
-            animation: marquee_test 60s linear infinite;
-        }
-
-        @keyframes marquee_test {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .testimonial-box {
-            flex: 0 0 480px;
-            height: 310px;
-            padding: 30px;
-            background: var(--pure-white);
-            border-radius: 20px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(0,0,0,0.03);
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
-
-        .testimonial-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-            overflow: hidden;
-            border: 2px solid var(--accent-gold);
-            flex-shrink: 0;
-        }
-
-        .testimonial-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-        }
-
-        .testimonial-text {
-            font-size: 15px;
-            line-height: 1.7;
-            color: var(--text-light);
-            font-style: italic;
-            height: 190px;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-
-        .testimonial-text::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        .testimonial-text::-webkit-scrollbar-thumb {
-            background: var(--accent-gold);
-            border-radius: 10px;
-        }
 
         /* --- RESOURCE CARDS --- */
         .resource-card {
@@ -1008,6 +934,106 @@
                 flex-direction: column;
                 gap: 20px;
                 text-align: center;
+            }
+        }
+
+        /* --- TESTIMONIALS (MIGREATED & OPTIMIZED) --- */
+        .testimonial-marquee-wrapper {
+            width: 100%;
+            overflow: hidden;
+            padding: 20px 0;
+            position: relative;
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .testimonial-marquee-track {
+            display: flex;
+            gap: 40px;
+            width: max-content;
+            animation: marquee_test 60s linear infinite;
+        }
+
+        @keyframes marquee_test {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .testimonial-box {
+            flex: 0 0 480px;
+            height: 310px;
+            padding: 30px;
+            background: var(--pure-white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            transition: var(--transition);
+        }
+
+        .testimonial-box:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-gold);
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            overflow: hidden;
+            border: 2px solid var(--accent-gold);
+            flex-shrink: 0;
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-text {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-light);
+            font-style: italic;
+            height: 190px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .testimonial-text::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .testimonial-text::-webkit-scrollbar-thumb {
+            background: var(--accent-gold);
+            border-radius: 10px;
+        }
+
+        /* --- SEPARATE MEDIA QUERY FOR TESTIMONIALS --- */
+        @media (max-width: 768px) {
+            .testimonial-box {
+                flex: 0 0 300px;
+                height: auto;
+                min-height: 280px;
+                padding: 20px;
+            }
+            .testimonial-marquee-track {
+                gap: 20px;
+                animation-duration: 40s;
+            }
+            .testimonial-text {
+                font-size: 14px;
+                height: 150px;
             }
         }
 
@@ -1310,7 +1336,7 @@
                     <div class="testimonial-box">
                         <div class="testimonial-header mb-4">
                             <div class="testimonial-avatar">
-                                <img src="./assets/images/Fr Ashish Plamparampil.jpg" alt="Fr. Ashish Plamparampil">
+                                <img src="./assets/images/Fr Ashish Plamparampil.jpg" alt="Fr Ashish Plamparampil">
                             </div>
                             <div class="student-info">
                                 <h6 class="mb-0">Fr Ashish Plamparampil</h6>
@@ -1365,7 +1391,62 @@
                             "Denahalaya has profoundly impacted my life, helping me discover my inner strength and potential. I'm grateful for the invaluable lessons and experiences I gained there, including the principles of responsible freedom, inner happiness, V G S, and the fellowship of living together. The assessment program and counseling services were instrumental in my personal growth, enabling me to understand and support myself and others more effectively. I'm thankful for the knowledge, support, and love I received during my time at Denahalaya, especially during my role as a facilitator."
                         </div>
                     </div>
+
+                    <!-- Duplicate Content for Loop -->
+                    <div class="testimonial-box">
+                        <div class="testimonial-header mb-4">
+                            <div class="testimonial-avatar">
+                                <img src="./assets/images/Fr Ashish Plamparampil.jpg" alt="Fr Ashish Plamparampil">
+                            </div>
+                            <div class="student-info">
+                                <h6 class="mb-0">Fr Ashish Plamparampil</h6>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            "Denahalaya has been a place of deep personal and professional formation for me. The institute helped me grow in inner freedom, self-understanding, and Self compassion through the guidance of dedicated professors and the support of my colleagues. The holistic formation I receive here integrates spirituality, psychology, and discipline. I am grateful for this transformative journey"
+                        </div>
+                    </div>
+                    <div class="testimonial-box">
+                        <div class="testimonial-header mb-4">
+                            <div class="testimonial-avatar">
+                                <img src="./assets/images/Sr. Elizabeth SD, Gaziabad.jpeg" alt="Sr. Elizabeth SD">
+                            </div>
+                            <div class="student-info">
+                                <h6 class="mb-0">Sr. Elizabeth SD</h6>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            "Denahalaya remains as a close-knit family for me. The professors, everyone a gem in their field and my batchmates have enabled me to deeply understand, accept and to transcend the inconsistencies of my personality. The devout celebration of the Holy Mass, , life-touching homilies, transforming VGS sessions, solemn celebration of the liturgy of the hours, practical assessments, therapies, the times of profound silence, the discipline helped me to ‘put flesh’ into what I was taught. I have experienced true compassion, learnt to value brokenness, felt supported throughout this journey thereby enkindling in me the great desire to be shared for the good of the other."
+                        </div>
+                    </div>
+                    <div class="testimonial-box">
+                        <div class="testimonial-header mb-4">
+                            <div class="testimonial-avatar">
+                                <img src="./assets/images/img_18.jpeg" alt="Subin Jose SD">
+                            </div>
+                            <div class="student-info">
+                                <h6 class="mb-0">Subin Jose SD, Changanacherry</h6>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            "The training at Denahalaya was an unforgettable experience for me. This institution is dedicated to helping people grow holistically by dedicating their lives to serving others. Here, I've experienced the sweetness of brotherhood, the comfort of friendship, and the warmth of community. The directors' and staff's dedication to excellence is palpable – their passion for sharing God's word and guiding seekers is truly inspiring. I've witnessed lives transformed, including mine. If you're seeking a place to grow in faith and discover your purpose, look no further. I'm grateful for this haven and the amazing people who make it special. Denahalaya is a beacon of hope."
+                        </div>
+                    </div>
+                    <div class="testimonial-box">
+                        <div class="testimonial-header mb-4">
+                            <div class="testimonial-avatar">
+                                <img src="./assets/images/image_20.jpg" alt="Sr. Reeba Alphonse FCC">
+                            </div>
+                            <div class="student-info">
+                                <h6 class="mb-0">Sr. Reeba Alphonse FCC, Trichur</h6>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            "Denahalaya has profoundly impacted my life, helping me discover my inner strength and potential. I'm grateful for the invaluable lessons and experiences I gained there, including the principles of responsible freedom, inner happiness, V G S, and the fellowship of living together. The assessment program and counseling services were instrumental in my personal growth, enabling me to understand and support myself and others more effectively. I'm thankful for the knowledge, support, and love I received during my time at Denahalaya, especially during my role as a facilitator."
+                        </div>
+                    </div>
                 </div>
+            </div>
             </div>
         </div>
     </section>

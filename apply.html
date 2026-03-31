@@ -44,91 +44,122 @@
                                 <div class="ornament">✦ ✦ ✦</div>
                             </div>
 
-                            <form id="applicationForm" class="row g-4">
-                                <div class="col-md-12 text-start mb-3">
-                                    <label class="form-label fw-bold">Select Programme / Course *</label>
-                                    <div class="custom-dropdown" id="courseDropdownApply">
-                                        <div class="dropdown-selected" id="selectedCourseDisplayApply">
-                                            -- Choose a Programme --
+                            <form id="applicationForm" class="row g-4" novalidate>
+                                <input type="hidden" name="type" value="Application">
+                                
+                                <div class="col-md-12">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label fw-bold">Course Name *</label>
+                                        <div class="custom-dropdown" id="courseDropdownApply">
+                                            <div class="dropdown-selected" id="selectedCourseDisplayApply">
+                                                -- Select Course --
+                                            </div>
+                                            <div class="dropdown-list" id="courseListApply">
+                                                <!-- Populated via JS -->
+                                            </div>
+                                            <input type="hidden" name="course_name" id="courseSelectApply" required>
                                         </div>
-                                        <div class="dropdown-list" id="courseListApply">
-                                            <!-- Populated via JS -->
-                                        </div>
-                                        <input type="hidden" name="course" id="courseSelectApply" required>
+                                        <span class="error-message"></span>
                                     </div>
-                                    <span class="error-message"></span>
                                 </div>
-                                <div class="col-md-9">
-                                    <label class="form-label fw-bold">Applicant Name *</label>
+
+                                <div class="col-md-12">
+                                    <label class="form-label fw-bold">Applicant's Full Name *</label>
                                     <input type="text" name="name" class="form-control py-3"
                                         placeholder="Enter your name" autocomplete="name" required>
                                     <span class="error-message"></span>
                                 </div>
-                                <div class="col-md-3">
+
+                                <div class="col-md-12">
                                     <label class="form-label fw-bold">Age *</label>
                                     <input type="number" name="age" class="form-control py-3"
-                                        placeholder="Age" min="15" max="100" required>
+                                        placeholder="Age" required min="15" max="100">
                                     <span class="error-message"></span>
                                 </div>
-                                <div class="col-md-6">
+
+                                <div class="col-md-12">
                                     <label class="form-label fw-bold">Email Address *</label>
                                     <input type="email" name="email" class="form-control py-3"
                                         placeholder="Enter your email" autocomplete="email" spellcheck="false" required>
                                     <span class="error-message"></span>
                                 </div>
+
                                 <div class="col-md-12">
                                     <label class="form-label fw-bold">Contact Address *</label>
                                     <textarea name="address" class="form-control py-3" placeholder="Full postal address"
-                                        rows="3" required></textarea>
+                                        rows="2" required></textarea>
                                     <span class="error-message"></span>
                                 </div>
-                                <div class="col-md-6">
+
+                                <div class="col-md-12">
+                                    <label class="form-label fw-bold">Pin Code *</label>
+                                    <input type="text" name="pin" class="form-control py-3"
+                                        placeholder="PIN Code" required>
+                                    <span class="error-message"></span>
+                                </div>
+
+                                <div class="col-md-12">
                                     <label class="form-label fw-bold">Phone Number *</label>
                                     <input type="tel" name="phone" class="form-control py-3"
                                         placeholder="Your phone number" autocomplete="tel" inputmode="tel" required>
                                     <span class="error-message"></span>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fw-bold">Pin Code</label>
-                                    <input type="text" name="pin" class="form-control py-3"
-                                        placeholder="Postal pin code" autocomplete="postal-code" inputmode="numeric">
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fw-bold">Diocese / Congregation</label>
-                                    <input type="text" name="diocese" class="form-control py-3"
-                                        placeholder="Your religious affiliation">
-                                </div>
-                                <div class="col-md-6 text-start">
-                                    <label class="form-label fw-bold">Highest Qualification *</label>
-                                    <div class="custom-dropdown" id="qualDropdownApply">
-                                        <div class="dropdown-selected" id="selectedQualDisplayApply">
-                                            -- Select Qualification --
+
+                                <div class="col-md-12">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label fw-bold">Select Your Course *</label>
+                                        <div class="custom-dropdown" id="courseDropdownApply">
+                                            <div class="dropdown-selected" id="selectedCourseDisplayApply">
+                                                -- Select Course --
+                                            </div>
+                                            <div class="dropdown-list" id="courseListApply">
+                                                <!-- Populated via JS -->
+                                            </div>
+                                            <input type="hidden" name="course" id="courseSelectApply" required>
                                         </div>
-                                        <div class="dropdown-list" id="qualListApply">
-                                            <div class="dropdown-item" data-value="SSLC">SSLC</div>
-                                            <div class="dropdown-item" data-value="Plus Two">Plus Two</div>
-                                            <div class="dropdown-item" data-value="Diploma">Diploma</div>
-                                            <div class="dropdown-item" data-value="Bachelor's Degree">Bachelor's Degree</div>
-                                            <div class="dropdown-item" data-value="Master's Degree">Master's Degree</div>
-                                            <div class="dropdown-item" data-value="PhD / M.Phil">PhD / M.Phil</div>
-                                            <div class="dropdown-item" data-value="Others">Others</div>
-                                        </div>
-                                        <input type="hidden" name="qualification" id="qualSelectApply" required>
+                                        <span class="error-message"></span>
                                     </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label class="form-label fw-bold">Diocese / Congregation *</label>
+                                    <input type="text" name="diocese" class="form-control py-3"
+                                        placeholder="Diocese or Congregation" required>
                                     <span class="error-message"></span>
                                 </div>
-                                <div class="col-12">
-                                    <label class="form-label fw-bold">Present Apostolate / Ministry</label>
-                                    <textarea name="apostolate" class="form-control py-3"
-                                        placeholder="Current role or ministry" rows="2"></textarea>
+
+                                <div class="col-md-12">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label fw-bold">Highest Qualification *</label>
+                                        <div class="custom-dropdown" id="qualDropdownApply">
+                                            <div class="dropdown-selected" id="selectedQualDisplayApply">
+                                                -- Select Qualification --
+                                            </div>
+                                            <div class="dropdown-list" id="qualListApply">
+                                                <!-- Populated via JS -->
+                                            </div>
+                                            <input type="hidden" name="qualification" id="qualSelectApply" required>
+                                        </div>
+                                        <span class="error-message"></span>
+                                    </div>
                                 </div>
+
+                                <div class="col-md-12">
+                                    <label class="form-label fw-bold">Present Apostolate / Ministry *</label>
+                                    <input type="text" name="apostolate" class="form-control py-3"
+                                        placeholder="Your current apostolate" required>
+                                    <span class="error-message"></span>
+                                </div>
+
                                 <div class="col-12">
-                                    <label class="form-label fw-bold">Reason for applying</label>
+                                    <label class="form-label fw-bold">Reason for attending this course *</label>
                                     <textarea name="reason" class="form-control py-3"
-                                        placeholder="Why do you wish to attend this course?" rows="3"></textarea>
+                                        placeholder="Why do you wish to attend this course?" rows="2" required></textarea>
+                                    <span class="error-message"></span>
                                 </div>
+
                                 <div class="col-12 text-center mt-5">
-                                    <button type="submit" class="btn-primary-custom w-100">
+                                    <button type="submit" class="btn-primary-custom w-100 py-3">
                                         Submit My Application <i class="fas fa-paper-plane ms-2" aria-hidden="true"></i>
                                     </button>
                                     <p class="small text-muted mt-3 italic">* Required fields. We will contact you for

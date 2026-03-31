@@ -13,6 +13,8 @@
                 <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
 
                 <form id="applicationFormGlobal" class="premium-form mt-2" novalidate>
+                    <input type="hidden" name="type" value="Application">
+                    
                     <!-- NAME -->
                     <div class="form-group">
                         <input type="text" name="name" id="app_name" class="form-control" placeholder=" " autocomplete="name" required>
@@ -20,29 +22,38 @@
                         <span class="error-message"></span>
                     </div>
 
-                    <div class="row g-2">
-                        <!-- AGE -->
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <input type="number" name="age" id="app_age" class="form-control" placeholder=" " min="15" max="100" required>
-                                <label>Age *</label>
-                                <span class="error-message"></span>
-                            </div>
-                        </div>
-                        <!-- EMAIL -->
-                        <div class="col-md-8">
-                            <div class="form-group">
-                                <input type="email" name="email" id="app_email" class="form-control" placeholder=" " autocomplete="email" required>
-                                <label>Email Address *</label>
-                                <span class="error-message"></span>
-                            </div>
-                        </div>
+                    <!-- AGE -->
+                    <div class="form-group">
+                        <input type="number" name="age" id="app_age" class="form-control" placeholder=" " min="15" max="100" required>
+                        <label>Age *</label>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="form-group">
+                        <input type="email" name="email" id="app_email" class="form-control" placeholder=" " autocomplete="email" required>
+                        <label>Email Address *</label>
+                        <span class="error-message"></span>
                     </div>
 
                     <!-- ADDRESS -->
                     <div class="form-group">
                         <textarea name="address" id="app_address" class="form-control" placeholder=" " rows="2" required></textarea>
                         <label>Contact Address *</label>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <!-- PIN CODE (Moved under Address) -->
+                    <div class="form-group">
+                        <input type="text" name="pin" id="app_pin" class="form-control" placeholder=" " autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" required>
+                        <label>Pin Code *</label>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <!-- PHONE -->
+                    <div class="form-group">
+                        <input type="tel" name="phone" id="app_phone" class="form-control" placeholder=" " autocomplete="tel" inputmode="tel" pattern="[0-9]{10,12}" required>
+                        <label>Phone Number *</label>
                         <span class="error-message"></span>
                     </div>
 
@@ -60,25 +71,6 @@
                         <span class="error-message"></span>
                     </div>
 
-                    <div class="row g-2">
-                        <!-- PIN -->
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <input type="text" name="pin" id="app_pin" class="form-control" placeholder=" " autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" required>
-                                <label>Pin Code *</label>
-                                <span class="error-message"></span>
-                            </div>
-                        </div>
-                        <!-- PHONE -->
-                        <div class="col-md-7">
-                            <div class="form-group">
-                                <input type="tel" name="phone" id="app_phone" class="form-control" placeholder=" " autocomplete="tel" inputmode="tel" pattern="[0-9]{10,12}" required>
-                                <label>Phone Number *</label>
-                                <span class="error-message"></span>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- DIOCESE -->
                     <div class="form-group">
                         <input type="text" name="diocese" id="app_diocese" class="form-control" placeholder=" " required>
@@ -87,19 +79,13 @@
                     </div>
 
                     <!-- QUALIFICATION (Custom Dropdown) -->
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <div class="custom-dropdown" id="qualDropdownGlobal">
                             <div class="dropdown-selected" id="selectedQualDisplay">
                                 Highest Qualification *
                             </div>
                             <div class="dropdown-list" id="qualListGlobal">
-                                <div class="dropdown-item" data-value="SSLC">SSLC</div>
-                                <div class="dropdown-item" data-value="Plus Two">Plus Two</div>
-                                <div class="dropdown-item" data-value="Diploma">Diploma</div>
-                                <div class="dropdown-item" data-value="Bachelor's Degree">Bachelor's Degree</div>
-                                <div class="dropdown-item" data-value="Master's Degree">Master's Degree</div>
-                                <div class="dropdown-item" data-value="PhD / M.Phil">PhD / M.Phil</div>
-                                <div class="dropdown-item" data-value="Others">Others</div>
+                                <!-- Populated via JS/Static -->
                             </div>
                             <input type="hidden" name="qualification" id="qualSelect" required>
                         </div>

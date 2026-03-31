@@ -465,21 +465,35 @@ $(function() {
             // 2. Validation Mapping
             const formData = new FormData(form);
             const dataObj = Object.fromEntries(formData.entries());
-            const required = ['name', 'age', 'email', 'phone', 'address', 'pin', 'diocese', 'qualification', 'apostolate', 'course', 'reason'];
-            
-            const fieldLabels = {
-                name: "Full Name",
-                age: "Age",
-                email: "Email Address",
-                phone: "Phone Number",
-                address: "Address",
-                pin: "Pin Code",
-                diocese: "Diocese / Congregation",
-                qualification: "Qualification",
-                apostolate: "Present Apostolate",
-                course: "Programme Selection",
-                reason: "Reason for applying"
-            };
+            let required, fieldLabels;
+
+            if (dataObj.type === 'Application') {
+                required = ['name', 'age', 'email', 'phone', 'address', 'pin', 'diocese', 'qualification', 'apostolate', 'course', 'reason'];
+                fieldLabels = {
+                    name: "Applicant's Full Name",
+                    age: "Age",
+                    email: "Email Address",
+                    phone: "Phone Number",
+                    address: "Contact Address",
+                    pin: "Pin Code",
+                    diocese: "Diocese / Congregation",
+                    qualification: "Highest Qualification",
+                    apostolate: "Present Apostolate / Ministry",
+                    course: "Select Your Course",
+                    reason: "Reason for attending"
+                };
+            } else {
+                // Default Enquiry / Support Form
+                required = ['name', 'email', 'phone', 'address', 'subject', 'description'];
+                fieldLabels = {
+                    name: "Full Name",
+                    email: "Email Address",
+                    phone: "Phone Number",
+                    address: "Contact Address",
+                    subject: "Subject",
+                    description: "Details"
+                };
+            }
 
             let isValid = true;
             let firstErrorInput = null;
@@ -842,18 +856,40 @@ I would like to know more about your courses.`;
         "M.Sc. Counselling Psychology + Integration"
     ];
 
+    const QUALIFICATIONS = [
+        "SSLC",
+        "Plus Two",
+        "Diploma",
+        "Bachelor's Degree",
+        "Master's Degree",
+        "PhD / M.Phil",
+        "Others"
+    ];
+
     // 7a. Populate all lists (Run once or when needed)
     function populateDropdownLists() {
         $('.dropdown-list').each(function() {
             const $list = $(this);
             if ($list.children().length > 0) return; // already populated
 
-            COURSES.forEach(courseName => {
-                const $item = $('<div class="dropdown-item"></div>')
-                    .text(courseName) // Safe: jQuery .text() uses textContent
-                    .attr('data-id', courseName);
-                $list.append($item);
-            });
+            const $container = $list.closest('.custom-dropdown');
+            const listType = $container.attr('id').toLowerCase().includes('qual') ? 'QUAL' : 'COURSE';
+
+            if (listType === 'QUAL') {
+                QUALIFICATIONS.forEach(qual => {
+                    const $item = $('<div class="dropdown-item"></div>')
+                        .text(qual)
+                        .attr('data-value', qual);
+                    $list.append($item);
+                });
+            } else {
+                COURSES.forEach(courseName => {
+                    const $item = $('<div class="dropdown-item"></div>')
+                        .text(courseName)
+                        .attr('data-id', courseName);
+                    $list.append($item);
+                });
+            }
         });
     }
 
