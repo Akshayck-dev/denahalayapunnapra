@@ -1,4 +1,4 @@
-﻿
+
 Name                     Le
                          ng
                          th
@@ -14,7 +14,7 @@ about_classroom_2.png    52
 Antony.jpeg              87
 FrAnish.jpeg             29
 img_7.jpg                51
-SrJiya Maria FCC.jpg     39
+SrJiya Maria CMC.jpg     39
 denahalaya_logo.jpeg     90
 about_classroom_3.jpg    44
 Linta SH.jpeg            56
